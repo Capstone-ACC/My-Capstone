@@ -1,6 +1,6 @@
 #Capstone Project, Fullstack Academy 
 
-By: Davonne J Vigil
+By: Davonne J. Vigil
 
-  - E-Commerce Website
-  - Name to be determined
+  - e-commerce website
+  - name to be determined
