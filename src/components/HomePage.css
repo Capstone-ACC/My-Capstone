@@ -12,6 +12,7 @@
     text-align: center;
 }
 
+/*button shop all & sentence*/
 .shopAll {
     position: absolute;
     top: 50%;
@@ -19,16 +20,26 @@
     transform: translate(-50%, -80%);
     color: white;
     background-color: transparent;
-    border-radius: 12px;
+    border-radius: 20px;
     font-size: 18px;
     cursor: pointer;
-    background-color: black;
+    background-color: white;
+    color: black;
+    padding: 10px;
+    width: 150px;
+    font-family: 'Oleo Script', cursive;
+    font-size: 16pt;
 }
 
 p {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -40%);
+    transform: translate(-50%, -20%);
     padding: 10px;
+    font-family: 'Oleo Script', cursive;
+    font-size: 16pt;
+    width: 100%;
 }
+
+
