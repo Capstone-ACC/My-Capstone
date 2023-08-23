@@ -1,5 +1,27 @@
-/*image */
+/*Home Page Component CSS */
 .homePic {
     width: 100%;
-    max-width: 1500px;
+    max-width: 1350px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    border-radius: 8px
 }
+
+.image-container {
+    position: relative;
+    text-align: center;
+}
+
+.shopAll {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: transparent;
+    border-radius: 12px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: black;
+}
+
