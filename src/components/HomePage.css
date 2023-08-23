@@ -1,8 +1,8 @@
 /*Home Page Component CSS */
 .homePic {
     width: 100%;
-    max-width: 1350px;
-    margin-top: 30px;
+    max-width: 1200px;
+    margin-top: 50px;
     margin-bottom: 20px;
     border-radius: 8px
 }
@@ -16,7 +16,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -80%);
     color: white;
     background-color: transparent;
     border-radius: 12px;
@@ -25,3 +25,10 @@
     background-color: black;
 }
 
+p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    padding: 10px;
+}
