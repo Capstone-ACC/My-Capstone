@@ -31,6 +31,10 @@
     font-size: 16pt;
 }
 
+.shopAll:hover {
+    color: pink;
+}
+
 p {
     position: absolute;
     top: 50%;
