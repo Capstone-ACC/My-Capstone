@@ -46,4 +46,8 @@ p {
     width: 100%;
 }
 
-
+.login {
+    position: absolute;
+    top: 20px;
+    right: 16px;
+}
