@@ -1,4 +1,9 @@
 #root {
   margin: 0 auto;
   text-align: center;
+  background-color: white;
+}
+
+h1 {
+  font-family: 'Cormorant Garamond', serif;
 }
