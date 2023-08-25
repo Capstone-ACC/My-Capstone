@@ -7,7 +7,7 @@ import Main from './components/Main'
 import Login from './components/Login'
 import Register from './components/Register'
 import Checkout from './components/Checkout'
-import Cart from './Cart'
+import Cart from './components/Cart'
 
 function App() {
   const [token, setToken] = useState(null)

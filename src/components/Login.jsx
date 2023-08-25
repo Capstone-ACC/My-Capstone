@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-// import { login } from './api'
 import './Login-Register-Styles.css'
 
 export default function Login({setToken}) {
@@ -16,8 +15,10 @@ export default function Login({setToken}) {
 
     const handelSubmit = async (e) => {
         e.preventDefault();
+        alert("You are now logged in, check console.log for token")
     }
 
+    //fetch for login 
     const handelLogin = async () => {
         try {
             const response = await fetch ("https://fakestoreapi.com/auth/login", {
@@ -32,8 +33,8 @@ export default function Login({setToken}) {
             })
 
             const result = await response.json();
-            console.log(result)
-            
+            console.log("Token:", result)
+
             if(result.token) {
                 localStorage.setItem('token', result.token)
                 setToken(result.token)
@@ -44,7 +45,6 @@ export default function Login({setToken}) {
             console.error('There is an error:', error)
         }
     }
-
 
   return (
     <>
@@ -83,3 +83,6 @@ export default function Login({setToken}) {
   </>
   )
 }
+
+
+
