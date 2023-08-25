@@ -12,7 +12,8 @@ function App() {
 
   return (
     <>
-      <h1>Tech & Styles</h1>
+      <h1>Tech & Styles <br/>
+      <div className="secondHeading">The Style of your Heart</div></h1>
 
       <div className="navBar">
         <li><Link to="/">Home</Link></li>
