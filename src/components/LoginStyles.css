@@ -10,10 +10,10 @@ h2 {
 .login-container {
     width: 100%;
     max-width: 550px;
-    margin-top: 160px; 
+    margin-top: 140px; 
     margin: 180px auto;
-    float: left;
     margin-left: 240px;
+    float: left;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,7 +30,6 @@ form {
     justify-content: center;
     align-items: center;
 }
-
 
 label {
     margin-left: 10px;
@@ -71,8 +70,9 @@ label {
 .loginImg-videoGame {
     width: 100%;
     max-width: 500px;
-    margin-top: 20px;
+    margin-top: 60px;
     margin-left: 20px;
+    margin-bottom: 20px;
     border: 3px solid black;
 }
 
