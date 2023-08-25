@@ -6,7 +6,7 @@ export default function Home() {
   const navigate = useNavigate();
 
   function goToAllProducts() {
-    navigate('/allProducts')
+    navigate('/main-all-products')
   }
 
   return (
