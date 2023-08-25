@@ -5,6 +5,14 @@ import './Login-Register-Styles.css'
 export default function Register() {
   const [username, setUserName] = useState("")
   const [password, setPassword] = useState("")
+
+  const registerUsernameInput = (e) => {
+    setUserName(e.target.value)
+  }
+
+  const registerPasswordInput = (e) => {
+    setPassword(e.target.value)
+  }
  
   return (
     <div className="register-container">
@@ -13,18 +21,23 @@ export default function Register() {
       <form>
         <label>
          Username:
+
         <input 
          value={username}
          placeholder="Enter desired username"
-         className="register"/>
+         className="register"
+         onChange={registerUsernameInput}/>
         </label>
 
         <label>
          Password:
+         
          <input 
           value={password}
+          type="password"
           placeholder="Enter Password"
-          className="register" />
+          className="register"
+          onChange={registerPasswordInput} />
         </label>
 
         <button className="register-button">Register</button>

@@ -23,6 +23,7 @@ export default function Login() {
              <form>
                  <label>
                  Username:
+
                  <input 
                  value={username}
                  className="input-login"
@@ -32,8 +33,10 @@ export default function Login() {
 
                  <label>
                  Password:
+                 
                  <input 
-                  value={password}
+                 value={password}
+                 type="password"
                  className="input-login"
                  placeholder="Required"
                  onChange={inputPassword} />
