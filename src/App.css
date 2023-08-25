@@ -6,4 +6,33 @@
 
 h1 {
   font-family: 'Cormorant Garamond', serif;
+  color: black;
+  margin-top: 40px;
+  font-size: 2.5em;
+}
+
+.secondHeading {
+  font-size: 14pt;
+}
+
+/*Routes and Links*/
+li {
+  display: inline;
+}
+
+.navBar li {
+  margin: 20px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16pt;
+}
+
+a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: gray;
 }
