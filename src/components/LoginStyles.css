@@ -4,6 +4,7 @@ h2 {
     float: left;
     font-size: 22pt;
     padding: 10px;
+    font-family: 'Cormorant Garamond', serif;
 }
 
 .login-container {
@@ -13,7 +14,7 @@ h2 {
     margin-top: 150px;
     margin-left: 150px;
     background-color: lightgrey;
-    padding: 50px;
+    padding: 80px;
     border-radius: 8px;
     font-size: 18pt;
 }
@@ -25,10 +26,26 @@ form {
 
 label {
     margin-left: 10px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .input-login {
     margin: 10px;
     width: 300px;
     font-size: 14pt;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.login-button {
+    background-color: black;
+    color: white;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16pt;
+    margin-top: 10px;
+    border-radius: 12px;
+}
+
+.login-button:hover {
+    color: pink;
+    cursor: pointer;
 }

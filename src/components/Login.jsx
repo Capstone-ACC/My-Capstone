@@ -2,8 +2,18 @@ import React, { useState } from 'react'
 import './LoginStyles.css'
 
 export default function Login() {
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
 
+    function inputUsername(e) {
+        setUsername(e.target.value)
+    }
 
+    function inputPassword(e) {
+        setPassword(e.target.value)
+    }
+
+    
   return (
     <div className="login-container">
         <h2>Login</h2>
@@ -12,16 +22,22 @@ export default function Login() {
             <label>
                 Username:
                 <input 
-                value="username" 
-                className="input-login"/>
+                value={username}
+                className="input-login"
+                placeholder="Required"
+                onChange={inputUsername}/>
             </label>
 
             <label>
                 Password:
                 <input 
-                value="password"
-                className="input-login" />
+                value={password}
+                className="input-login"
+                placeholder="Required"
+                onChange={inputPassword} />
             </label>
+
+            <button className="login-button">Login</button>
         </form>
         
     </div>
