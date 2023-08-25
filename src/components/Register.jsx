@@ -15,6 +15,10 @@ export default function Register() {
   }
  
   return (
+    <>
+    <br />
+    <hr />
+    
     <div className="register-container">
       <h2>Register For a New Account</h2>
 
@@ -42,7 +46,8 @@ export default function Register() {
 
         <button className="register-button">Register</button>
       </form>
-   </div>     
+   </div>    
+   </> 
   )
 }
 

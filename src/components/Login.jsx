@@ -49,6 +49,8 @@ export default function Login({setToken}) {
 
   return (
     <>
+      <br/>
+      <hr />
         <div className="login-container">
             <h2>Login</h2>
 
