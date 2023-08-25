@@ -5,15 +5,15 @@ export default function Login() {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
-    function inputUsername(e) {
+  const inputUsername = (e) => {
         setUsername(e.target.value)
     }
 
-    function inputPassword(e) {
+   const inputPassword = (e) => {
         setPassword(e.target.value)
     }
 
-    
+
   return (
     <div className="login-container">
         <h2>Login</h2>
@@ -25,7 +25,7 @@ export default function Login() {
                 value={username}
                 className="input-login"
                 placeholder="Required"
-                onChange={inputUsername}/>
+                onChange={inputUsername} />
             </label>
 
             <label>
@@ -39,7 +39,6 @@ export default function Login() {
 
             <button className="login-button">Login</button>
         </form>
-        
     </div>
   )
 }
