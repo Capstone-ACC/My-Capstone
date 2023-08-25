@@ -25,7 +25,7 @@ export default function Register() {
         <input 
          value={username}
          placeholder="Enter desired username"
-         className="register"
+         className="register-input"
          onChange={registerUsernameInput}/>
         </label>
 
@@ -36,7 +36,7 @@ export default function Register() {
           value={password}
           type="password"
           placeholder="Enter Password"
-          className="register"
+          className="register-input"
           onChange={registerPasswordInput} />
         </label>
 

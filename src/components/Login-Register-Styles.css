@@ -3,15 +3,14 @@ h2 {
     color: black;
     float: left;
     font-size: 22pt;
-    padding: 10px;
     font-family: 'Cormorant Garamond', serif;
 }
 
 .login-container {
     width: 100%;
-    max-width: 550px;
-    margin-top: 140px; 
-    margin: 180px auto;
+    max-width: 580px;
+    height: 450px;
+    margin-top: 180px;
     margin-left: 240px;
     float: left;
     display: flex;
@@ -19,7 +18,6 @@ h2 {
     align-items: center;
     justify-content: center;
     background-color: lightgrey;
-    padding: 40px;
     border-radius: 8px;
     font-size: 18pt;
 }
@@ -33,16 +31,22 @@ form {
 
 label {
     margin-left: 10px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
 }
 
-.input-login, .register {
+.input-login, .register-input {
     margin: 10px;
     width: 400px;
     font-size: 14pt;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     caret-color: lightslategray;
     padding: 5px;
+    border: solid transparent;
+}
+
+.register-input {
+    margin: 25px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .login-button, .register-button {
@@ -60,20 +64,14 @@ label {
     cursor: pointer;
 }
 
-.main-container {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 /*image*/
-.loginImg-videoGame {
+.loginImg {
     width: 100%;
-    max-width: 500px;
-    margin-top: 60px;
+    max-width: 780px;
+    margin-top: 160px;
     margin-left: 20px;
     margin-bottom: 20px;
-    border: 3px solid black;
+
 }
 
 /* more of register component*/
@@ -85,8 +83,7 @@ label {
 .register-container {
     width: 100%;
     max-width: 650px;
-    margin-top: 140px; 
-    margin: 180px auto;
+    margin-top: 180px;
     margin-left: 240px;
     float: left;
     display: flex;
