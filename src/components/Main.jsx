@@ -1,7 +1,15 @@
 import React from 'react'
 
 export default function Main() {
-  return (
-    <div>Main</div>
-  )
-}
+    return (
+        <>
+         <br/>
+         <hr />
+    
+         <div>  
+           All Products
+         </div>
+        </>
+      )
+    }
+    
