@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './Login-Register-Styles.css'
 
 export default function Login({setToken}) {
-    const [username, setUsername] = useState("")
-    const [password, setPassword] = useState("")
+   const [username, setUsername] = useState("")
+   const [password, setPassword] = useState("")
 
-  const inputUsername = (e) => {
+    //useNavigate
+   const navigate = useNavigate()
+
+   const inputUsername = (e) => {
         setUsername(e.target.value)
     }
 
@@ -45,6 +49,7 @@ export default function Login({setToken}) {
         } catch (error) {
             console.error('There is an error:', error)
         }
+        navigate('/main-all-products')
     }
 
   return (
