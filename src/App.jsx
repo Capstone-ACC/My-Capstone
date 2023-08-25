@@ -12,6 +12,9 @@ function App() {
 
   return (
     <>
+      <div className="top-header">Summer Sale - Get 50% off for signing up - 
+      <Link to="/register" className="shopNow">Shop Now</Link></div>
+
       <h1>Tech & Styles <br/>
       <div className="secondHeading">The Style of your Heart</div></h1>
 

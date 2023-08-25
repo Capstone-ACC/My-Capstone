@@ -39,11 +39,11 @@ export default function Login() {
                  onChange={inputPassword} />
                 </label>
 
-                 <button className="login-button">Submit Login</button>
+                 <button className="login-button">Login</button>
              </form>
        </div>
 
-       <img src="/images/loginImg.jpg" className="loginImg-videoGame" />
+       <img src="/images/login-Img.jpg" className="loginImg-videoGame" />
        </div>
   </>
   )
