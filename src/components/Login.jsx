@@ -49,7 +49,6 @@ export default function Login({setToken}) {
 
   return (
     <>
-     <div className="main-container">
         <div className="login-container">
             <h2>Login</h2>
 
@@ -79,8 +78,7 @@ export default function Login({setToken}) {
              </form>
        </div>
 
-       <img src="/images/login-Img.jpg" className="loginImg-videoGame" />
-       </div>
+       <img src="/images/laptop.jpg" className="loginImg" />
   </>
   )
 }
