@@ -34,6 +34,7 @@ export default function Login({setToken}) {
 
             const result = await response.json();
             console.log("Token:", result)
+            console.log(`Welcome, ${username}, browse through our products to see whats right for you!`)
 
             if(result.token) {
                 localStorage.setItem('token', result.token)
