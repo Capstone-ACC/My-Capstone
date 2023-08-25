@@ -1,4 +1,4 @@
-/*login component*/
+/*login component and register*/
 h2 {
     color: black;
     float: left;
@@ -36,7 +36,7 @@ label {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.input-login {
+.input-login, .register {
     margin: 10px;
     width: 400px;
     font-size: 14pt;
@@ -45,7 +45,7 @@ label {
     padding: 5px;
 }
 
-.login-button {
+.login-button, .register-button {
     background-color: black;
     color: white;
     font-family: 'Cormorant Garamond', serif;
@@ -75,4 +75,28 @@ label {
     margin-bottom: 20px;
     border: 3px solid black;
 }
+
+/* more of register component*/
+.register-button:hover {
+    color: lightgreen;
+    cursor: pointer;
+}
+
+.register-container {
+    width: 100%;
+    max-width: 650px;
+    margin-top: 140px; 
+    margin: 180px auto;
+    margin-left: 240px;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: lightgrey;
+    padding: 40px;
+    border-radius: 8px;
+    font-size: 18pt;
+}
+
 
