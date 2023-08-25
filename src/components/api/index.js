@@ -1,10 +1,11 @@
 /*fetch all products*/
+
 //async function
 //try catch
 //set variable to the api url, fetch, await
 //set the variable to set as json, which is also declared to a variable
 //console log the new variable
-// return 
+// return products
 //catch error
 export const getAllProducts = async () => {
     try {
