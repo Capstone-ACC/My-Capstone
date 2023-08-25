@@ -8,7 +8,6 @@ import Register from './components/Register'
 import Checkout from './components/Checkout'
 import Cart from './Cart'
 
-
 function App() {
 
   return (
