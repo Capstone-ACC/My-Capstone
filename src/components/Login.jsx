@@ -15,30 +15,36 @@ export default function Login() {
 
 
   return (
-    <div className="login-container">
-        <h2>Login</h2>
+    <>
+     <div className="main-container">
+        <div className="login-container">
+            <h2>Login</h2>
 
-        <form>
-            <label>
-                Username:
-                <input 
-                value={username}
-                className="input-login"
-                placeholder="Required"
-                onChange={inputUsername} />
-            </label>
+             <form>
+                 <label>
+                 Username:
+                 <input 
+                 value={username}
+                 className="input-login"
+                 placeholder="Required"
+                 onChange={inputUsername} />
+                </label>
 
-            <label>
-                Password:
-                <input 
-                value={password}
-                className="input-login"
-                placeholder="Required"
-                onChange={inputPassword} />
-            </label>
+                 <label>
+                 Password:
+                 <input 
+                  value={password}
+                 className="input-login"
+                 placeholder="Required"
+                 onChange={inputPassword} />
+                </label>
 
-            <button className="login-button">Login</button>
-        </form>
-    </div>
+                 <button className="login-button">Submit Login</button>
+             </form>
+       </div>
+
+       <img src="/images/loginImg.jpg" className="loginImg-videoGame" />
+       </div>
+  </>
   )
 }
