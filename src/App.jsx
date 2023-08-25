@@ -1,17 +1,22 @@
 import './App.css'
 import { Routes, Route, Link } from 'react-router-dom'
+import  {useState } from 'react'
 import Home from './components/Home'
 import About from './components/About'
 import Main from './components/Main'
 import Login from './components/Login'
 import Register from './components/Register'
 import Checkout from './components/Checkout'
-import Cart from './Cart'
+import Cart from './components/Cart'
 
 function App() {
+  const [token, setToken] = useState(null)
 
   return (
     <>
+      <div className="top-header">Summer Sale - Get 50% off for signing up - 
+      <Link to="/register" className="shopNow">Shop Now</Link></div>
+
       <h1>Tech & Styles <br/>
       <div className="secondHeading">The Style of your Heart</div></h1>
 
@@ -29,8 +34,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/main" element={<Main/>} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login setToken={setToken}/>} />
+        <Route path="/register" element={<Register setToken={setToken} />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>

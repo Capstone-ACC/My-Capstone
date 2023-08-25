@@ -4,6 +4,18 @@
   background-color: white;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.top-header {
+  background-color: black;
+  width: 100%;
+  padding: 10px;
+  color: white;
+}
+
 h1 {
   font-family: 'Cormorant Garamond', serif;
   color: black;
@@ -13,6 +25,10 @@ h1 {
 
 .secondHeading {
   font-size: 14pt;
+}
+
+.shopNow {
+  color: white;
 }
 
 /*Routes and Links*/
