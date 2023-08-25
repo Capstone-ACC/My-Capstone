@@ -1,5 +1,6 @@
 import './App.css'
 import { Routes, Route, Link } from 'react-router-dom'
+import  {useState } from 'react'
 import Home from './components/Home'
 import About from './components/About'
 import Main from './components/Main'
@@ -9,6 +10,7 @@ import Checkout from './components/Checkout'
 import Cart from './Cart'
 
 function App() {
+  const [token, setToken] = useState(null)
 
   return (
     <>
@@ -32,8 +34,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/main" element={<Main/>} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login setToken={setToken}/>} />
+        <Route path="/register" element={<Register setToken={setToken} />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>

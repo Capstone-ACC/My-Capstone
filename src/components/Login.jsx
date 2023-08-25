@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
+// import { login } from './api'
 import './Login-Register-Styles.css'
 
-export default function Login() {
+export default function Login({setToken}) {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
@@ -13,6 +14,37 @@ export default function Login() {
         setPassword(e.target.value)
     }
 
+    const handelSubmit = async (e) => {
+        e.preventDefault();
+    }
+
+    const handelLogin = async () => {
+        try {
+            const response = await fetch ("https://fakestoreapi.com/auth/login", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    username: "mor_2314",
+                    password: "83r5^_"
+                })
+            })
+
+            const result = await response.json();
+            console.log(result)
+            
+            if(result.token) {
+                localStorage.setItem('token', result.token)
+                setToken(result.token)
+            } else {
+                console.error("Try again, no token found for this user")
+            }
+        } catch (error) {
+            console.error('There is an error:', error)
+        }
+    }
+
 
   return (
     <>
@@ -20,7 +52,7 @@ export default function Login() {
         <div className="login-container">
             <h2>Login</h2>
 
-             <form>
+             <form onSubmit={handelSubmit}>
                  <label>
                  Username:
 
@@ -33,7 +65,7 @@ export default function Login() {
 
                  <label>
                  Password:
-                 
+
                  <input 
                  value={password}
                  type="password"
@@ -42,7 +74,7 @@ export default function Login() {
                  onChange={inputPassword} />
                 </label>
 
-                 <button className="login-button">Login</button>
+                 <button className="login-button" onClick={handelLogin}>Login</button>
              </form>
        </div>
 
