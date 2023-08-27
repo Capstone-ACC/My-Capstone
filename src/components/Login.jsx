@@ -59,36 +59,38 @@ export default function Login({setToken}) {
         <div className="login-container">
             <h2>Login</h2>
 
-             <form onSubmit={handelSubmit}>
+            <form onSubmit={handelSubmit} class="was-validated">
                  <label>
-                 Username:
-
-                 <input 
-                 value={username}
-                 className="input-login"
-                 placeholder="Required"
-                 onChange={inputUsername} />
+                  Username:
+              
+                  <input 
+                     value={username}
+                     className="input-login"
+                     placeholder="Required"
+                     onChange={inputUsername} />
                 </label>
 
-                 <label>
-                 Password:
+                <label>
+                  Password:
 
-                 <input 
-                 value={password}
-                 type="password"
-                 className="input-login"
-                 placeholder="Required"
-                 onChange={inputPassword} />
+                   <input 
+                      value={password}
+                      type="password"
+                      className="input-login"
+                      placeholder="Required"
+                      onChange={inputPassword} />
                 </label>
 
-                 <button className="login-button" onClick={handelLogin}>Login</button>
-             </form>
+                <button className="login-button" onClick={handelLogin}>Login</button>
+            </form>
        </div>
 
        <img src="/images/laptop.jpg" className="loginImg" />
   </>
   )
 }
+
+
 
 
 
