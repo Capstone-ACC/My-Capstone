@@ -17,8 +17,8 @@ function App() {
       <div className="top-header">Summer Sale - Get 50% off for signing up - 
       <Link to="/register" className="shopNow">Shop Now</Link></div>
 
-      <h1>Tech & Styles <br/>
-      <div className="secondHeading">The Style of your Heart</div></h1>
+      <Link to="/"><h1>Tech & Styles <br/>
+      <div className="secondHeading">The Style of your Heart</div></h1></Link>
 
       <div className="navBar">
         <li><Link to="/">Home</Link></li>
