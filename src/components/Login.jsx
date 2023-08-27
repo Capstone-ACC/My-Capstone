@@ -59,7 +59,7 @@ export default function Login({setToken}) {
         <div className="login-container">
             <h2>Login</h2>
 
-            <form onSubmit={handelSubmit} class="was-validated">
+            <form onSubmit={handelSubmit}>
                  <label>
                   Username:
               
