@@ -1,0 +1,26 @@
+/* main all-products component*/
+h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+}
+
+/*search bar component*/
+.searchBar {
+  border-radius: 12px;
+  width: 100%;
+  max-width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+input {
+    width: 440px;
+    font-size: 14pt;
+    border: 2px solid maroon;
+    outline: none;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 10px;
+}

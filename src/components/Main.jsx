@@ -2,6 +2,7 @@ import React from 'react'
 import{ useState, useEffect } from 'react'
 import { getAllProducts } from './api'
 import SearchBar from './SearchBar'
+import './Main-SearchBar.css'
 
 export default function Main() {
 const [products, setProducts] = useState([])
