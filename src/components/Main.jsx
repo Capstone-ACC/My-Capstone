@@ -1,9 +1,11 @@
 import React from 'react'
 import{ useState, useEffect } from 'react'
 import { getAllProducts } from './api'
+import SearchBar from './SearchBar'
 
 export default function Main() {
 const [products, setProducts] = useState([])
+// const [searchedProducts, setSearch] = useState("")
 
 useEffect(() => {
     const fetchProducts = async () => {
@@ -19,16 +21,22 @@ useEffect(() => {
     fetchProducts()
 }, [])
 
-
     return (
         <>
          <br/>
          <hr />
     
-         <div>  
-           All Products
-         </div>
+         <section>
+            <h3>Customize Your Style and Tech</h3>
+            <SearchBar />
+
+
+           
+
+
+         </section>
         </>
       )
     }
     
+
