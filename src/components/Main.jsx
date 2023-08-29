@@ -36,20 +36,23 @@ const handelSearchInput = (searchValue) => {
             <SearchBar value={searchedProducts} onChange={handelSearchInput} />
 
             <div className="products-container">
-                <div className = "my-box">
-                    <div className="content">
-                        <h4>Title: </h4>
-                        <p1>Description: </p1>
-                        <p1>Category: </p1>
-                        <p1>ID: </p1>
-                        <p1>Price: </p1>
-                        <h5>Image: </h5>
-                    </div>
-                </div>
-            </div> {/* last div to product-container */}
+                {products.map((product) => {
+                    return (
+                        <div className = "my-box">
+                          <div className="content" key={product.id}>
+                            <h4>Title: {product.title} </h4>
+                            <p1>Description: {product.description}</p1>
+                            <p1>Category: {product.category} </p1>
+                            <p1>ID: {product.id}</p1>
+                            <p1>Price: {product.price} </p1>
+                            <h5>Image: </h5>
+                           </div>
+                        </div>
+                    )
+                })}
+            </div> {/* last div to products-container */}
         </section>
         </>
-      )
-    }
+    )
+}
     
-

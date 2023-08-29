@@ -12,7 +12,7 @@ export const getAllProducts = async () => {
         const response = await fetch("https://fakestoreapi.com/products")
         const result = await response.json()
         console.log("All Products:",result )
-        return result.products
+        return result
 
     } catch (error) {
         console.error("Error:", error)
