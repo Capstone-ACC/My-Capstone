@@ -45,6 +45,7 @@ const handelSearchInput = (searchValue) => {
                             <p1>Category: {product.category} </p1>
                             <p1>ID: {product.id}</p1>
                             <p1>Price: {product.price} </p1>
+                    
                             <img src={product.image} className="productImages"/>
                            </div>
                         </div>
