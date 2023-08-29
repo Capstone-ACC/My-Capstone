@@ -40,12 +40,12 @@ const handelSearchInput = (searchValue) => {
                     return (
                         <div className = "my-box">
                           <div className="content" key={product.id}>
-                            <h4>Title: {product.title} </h4>
+                            <h4>{product.title} </h4>
                             <p1>Description: {product.description}</p1>
                             <p1>Category: {product.category} </p1>
                             <p1>ID: {product.id}</p1>
                             <p1>Price: {product.price} </p1>
-                            <h5>Image: </h5>
+                            <img src={product.image} className="productImages"/>
                            </div>
                         </div>
                     )
