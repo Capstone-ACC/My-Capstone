@@ -12,15 +12,45 @@ h3 {
   margin-left: auto;
   margin-right: auto;
   display: block;
+  margin-bottom: 20px;
 }
 
 input {
     width: 440px;
     font-size: 14pt;
-    border: 2px solid maroon;
+    border: 2px solid black;
     outline: none;
     font-family: 'Times New Roman', Times, serif;
     padding: 5px;
     margin: 5px;
     border-radius: 10px;
+}
+
+.products-container {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.my-box {
+  background-color: pink;
+  width: 28%;
+  margin: 10px;
+  border-radius: 28px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+h4 {
+  font-family: 'Lobster', cursive;
+}
+
+p1 {
+  font-family: 'Cormorant Garamond', serif;
 }
