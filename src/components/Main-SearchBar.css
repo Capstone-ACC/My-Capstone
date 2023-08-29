@@ -18,7 +18,7 @@ h3 {
 input {
     width: 440px;
     font-size: 14pt;
-    border: 4px solid pink;
+    border: 2px solid black;
     outline: none;
     border-radius: 10px;
     font-family: 'Times New Roman', Times, serif;
@@ -37,10 +37,17 @@ input {
 }
 
 .my-box {
-  background-color: #C0C0C0;
+  background-color: lightblue;
   width: 21%;
-  margin: 12px;
+  margin: 20px;
   border-radius: 28px;
+}
+
+@media screen and (max-width: 950px) {
+  .my-box{    
+    width: 35%;
+    margin: 10px;
+  }
 }
 
 .content {
