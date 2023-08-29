@@ -75,3 +75,23 @@ p1{
   margin-right: auto;
   border: 2px solid black;
 }
+
+/*buttons*/
+.my-buttons {
+  margin-top: 20px;
+}
+
+button {
+  padding: 5px;
+  margin: 5px;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14pt;
+}
+
+button:hover {
+  cursor: pointer;
+  color: darkgray;
+}

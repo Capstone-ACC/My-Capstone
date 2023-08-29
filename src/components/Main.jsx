@@ -46,6 +46,11 @@ const handelSearchInput = (searchValue) => {
                             <p1>ID: {product.id}</p1>
                             <p1>Price: {product.price} </p1>
                             <img src={product.image} className="productImages"/>
+                            
+                            <div className="my-buttons">
+                                <button type="button">See Details</button>
+                                <button type="button">Add To Cart</button>
+                            </div>
                            </div>
                         </div>
                     )
