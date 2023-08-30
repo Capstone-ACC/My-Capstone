@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect} from 'react'
 import { getSingleProduct } from './api'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 
 export default function SingleProduct() {
   const [singleProduct, setSingleProduct] = useState("")
@@ -34,6 +34,11 @@ export default function SingleProduct() {
           <span className="selected-item">Category: {singleProduct.category}</span>
           <span className="selected-item">ID: {singleProduct.id}</span>
           <span className="selected-item">Price: ${singleProduct.price}</span>
+
+          <div className="backTo-products">
+            <button><Link to="/main-all-products">Back To Products</Link></button>
+            <button>Add To Cart</button>
+          </div>
         </div>
      
       ) : (
