@@ -49,7 +49,7 @@ h5 {
   font-family: 'Times New Roman', Times, serif;
 }
 
-.backTo-products, a {
+.backTo-products, .link-to-go-back {
   margin-bottom: 20px;
   font-family: 'Lobster', cursive;
 }
