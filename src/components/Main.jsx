@@ -1,15 +1,16 @@
 import React from 'react'
 import{ useState, useEffect } from 'react'
 import { getAllProducts } from './api'
+import { Link } from 'react-router-dom'
 import SearchBar from './SearchBar'
 // import Filter from './Filter'
 import './Main-SearchBar.css'
 
 export default function Main() {
-const [products, setProducts] = useState([])
-const [searchedProducts, setSearchProducts] = useState("")
+  const [products, setProducts] = useState([])
+  const [searchedProducts, setSearchProducts] = useState("")
 
-useEffect(() => {
+  useEffect(() => {
     const fetchProducts = async () => {
         try {
             const ourProducts = await getAllProducts()
@@ -21,11 +22,11 @@ useEffect(() => {
     }
 
     fetchProducts()
-}, [])
+  }, [])
 
-const handelSearchInput = (searchValue) => {
+  const handelSearchInput = (searchValue) => {
     setSearchProducts(searchValue)
-}
+  }  
 
     return (
         <>
@@ -50,14 +51,14 @@ const handelSearchInput = (searchValue) => {
                             <img src={product.image} className="productImages"/>
                             
                             <div className="my-buttons">
-                                <button type="button">See Details</button>
+                                <Link to={`/products/${product.id}`}>See details</Link>
                                 <button type="button">Add To Cart</button>
                             </div>
                            </div>
                         </div>
                     )
                 })}
-            </div> {/* last div to products-container */}
+            </div>
         </section>
         </>
     )

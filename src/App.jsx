@@ -8,9 +8,11 @@ import Login from './components/Login'
 import Register from './components/Register'
 import Checkout from './components/Checkout'
 import Cart from './components/Cart'
+import SingleProduct from './components/SingleProduct'
 
 function App() {
   const [token, setToken] = useState(null)
+  const [selectedItem, setSelectedItem] = useState(null)
 
   return (
     <>
@@ -34,6 +36,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/main-all-products" element={<Main/>} />
+        <Route path="/products/:id" element={<SingleProduct setSelectedItem={setSelectedItem} item={selectedItem} />} />
         <Route path="/login" element={<Login setToken={setToken}/>} />
         <Route path="/register" element={<Register setToken={setToken} />} />
         <Route path="/checkout" element={<Checkout />} />

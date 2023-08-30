@@ -12,9 +12,9 @@ export const getAllProducts = async () => {
 }
 
 /*fetch single product*/
-export const getSingleProduct = async () => {
+export const getSingleProduct = async (id) => {
     try {
-        const response = await fetch("https://fakestoreapi.com/products/1")
+        const response = await fetch(`https://fakestoreapi.com/products/${id}`)
         const result = await response.json()
         console.log("Single Product:", result)
         return result;
