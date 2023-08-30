@@ -21,7 +21,7 @@
 }
 
 
-/*single component*/
+/*single product component*/
 .info-singleProduct {
   display: flex;
   flex-direction: column;
@@ -49,9 +49,14 @@ h5 {
   font-family: 'Times New Roman', Times, serif;
 }
 
-.backTo-products, .link-to-go-back {
+.backTo-products, .link-to-go-back, .addToCart {
   margin-bottom: 20px;
-  font-family: 'Lobster', cursive;
+  font-family:'Lobster', cursive;
+
+}
+
+.backTo-products,a:hover {
+  text-decoration: none;
 }
 
 
