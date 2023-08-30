@@ -35,7 +35,7 @@ const handelSearchInput = (searchValue) => {
          <section>
             <h3>Customize Your Style and Tech</h3>
             <SearchBar value={searchedProducts} onChange={handelSearchInput} />
-            {/* <Filter products={products} search={search} /> */}
+              {/* <Filter products={products} search={searchedProducts} /> */}
 
             <div className="products-container">
                 {products.map((product) => {

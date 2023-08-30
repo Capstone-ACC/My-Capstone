@@ -10,3 +10,12 @@
   -webkit-text-size-adjust: 100%;
 }
 
+/*filter component*/
+.filtered-image {
+  width: 100%;
+  max-width: 300px;
+}
+
+.filtered-name {
+  color: black;
+}
