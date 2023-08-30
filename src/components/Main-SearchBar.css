@@ -1,7 +1,7 @@
 /* main all-products component*/
 h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
 }
 
 /*search bar component*/
@@ -16,14 +16,14 @@ h3 {
 }
 
 input {
-    width: 440px;
-    font-size: 14pt;
-    border: 2px solid black;
-    outline: none;
-    border-radius: 10px;
-    font-family: 'Times New Roman', Times, serif;
-    padding: 5px;
-    margin: 5px;
+  width: 440px;
+  font-size: 14pt;
+  border: 2px solid black;
+  outline: none;
+  border-radius: 10px;
+  font-family: 'Times New Roman', Times, serif;
+  padding: 5px;
+  margin: 5px;
 }
 
 .products-container {
@@ -87,6 +87,11 @@ button, .see-details-link {
   padding: 5px;
   border-radius: 10px;
   font-family: 'Lobster', cursive;
+}
+
+a, .add-to-cart {
+  font-family: 'Lobster', cursive;
+  font-size: 14pt;
 }
 
 .see-details-link:hover {

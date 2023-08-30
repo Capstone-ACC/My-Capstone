@@ -52,7 +52,7 @@ export default function Main() {
                             
                             <div className="my-buttons">
                                 <button><Link to={`/products/${product.id}`} className="see-details-link">See details</Link></button>
-                                <button type="button">Add To Cart</button>
+                                <button type="button" className="add-to-cart"><Link to="/cart">Add To Cart</Link></button>
                             </div>
                            </div>
                         </div>
