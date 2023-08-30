@@ -4,6 +4,7 @@
     max-width: 1180px;
     margin-top: 40px;
     border-radius: 8px;
+    margin-bottom: 20px;
 }
 
 .image-container {
@@ -44,4 +45,8 @@ p {
     font-size: 16pt;
     width: 100%;
     color: white;
+    margin-top: 20px;
 }
+
+
+
