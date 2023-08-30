@@ -36,8 +36,15 @@ export default function SingleProduct() {
           <span className="selected-item">Price: ${singleProduct.price}</span>
 
           <div className="backTo-products">
-            <button><Link to="/main-all-products">Back To Products</Link></button>
-            <button>Add To Cart</button>
+            <button>
+              <Link to="/main-all-products" className="link-to-go-back">Back To Products</Link>
+            </button>
+
+            <button>
+              <Link to="/cart">Add Cart
+                <img src="/images/cart.png" />
+              </Link>
+            </button>
           </div>
         </div>
      

@@ -85,8 +85,8 @@ button, .see-details-link {
   margin: 10px;
   font-size: 14pt;
   padding: 5px;
-  font-family: 'Lobster', cursive;
   border-radius: 10px;
+  font-family: 'Lobster', cursive;
 }
 
 .see-details-link:hover {
