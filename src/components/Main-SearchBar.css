@@ -60,7 +60,7 @@ h4 {
   font-family: 'Lobster', cursive;
 }
 
-p1{
+span {
   font-family: 'Cormorant Garamond', serif;
   color: black;
 }
@@ -81,17 +81,21 @@ p1{
   margin-top: 20px;
 }
 
-button {
-  padding: 5px;
-  margin: 5px;
-  border-radius: 10px;
-  background-color: black;
-  color: white;
-  font-family: 'Cormorant Garamond', serif;
+button, .see-details-link {
+  margin: 10px;
   font-size: 14pt;
+  padding: 5px;
+  font-family: 'Lobster', cursive;
+  border-radius: 10px;
+}
+
+.see-details-link:hover {
+  text-decoration: none;
 }
 
 button:hover {
   cursor: pointer;
   color: darkgray;
 }
+
+

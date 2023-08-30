@@ -44,14 +44,14 @@ export default function Main() {
                         <div className = "my-box">
                           <div className="content" key={product.id}>
                             <h4>{product.title} </h4>
-                            <p1>Description: {product.description}</p1>
-                            <p1>Category: {product.category} </p1>
-                            <p1>ID: {product.id}</p1>
-                            <p1>Price: {product.price} </p1>
+                            <span>Description: {product.description}</span>
+                            <span>Category: {product.category} </span>
+                            <span>ID: {product.id}</span>
+                            <span>Price: {product.price} </span>
                             <img src={product.image} className="productImages"/>
                             
                             <div className="my-buttons">
-                                <Link to={`/products/${product.id}`}>See details</Link>
+                                <button><Link to={`/products/${product.id}`} className="see-details-link">See details</Link></button>
                                 <button type="button">Add To Cart</button>
                             </div>
                            </div>
@@ -64,3 +64,4 @@ export default function Main() {
     )
 }
     
+

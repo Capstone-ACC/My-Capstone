@@ -25,19 +25,20 @@ export default function SingleProduct() {
 
 
   return (
-    <div className="single-product-container">
+    <>
       {singleProduct ? (
-        <>
-        <img src={singleProduct.image} alt={singleProduct.title} className="selected-item-image" />
+        <div className="info-singleProduct">
+          <img src={singleProduct.image} alt={singleProduct.title} className="selected-item-image" />
           <h5>{singleProduct.title}</h5>
-          <span>{singleProduct.description}</span>
-          <span>{singleProduct.category}</span>
-          <span>{singleProduct.id}</span>
-          <span>{singleProduct.price}</span>
-        </>
+          <span className="selected-item">{singleProduct.description}</span>
+          <span className="selected-item">Category: {singleProduct.category}</span>
+          <span className="selected-item">ID: {singleProduct.id}</span>
+          <span className="selected-item">Price: ${singleProduct.price}</span>
+        </div>
+     
       ) : (
         <p>Page is loading</p>
       )}
-    </div>
+    </>
   )
 }

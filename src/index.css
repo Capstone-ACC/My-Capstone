@@ -22,10 +22,29 @@
 
 
 /*single component*/
+.info-singleProduct {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+h5 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2em;
+  margin-bottom: 30px;
+}
+
 .selected-item-image {
   width: 100%;
   max-width: 300px;
   margin-top: 100px;
 }
 
+.selected-item {
+  font-size: 16pt;
+  font-family: 'Times New Roman', Times, serif;
+}
 
