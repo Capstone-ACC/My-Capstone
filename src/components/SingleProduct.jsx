@@ -34,6 +34,11 @@ export default function SingleProduct() {
           <span className="selected-item">Category: {singleProduct.category}</span>
           <span className="selected-item">ID: {singleProduct.id}</span>
           <span className="selected-item">Price: ${singleProduct.price}</span>
+
+          <div className="backTo-products">
+            <button>Back To Products</button>
+            <button>Add To Cart</button>
+          </div>
         </div>
      
       ) : (
