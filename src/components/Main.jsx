@@ -2,6 +2,7 @@ import React from 'react'
 import{ useState, useEffect } from 'react'
 import { getAllProducts } from './api'
 import SearchBar from './SearchBar'
+// import Filter from './Filter'
 import './Main-SearchBar.css'
 
 export default function Main() {
@@ -34,6 +35,7 @@ const handelSearchInput = (searchValue) => {
          <section>
             <h3>Customize Your Style and Tech</h3>
             <SearchBar value={searchedProducts} onChange={handelSearchInput} />
+            {/* <Filter products={products} search={search} /> */}
 
             <div className="products-container">
                 {products.map((product) => {
