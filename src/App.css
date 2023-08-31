@@ -59,5 +59,12 @@ a:hover {
   color: gray;
 }
 
+.login {
+  color: white;
+  float: right;
+  padding: 10px;
+  font-size: 14pt;
+}
+
 
 

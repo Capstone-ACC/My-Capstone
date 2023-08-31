@@ -17,7 +17,10 @@ function App() {
   return (
     <>
       <div className="top-header">Summer Sale - Get 50% off for signing up - 
-      <Link to="/register" className="shopNow">Shop Now</Link></div>
+        <Link to="/register" className="shopNow">Shop Now</Link>
+        <Link to="/login" className="login">Logout</Link>
+        <Link to="/login" className="login">Login</Link>
+      </div>
 
       <Link to="/"><h1>Tech & Styles <br/>
       <div className="secondHeading">The Style of your Heart</div></h1></Link>
@@ -28,8 +31,8 @@ function App() {
         <li><Link to="/main-all-products">All Products</Link></li>
         <li><Link to="/login">Login</Link></li>
         <li><Link to="/register">Register</Link></li>
-        <li><Link to="/checkout">Check Out</Link></li>
         <li><Link to="/cart">Cart</Link></li>  
+        <li><Link to="/checkout">Check Out</Link></li>
       </div>
 
       <Routes>
