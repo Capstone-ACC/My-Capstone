@@ -27,5 +27,6 @@ export default function DropDown({ selectedCategory, setSelectedCategory }) {
             <option value="mensClothing">Men's Clothing</option>
             <option value="womensClothing">Women's Clothing</option>
         </select>
-    );
+    )
 }
+
