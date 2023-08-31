@@ -60,3 +60,12 @@ h5 {
 }
 
 
+/*drop down component*/
+select {
+  background-color: lightgrey;
+  border: 2px solid black;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
