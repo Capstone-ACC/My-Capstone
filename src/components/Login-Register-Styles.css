@@ -65,7 +65,7 @@ label {
 }
 
 /*image*/
-.loginImg {
+.loginImg, .macBook {
     width: 100%;
     max-width: 780px;
     margin-top: 80px;

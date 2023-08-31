@@ -35,9 +35,12 @@ export default function About() {
            ullamcorper.
            </span>
 
-           <img src="/images/televisionImg.jpg" className="televisionImg" />
+           <img src="/images/macBookImg.jpg" className="televisionImg" />
        </div>
      </div>
     </>
   )
 }
+
+
+
