@@ -1,14 +1,16 @@
 import React from 'react'
 import{ useState, useEffect } from 'react'
-import { getAllProducts } from './api'
+import { getAllProducts, getCategories } from './api'
 import { Link } from 'react-router-dom'
 import SearchBar from './SearchBar'
 // import Filter from './Filter'
+import DropDown from './DropDown'
 import './Main-SearchBar.css'
 
 export default function Main() {
   const [products, setProducts] = useState([])
   const [searchedProducts, setSearchProducts] = useState("")
+  const [selectedCategory, setSelectedCategory] = useState("")
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -36,7 +38,8 @@ export default function Main() {
          <section>
             <h3>Customize Your Style and Tech</h3>
             <SearchBar value={searchedProducts} onChange={handelSearchInput} />
-              {/* <Filter products={products} search={searchedProducts} /> */}
+              {/* <Filter products={products} search={searchedProducts} selectedCategory={selectedCategory} /> */}
+              <DropDown selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
 
             <div className="products-container">
                 {products.map((product) => {

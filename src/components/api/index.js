@@ -11,6 +11,7 @@ export const getAllProducts = async () => {
     }
 }
 
+
 /*fetch single product*/
 export const getSingleProduct = async (id) => {
     try {
@@ -23,13 +24,24 @@ export const getSingleProduct = async (id) => {
     }
 }
 
-/*sort products*/
-// https://fakestoreapi.com/products?sort=desc
-
-
 
 /*get all categories*/
-// https://fakestoreapi.com/products/categories
+export const getCategories = async () => {
+    try {
+        const response = await fetch("https://fakestoreapi.com/products/categories")
+        const result = await response.json()
+        console.log("Categories:", result)
+        return result;
+        
+    } catch(error) {
+        console.error("Error:", error)
+    }
+}
+
+
+
+/*sort products*/
+// https://fakestoreapi.com/products?sort=desc
 
 
 

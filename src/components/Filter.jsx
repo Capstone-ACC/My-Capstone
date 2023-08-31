@@ -1,6 +1,5 @@
-import React from 'react';
-
 export default function Filter({ products, search }) {
+
   const filteredItems = products.filter((row) => {
     if (search === "") {
       return true;
@@ -21,3 +20,4 @@ export default function Filter({ products, search }) {
     </div>
   )
 }
+
