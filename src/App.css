@@ -12,7 +12,7 @@
 .top-header {
   background-color: black;
   width: 100%;
-  padding: 10px;
+  padding: 15px;
   color: white;
 }
 
@@ -63,8 +63,11 @@ a:hover {
   color: white;
   float: right;
   padding: 10px;
-  font-size: 14pt;
+  font-size: 16pt;
 }
+
+
+
 
 
 
