@@ -23,7 +23,6 @@ export default function SingleProduct() {
 
   }, [id])
 
-
   return (
     <>
       {singleProduct ? (
@@ -41,7 +40,7 @@ export default function SingleProduct() {
             </button>
 
             <button>
-              <Link to="/cart" className="addToCart">Add To Cart
+              <Link to="/cart" className="addToCart">Add To Csart
                 <img src="/images/cart.png" />
               </Link>
             </button>

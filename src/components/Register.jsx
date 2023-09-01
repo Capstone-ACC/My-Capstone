@@ -47,9 +47,14 @@ export default function Register() {
         <button className="register-button">Register</button>
       </form>
    </div>    
+
+   <img src="/images/mensJackets.jpg" className="macBook" alt="mac book laptop" />
    </> 
   )
 }
+
+
+
 
 
 
