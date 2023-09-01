@@ -12,7 +12,7 @@ export default function SearchBar({value, onChange}) {
             value={value}
             onChange={(e) => onChange(e.target.value)}/>
     </div>
-</>
+   </>
   )
 }
 

@@ -1,13 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { getCategories } from './api';
 
 export default function DropDown({ selectedCategory, setSelectedCategory }) {
+    const [categories, setCategories] = useState([]) 
 
-    useEffect(() => {    //do i even need this ?
+    useEffect(() => {  
         const fetchCategories = async () => {
             try {
-                const ourCategories = await getCategories();
-                setSelectedCategory(ourCategories);
+                const ourCategories = await getCategories()
+                setCategories(ourCategories)
+
             } catch (error) {
                 console.error('Error:', error);
             }
@@ -17,16 +19,18 @@ export default function DropDown({ selectedCategory, setSelectedCategory }) {
 
     const handleCategoryChange = (e) => {
         setSelectedCategory(e.target.value);
-    };
+    }
 
     return (
         <select value={selectedCategory} onChange={handleCategoryChange}>
             <option value="">Select One</option>
-            <option value="electronics">Electronics</option>
-            <option value="jewelry">Jewelry</option>
-            <option value="mensClothing">Men's Clothing</option>
-            <option value="womensClothing">Women's Clothing</option>
+
+            {categories.map((category ) => 
+                <option value={category} key={category}>{category}</option>
+            )}
         </select>
     )
 }
+
+
 
