@@ -1,7 +1,15 @@
 import React from 'react'
+import { useState } from 'react'
 import './Main-SearchBar.css'
 
 export default function SearchBar({value, onChange}) {
+  const [inputSearch, setInputSearch] = useState(value)
+
+  const handelSearchInput = (event) => {
+    const inputValue = event.target.value;
+    setInputSearch(inputValue)
+    onChange(inputValue)
+  }
 
   return (
     <>
@@ -9,8 +17,8 @@ export default function SearchBar({value, onChange}) {
         <input 
             type="text"
             placeholder="Search for item"
-            value={value}
-            onChange={(e) => onChange(e.target.value)}/>
+            value={inputSearch}
+            onChange={handelSearchInput}/>
     </div>
    </>
   )

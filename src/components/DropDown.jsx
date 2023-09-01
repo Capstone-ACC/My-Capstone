@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { getCategories } from './api';
+import React, { useState, useEffect } from 'react'
+import { getCategories } from './api'
 
 export default function DropDown({ selectedCategory, setSelectedCategory }) {
     const [categories, setCategories] = useState([]) 
@@ -15,7 +15,7 @@ export default function DropDown({ selectedCategory, setSelectedCategory }) {
             }
         };
         fetchCategories();
-    }, [setSelectedCategory]);
+    }, [setSelectedCategory])
 
     const handleCategoryChange = (e) => {
         setSelectedCategory(e.target.value);
@@ -23,14 +23,16 @@ export default function DropDown({ selectedCategory, setSelectedCategory }) {
 
     return (
         <select value={selectedCategory} onChange={handleCategoryChange}>
-            <option value="">Select One</option>
+            <option
+              value="">Select One
+              </option>
 
             {categories.map((category ) => 
-                <option value={category} key={category}>{category}</option>
+                <option 
+                  value={category} 
+                  key={category}>{category}</option>
             )}
         </select>
     )
 }
-
-
 

@@ -2,7 +2,6 @@ import React from 'react'
 import{ useState, useEffect } from 'react'
 import { getAllProducts, getCategories } from './api'
 import SearchBar from './SearchBar'
-// import Filter from './Filter'
 import DropDown from './DropDown'
 import Product from './Product'
 import './Main-SearchBar.css'
@@ -11,8 +10,7 @@ export default function Main() {
   const [products, setProducts] = useState([])
   const [searchedProducts, setSearchProducts] = useState("")
   const [selectedCategory, setSelectedCategory] = useState("")
-  // const [filteredProducts, setFilteredProducts] = useState([])
-  
+
   useEffect(() => {
     const fetchProducts = async () => {
         try {
@@ -27,9 +25,14 @@ export default function Main() {
     fetchProducts()
   }, [])
 
+  //handling search bar 
   const handleSearchInput = (searchValue) => {
     setSearchProducts(searchValue)
   }  
+
+  const searchedItems = products.filter((product) => {
+    return product.title.toLowerCase().includes(searchedProducts.toLowerCase())
+  })
 
     return (
         <>
@@ -39,11 +42,10 @@ export default function Main() {
          <section>
             <h3>Customize Your Style and Tech</h3>
             <SearchBar value={searchedProducts} onChange={handleSearchInput} />
-            {/* <Filter products={products} search={searchedProducts} /> */}
-              <DropDown selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
+            <DropDown selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
               
             <div className="products-container">
-                {products.map((product) => {
+                {searchedItems.map((product) => {
 
                   if(selectedCategory !== "") {
                     if (product.category === selectedCategory) {
@@ -55,9 +57,9 @@ export default function Main() {
                     } 
                    } else {
                       return (
-                      <Product 
-                        product={product}
-                        key={product.id} />
+                        <Product 
+                         product={product}
+                         key={product.id} />
                       )
                    }
                 })}
@@ -67,7 +69,24 @@ export default function Main() {
     )
 }
 
+
+
+
+
+
     
+
+
+
+    
+
+
+    
+
+    
+
+    
+
 
 
     

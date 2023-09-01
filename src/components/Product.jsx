@@ -10,7 +10,7 @@ export default function Product( {product}) {
             <span>Description: {product.description}</span>
             <span>Category: {product.category} </span>
             <span>ID: {product.id}</span>
-            <span>Price: {product.price} </span>
+            <span>Price: ${product.price} </span>
             <img src={product.image} className="productImages"/>
             
             <div className="my-buttons">
