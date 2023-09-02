@@ -75,18 +75,3 @@ export default function Main() {
 
 
     
-
-
-
-    
-
-
-    
-
-    
-
-    
-
-
-
-    
