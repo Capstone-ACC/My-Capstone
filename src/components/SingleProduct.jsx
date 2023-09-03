@@ -40,7 +40,7 @@ export default function SingleProduct() {
             </button>
 
             <button>
-              <Link to="/cart" className="addToCart">Add To Csart
+              <Link to="/cart" className="addToCart">Add To Cart
                 <img src="/images/cart.png" />
               </Link>
             </button>

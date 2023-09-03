@@ -13,6 +13,7 @@ import SingleProduct from './components/SingleProduct'
 function App() {
   const [token, setToken] = useState(null)
   const [selectedItem, setSelectedItem] = useState(null)
+  const [cartItems, setCart] = useState([])
 
   return (
     <>
@@ -43,7 +44,7 @@ function App() {
         <Route path="/login" element={<Login setToken={setToken}/>} />
         <Route path="/register" element={<Register setToken={setToken} />} />
         <Route path="/checkout" element={<Checkout />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/cart" element={<Cart cart={cartItems} setCart={setCart}/>} />
       </Routes>
     </>
   )

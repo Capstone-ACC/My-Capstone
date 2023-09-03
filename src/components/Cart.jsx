@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
-import { addCart } from './api'
+import { addCart, getAllCarts } from './api'
 
-export default function Cart() {
+export default function Cart({ cartItems }) {
   const [cart, setCart] = useState({})
+  const [allCart, setAllCart] = useState({})
 
+  //add cart
   useEffect(() => {
     const fetchCart = async () => {
       try {
@@ -17,6 +19,21 @@ export default function Cart() {
 
     fetchCart()
   }, [])
+
+  //get all carts
+  useEffect(() => {
+    const fetchAllCart = async() => {
+      try {
+        const myCart = await getAllCarts();
+        setAllCart(myCart)
+
+      } catch(error) {
+        console.error("Error:", error)
+      }
+    }
+
+    fetchAllCart();
+  },[])
 
   return (
     <>
