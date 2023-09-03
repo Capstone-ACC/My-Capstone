@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { addCart, getAllCarts } from './api'
+import './Cart.css'
 
 export default function Cart({ cartItems }) {
   const [cart, setCart] = useState({})
@@ -40,8 +41,12 @@ export default function Cart({ cartItems }) {
      <br/>
      <hr />
 
-     <div>  
-        <h5>My Cart</h5>
+     <h5>My Cart</h5>
+     <div className="cart-container"> 
+        <button>+</button>
+        <button>-</button>
+      
+
      </div>
     </>
   )
