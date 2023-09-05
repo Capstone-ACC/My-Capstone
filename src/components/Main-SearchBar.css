@@ -102,7 +102,6 @@ button:hover {
   color: darkgray;
 }
 
-
 /*price input*/
 .priceFilter-container {
   width: 100%;
@@ -119,3 +118,5 @@ button:hover {
 .productPrice {
   font-family: 'Cormorant Garamond', serif;
 }
+
+
