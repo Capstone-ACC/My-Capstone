@@ -28,11 +28,11 @@ export default function Main() {
   }, [])
 
   //min- max price
-  const handelMinPriceChange = (event) => {
+  const handleMinPriceChange = (event) => {
     setMinPrice(event.target.value)
   }
 
-  const handelMaxPriceChange = (event) => {
+  const handleMaxPriceChange = (event) => {
     setMaxPrice(event.target.value)
   }
 
@@ -64,10 +64,9 @@ export default function Main() {
            
             <div className="priceFilter-container">
               <label className="productPrice">Min Price:</label>
-              <input type="number" value={minPrice} onChange={handelMinPriceChange} className="priceInput" />
-     
+              <input type="number" value={minPrice} onChange={handleMinPriceChange} className="priceInput" placeholder="Enter Minimal Price"/>
               <label className="productPrice">Max Price:</label>
-             <input type="number" value={maxPrice} onChange={handelMaxPriceChange} className="priceInput" />
+             <input type="number" value={maxPrice} onChange={handleMaxPriceChange} className="priceInput" placeholder="Enter Maximum Price" />
             </div>
 
             <div className="products-container">
