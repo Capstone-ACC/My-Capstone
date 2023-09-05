@@ -6,9 +6,8 @@ h3 {
 
 /*search bar component*/
 .searchBar {
-  border-radius: 12px;
   width: 100%;
-  max-width: 450px;
+  max-width: 400px;
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -16,14 +15,14 @@ h3 {
 }
 
 input {
-  width: 440px;
+  width: 400px;
   font-size: 14pt;
-  border: 2px solid black;
+  border: 2px solid burlywood;
   outline: none;
-  border-radius: 10px;
   font-family: 'Times New Roman', Times, serif;
   padding: 5px;
   margin: 5px;
+  border-radius: 5px;
 }
 
 .products-container {
@@ -101,6 +100,23 @@ a, .add-to-cart {
 button:hover {
   cursor: pointer;
   color: darkgray;
+}
+
+/*price input*/
+.priceFilter-container {
+  width: 100%;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.priceInput {
+  width: 100%;
+  max-width: 400px;
+}
+.productPrice {
+  font-family: 'Cormorant Garamond', serif;
 }
 
 
