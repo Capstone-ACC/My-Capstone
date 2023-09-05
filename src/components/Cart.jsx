@@ -1,30 +1,34 @@
 import { useState, useEffect } from 'react'
-import { addCart } from './api'
+import {  getAllCarts } from './api'
+import './Cart.css'
 
-export default function Cart() {
-  const [cart, setCart] = useState({})
+export default function Cart({ cartItems }) {
+  const [allCart, setAllCart] = useState({})
 
+  //get all carts
   useEffect(() => {
-    const fetchCart = async () => {
+    const fetchAllCart = async() => {
       try {
-        const myCart = await addCart();
-        setCart(myCart)
+        const myCart = await getAllCarts();
+        setAllCart(myCart)
 
-      } catch (error) {
-          console.error("Error:", error)
+      } catch(error) {
+        console.error("Error:", error)
       }
     }
 
-    fetchCart()
-  }, [])
+    fetchAllCart();
+  },[])
 
   return (
     <>
      <br/>
      <hr />
 
-     <div>  
-        <h5>My Cart</h5>
+     <h5>My Cart</h5>
+     <div className="cart-container"> 
+       
+
      </div>
     </>
   )

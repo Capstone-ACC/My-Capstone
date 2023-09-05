@@ -9,10 +9,12 @@ import Register from './components/Register'
 import Checkout from './components/Checkout'
 import Cart from './components/Cart'
 import SingleProduct from './components/SingleProduct'
+import AddCart from './components/AddCart'
 
 function App() {
   const [token, setToken] = useState(null)
   const [selectedItem, setSelectedItem] = useState(null)
+  const [cartItems, setCart] = useState([])
 
   return (
     <>
@@ -32,6 +34,7 @@ function App() {
         <li><Link to="/login">Login</Link></li>
         <li><Link to="/register">Register</Link></li>
         <li><Link to="/cart">Cart</Link></li>  
+        <li><Link to="/addToCart">Test Adding To Cart</Link></li>  
         <li><Link to="/checkout">Check Out</Link></li>
       </div>
 
@@ -39,11 +42,12 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/main-all-products" element={<Main/>} />
+        <Route path="/addToCart" element={<AddCart />} />
         <Route path="/products/:id" element={<SingleProduct setSelectedItem={setSelectedItem} item={selectedItem} />} />
         <Route path="/login" element={<Login setToken={setToken}/>} />
         <Route path="/register" element={<Register setToken={setToken} />} />
         <Route path="/checkout" element={<Checkout />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/cart" element={<Cart cart={cartItems} setCart={setCart}/>} />
       </Routes>
     </>
   )

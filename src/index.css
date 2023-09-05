@@ -63,10 +63,12 @@ h5 {
 
 /*drop down component*/
 select {
-  background-color: lightgrey;
+  background-color: brown;
   border: 2px solid black;
+  color: burlywood;
   padding: 10px;
   margin-bottom: 15px;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Lobster', cursive;
 }
+
 
