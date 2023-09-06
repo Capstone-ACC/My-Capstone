@@ -15,7 +15,7 @@ export default function Product( {product}) {
             
             <div className="my-buttons">
                 <button><Link to={`/products/${product.id}`} className="see-details-link">See details</Link></button>
-                <button type="button" className="add-to-cart"><Link to="/cart">Add To Cart</Link></button>
+                {/* <button type="button" className="add-to-cart" onClick={() => dispatch}><Link to="/cart">Add To Cart</Link></button> */}
             </div>
            </div>
         </div>

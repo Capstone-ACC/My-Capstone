@@ -1,7 +1,8 @@
 import React from 'react'
-import { useState, useEffect} from 'react'
+import { useState, useEffect, useContext} from 'react'
 import { getSingleProduct } from './api'
 import { useParams, Link } from 'react-router-dom'
+import { CartContext } from '../Context/Context'
 
 export default function SingleProduct() {
   const [singleProduct, setSingleProduct] = useState("")
@@ -23,6 +24,10 @@ export default function SingleProduct() {
 
   }, [id])
 
+  //cart functionality
+  const stateOfCart = useContext(CartContext)
+  const dispatch = stateOfCart.dispatch;
+
   return (
     <>
       {singleProduct ? (
@@ -39,11 +44,13 @@ export default function SingleProduct() {
               <Link to="/main-all-products" className="link-to-go-back">Back To Products</Link>
             </button>
 
-            <button>
-              <Link to="/cart" className="addToCart">Add To Cart
-                <img src="/images/cart.png" />
-              </Link>
-            </button>
+          <button onClick={() => {
+            dispatch({ type: "ADD", payload: singleProduct})
+            console.log("Added To Cart:", singleProduct)
+          }}>
+            <Link to="/cart" className="addToCart">Add To Cart</Link>
+            <img src="/images/cart.png" alt="Cart Icon" />
+          </button>
           </div>
         </div>
      

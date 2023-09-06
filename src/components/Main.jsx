@@ -1,4 +1,3 @@
-import React from 'react'
 import{ useState, useEffect } from 'react'
 import { getAllProducts, getCategories } from './api'
 import SearchBar from './SearchBar'
@@ -44,11 +43,11 @@ export default function Main() {
   const searchedItems = products.filter((product) => {
     const titleMatches = product.title.toLowerCase().includes(searchedProducts.toLowerCase());
     const categoryMatches = selectedCategory === "" || product.category === selectedCategory;
-    const priceMatches =
+    const priceSearch =
       (!minPrice || parseFloat(product.price) >= parseFloat(minPrice)) &&
       (!maxPrice || parseFloat(product.price) <= parseFloat(maxPrice));
     
-    return titleMatches && categoryMatches && priceMatches;
+    return titleMatches && categoryMatches && priceSearch;
   })
 
     return (
@@ -70,7 +69,6 @@ export default function Main() {
               <input type="number" value={maxPrice} onChange={handleMaxPriceChange} className="priceInput" placeholder="Enter Maximum Price" />
             </div>
      
-
             <div className="products-container">
                 {searchedItems.map((product) => {
 
