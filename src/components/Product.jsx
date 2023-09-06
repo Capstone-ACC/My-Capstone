@@ -1,8 +1,9 @@
 import React from 'react'
-import './Main-SearchBar.css'
 import { Link } from 'react-router-dom'
+import './Main-SearchBar.css'
 
 export default function Product( {product}) {
+
     return (
         <div className = "my-box" key={product.id}>
           <div className="content" >

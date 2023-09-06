@@ -1,7 +1,8 @@
 import { useState, useEffect, useContext } from 'react'
 import {  getAllCarts } from './api'
-import './Cart.css'
 import { CartContext } from '../Context/Context'
+import { useNavigate } from 'react-router-dom'
+import './Cart.css'
 
 export default function Cart() {
   const [allCart, setAllCart] = useState({})
@@ -25,6 +26,13 @@ export default function Cart() {
     fetchAllCart();
   },[])
 
+  //use navigate
+  const navigate = useNavigate();
+
+  function goBackToProducts() {
+    navigate('/main-all-products')
+  }
+
   return (
     <>
      <br/>
@@ -44,7 +52,7 @@ export default function Cart() {
             </div>
           )
         })}
-        <button className="cartBackToProducts">Back To Products</button>
+        <button className="cartBackToProducts" onClick={goBackToProducts}>Back To Products</button>
      </div>
     </>
   )
