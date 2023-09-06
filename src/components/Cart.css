@@ -1,12 +1,14 @@
 /*cart component*/
 .cart-container {
     width: 100%;
-    border: 1px solid black;
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
     display: block;
+    background-color:#FFF5EE;
+    margin-bottom: 20px;
 }
+
 
 .cartImg {
     width: 100%;

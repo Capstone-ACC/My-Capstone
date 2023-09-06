@@ -1,5 +1,6 @@
 import './App.css'
 import { Routes, Route, Link } from 'react-router-dom'
+import { saveCartToLocalStorage } from './Context/CartUtils'
 import  {useState } from 'react'
 import Home from './components/Home'
 import About from './components/About'
@@ -16,10 +17,9 @@ function App() {
   const [selectedItem, setSelectedItem] = useState(null)
   const [cartItems, setCart] = useState([])
 
-  //logout
+  //handle logout
   const handleLogOut = () => {
-    localStorage.removeItem("Cart")
-    console.log(clear());
+    saveCartToLocalStorage(cartItems)
   }
 
   return (
