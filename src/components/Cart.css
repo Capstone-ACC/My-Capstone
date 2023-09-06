@@ -7,3 +7,17 @@
     margin-right: auto;
     display: block;
 }
+
+.cartImg {
+    width: 100%;
+    max-width: 150px;
+    padding: 10px;
+}
+
+span {
+    padding: 5px;
+}
+
+.cartBackToProducts:hover {
+    color: #9b111e;
+}
