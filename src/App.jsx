@@ -1,5 +1,6 @@
 import './App.css'
 import { Routes, Route, Link } from 'react-router-dom'
+import { saveCartToLocalStorage } from './Context/CartUtils'
 import  {useState } from 'react'
 import Home from './components/Home'
 import About from './components/About'
@@ -16,11 +17,16 @@ function App() {
   const [selectedItem, setSelectedItem] = useState(null)
   const [cartItems, setCart] = useState([])
 
+  //handle logout
+  const handleLogOut = () => {
+    saveCartToLocalStorage(cartItems)
+  }
+
   return (
     <>
       <div className="top-header">Summer Sale - Get 50% off for signing up - 
         <Link to="/register" className="shopNow">Shop Now</Link>
-        <Link to="/login" className="login">Logout</Link>
+        <Link to="/login" className="login" onClick={handleLogOut}>Logout</Link>
         <Link to="/login" className="login">Login</Link>
       </div>
 
@@ -34,7 +40,7 @@ function App() {
         <li><Link to="/login">Login</Link></li>
         <li><Link to="/register">Register</Link></li>
         <li><Link to="/cart">Cart</Link></li>  
-        <li><Link to="/addToCart">Test Adding To Cart</Link></li>  
+        {/* <li><Link to="/addToCart">Test Adding To Cart</Link></li>   */}
         <li><Link to="/checkout">Check Out</Link></li>
       </div>
 
