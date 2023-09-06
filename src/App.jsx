@@ -16,11 +16,17 @@ function App() {
   const [selectedItem, setSelectedItem] = useState(null)
   const [cartItems, setCart] = useState([])
 
+  //logout
+  const handleLogOut = () => {
+    localStorage.removeItem("Cart")
+    console.log(clear());
+  }
+
   return (
     <>
       <div className="top-header">Summer Sale - Get 50% off for signing up - 
         <Link to="/register" className="shopNow">Shop Now</Link>
-        <Link to="/login" className="login">Logout</Link>
+        <Link to="/login" className="login" onClick={handleLogOut}>Logout</Link>
         <Link to="/login" className="login">Login</Link>
       </div>
 

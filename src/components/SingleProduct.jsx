@@ -3,6 +3,7 @@ import { useState, useEffect, useContext} from 'react'
 import { getSingleProduct } from './api'
 import { useParams, Link } from 'react-router-dom'
 import { CartContext } from '../Context/Context'
+import { saveCartToLocalStorage } from '../Context/CartUtils'
 
 export default function SingleProduct() {
   const [singleProduct, setSingleProduct] = useState("")
@@ -47,6 +48,8 @@ export default function SingleProduct() {
           <button onClick={() => {
             dispatch({ type: "ADD", payload: singleProduct})
             console.log("Added To Cart:", singleProduct)
+
+            saveCartToLocalStorage([...stateOfCart.state, singleProduct])
           }}>
             <Link to="/cart" className="addToCart">Add To Cart</Link>
             <img src="/images/cart.png" alt="Cart Icon" />
