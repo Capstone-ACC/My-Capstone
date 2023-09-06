@@ -65,9 +65,11 @@ export default function Main() {
             <div className="priceFilter-container">
               <label className="productPrice">Min Price:</label>
               <input type="number" value={minPrice} onChange={handleMinPriceChange} className="priceInput" placeholder="Enter Minimal Price"/>
+
               <label className="productPrice">Max Price:</label>
-             <input type="number" value={maxPrice} onChange={handleMaxPriceChange} className="priceInput" placeholder="Enter Maximum Price" />
+              <input type="number" value={maxPrice} onChange={handleMaxPriceChange} className="priceInput" placeholder="Enter Maximum Price" />
             </div>
+     
 
             <div className="products-container">
                 {searchedItems.map((product) => {
@@ -95,4 +97,3 @@ export default function Main() {
 }
 
 
-    
