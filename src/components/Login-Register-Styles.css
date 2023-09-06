@@ -60,7 +60,7 @@ label {
 }
 
 .login-button:hover {
-    color: lightgreen;
+    color: burlywood;
     cursor: pointer;
 }
 
@@ -75,7 +75,7 @@ label {
 
 /* more of register component*/
 .register-button:hover {
-    color: lightgreen;
+    color: burlywood;
     cursor: pointer;
 }
 

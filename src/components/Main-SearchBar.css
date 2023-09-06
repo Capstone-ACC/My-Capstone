@@ -101,10 +101,15 @@ button:hover {
 }
 
 /*price input*/
+.priceFilterContainer {
+  width: 100%;
+}
+
 .priceInput {
   width: 100%;
   max-width: 400px;
 }
+
 .productPrice {
   font-family: 'Cormorant Garamond', serif;
 }
