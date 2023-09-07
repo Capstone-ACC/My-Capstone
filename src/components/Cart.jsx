@@ -1,47 +1,47 @@
-import { useState, useEffect, useContext } from 'react'
-import {  getAllCarts } from './api'
-import { CartContext } from '../Context/Context'
-import { useNavigate } from 'react-router-dom'
-import './Cart.css'
-import { loadCart } from '../Context/CartUtils'
+import { useState, useEffect, useContext } from "react"
+import { getAllCarts } from "./api"
+import { CartContext } from "../Context/Context"
+import { useNavigate } from "react-router-dom"
+import "./Cart.css";
+// import { loadCart } from '../Context/CartUtils'
 
 export default function Cart() {
   const [allCart, setAllCart] = useState({})
-
   const myCart = useContext(CartContext)
-  const state = myCart.state;
-  const dispatch = state.dispatch
+  const { state, dispatch } = myCart
 
   //get all carts
+  //question ? ? ?
+  //do i even need this useEffect?, am I doing the cart wrong?
+  //am i supposed to do what the API says whats is in the users cart?
   useEffect(() => {
-    const fetchAllCart = async() => {
+    const fetchAllCart = async () => {
       try {
         const myCart = await getAllCarts();
-        setAllCart(myCart)
-
-      } catch(error) {
-        console.error("Error:", error)
+        setAllCart(myCart);
+      } catch (error) {
+        console.error("Error:", error);
       }
     }
 
-    fetchAllCart();
-  },[])
+    fetchAllCart()
+  }, [])
 
   //use navigate
   const navigate = useNavigate();
 
   function goBackToProducts() {
-    navigate('/main-all-products')
+    navigate("/main-all-products");
   }
 
   return (
     <>
-     <br/>
-     <hr />
+      <br />
+      <hr />
 
-     <h5>My Cart</h5>
-    
-     <div className="cart-container"> 
+      <h5>My Cart</h5>
+
+      <div className="cart-container">
         {state.map((item, index) => {
           item.quantity = 1
           return (
@@ -49,16 +49,24 @@ export default function Cart() {
               <img src={item.image} className="cartImg" />
               <span>{item.title}</span>
               <span>${item.price}</span>
-      
-              <button>+</button> 
+
+              <button 
+                onClick={() => dispatch({ type: "INCREASE", payload: item })}>
+                +
+              </button>
               <span>{item.quantity}</span>
               <button>-</button>
+              <button 
+                onClick={() => dispatch({ type: "DELETE", payload: item })}>
+                Delete
+              </button>
             </div>
           )
         })}
-        <button className="cartBackToProducts" onClick={goBackToProducts}>Back To Products</button>
-     </div>
+        <button className="cartBackToProducts" onClick={goBackToProducts}>
+          Back To Products
+        </button>
+      </div>
     </>
   )
 }
-

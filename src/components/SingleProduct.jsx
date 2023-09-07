@@ -8,7 +8,7 @@ import { saveCartToLocalStorage } from '../Context/CartUtils'
 export default function SingleProduct() {
   const [singleProduct, setSingleProduct] = useState("")
 
-  let {id} = useParams()
+  let {id} = useParams();
 
   useEffect(() => {
     const fetchSingleProduct = async () => {

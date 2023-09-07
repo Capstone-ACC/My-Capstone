@@ -1,6 +1,6 @@
 /* main all-products component and SearchBar*/
 h3 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 2rem;
 }
 
@@ -16,7 +16,7 @@ input {
   font-size: 14pt;
   border: 2px solid burlywood;
   outline: none;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   padding: 5px;
   margin: 5px;
   border-radius: 5px;
@@ -34,14 +34,14 @@ input {
 }
 
 .my-box {
-  background-color: #FFF5EE;
+  background-color: #fff5ee;
   width: 21%;
   margin: 20px;
   border-radius: 28px;
 }
 
 @media screen and (max-width: 950px) {
-  .my-box{    
+  .my-box {
     width: 35%;
     margin: 10px;
   }
@@ -54,11 +54,11 @@ input {
 }
 
 h4 {
-  font-family: 'Lobster', cursive;
+  font-family: "Lobster", cursive;
 }
 
 span {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: "Cormorant Garamond", serif;
   color: black;
 }
 
@@ -78,16 +78,18 @@ span {
   margin-top: 20px;
 }
 
-button, .see-details-link {
+button,
+.see-details-link {
   margin: 10px;
   font-size: 14pt;
   padding: 5px;
   border-radius: 10px;
-  font-family: 'Lobster', cursive;
+  font-family: "Lobster", cursive;
 }
 
-a, .add-to-cart {
-  font-family: 'Lobster', cursive;
+a,
+.add-to-cart {
+  font-family: "Lobster", cursive;
   font-size: 14pt;
 }
 
@@ -111,7 +113,5 @@ button:hover {
 }
 
 .productPrice {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: "Cormorant Garamond", serif;
 }
-
-
