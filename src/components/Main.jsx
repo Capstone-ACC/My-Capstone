@@ -4,6 +4,7 @@ import SearchBar from "./SearchBar"
 import DropDown from "./DropDown"
 import Product from "./Product"
 import "./Main-SearchBar.css"
+import PriceFilter from "./PriceFilter"
 
 export default function Main() {
   const [products, setProducts] = useState([])
@@ -25,18 +26,23 @@ export default function Main() {
     fetchProducts();
   }, []);
 
-  //min- max price
-  const handleMinPriceChange = (event) => {
-    setMinPrice(event.target.value);
-  }
+  // //min- max price
+  // const handleMinPriceChange = (event) => {
+  //   setMinPrice(event.target.value);
+  // }
 
-  const handleMaxPriceChange = (event) => {
-    setMaxPrice(event.target.value);
-  }
+  // const handleMaxPriceChange = (event) => {
+  //   setMaxPrice(event.target.value);
+  // }
 
-  //handling search bar
+  //handling search bar and price range
   const handleSearchInput = (searchValue) => {
     setSearchProducts(searchValue);
+  }
+
+  const handlePriceFilter = (min, max) => {
+    setMinPrice(min)
+    setMaxPrice(max)
   }
 
   const searchedItems = products.filter((product) => {
@@ -63,7 +69,8 @@ export default function Main() {
           setSelectedCategory={setSelectedCategory}
         />
         <SearchBar value={searchedProducts} onChange={handleSearchInput} />
-
+        <PriceFilter onPriceChange={handlePriceFilter} />
+{/* 
         <div className="priceFilter-container">
           <label className="productPrice">Min Price:</label>
           <input
@@ -82,7 +89,7 @@ export default function Main() {
             className="priceInput"
             placeholder="Enter Maximum Price"
           />
-        </div>
+        </div> */}
 
         <div className="products-container">
           {searchedItems.map((product) => {
