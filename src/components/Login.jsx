@@ -1,11 +1,11 @@
-import React, { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import "./Login-Register-Styles.css"
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./Login-Register-Styles.css";
 
 export default function Login({ setToken }) {
-  const [username, setUsername] = useState("")
-  const [password, setPassword] = useState("")
-  const [error, setError] = useState("")
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const navigate = useNavigate();
 
@@ -22,9 +22,9 @@ export default function Login({ setToken }) {
     e.preventDefault();
 
     if (!username || !password) {
-      setError("Please enter both username and password")
+      setError("Please enter both username and password");
     } else {
-      setError("")
+      setError("");
 
       try {
         const response = await fetch("https://fakestoreapi.com/auth/login", {
@@ -36,9 +36,9 @@ export default function Login({ setToken }) {
             username: username,
             password: password,
           }),
-        })
+        });
 
-        const result = await response.json()
+        const result = await response.json();
         console.log("Token:", result);
 
         if (result.token) {
@@ -94,5 +94,5 @@ export default function Login({ setToken }) {
 
       <img src="/images/shoppingSpree.jpg" className="loginImg" />
     </>
-  )
+  );
 }

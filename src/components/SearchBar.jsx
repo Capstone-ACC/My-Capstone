@@ -1,6 +1,6 @@
-import React from "react"
-import { useState } from "react"
-import "./Main-SearchBar.css"
+import React from "react";
+import { useState } from "react";
+import "./Main-SearchBar.css";
 
 export default function SearchBar({ value, onChange }) {
   const [inputSearch, setInputSearch] = useState(value);
@@ -9,8 +9,8 @@ export default function SearchBar({ value, onChange }) {
     const inputValue = event.target.value;
     setInputSearch(inputValue);
     onChange(inputValue);
-  }
-  
+  };
+
   return (
     <>
       <div className="searchBar">
@@ -22,5 +22,5 @@ export default function SearchBar({ value, onChange }) {
         />
       </div>
     </>
-  )
+  );
 }

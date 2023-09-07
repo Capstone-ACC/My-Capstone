@@ -78,19 +78,21 @@ export default function Cart() {
                Delete
              </button>
             
-              <hr />
-            </div>
+            <hr />
+        </div>
           )
         })}
 
-        <button className="cartBackToProducts" onClick={goBackToProducts}>
-          Add More Items
-        </button>
+            <button 
+            className="cartBackToProducts"
+            onClick={goBackToProducts}>
+            Add More Items
+            </button>
 
-        <button>
-          <Link to="/checkout">Check Out</Link>
-        </button>
-      </div>
+          <button>
+            <Link to="/checkout">Check Out</Link>
+          </button>
+        </div>
     </>
   )
 }

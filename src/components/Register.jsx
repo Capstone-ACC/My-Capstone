@@ -1,18 +1,18 @@
-import React from "react"
-import { useState } from "react"
-import "./Login-Register-Styles.css"
+import React from "react";
+import { useState } from "react";
+import "./Login-Register-Styles.css";
 
 export default function Register() {
-  const [username, setUserName] = useState("")
-  const [password, setPassword] = useState("")
+  const [username, setUserName] = useState("");
+  const [password, setPassword] = useState("");
 
   const registerUsernameInput = (e) => {
     setUserName(e.target.value);
-  }
+  };
 
   const registerPasswordInput = (e) => {
     setPassword(e.target.value);
-  }
+  };
 
   return (
     <>
@@ -48,7 +48,11 @@ export default function Register() {
         </form>
       </div>
 
-      <img src="/images/mensJackets.jpg"className="macBook" alt="mac book laptop" />
+      <img
+        src="/images/mensJackets.jpg"
+        className="macBook"
+        alt="mac book laptop"
+      />
     </>
-  )
+  );
 }
