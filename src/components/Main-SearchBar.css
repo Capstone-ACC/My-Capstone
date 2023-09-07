@@ -1,4 +1,4 @@
-/* main all-products component and SearchBar*/
+/* main all-products component and SearchBar component*/
 h3 {
   font-family: "Cormorant Garamond", serif;
   font-size: 2rem;
@@ -99,7 +99,7 @@ a,
 
 button:hover {
   cursor: pointer;
-  color: darkgray;
+  color: #9b111e;
 }
 
 /*price input*/

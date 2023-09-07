@@ -1,6 +1,5 @@
 import './App.css'
 import { Routes, Route, Link } from 'react-router-dom'
-import { saveCartToLocalStorage } from './Context/CartUtils'
 import  {useState } from 'react'
 import Home from './components/Home'
 import About from './components/About'
@@ -11,24 +10,16 @@ import Checkout from './components/Checkout'
 import Cart from './components/Cart'
 import SingleProduct from './components/SingleProduct'
 import AddCart from './components/AddCart'
+import TopHeader from './components/TopHeader'
 
 function App() {
   const [token, setToken] = useState(null)
   const [selectedItem, setSelectedItem] = useState(null)
   const [cartItems, setCart] = useState([])
 
-  //handle logout
-  const handleLogOut = () => {
-    saveCartToLocalStorage(cartItems)
-  }
-
   return (
     <>
-      <div className="top-header">Summer Sale - Get 50% off for signing up - 
-        <Link to="/register" className="shopNow">Shop Now</Link>
-        <Link to="/login" className="login" onClick={handleLogOut}>Logout</Link>
-        <Link to="/login" className="login">Login</Link>
-      </div>
+      <TopHeader />
 
       <Link to="/"><h1>Tech & Styles <br/>
       <div className="secondHeading">The Style of your Heart</div></h1></Link>
