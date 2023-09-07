@@ -35,7 +35,7 @@ input {
 
 .my-box {
   background-color: #fff5ee;
-  width: 21%;
+  width: 22%;
   margin: 20px;
   border-radius: 28px;
 }
@@ -85,6 +85,7 @@ button,
   padding: 5px;
   border-radius: 10px;
   font-family: "Lobster", cursive;
+  margin-bottom: 0px
 }
 
 a,

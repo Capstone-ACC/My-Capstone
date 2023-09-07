@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from "react"
+import { Link } from 'react-router-dom'
 import { getAllCarts } from "./api"
 import { CartContext } from "../Context/Context"
 import { useNavigate } from "react-router-dom"
@@ -39,9 +40,9 @@ export default function Cart() {
       <br />
       <hr />
 
-      <h5>My Cart</h5>
-
       <div className="cart-container">
+        <h5>My Cart</h5>
+        
         {state.map((item, index) => {
           item.quantity = 1
           return (
@@ -51,20 +52,29 @@ export default function Cart() {
               <span>${item.price}</span>
 
               <button 
-                onClick={() => dispatch({ type: "INCREASE", payload: item })}>
+                onClick={() => dispatch({ type: "INCREASE", payload: item })}
+                className="cart-buttons">
                 +
               </button>
               <span>{item.quantity}</span>
-              <button>-</button>
+              <button className="cart-buttons">-</button>
+
               <button 
-                onClick={() => dispatch({ type: "DELETE", payload: item })}>
+                onClick={() => dispatch({ type: "DELETE", payload: item })}
+                className="cart-delete">
                 Delete
               </button>
+              <hr />
             </div>
           )
         })}
+
         <button className="cartBackToProducts" onClick={goBackToProducts}>
-          Back To Products
+          Add More
+        </button>
+
+        <button>
+          <Link to="/checkout">Check Out</Link>
         </button>
       </div>
     </>

@@ -19,7 +19,6 @@ export default function Product({ product }) {
               See details
             </Link>
           </button>
-          {/* <button type="button" className="add-to-cart" onClick={() => dispatch}><Link to="/cart">Add To Cart</Link></button> */}
         </div>
       </div>
     </div>
