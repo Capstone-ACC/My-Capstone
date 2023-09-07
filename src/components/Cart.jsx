@@ -1,20 +1,20 @@
 import { useState, useEffect, useContext } from "react"
 import { Link } from 'react-router-dom'
-import { getAllCarts } from "./api"
 import { CartContext } from "../Context/Context"
 import { useNavigate } from "react-router-dom"
-import "./Cart.css";
+import { getAllCarts } from "./api"
 // import { loadCart } from '../Context/CartUtils'
+import "./Cart.css"
 
 export default function Cart() {
   const [allCart, setAllCart] = useState({})
   const myCart = useContext(CartContext)
   const { state, dispatch } = myCart
 
-  //get all carts
-  //question ? ? ?
-  //do i even need this useEffect?, am I doing the cart wrong?
-  //am i supposed to do what the API says whats is in the users cart?
+  // get all carts
+  // question ? ? ?
+  // do i even need this useEffect?, am I doing the cart wrong?
+  // am i supposed to do what the API says whats is in the users cart?
   useEffect(() => {
     const fetchAllCart = async () => {
       try {
@@ -44,33 +44,48 @@ export default function Cart() {
         <h5>My Cart</h5>
         
         {state.map((item, index) => {
-          item.quantity = 1
           return (
             <div className="myItems" key={index}>
               <img src={item.image} className="cartImg" />
               <span>{item.title}</span>
               <span>${item.price}</span>
 
-              <button 
-                onClick={() => dispatch({ type: "INCREASE", payload: item })}
-                className="cart-buttons">
-                +
-              </button>
-              <span>{item.quantity}</span>
-              <button className="cart-buttons">-</button>
+              <button
+                onClick={() => {
+                  console.log("Increased Quantity:", item);
+                  dispatch({ type: "INCREASE", payload: item });
+               }}
+               className="cart-buttons">
+               +
+             </button>
 
-              <button 
-                onClick={() => dispatch({ type: "DELETE", payload: item })}
-                className="cart-delete">
-                Delete
-              </button>
+              <span>{item.quantity}</span>
+
+              <button
+                onClick={() => {
+                  console.log("Decreased Quantity:", item);
+                  dispatch({ type: "DECREASE", payload: item });
+               }}
+               className="cart-buttons">
+               -
+             </button>
+            
+
+              <button
+                onClick={() => {
+                  console.log("Deleted Item:", item);
+                  dispatch({ type: "DELETE", payload: item });
+               }}>
+               Delete
+             </button>
+            
               <hr />
             </div>
           )
         })}
 
         <button className="cartBackToProducts" onClick={goBackToProducts}>
-          Add More
+          Add More Items
         </button>
 
         <button>
@@ -80,3 +95,5 @@ export default function Cart() {
     </>
   )
 }
+
+
