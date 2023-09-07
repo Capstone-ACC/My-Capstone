@@ -1,25 +1,46 @@
 /*cart component*/
+h5 {
+    text-decoration: underline;
+}
+
 .cart-container {
     width: 100%;
-    max-width: 900px;
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
     display: block;
     background-color:#FFF5EE;
-    margin-bottom: 20px;
+    padding: 20px;
 }
-
 
 .cartImg {
     width: 100%;
     max-width: 150px;
     padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
 span {
     padding: 5px;
 }
 
+.myItems {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 14pt;
+}
+
+/*buttons*/
 .cartBackToProducts:hover {
     color: #9b111e;
+    margin-top: 15px;
 }
+
+.cart-buttons {
+    width: 30px;
+}
+
