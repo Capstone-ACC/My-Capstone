@@ -26,23 +26,23 @@ export default function Main() {
     fetchProducts();
   }, []);
 
-  // //min- max price
-  // const handleMinPriceChange = (event) => {
-  //   setMinPrice(event.target.value);
-  // }
-
-  // const handleMaxPriceChange = (event) => {
-  //   setMaxPrice(event.target.value);
-  // }
-
-  //handling search bar and price range
+  //handling search bar, price range, and clear filter
   const handleSearchInput = (searchValue) => {
     setSearchProducts(searchValue);
   }
 
   const handlePriceFilter = (min, max) => {
-    setMinPrice(min)
-    setMaxPrice(max)
+    setMinPrice(min);
+    setMaxPrice(max);
+  }
+
+  const clearFilter = () => {
+    setMinPrice("");
+    setMaxPrice("");
+  }
+
+  const clearCategory = () => {
+    setSelectedCategory("");
   }
 
   const searchedItems = products.filter((product) => {
@@ -64,32 +64,12 @@ export default function Main() {
         <h3>Customize Your Style and Tech</h3>
         <br />
 
-        <DropDown
-          selectedCategory={selectedCategory}
-          setSelectedCategory={setSelectedCategory}
-        />
+        <DropDown selectedCategory={selectedCategory}setSelectedCategory={setSelectedCategory}/>
         <SearchBar value={searchedProducts} onChange={handleSearchInput} />
         <PriceFilter onPriceChange={handlePriceFilter} />
-{/* 
-        <div className="priceFilter-container">
-          <label className="productPrice">Min Price:</label>
-          <input
-            type="number"
-            value={minPrice}
-            onChange={handleMinPriceChange}
-            className="priceInput"
-            placeholder="Enter Minimal Price"
-          />
 
-          <label className="productPrice">Max Price:</label>
-          <input
-            type="number"
-            value={maxPrice}
-            onChange={handleMaxPriceChange}
-            className="priceInput"
-            placeholder="Enter Maximum Price"
-          />
-        </div> */}
+        <button onClick={clearFilter}>Clear Price Filter</button>
+        <button onClick={clearCategory}>Clear Category</button>
 
         <div className="products-container">
           {searchedItems.map((product) => {

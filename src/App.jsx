@@ -40,7 +40,6 @@ function App() {
         <li><Link to="/login">Login</Link></li>
         <li><Link to="/register">Register</Link></li>
         <li><Link to="/cart">Cart</Link></li>  
-        {/* <li><Link to="/addToCart">Test Adding To Cart</Link></li>   */}
         <li><Link to="/checkout">Check Out</Link></li>
       </div>
 

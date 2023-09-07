@@ -23,7 +23,7 @@ export default function PriceFilter({onPriceChange}) {
     const max = parseFloat(maxPrice);
 
     if(min > max) {
-        alert("Minium must be less then or equal to max price")
+        alert("Minimum price must be less then or equal to max price")
     }
     onPriceChange(min, max)
   }
@@ -48,7 +48,7 @@ export default function PriceFilter({onPriceChange}) {
       placeholder="Enter Maximum Price"
     />
 
-    <button onClick={applyFilter}>Apply Filter</button>
+    <button onClick={applyFilter}>Apply Price Filter</button>
   </div>
   )
 }
