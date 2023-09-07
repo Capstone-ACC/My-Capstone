@@ -30,6 +30,15 @@ export const Context = (props) => {
             return item;
           }
         })
+        case "DECREASE":
+          return state.map((item) => {
+            if (item.id === action.payload.id) {
+              return { ...item, quantity: item.quantity - 1 };
+            } else {
+              return item;
+            }
+          })
+
       default:
         return state;
     }

@@ -52,24 +52,23 @@ export default function Cart() {
 
               <button
                 onClick={() => {
-                  console.log("Increased Quantity:", item);
-                  dispatch({ type: "INCREASE", payload: item });
-               }}
-               className="cart-buttons">
-               +
-             </button>
-
-              <span>{item.quantity}</span>
-
-              <button
-                onClick={() => {
                   console.log("Decreased Quantity:", item);
                   dispatch({ type: "DECREASE", payload: item });
                }}
                className="cart-buttons">
                -
              </button>
-            
+
+              <span>{item.quantity}</span>
+
+              <button
+                onClick={() => {
+                  console.log("Increased Quantity:", item);
+                  dispatch({ type: "INCREASE", payload: item });
+               }}
+               className="cart-buttons">
+               +
+             </button>
 
               <button
                 onClick={() => {
