@@ -40,13 +40,8 @@ export default function Main() {
   }
 
   const searchedItems = products.filter((product) => {
-    const titleMatches = product.title
-      .toLowerCase()
-      .includes(searchedProducts.toLowerCase());
-
-    const categoryMatches =
-      selectedCategory === "" || product.category === selectedCategory;
-
+    const titleMatches = product.title.toLowerCase().includes(searchedProducts.toLowerCase());
+    const categoryMatches = selectedCategory === "" || product.category === selectedCategory;
     const priceSearch =
       (!minPrice || parseFloat(product.price) >= parseFloat(minPrice)) &&
       (!maxPrice || parseFloat(product.price) <= parseFloat(maxPrice));
