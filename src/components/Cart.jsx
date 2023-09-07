@@ -1,15 +1,15 @@
-import { useState, useEffect, useContext } from "react"
-import { Link } from 'react-router-dom'
-import { CartContext } from "../Context/Context"
-import { useNavigate } from "react-router-dom"
-import { getAllCarts } from "./api"
+import { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
+import { CartContext } from "../Context/Context";
+import { useNavigate } from "react-router-dom";
+import { getAllCarts } from "./api";
 // import { loadCart } from '../Context/CartUtils'
-import "./Cart.css"
+import "./Cart.css";
 
 export default function Cart() {
-  const [allCart, setAllCart] = useState({})
-  const myCart = useContext(CartContext)
-  const { state, dispatch } = myCart
+  const [allCart, setAllCart] = useState({});
+  const myCart = useContext(CartContext);
+  const { state, dispatch } = myCart;
 
   // get all carts
   // question ? ? ?
@@ -23,10 +23,10 @@ export default function Cart() {
       } catch (error) {
         console.error("Error:", error);
       }
-    }
+    };
 
-    fetchAllCart()
-  }, [])
+    fetchAllCart();
+  }, []);
 
   //use navigate
   const navigate = useNavigate();
@@ -42,7 +42,7 @@ export default function Cart() {
 
       <div className="cart-container">
         <h5>My Cart</h5>
-        
+
         {state.map((item, index) => {
           return (
             <div className="myItems" key={index}>
@@ -54,10 +54,11 @@ export default function Cart() {
                 onClick={() => {
                   console.log("Decreased Quantity:", item);
                   dispatch({ type: "DECREASE", payload: item });
-               }}
-               className="cart-buttons">
-               -
-             </button>
+                }}
+                className="cart-buttons"
+              >
+                -
+              </button>
 
               <span>{item.quantity}</span>
 
@@ -65,36 +66,34 @@ export default function Cart() {
                 onClick={() => {
                   console.log("Increased Quantity:", item);
                   dispatch({ type: "INCREASE", payload: item });
-               }}
-               className="cart-buttons">
-               +
-             </button>
+                }}
+                className="cart-buttons"
+              >
+                +
+              </button>
 
               <button
                 onClick={() => {
                   console.log("Deleted Item:", item);
                   dispatch({ type: "DELETE", payload: item });
-               }}>
-               Delete
-             </button>
-            
-            <hr />
-        </div>
-          )
+                }}
+              >
+                Delete
+              </button>
+
+              <hr />
+            </div>
+          );
         })}
 
-            <button 
-            className="cartBackToProducts"
-            onClick={goBackToProducts}>
-            Add More Items
-            </button>
+        <button className="cartBackToProducts" onClick={goBackToProducts}>
+          Add More Items
+        </button>
 
-          <button>
-            <Link to="/checkout">Check Out</Link>
-          </button>
-        </div>
+        <button>
+          <Link to="/checkout">Check Out</Link>
+        </button>
+      </div>
     </>
-  )
+  );
 }
-
-
