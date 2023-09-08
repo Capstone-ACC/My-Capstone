@@ -16,6 +16,11 @@ export default function Cart() {
     }
   }, [dispatch])
 
+  //total price
+  const totalPrice = state.reduce((total, item) => {
+    return total + (item.price * item.quantity);
+  }, 0);
+
   //use navigate
   const navigate = useNavigate();
 
@@ -68,6 +73,7 @@ export default function Cart() {
                   dispatch({ type: "DELETE", payload: item });
                   saveCartToLocalStorage([...state]);
                 }}
+                className="cart-buttons"
               >
                 Delete
               </button>
@@ -76,6 +82,8 @@ export default function Cart() {
             </div>
           );
         })}
+
+        <span className="total-price">Total: ${totalPrice.toFixed(2)}</span>
 
         <button className="cartBackToProducts" onClick={goBackToProducts}>
           Add More Items

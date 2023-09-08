@@ -26,6 +26,10 @@ span {
     padding: 5px;
 }
 
+.total-price {
+    font-size: 18pt;
+}
+
 .myItems {
     display: flex;
     flex-direction: row;
@@ -40,7 +44,4 @@ span {
     margin-top: 15px;
 }
 
-.cart-buttons {
-    width: 30px;
-}
 
