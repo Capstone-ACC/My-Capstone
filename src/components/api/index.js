@@ -1,3 +1,48 @@
+/* add a new user*/
+export const addNewUser = async () => {
+    try {
+        const response = await fetch("https://fakestoreapi.com/users", {
+            method: "POST",
+            body: JSON.stringify({
+                email: "davonnejv@mgmail.com",
+                username: "Davonne007",
+                password: 'Rock&Roll23',
+                name: {
+                    firstname: 'Davonne',
+                    lastname: "Vigil"
+                },
+                address: {
+                    city: 'Dallas',
+                    street: "123 Capstone Way",
+                    number: 21,
+                    zipcode: "76012",
+                    geolocation: {
+                        lat: '0.0000',
+                        long: "0.000"
+                    }
+
+                },
+                phone: "123-456-7890"
+            })
+        })
+
+            const result = await response.JSON();
+            console.log("Token", result);
+
+            if(result.token) {
+                localStorage.setItem("token", result);
+                setToken(result.token);
+                alert("You are Signed Up! Start Shopping");
+                navigate("/main-all-products");
+            } else { 
+                console.error("Error with sign up, try again")
+            } 
+    } catch (error) {
+        console.error("Error:", error)
+    }
+}
+
+
 /*fetch all products*/
 export const getAllProducts = async () => {
     try {
@@ -51,7 +96,7 @@ export const getAllCarts = async () => {
     try {
         const response = await fetch("https://fakestoreapi.com/carts")
         const result = await response.json()
-        // console.log(result)
+        // console.log(result)  //? is it tailored to each user own cart?? 
 
     } catch (error) {
         console.error("Error:", error)
