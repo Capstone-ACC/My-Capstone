@@ -50,7 +50,7 @@ export const Context = (props) => {
   //local storage
   useEffect(() => {
     const cartSavedData = getCartFromLocalStorage();
-    if (cartSavedData > 0) {
+    if (cartSavedData.length > 0) {
       dispatch({ type: "LOAD_CART", payload: cartSavedData})
     }
   }, [])

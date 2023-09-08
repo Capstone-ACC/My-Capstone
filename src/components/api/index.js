@@ -26,8 +26,8 @@ export const addNewUser = async (registerUsername, registerPassword) => {
             })
         })
 
-            const result = await response.json();
-            return result;
+        const result = await response.json();
+        return result;
     } catch (error) {
         console.error("Error registering a user:", error)
     }
@@ -95,6 +95,7 @@ export const getCategories = async () => {
 //     }
 // }
 
+//Cart
 
 /*get single cart*/
 export const singleCart = async (id) => {
@@ -109,20 +110,40 @@ export const singleCart = async (id) => {
 
 
 /*add a new product in cart*/
-export const addCart = async () => {
+export const addCart = async (userId, products) => {
     try {
         const response = await fetch("https://fakestoreapi.com/carts", {
             method: "POST",
             body: JSON.stringify({
-                userId: 5,
+                userId: userId,
                 data: "2020-02-03",
-                products: [{productId: 5, quantity: 1}, {productId: 1, quantity: 5}]
-            })
+                products: products
+            }),
+            headers: {
+                "Content-Type": "application.json"
+            }
         })
         
         const result = await response.json()
         console.log(result)
+        return result;
 
+    } catch (error) {
+        console.error("Error:", error)
+        return [];
+    }
+}
+
+
+//delete a product from cart
+export const deleteCart = async () => {
+    try {
+        const response = await fetch ("https://fakestoreapi.com/carts/6", {
+            method: "DELETE"
+        })
+
+        const deletedData = await response.json();
+        console.log(deletedData);
     } catch (error) {
         console.error("Error:", error)
     }

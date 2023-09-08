@@ -1,16 +1,18 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { addCart } from "./api";
+import React, { useState, useEffect } from 'react';
+import { addCart, deleteCart } from './api';
 
-export default function AddToCart() {
-  const [cart, setCart] = useState({});
+export default function AddCart() {
+  const [cart, setCart] = useState([]);
+  const [deletedCart, setDeletedCart] = useState({});
 
-  //add cart
+  // Add cart
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const myCart = await addCart();
-        setCart(myCart);
+        const myCart = await addCart(); 
+        console.log("Cart Data:", myCart);
+        setCart(myCart) || [];
+
       } catch (error) {
         console.error("Error:", error);
       }
@@ -19,5 +21,33 @@ export default function AddToCart() {
     fetchCart();
   }, []);
 
-  return <div>Add Cart</div>;
+  // Delete cart
+  const handleDeleteCart = async () => {
+    try {
+      const myDeletedItem = await deleteCart();
+      console.log("Deleted Product:", myDeletedItem);
+
+    } catch (error) {
+      console.error("Error:", error)
+    }
+  }
+
+  return (
+    <div className="second-cart-container">
+      <h6>My Cart</h6>
+
+      {cart.map((cartItem, index) => {
+        return (
+          <div className="myCartItems" key={index}>
+            <img src={cartItem.image} alt={cartItem.title} />
+            <span>{cartItem.title}</span>
+            <span>{cartItem.price}</span>
+          </div>
+        )
+      })}
+
+      <button onClick={handleDeleteCart}>Delete Cart</button>
+    </div>
+  )
 }
+
