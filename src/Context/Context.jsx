@@ -1,4 +1,5 @@
-import { createContext, useReducer } from "react";
+import { createContext, useEffect, useReducer } from "react";
+import { getCartFromLocalStorage } from "./CartUtils";
 
 export const CartContext = createContext();
 export const Context = (props) => {
@@ -39,11 +40,20 @@ export const Context = (props) => {
             return item;
           }
         });
-
+        case "LOAD_CART":
+          return action.payload;
       default:
         return state;
     }
   };
+
+  //local storage
+  useEffect(() => {
+    const cartSavedData = getCartFromLocalStorage();
+    if (cartSavedData > 0) {
+      dispatch({ type: "LOAD_CART", payload: cartSavedData})
+    }
+  }, [])
 
   const [state, dispatch] = useReducer(reducer, []);
   const cartInfo = { state, dispatch };

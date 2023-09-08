@@ -82,21 +82,21 @@ export const getCategories = async () => {
 
 
 
-/*get all cart*/
-export const getAllCarts = async () => {
-    try {
-        const response = await fetch("https://fakestoreapi.com/carts")
-        const result = await response.json()
-        // console.log(result)  //? is it tailored to each user own cart?? 
+// /*get all cart*/
+// was told I did not need this, but kept it just incase
+// export const getAllCarts = async () => {
+//     try {
+//         const response = await fetch("https://fakestoreapi.com/carts")
+//         const result = await response.json()
+//         console.log(result)  //? is it tailored to each user own cart?? 
 
-    } catch (error) {
-        console.error("Error:", error)
-    }
-}
+//     } catch (error) {
+//         console.error("Error:", error)
+//     }
+// }
 
 
 /*get single cart*/
-// https://fakestoreapi.com/carts/5 - - - -maybe it has to be the id, of the certain item
 export const singleCart = async (id) => {
     try {
         const response = await fetch(`https://fakestoreapi.com/carts/${id}`)

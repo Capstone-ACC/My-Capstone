@@ -1,32 +1,20 @@
-import { useState, useEffect, useContext } from "react";
+import { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../Context/Context";
 import { useNavigate } from "react-router-dom";
-import { getAllCarts } from "./api";
-// import { loadCart } from '../Context/CartUtils'
+import { saveCartToLocalStorage, getCartFromLocalStorage} from '../Context/CartUtils'
 import "./Cart.css";
 
 export default function Cart() {
-  const [allCart, setAllCart] = useState({});
   const myCart = useContext(CartContext);
   const { state, dispatch } = myCart;
 
-  // get all carts
-  // question ? ? ?
-  // do i even need this useEffect?, am I doing the cart wrong?
-  // am i supposed to do what the API says whats is in the users cart?
   useEffect(() => {
-    const fetchAllCart = async () => {
-      try {
-        const myCart = await getAllCarts();
-        setAllCart(myCart);
-      } catch (error) {
-        console.error("Error:", error);
-      }
-    };
-
-    fetchAllCart();
-  }, []);
+    const cartData = getCartFromLocalStorage()
+    if (cartData.length > 0) {
+      dispatch({type: "LOAD_CART", payload: cartData})
+    }
+  }, [dispatch])
 
   //use navigate
   const navigate = useNavigate();
@@ -54,6 +42,7 @@ export default function Cart() {
                 onClick={() => {
                   console.log("Decreased Quantity:", item);
                   dispatch({ type: "DECREASE", payload: item });
+                  saveCartToLocalStorage([...state]);
                 }}
                 className="cart-buttons"
               >
@@ -66,6 +55,7 @@ export default function Cart() {
                 onClick={() => {
                   console.log("Increased Quantity:", item);
                   dispatch({ type: "INCREASE", payload: item });
+                  saveCartToLocalStorage([...state]);
                 }}
                 className="cart-buttons"
               >
@@ -76,6 +66,7 @@ export default function Cart() {
                 onClick={() => {
                   console.log("Deleted Item:", item);
                   dispatch({ type: "DELETE", payload: item });
+                  saveCartToLocalStorage([...state]);
                 }}
               >
                 Delete
