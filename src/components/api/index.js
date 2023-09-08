@@ -1,15 +1,15 @@
-/* add a new user*/
-export const addNewUser = async () => {
+// /* add a new user*/
+export const addNewUser = async (registerUsername, registerPassword) => {
     try {
         const response = await fetch("https://fakestoreapi.com/users", {
             method: "POST",
             body: JSON.stringify({
                 email: "davonnejv@mgmail.com",
-                username: "Davonne007",
-                password: 'Rock&Roll23',
+                username: registerUsername,
+                password: registerPassword,
                 name: {
-                    firstname: 'Davonne',
-                    lastname: "Vigil"
+                    firstname: "",
+                    lastname: ""
                 },
                 address: {
                     city: 'Dallas',
@@ -26,19 +26,10 @@ export const addNewUser = async () => {
             })
         })
 
-            const result = await response.JSON();
-            console.log("Token", result);
-
-            if(result.token) {
-                localStorage.setItem("token", result);
-                setToken(result.token);
-                alert("You are Signed Up! Start Shopping");
-                navigate("/main-all-products");
-            } else { 
-                console.error("Error with sign up, try again")
-            } 
+            const result = await response.json();
+            return result;
     } catch (error) {
-        console.error("Error:", error)
+        console.error("Error registering a user:", error)
     }
 }
 

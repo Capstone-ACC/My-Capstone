@@ -3,6 +3,6 @@ export function saveCartToLocalStorage(cart) {
 }
 
 export function loadCart() {
-  const savedCart = localStorage.getItem("cart");
+  const savedCart = localStorage.getItem("Cart");
   return savedCart ? JSON.parse(savedCart) : [];
 }

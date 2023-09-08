@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login-Register-Styles.css";
+import { addNewUser } from "./api";
 
 export default function Register({setToken}) {
   const [username, setUserName] = useState("");
@@ -22,52 +23,10 @@ export default function Register({setToken}) {
   const handelRegister = async (e) => {
     e.preventDefault();
 
-    if (!username || !password) {
-      setError("Please enter both username and password");
-    } else {
-      setError("");
-
-      try {
-          const response = await fetch("https://fakestoreapi.com/users", {
-          method: "POST",
-            body: JSON.stringify({
-              email: "davonnejv@mgmail.com",
-              username: username,
-              password: password,
-              name: {
-                firstname: "",
-                lastname: ""
-              },
-             address: {
-                 city: 'Dallas',
-                 street: "123 Capstone Way",
-                 number: 21,
-                 zipcode: "76012",
-                 geolocation: {
-                    lat: '0.0000',
-                    long: "0.000"
-                   }
-        
-              },
-              phone: "123-456-7890"
-              })
-           })
-        
-        const result = await response.json();
-        console.log("Token", result);
-        
-        if(result.token) {
-          localStorage.setItem("token", result);
-          setToken(result.token);
-          alert("You are Signed Up! Start Shopping");
-          navigate("/main-all-products");
-         } else { 
-            console.error("Error with sign up, try again")
-          } 
-        } catch (error) {
-            console.error("Error:", error)
-        }
-    }
+    const result = await addNewUser(username,password)
+    console.log("New User ID:",result);
+    alert(`Success, Welcome ${username}! You are now registered`)
+    navigate("/main-all-products");
   }
 
   return (
