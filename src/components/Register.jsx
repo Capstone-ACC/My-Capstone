@@ -20,13 +20,19 @@ export default function Register({setToken}) {
   const navigate = useNavigate();
 
   //add a new user
-  const handelRegister = async (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
 
     const result = await addNewUser(username,password)
-    console.log("New User ID:",result);
-    alert(`Success, Welcome ${username}! You are now registered`)
-    navigate("/main-all-products");
+
+    if (!username || !password) {
+      setError("Please enter both username and password");
+    } else {
+      alert(`Success, Welcome ${username}! You are now registered`)
+      console.log("New User ID:",result);
+      navigate("/main-all-products");
+      setError("");
+    }
   }
 
   return (
@@ -37,7 +43,7 @@ export default function Register({setToken}) {
       <div className="register-container">
         <h2>Register For a New Account</h2>
 
-        <form onSubmit={handelRegister}>  
+        <form onSubmit={handleRegister}>  
           <label>
             Username:
             <input
@@ -47,6 +53,8 @@ export default function Register({setToken}) {
               onChange={registerUsernameInput}
             />
           </label>
+
+          {error && <span className="error-message">{error}</span>}
 
           <label>
             Password:
@@ -71,3 +79,5 @@ export default function Register({setToken}) {
     </>
   );
 }
+
+
