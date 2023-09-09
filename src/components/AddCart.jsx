@@ -6,6 +6,7 @@ export default function AddCart() {
   const [deletedCart, setDeletedCart] = useState({});
 
   // Add cart
+  //do i need the cart of the user {id}
   useEffect(() => {
     const fetchCart = async () => {
       try {
@@ -35,7 +36,7 @@ export default function AddCart() {
   return (
     <div className="second-cart-container">
       <h6>My Cart</h6>
-
+{/* 
       {cart.map((cartItem, index) => {
         return (
           <div className="myCartItems" key={index}>
@@ -44,7 +45,7 @@ export default function AddCart() {
             <span>{cartItem.price}</span>
           </div>
         )
-      })}
+      })} */}
 
       <button onClick={handleDeleteCart}>Delete Cart</button>
     </div>
