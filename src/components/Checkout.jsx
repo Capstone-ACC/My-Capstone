@@ -23,6 +23,12 @@ export default function Checkout() {
              Email:
              <input type="text" className="checkout-input" placeholder="Best Email*" />
           </label>
+
+          <label className="opt-in-text">
+            <input type="checkbox" placeholder="Best Email*" />
+            Opt in for text notifications of your purchased orde
+          </label>
+       
         </form>
       </div>
     </>
