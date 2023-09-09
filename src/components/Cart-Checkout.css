@@ -89,13 +89,18 @@ form {
     align-content: center;
     flex-wrap: wrap;
     font-size: 16pt;
-    margin-top: -30px;
+}
+
+.contactInfo {
+    margin-top: 10px;   
+    margin-bottom: 0px;
+    text-decoration: none;
 }
 
 label {
     font-family:'Times New Roman', Times, serif;
     font-size: 12pt;
-    margin: 0px;
+    margin: 0;
 }
 
 .opt-in-text {
@@ -103,5 +108,19 @@ label {
     margin-top: 40px;
 }
 
+.my-checkboxes {
+    margin-top: 20px;
+}
 
+/*delivery*/
+.delivery {
+    font-size: 20pt;
+    margin-top: 40px;
+}
+
+.deliveryMethod {
+    text-align: left;
+    padding: 5px;
+    color: black
+}   
 

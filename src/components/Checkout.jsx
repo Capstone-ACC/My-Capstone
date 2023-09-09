@@ -2,6 +2,11 @@ import React from "react";
 import "./Cart-Checkout.css";
 
 export default function Checkout() {
+
+  const handleRadioButton = (e) => {
+    e.preventDefault();
+  }
+
   return (
     <>
       <br />
@@ -13,24 +18,53 @@ export default function Checkout() {
       
       <div className="checkout-container">
         <span>* indicates a required field</span>
+        <h5 className="contactInfo">Contact Information<hr/></h5>
         <form>
           <label>
              Phone Number:
-             <input type="text" className="checkout-input" placeholder="Cell Phone*" />
+             <input 
+             type="text" 
+             className="checkout-input" 
+             placeholder="Cell Phone*" />
           </label>
 
           <label>
              Email:
-             <input type="text" className="checkout-input" placeholder="Best Email*" />
+             <input 
+             type="text" 
+             className="checkout-input" 
+             placeholder="Best Email*" />
           </label>
 
-          <label className="opt-in-text">
-            <input type="checkbox" placeholder="Best Email*" />
-            Opt in for text notifications of your purchased orde
-          </label>
-       
+         <div className="my-checkboxes">
+            <label className="opt-in-text">
+              <input 
+              type="checkbox" />
+              Opt in for text notifications of your purchased order
+  
+              <input 
+              type="checkbox" />
+              Opt in for text notifications of your purchased order
+            </label>
+         </div>
         </form>
-      </div>
+
+        <h6 className="delivery">Delivery Method<hr/></h6>
+
+          <div className="deliveryMethod">
+            <label>
+              <input type="radio"
+              value="ship to home address"
+              onChange={handleRadioButton} />
+              Ship To Home Address
+            </label>
+
+            <label>
+              <input type="radio" />
+              Ship and Pick Up From Tech & Styles
+            </label>
+          </div>
+        </div>
     </>
   );
 }
