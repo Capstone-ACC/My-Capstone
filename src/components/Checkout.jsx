@@ -1,11 +1,15 @@
 import React from "react";
 import "./Cart-Checkout.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Checkout() {
 
-  const handleRadioButton = (e) => {
-    e.preventDefault();
+  const navigate = useNavigate();
+
+  function goToStepTwo() {
+    navigate("/shipping")
   }
+
 
   return (
     <>
@@ -13,60 +17,68 @@ export default function Checkout() {
       <hr />
 
       <div className="black-background">
-       <div className="step-one"> Step 1 of 3: Shipping</div>
+        <div className="step-one"> Step 1 of 3: Contact</div>
       </div>
-      
+
       <div className="checkout-container">
         <span>* indicates a required field</span>
-        <h5 className="contactInfo">Contact Information<hr/></h5>
-        <form>
+        <h5 className="contactInfo">
+          Contact Information
+          <hr />
+        </h5>
+        <form className="form-container">
           <label>
-             Phone Number:
-             <input 
-             type="text" 
-             className="checkout-input" 
-             placeholder="Cell Phone*" />
+            Name:
+            <input
+              type="text"
+              className="checkout-input"
+              placeholder="First Name*"
+            />
           </label>
 
           <label>
-             Email:
-             <input 
-             type="text" 
-             className="checkout-input" 
-             placeholder="Best Email*" />
+            Last Name:
+            <input
+              type="text"
+              className="checkout-input"
+              placeholder="Last Name*"
+            />
           </label>
 
-         <div className="my-checkboxes">
+          <label>
+            Phone Number:
+            <input
+              type="text"
+              className="checkout-input"
+              placeholder="Cell Phone*"
+            />
+          </label>
+
+          <label>
+            Email:
+            <input
+              type="text"
+              className="checkout-input"
+              placeholder="Best Email*"
+            />
+          </label>
+
+          <div className="my-checkboxes">
             <label className="opt-in-text">
-              <input 
-              type="checkbox" />
+              <input type="checkbox" />
               Opt in for text notifications of your purchased order
-  
-              <input 
-              type="checkbox" />
-              Opt in for text notifications of your purchased order
-            </label>
-         </div>
-        </form>
-
-        <h6 className="delivery">Delivery Method<hr/></h6>
-
-          <div className="deliveryMethod">
-            <label>
-              <input type="radio"
-              value="ship to home address"
-              onChange={handleRadioButton} />
-              Ship To Home Address
+              <input type="checkbox" />
+              Sign up for weekly coupons from Tech & Styles
             </label>
 
-            <label>
-              <input type="radio" />
-              Ship and Pick Up From Tech & Styles
-            </label>
+            <button
+             type="button"
+             onClick={goToStepTwo}>
+             Continue
+            </button>
           </div>
-        </div>
+        </form>
+      </div>
     </>
   );
 }
-
-

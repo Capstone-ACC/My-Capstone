@@ -11,6 +11,7 @@ import Cart from './components/Cart';
 import SingleProduct from './components/SingleProduct';
 import AddCart from './components/AddCart';
 import TopHeader from './components/TopHeader';
+import Shipping from './components/Shipping';
 
 function App() {
   const [token, setToken] = useState(null);
@@ -44,6 +45,7 @@ function App() {
         <Route path="/register" element={<Register setToken={setToken} />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/cart" element={<Cart cart={cartItems} setCart={setCart}/>} />
+          <Route path="/shipping" element={<Shipping />} />
       </Routes>
     </>
   );

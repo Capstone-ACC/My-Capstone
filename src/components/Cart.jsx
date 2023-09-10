@@ -85,13 +85,15 @@ export default function Cart() {
 
         <span className="total-price">Total: ${totalPrice.toFixed(2)}</span>
 
-        <button className="cartBackToProducts" onClick={goBackToProducts}>
-          Add More Items
-        </button>
+       <div className="add-more-bts-and-checkout">
+         <button className="cartBackToProducts" onClick={goBackToProducts}>
+            Add More Items
+          </button>
 
-        <button>
-          <Link to="/checkout">Check Out</Link>
-        </button>
+          <button>
+            <Link to="/checkout">Check Out</Link>
+          </button>
+       </div>
       </div>
     </>
   );
