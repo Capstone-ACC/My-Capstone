@@ -28,24 +28,6 @@ export default function Checkout() {
         </h5>
         <form className="form-container">
           <label>
-            Name:
-            <input
-              type="text"
-              className="checkout-input"
-              placeholder="First Name*"
-            />
-          </label>
-
-          <label>
-            Last Name:
-            <input
-              type="text"
-              className="checkout-input"
-              placeholder="Last Name*"
-            />
-          </label>
-
-          <label>
             Phone Number:
             <input
               type="text"
