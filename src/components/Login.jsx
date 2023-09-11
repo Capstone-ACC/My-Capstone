@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Login-Register-Styles.css";
+import "./css/Login-Register-Styles.css";
 
 export default function Login({ setToken }) {
   const [username, setUsername] = useState("");

@@ -1,0 +1,12 @@
+/*Shipping Component*/
+.shipping-black-background {
+    color: white;
+    background-color: black;
+    width: 100%;
+    max-width: 700px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 40px;
+}

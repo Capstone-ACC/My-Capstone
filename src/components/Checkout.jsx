@@ -1,5 +1,5 @@
 import React from "react";
-import "./Cart-Checkout.css";
+import "./css/Cart-Checkout.css";
 import { useNavigate } from "react-router-dom";
 
 export default function Checkout() {

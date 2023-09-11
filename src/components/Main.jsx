@@ -3,8 +3,8 @@ import { getAllProducts, getCategories } from "./api";
 import SearchBar from "./SearchBar";
 import DropDown from "./DropDown";
 import Product from "./Product";
-import "./Main-SearchBar.css";
 import PriceFilter from "./PriceFilter";
+import "./css/Main-SearchBar.css";
 
 export default function Main() {
   const [products, setProducts] = useState([]);

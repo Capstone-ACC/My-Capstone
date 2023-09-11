@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Login-Register-Styles.css";
+import "./css/Login-Register-Styles.css";
 import { addNewUser } from "./api";
 
 export default function Register({setToken}) {

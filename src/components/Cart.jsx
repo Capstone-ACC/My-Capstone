@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../Context/Context";
 import { useNavigate } from "react-router-dom";
 import { saveCartToLocalStorage, getCartFromLocalStorage} from '../Context/CartUtils'
-import "./Cart-Checkout.css";
+import "./css/Cart-Checkout.css";
 
 export default function Cart() {
   const myCart = useContext(CartContext);
