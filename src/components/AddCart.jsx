@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { addCart, deleteCart } from './api';
+import { addCart, deleteCart, singleCart } from './api';
 
 export default function AddCart() {
   const [cart, setCart] = useState([]);
+  const [singleCart, setSingleCart] = useState([])
   const [deletedCart, setDeletedCart] = useState({});
 
   // Add cart
-  //do i need the cart of the user {id}
   useEffect(() => {
     const fetchCart = async () => {
       try {
@@ -21,6 +21,22 @@ export default function AddCart() {
 
     fetchCart();
   }, []);
+
+  //single cart
+    //do i need the cart of the user {id}
+  useEffect(() => {
+    const fetchSingleCart = async (id) => {
+      try {
+        const mySingleCart = await singleCart(id)
+        console.log("Single Cart", singleCart)
+        setSingleCart(mySingleCart)
+
+      } catch (error) {
+        console.error("Error", error)
+      }
+    };
+    fetchSingleCart();
+  }, [])
 
   // Delete cart
   const handleDeleteCart = async () => {

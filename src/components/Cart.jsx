@@ -11,7 +11,7 @@ export default function Cart() {
 
   useEffect(() => {
     const cartData = getCartFromLocalStorage();
-    if (cartData.length > 0) {
+    if (cartData > 0) {
       dispatch({ type: "LOAD_CART", payload: cartData });
     }
   }, [dispatch]);
@@ -24,9 +24,11 @@ export default function Cart() {
   //use navigate
   const navigate = useNavigate();
 
-  function goBackToProducts() {
+  function goToProducts() {
     navigate("/main-all-products");
   }
+
+
 
   return (
     <>
@@ -37,7 +39,10 @@ export default function Cart() {
         <h5>My Cart</h5>
 
         {state.length === 0 ? (
-          <span style={{ fontSize: "22pt" }}>Cart is empty for now</span>
+          <>
+          <span style={{ fontSize: "22pt" }}>Cart is empty for now</span><br/>
+          <button onClick={goToProducts}> Add Items</button>
+          </>
         ) : (
           <>
             {state.map((item, index) => {
@@ -90,7 +95,7 @@ export default function Cart() {
             <span className="total-price">Total: ${totalPrice.toFixed(2)}</span>
 
             <div className="add-more-bts-and-checkout">
-              <button className="cartBackToProducts" onClick={goBackToProducts}>
+              <button className="cartBackToProducts" onClick={goToProducts}>
                 Add More Items
               </button>
 
