@@ -74,43 +74,24 @@ export const getCategories = async () => {
     }
 }
 
-
-
-/*sort products*/
-// https://fakestoreapi.com/products?sort=desc
-
-
-
-
-// /*get all cart*/
-// was told I did not need this, but kept it just incase
-// export const getAllCarts = async () => {
-//     try {
-//         const response = await fetch("https://fakestoreapi.com/carts")
-//         const result = await response.json()
-//         console.log(result)  //? is it tailored to each user own cart?? 
-
-//     } catch (error) {
-//         console.error("Error:", error)
-//     }
-// }
-
 //Cart
 
 /*get single cart*/
-export const singleCart = async (id) => {
+export const singleCart = async () => {
     try {
-        const response = await fetch(`https://fakestoreapi.com/carts/${id}`)
+        const response = await fetch("https://fakestoreapi.com/carts/5")
         const result = await response.json()
         console.log(result)
+        return result;
+
     } catch (error) {
         console.error("Error:", error)
     }
 }
 
-
 /*add a new product in cart*/
 export const addCart = async (userId, products) => {
+    console.log(products)
     try {
         const response = await fetch("https://fakestoreapi.com/carts", {
             method: "POST",
@@ -144,6 +125,19 @@ export const deleteCart = async () => {
 
         const deletedData = await response.json();
         console.log(deletedData);
+    } catch (error) {
+        console.error("Error:", error)
+    }
+}
+
+
+/*get all cart*/
+export const getAllCarts = async () => {
+    try {
+        const response = await fetch("https://fakestoreapi.com/carts")
+        const result = await response.json()
+        console.log(result) 
+
     } catch (error) {
         console.error("Error:", error)
     }

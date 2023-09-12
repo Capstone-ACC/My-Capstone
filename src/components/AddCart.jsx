@@ -1,19 +1,26 @@
-import React, { useState, useEffect } from 'react';
-import { addCart, deleteCart, singleCart } from './api';
+import React, { useState, useEffect } from "react";
+import { deleteCart, singleCart, getSingleProduct } from "./api";
 
 export default function AddCart() {
   const [cart, setCart] = useState([]);
-  const [singleCart, setSingleCart] = useState([])
-  const [deletedCart, setDeletedCart] = useState({});
+  const [mySingleCart, setSingleCart] = useState([]);
+  const [products, setProducts] = useState([]);
+  // const [deletedCart, setDeletedCart] = useState({});
+
+  // //increasing a quantity of item
+  // function increaseItem(index) {
+  //   const updatedProducts = [...products];
+  //   updatedProducts[index].quantity += 1;
+  //   setProducts(updatedProducts);
+  // }
 
   // Add cart
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const myCart = await addCart(); 
+        const myCart = await singleCart();
         console.log("Cart Data:", myCart);
-        setCart(myCart) || [];
-
+        setCart(myCart);
       } catch (error) {
         console.error("Error:", error);
       }
@@ -22,49 +29,74 @@ export default function AddCart() {
     fetchCart();
   }, []);
 
-  //single cart
-    //do i need the cart of the user {id}
+  //Fetch Products From Cart
   useEffect(() => {
-    const fetchSingleCart = async (id) => {
-      try {
-        const mySingleCart = await singleCart(id)
-        console.log("Single Cart", singleCart)
-        setSingleCart(mySingleCart)
+    const fetchCartProducts = async () => {
+      console.log(cart);
+      let productList = [];
+      cart.products?.map(async (product) => {
+        const details = await getSingleProduct(product.productId);
+        productList.push(details);
+      });
+      setProducts(productList);
+    };
 
+    fetchCartProducts();
+  }, [cart]);
+
+  //single cart for user
+  useEffect(() => {
+    const fetchSingleCart = async () => {
+      try {
+        const mySingleCart = await singleCart();
+        setSingleCart(mySingleCart);
       } catch (error) {
-        console.error("Error", error)
+        console.error("Error", error);
       }
     };
+
     fetchSingleCart();
-  }, [])
+  }, []);
 
-  // Delete cart
-  const handleDeleteCart = async () => {
-    try {
-      const myDeletedItem = await deleteCart();
-      console.log("Deleted Product:", myDeletedItem);
+  // // Delete cart
+  // const handleDeleteCart = async () => {
+  //   try {
+  //     const myDeletedItem = await deleteCart();
+  //     console.log("Deleted Product:", myDeletedItem);
 
-    } catch (error) {
-      console.error("Error:", error)
-    }
-  }
+  //   } catch (error) {
+  //     console.error("Error:", error)
+  //   }
+  // }
 
   return (
     <div className="second-cart-container">
       <h6>My Cart</h6>
-{/* 
-      {cart.map((cartItem, index) => {
+
+      {products.map((item, index) => {
         return (
-          <div className="myCartItems" key={index}>
-            <img src={cartItem.image} alt={cartItem.title} />
-            <span>{cartItem.title}</span>
-            <span>{cartItem.price}</span>
+          <div className="myItems" key={index}>
+            <img src={item.image} className="cartImg" />
+            <span>{item.title}</span>
+            <span>${item.price}</span>
+
+            <button onClick={() => {}} className="cart-buttons">
+              -
+            </button>
+
+            <span>{item.quantity}</span>
+
+            <button onClick={() => increaseItem(index)} className="cart-buttons">
+               +
+            </button>
+            <hr />
+
+            <button onClick={() => {}} className="cart-buttons">
+              Delete
+            </button>
           </div>
-        )
-      })} */}
-
-      <button onClick={handleDeleteCart}>Delete Cart</button>
+        );
+      })}
     </div>
-  )
+  );
 }
-
