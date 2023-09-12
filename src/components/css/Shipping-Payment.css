@@ -1,5 +1,6 @@
 /*shipping component*/
-.shipping-black-background {
+.shipping-black-background,
+.payment-black-background {
     background-color: black;
     color: white;
     width: 100%;
@@ -10,7 +11,8 @@
     margin-top: 40px;
 }
 
-.shipping-container {
+.shipping-container,
+.payment-container {
     border: 1px solid black;
     width: 700px;
     display: flex;
@@ -21,7 +23,8 @@
     margin-bottom: 20px;
 }
 
-.step-two {
+.step-two,
+.step-three {
     margin-left: 20px;
     font-family: 'Times New Roman', Times, serif;
     font-size: 16pt;

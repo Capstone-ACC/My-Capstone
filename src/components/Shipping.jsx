@@ -1,5 +1,5 @@
 import React from "react";
-import "./css/Shipping.css";
+import "./css/Shipping-Payment.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -39,7 +39,7 @@ export default function Shipping() {
 
         <form className="shipping-form-container">
           <label>
-            Name:
+            First Name:
             <input
               type="text"
               className="shipping-input"
