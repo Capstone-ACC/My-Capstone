@@ -14,7 +14,9 @@ export default function AddCart() {
   //get users
   useEffect(() => {
     const myStoredUsername = localStorage.getItem("username");
-    setUsername(myStoredUsername);
+    if (myStoredUsername) {
+      setUsername(myStoredUsername);  
+    }
   }, []);
 
   // Add cart

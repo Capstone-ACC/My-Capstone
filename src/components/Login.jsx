@@ -43,6 +43,7 @@ export default function Login({ setToken }) {
 
         if (result.token) {
           localStorage.setItem("token", result.token);
+          localStorage.setItem("username", username);
           setToken(result.token);
           alert(`Login Successful ${username}, check console.log for token`);
           navigate("/main-all-products");
