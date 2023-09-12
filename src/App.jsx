@@ -31,6 +31,7 @@ function App() {
         <li><Link to="/main-all-products">All Products</Link></li>
         <li><Link to="/login">Login</Link></li>
         <li><Link to="/register">Register</Link></li>
+        <li><Link to="/addCart">Users Cart</Link></li>  
         <li><Link to="/cart">Cart</Link></li>  
         <li><Link to="/checkout">Check Out</Link></li>
       </div>
@@ -44,6 +45,7 @@ function App() {
         <Route path="/login" element={<Login setToken={setToken}/>} />
         <Route path="/register" element={<Register setToken={setToken} />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/addCart" element={<AddCart />} />
         <Route path="/cart" element={<Cart cart={cartItems} setCart={setCart}/>} />
           <Route path="/shipping" element={<Shipping />} />
       </Routes>

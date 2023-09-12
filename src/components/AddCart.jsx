@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { deleteCart, singleCart, getSingleProduct } from "./api";
+import "./css/AddToCart.css";
+import { useNavigate } from "react-router-dom";
 
 export default function AddCart() {
   const [cart, setCart] = useState([]);
@@ -21,6 +23,7 @@ export default function AddCart() {
         const myCart = await singleCart();
         console.log("Cart Data:", myCart);
         setCart(myCart);
+
       } catch (error) {
         console.error("Error:", error);
       }
@@ -32,7 +35,6 @@ export default function AddCart() {
   //Fetch Products From Cart
   useEffect(() => {
     const fetchCartProducts = async () => {
-      console.log(cart);
       let productList = [];
       cart.products?.map(async (product) => {
         const details = await getSingleProduct(product.productId);
@@ -69,14 +71,26 @@ export default function AddCart() {
   //   }
   // }
 
+  //useNavigate
+  const navigate = useNavigate();
+
+  function checkout() {
+    navigate("/checkout")
+  }
+
+  function backToProducts() {
+    navigate("/main-all-products");
+  }
+
   return (
+    <>
     <div className="second-cart-container">
       <h6>My Cart</h6>
 
       {products.map((item, index) => {
         return (
-          <div className="myItems" key={index}>
-            <img src={item.image} className="cartImg" />
+          <div className="usersProducts" key={index}>
+            <img src={item.image} className="userProductImage" />
             <span>{item.title}</span>
             <span>${item.price}</span>
 
@@ -86,17 +100,23 @@ export default function AddCart() {
 
             <span>{item.quantity}</span>
 
-            <button onClick={() => increaseItem(index)} className="cart-buttons">
+            <button onClick={() => {}} className="cart-buttons">
                +
             </button>
-            <hr />
 
             <button onClick={() => {}} className="cart-buttons">
               Delete
             </button>
+            <hr />
+
+
           </div>
         );
       })}
+      <button onClick={backToProducts}>Back To Products</button>
+       <button onClick={checkout}>
+     Check Out</button>
     </div>
+    </>
   );
 }
