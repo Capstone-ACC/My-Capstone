@@ -1,39 +1,34 @@
-import { useState, useEffect, useContext } from "react"
-import { Link } from 'react-router-dom'
-import { CartContext } from "../Context/Context"
-import { useNavigate } from "react-router-dom"
-import { getAllCarts } from "./api"
-// import { loadCart } from '../Context/CartUtils'
-import "./Cart.css"
+import { useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
+import { CartContext } from "../Context/Context";
+import { useNavigate } from "react-router-dom";
+import { saveCartToLocalStorage,getCartFromLocalStorage,} from "../Context/CartUtils";
+import "./css/Cart-Checkout.css";
 
 export default function Cart() {
-  const [allCart, setAllCart] = useState({})
-  const myCart = useContext(CartContext)
-  const { state, dispatch } = myCart
+  const myCart = useContext(CartContext);
+  const { state, dispatch } = myCart;
 
-  // get all carts
-  // question ? ? ?
-  // do i even need this useEffect?, am I doing the cart wrong?
-  // am i supposed to do what the API says whats is in the users cart?
   useEffect(() => {
-    const fetchAllCart = async () => {
-      try {
-        const myCart = await getAllCarts();
-        setAllCart(myCart);
-      } catch (error) {
-        console.error("Error:", error);
-      }
+    const cartData = getCartFromLocalStorage();
+    if (cartData > 0) {
+      dispatch({ type: "LOAD_CART", payload: cartData });
     }
+  }, [dispatch]);
 
-    fetchAllCart()
-  }, [])
+  //total price
+  const totalPrice = state.reduce((total, item) => {
+    return total + item.price * item.quantity;
+  }, 0);
 
   //use navigate
   const navigate = useNavigate();
 
-  function goBackToProducts() {
+  function goToProducts() {
     navigate("/main-all-products");
   }
+
+
 
   return (
     <>
@@ -42,57 +37,75 @@ export default function Cart() {
 
       <div className="cart-container">
         <h5>My Cart</h5>
-        
-        {state.map((item, index) => {
-          return (
-            <div className="myItems" key={index}>
-              <img src={item.image} className="cartImg" />
-              <span>{item.title}</span>
-              <span>${item.price}</span>
 
-              <button
-                onClick={() => {
-                  console.log("Decreased Quantity:", item);
-                  dispatch({ type: "DECREASE", payload: item });
-               }}
-               className="cart-buttons">
-               -
-             </button>
+        {state.length === 0 ? (
+          <>
+          <span style={{ fontSize: "22pt" }}>Cart is empty for now</span><br/>
+          <button onClick={goToProducts}> Add Items</button>
+          </>
+        ) : (
+          <>
+            {state.map((item, index) => {
+              return (
+                <div className="myItems" key={index}>
+                  <img src={item.image} className="cartImg" />
+                  <span>{item.title}</span>
+                  <span>${item.price}</span>
 
-              <span>{item.quantity}</span>
+                  <button
+                    onClick={() => {
+                      console.log("Decreased Quantity:", item);
+                      dispatch({ type: "DECREASE", payload: item });
+                      saveCartToLocalStorage([...state]);
+                    }}
+                    className="cart-buttons"
+                  >
+                    -
+                  </button>
 
-              <button
-                onClick={() => {
-                  console.log("Increased Quantity:", item);
-                  dispatch({ type: "INCREASE", payload: item });
-               }}
-               className="cart-buttons">
-               +
-             </button>
+                  <span>{item.quantity}</span>
 
-              <button
-                onClick={() => {
-                  console.log("Deleted Item:", item);
-                  dispatch({ type: "DELETE", payload: item });
-               }}>
-               Delete
-             </button>
-            
-              <hr />
+                  <button
+                    onClick={() => {
+                      console.log("Increased Quantity:", item);
+                      dispatch({ type: "INCREASE", payload: item });
+                      saveCartToLocalStorage([...state]);
+                    }}
+                    className="cart-buttons"
+                  >
+                    +
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      console.log("Deleted Item:", item);
+                      dispatch({ type: "DELETE", payload: item });
+                      saveCartToLocalStorage([...state]);
+                    }}
+                    className="cart-buttons"
+                  >
+                    Delete
+                  </button>
+
+                  <hr />
+                </div>
+              );
+            })}
+
+            <span className="total-price">Total: ${totalPrice.toFixed(2)}</span>
+
+            <div className="add-more-bts-and-checkout">
+              <button className="cartBackToProducts" onClick={goToProducts}>
+                Add More Items
+              </button>
+
+              <button>
+                <Link to="/checkout">Check Out</Link>
+              </button>
             </div>
-          )
-        })}
-
-        <button className="cartBackToProducts" onClick={goBackToProducts}>
-          Add More Items
-        </button>
-
-        <button>
-          <Link to="/checkout">Check Out</Link>
-        </button>
+          </>
+        )}
       </div>
     </>
-  )
+  );
 }
-
-

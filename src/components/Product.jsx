@@ -1,6 +1,6 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import "./Main-SearchBar.css"
+import React from "react";
+import { Link } from "react-router-dom";
+import "./css/Main-SearchBar.css";
 
 export default function Product({ product }) {
   return (
@@ -22,5 +22,5 @@ export default function Product({ product }) {
         </div>
       </div>
     </div>
-  )
+  );
 }

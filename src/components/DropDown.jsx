@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react"
-import { getCategories } from "./api"
+import React, { useState, useEffect } from "react";
+import { getCategories } from "./api";
 
 export default function DropDown({ selectedCategory, setSelectedCategory }) {
-  const [categories, setCategories] = useState([])
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -12,13 +12,13 @@ export default function DropDown({ selectedCategory, setSelectedCategory }) {
       } catch (error) {
         console.error("Error:", error);
       }
-    }
+    };
     fetchCategories();
-  }, [setSelectedCategory])
+  }, [setSelectedCategory]);
 
   const handleCategoryChange = (e) => {
-    setSelectedCategory(e.target.value)
-  }
+    setSelectedCategory(e.target.value);
+  };
 
   return (
     <select value={selectedCategory} onChange={handleCategoryChange}>
@@ -30,5 +30,5 @@ export default function DropDown({ selectedCategory, setSelectedCategory }) {
         </option>
       ))}
     </select>
-  )
+  );
 }

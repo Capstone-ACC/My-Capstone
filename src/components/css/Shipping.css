@@ -1,0 +1,60 @@
+/*shipping component*/
+.shipping-black-background {
+    background-color: black;
+    color: white;
+    width: 100%;
+    max-width: 700px;
+    display: flex;
+    justify-content: left;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.shipping-container {
+    border: 1px solid black;
+    width: 700px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.step-two {
+    margin-left: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16pt;
+    padding: 5px;
+    word-spacing: 2px;
+}
+
+.shipping-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    font-size: 16pt;
+    margin-bottom: 10px;
+
+}
+
+.shipping-form-container label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.shipping-input {
+    border: 1px sold black;
+}
+
+.available-countries {
+    margin-top: 10px;
+}
+
+.selectCounty {
+    margin-bottom: 20px;
+}

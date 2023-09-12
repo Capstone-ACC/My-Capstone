@@ -14,7 +14,7 @@ h3 {
 input {
   width: 300px;
   font-size: 14pt;
-  border: 2px solid burlywood;
+  border: 1px solid black;
   outline: none;
   font-family: "Times New Roman", Times, serif;
   padding: 5px;
@@ -85,7 +85,7 @@ button,
   padding: 5px;
   border-radius: 10px;
   font-family: "Lobster", cursive;
-  margin-bottom: 0px
+  margin-bottom: 0px;
 }
 
 a,

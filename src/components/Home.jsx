@@ -1,6 +1,6 @@
-import React from "react"
-import { useNavigate } from "react-router-dom"
-import "./HomePage.css"
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import "./css/HomePage.css";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -17,5 +17,5 @@ export default function Home() {
       </button>
       <p>Check out latest trends from clothing to technology</p>
     </div>
-  )
+  );
 }

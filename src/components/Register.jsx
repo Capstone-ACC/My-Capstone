@@ -1,17 +1,38 @@
-import React from "react"
-import { useState } from "react"
-import "./Login-Register-Styles.css"
+import React from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./css/Login-Register-Styles.css";
+import { addNewUser } from "./api";
 
-export default function Register() {
-  const [username, setUserName] = useState("")
-  const [password, setPassword] = useState("")
+export default function Register({setToken}) {
+  const [username, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const registerUsernameInput = (e) => {
     setUserName(e.target.value);
-  }
+  };
 
   const registerPasswordInput = (e) => {
     setPassword(e.target.value);
+  };
+
+  const navigate = useNavigate();
+
+  //add a new user
+  const handleRegister = async (e) => {
+    e.preventDefault();
+
+    const result = await addNewUser(username,password)
+
+    if (!username || !password) {
+      setError("Please enter both username and password");
+    } else {
+      alert(`Success, Welcome ${username}! You are now registered`)
+      console.log("New User ID:",result);
+      navigate("/main-all-products");
+      setError("");
+    }
   }
 
   return (
@@ -22,7 +43,7 @@ export default function Register() {
       <div className="register-container">
         <h2>Register For a New Account</h2>
 
-        <form>
+        <form onSubmit={handleRegister}>  
           <label>
             Username:
             <input
@@ -32,6 +53,8 @@ export default function Register() {
               onChange={registerUsernameInput}
             />
           </label>
+
+          {error && <span className="error-message">{error}</span>}
 
           <label>
             Password:
@@ -48,7 +71,13 @@ export default function Register() {
         </form>
       </div>
 
-      <img src="/images/mensJackets.jpg"className="macBook" alt="mac book laptop" />
+      <img
+        src="/images/mensJackets.jpg"
+        className="macBook"
+        alt="mac book laptop"
+      />
     </>
-  )
+  );
 }
+
+

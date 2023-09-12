@@ -5,6 +5,7 @@ import { saveCartToLocalStorage } from '../Context/CartUtils'
   //handle logout
   const handleLogOut = () => {
     saveCartToLocalStorage(cartItems)
+    localStorage.removeItem('username');
   }
 
 export default function TopHeader() {
@@ -16,5 +17,7 @@ export default function TopHeader() {
     </div>
   )
 }
+
+
 
 
