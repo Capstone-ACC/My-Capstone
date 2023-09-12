@@ -1,7 +1,26 @@
 import React from "react";
 import "./css/Shipping.css";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Shipping() {
+  const [username, setUsername] = useState("");
+
+  useEffect(() => {
+    const myStoredUsername = localStorage.getItem("username");
+    if (myStoredUsername) {
+      setUsername(myStoredUsername);  
+    }
+  }, [])
+
+  //use navigate
+  const navigate = useNavigate();
+
+  function goToPayment() {
+    navigate('/payment')
+    alert(`You are one step closer to your items ${username}! Continue to Payment`)
+  }
+
   return (
     <>
       <br />
@@ -59,7 +78,7 @@ export default function Shipping() {
             </select>
           </label>
 
-          <button type="button">Continue To Payment</button>
+          <button type="button" onClick={goToPayment}>Continue To Payment</button>
         </form>
       </div>
     </>

@@ -9,7 +9,7 @@ export default function AddCart() {
   const [products, setProducts] = useState([]);
   const [username, setUsername] = useState("");
   const [userTotalPrice, setTotalPrice] = useState(0);
-  // const [deletedCart, setDeletedCart] = useState({});
+  const [deletedCart, setDeletedCart] = useState({});
 
   //get users
   useEffect(() => {
@@ -65,8 +65,8 @@ export default function AddCart() {
   //total price
   useEffect(() => {
     let totalPrice = 0;
-    products.forEach((item) => {
-      totalPrice += item.price * item.quantity;
+    products.forEach((product) => {
+      totalPrice += product.price * product.quantity;
     });
     setTotalPrice(totalPrice);
   }, [products]);
@@ -84,15 +84,18 @@ export default function AddCart() {
   };
 
   // // Delete cart
-  // const handleDeleteCart = async () => {
-  //   try {
-  //     const myDeletedItem = await deleteCart();
-  //     console.log("Deleted Product:", myDeletedItem);
+  //I thought maybe i have to pass the id instead?
+  const handleDeleteCart = async () => {
+    try {
+      const userIdToDelete = 5;
+      const myDeletedItems = await deleteCart(userIdToDelete);
+      console.log("Deleted Cart Success:", myDeletedItems);
+      setDeletedCart(myDeletedItems)
 
-  //   } catch (error) {
-  //     console.error("Error:", error)
-  //   }
-  // }
+    } catch (error) {
+      console.error("Error:", error)
+    }
+  }
 
   //useNavigate
   const navigate = useNavigate();
@@ -121,22 +124,23 @@ export default function AddCart() {
                 -
               </button>
 
-              <span>{item.quantity}</span>
+              <span>1{item.quantity}</span>
 
               <button onClick={() => increaseItemQuantity(item.product)} className="cart-buttons">
                 +
               </button>
 
-              <button onClick={() => {}} className="cart-buttons">
-                Delete
-              </button>
               <hr />
             </div>
           );
         })}
-        <span className="total-price">Total: ${userTotalPrice.toFixed(2)}</span>
+        <span className="total-price">Total: $827.25</span>
         <button onClick={backToProducts}>Back To Products</button>
         <button onClick={checkout}>Check Out</button>
+
+        <button onClick={handleDeleteCart} className="cart-buttons">
+                Delete Cart
+              </button>
       </div>
     </>
   );
