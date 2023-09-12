@@ -8,14 +8,8 @@ export default function AddCart() {
   const [mySingleCart, setSingleCart] = useState([]);
   const [products, setProducts] = useState([]);
   const [username, setUsername] = useState("");
+  const [userTotalPrice, setTotalPrice] = useState(0);
   // const [deletedCart, setDeletedCart] = useState({});
-
-  // //increasing a quantity of item
-  // function increaseItem(index) {
-  //   const updatedProducts = [...products];
-  //   updatedProducts[index].quantity += 1;
-  //   setProducts(updatedProducts);
-  // }
 
   //get users
   useEffect(() => {
@@ -66,6 +60,27 @@ export default function AddCart() {
     fetchSingleCart();
   }, []);
 
+  //total price
+  useEffect(() => {
+    let totalPrice = 0;
+    products.forEach((item) => {
+      totalPrice += item.price * item.quantity;
+    });
+    setTotalPrice(totalPrice);
+  }, [products]);
+
+
+  // Increase the quantity of a product in the cart
+  const increaseItemQuantity = (productId) => {
+    const updatedProducts = products.map((item) => {
+      if (item.productId === productId) {
+        return { ...item, quantity: item.quantity + 1 };
+      }
+      return item;
+    });
+    setProducts(updatedProducts);
+  };
+
   // // Delete cart
   // const handleDeleteCart = async () => {
   //   try {
@@ -106,7 +121,7 @@ export default function AddCart() {
 
               <span>{item.quantity}</span>
 
-              <button onClick={() => {}} className="cart-buttons">
+              <button onClick={() => increaseItemQuantity(item.product)} className="cart-buttons">
                 +
               </button>
 
@@ -117,6 +132,7 @@ export default function AddCart() {
             </div>
           );
         })}
+        <span className="total-price">Total: ${userTotalPrice.toFixed(2)}</span>
         <button onClick={backToProducts}>Back To Products</button>
         <button onClick={checkout}>Check Out</button>
       </div>

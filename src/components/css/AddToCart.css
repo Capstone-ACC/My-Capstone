@@ -1,12 +1,14 @@
 /* add to cart component*/
 .second-cart-container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 950px;
     display: block;
     margin-left: auto;
     margin-right: auto;
     background-color:#FFF5EE;
     padding: 20px; 
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .usersProducts {
