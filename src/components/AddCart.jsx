@@ -7,6 +7,7 @@ export default function AddCart() {
   const [cart, setCart] = useState([]);
   const [mySingleCart, setSingleCart] = useState([]);
   const [products, setProducts] = useState([]);
+  const [username, setUsername] = useState("");
   // const [deletedCart, setDeletedCart] = useState({});
 
   // //increasing a quantity of item
@@ -16,6 +17,12 @@ export default function AddCart() {
   //   setProducts(updatedProducts);
   // }
 
+  //get users
+  useEffect(() => {
+    const myStoredUsername = localStorage.getItem("username");
+    setUsername(myStoredUsername);
+  }, []);
+
   // Add cart
   useEffect(() => {
     const fetchCart = async () => {
@@ -23,7 +30,6 @@ export default function AddCart() {
         const myCart = await singleCart();
         console.log("Cart Data:", myCart);
         setCart(myCart);
-
       } catch (error) {
         console.error("Error:", error);
       }
@@ -75,7 +81,7 @@ export default function AddCart() {
   const navigate = useNavigate();
 
   function checkout() {
-    navigate("/checkout")
+    navigate("/checkout");
   }
 
   function backToProducts() {
@@ -84,39 +90,36 @@ export default function AddCart() {
 
   return (
     <>
-    <div className="second-cart-container">
-      <h6>My Cart</h6>
+      <div className="second-cart-container">
+        <h6>{`${username}'s Cart`}</h6>
 
-      {products.map((item, index) => {
-        return (
-          <div className="usersProducts" key={index}>
-            <img src={item.image} className="userProductImage" />
-            <span>{item.title}</span>
-            <span>${item.price}</span>
+        {products.map((item, index) => {
+          return (
+            <div className="usersProducts" key={index}>
+              <img src={item.image} className="userProductImage" />
+              <span>{item.title}</span>
+              <span>${item.price}</span>
 
-            <button onClick={() => {}} className="cart-buttons">
-              -
-            </button>
+              <button onClick={() => {}} className="cart-buttons">
+                -
+              </button>
 
-            <span>{item.quantity}</span>
+              <span>{item.quantity}</span>
 
-            <button onClick={() => {}} className="cart-buttons">
-               +
-            </button>
+              <button onClick={() => {}} className="cart-buttons">
+                +
+              </button>
 
-            <button onClick={() => {}} className="cart-buttons">
-              Delete
-            </button>
-            <hr />
-
-
-          </div>
-        );
-      })}
-      <button onClick={backToProducts}>Back To Products</button>
-       <button onClick={checkout}>
-     Check Out</button>
-    </div>
+              <button onClick={() => {}} className="cart-buttons">
+                Delete
+              </button>
+              <hr />
+            </div>
+          );
+        })}
+        <button onClick={backToProducts}>Back To Products</button>
+        <button onClick={checkout}>Check Out</button>
+      </div>
     </>
   );
 }

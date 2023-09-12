@@ -79,7 +79,7 @@ export const getCategories = async () => {
 /*get single cart*/
 export const singleCart = async () => {
     try {
-        const response = await fetch("https://fakestoreapi.com/carts/5")
+        const response = await fetch("https://fakestoreapi.com/carts/2")
         const result = await response.json()
         return result;
 
@@ -118,7 +118,7 @@ export const addCart = async (userId, products) => {
 //delete a product from cart
 export const deleteCart = async () => {
     try {
-        const response = await fetch ("https://fakestoreapi.com/carts/6", {
+        const response = await fetch ("https://fakestoreapi.com/carts/1", {
             method: "DELETE"
         })
 
