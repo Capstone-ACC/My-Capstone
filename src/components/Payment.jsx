@@ -9,6 +9,10 @@ export default function Payment() {
     navigate("/shipping");
   }
 
+  function goToConfirmation() {
+    navigate("/confirmation");
+  }
+
   return (
     <>
       <br />
@@ -59,7 +63,7 @@ export default function Payment() {
 
           <div className="payment-buttons">
             <button onClick={backToShipping}>Back To Shipping</button>
-            <button>Submit Payment</button>
+            <button onClick={goToConfirmation}>Submit Payment</button>
           </div>
         </form>
       </div>
