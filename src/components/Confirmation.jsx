@@ -4,7 +4,7 @@ import "./css/Confirmation.css";
 
 export default function Confirmation() {
   const location = useLocation();
-  const { name, email, address } = location.state;
+  const { name, email, address, cart, products} = location.state;
 
   console.log(`"Success:" Shipping To ${address}`);
 
@@ -32,6 +32,15 @@ export default function Confirmation() {
         <span>
           Items are being sent to <div className="address">{address}</div>{" "}
         </span>
+
+        {/* {products.map((item, index) => (
+          <div className="cart-item" key={index}>
+            <span>{item.product.title}</span>
+            <img src={item.image} className="userProductImage" />
+          </div>
+        ))} */}
+
+       {console.log("Cart Data:", cart)};
       </div>
     </>
   );

@@ -99,7 +99,12 @@ export default function AddCart() {
   const navigate = useNavigate();
 
   function checkout() {
-    navigate("/checkout");
+    navigate("/confirmation", { 
+      state: { 
+        cart: cart,
+        product: product
+      } 
+    });
   }
 
   function backToProducts() {
