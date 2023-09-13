@@ -18,6 +18,7 @@ h5 {
     margin-right: auto;
     background-color:#FFF5EE;
     padding: 20px;
+    border-radius: 12px;
 }
 
 .cartImg {
@@ -53,7 +54,7 @@ span {
 
 /*checkout component*/
 .checkout-container {
-    border: 1px solid black;
+    border: 2px solid black;
     width: 700px;
     display: flex;
     justify-content: center;
