@@ -12,7 +12,7 @@ export default function Confirmation() {
     <>
       <div className="confirmation-black-background">
         <div className="step-four"> Confirmation #2556987125</div>
-        <img src="/images/animatedCreditCard.png" className="animatedCC"/>
+        <img src="/images/animatedCreditCard.png" className="animatedCC" />
       </div>
 
       <div className="confirmation-container">
@@ -21,9 +21,8 @@ export default function Confirmation() {
           <hr />
         </h5>
 
-        <span>
-          Your order is being processed
-        </span><br/>
+        <span>Your order is being processed</span>
+        <br />
 
         <span>
           Be on a look out for an E-mail sent to
