@@ -116,9 +116,9 @@ export const addCart = async (userId, products) => {
 
 
 //delete a product from cart
-export const deleteCart = async () => {
+export const deleteCart = async (userId) => {
     try {
-        const response = await fetch ("https://fakestoreapi.com/carts/1", {
+        const response = await fetch (`https://fakestoreapi.com/carts/${userId}`, {
             method: "DELETE"
         })
 

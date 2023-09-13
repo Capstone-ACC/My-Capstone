@@ -1,7 +1,32 @@
 import React from "react";
-import "./css/Shipping.css";
+import "./css/Shipping-Payment.css";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Shipping() {
+  const [username, setUsername] = useState("");
+
+  useEffect(() => {
+    const myStoredUsername = localStorage.getItem("username");
+    if (myStoredUsername) {
+      setUsername(myStoredUsername);
+    }
+  }, []);
+
+  //use navigate
+  const navigate = useNavigate();
+
+  function backToContact() {
+    navigate("/checkout");
+  }
+
+  function goToPayment() {
+    navigate("/payment");
+    alert(
+      `You are one step closer to your items ${username}! Continue to Payment`
+    );
+  }
+
   return (
     <>
       <br />
@@ -13,42 +38,41 @@ export default function Shipping() {
 
       <div className="shipping-container">
         <span>* indicates a required field</span>
-        <h5 style={{ textDecoration: "none", marginTop: "10px", marginBottom: "0px" }}>
+        <h5
+          style={{
+            textDecoration: "none",
+            marginTop: "10px",
+            marginBottom: "0px",
+          }}
+        >
           Shipping
           <hr />
         </h5>
 
         <form className="shipping-form-container">
           <label>
-            Name:
-            <input
-              type="text"
-              className="shipping-input"
-              placeholder="First Name*"
-            />
+            First Name:
+            <input type="text" placeholder="First Name*" />
           </label>
 
           <label>
             Last Name:
-            <input
-              type="text"
-              className="shipping-input"
-              placeholder="Last Name*"
-            />
+            <input type="text" placeholder="Last Name*" />
           </label>
 
           <label>
             Address:
-            <input
-              type="text"
-              className="shipping-input"
-              placeholder="Address*"
-            />
+            <input type="text" placeholder="Address*" />
           </label>
 
           <label>
             City:
-            <input type="text" className="shipping-input" placeholder="City*" />
+            <input type="text" placeholder="City*" />
+          </label>
+
+          <label>
+            State:
+            <input type="text" className="state" placeholder="State" />
             <span className="available-countries">Available Counties:</span>
             <select className="selectCounty">
               <option value="unitedStates">United States</option>
@@ -59,7 +83,14 @@ export default function Shipping() {
             </select>
           </label>
 
-          <button type="button">Continue To Payment</button>
+          <div className="shipping-buttons">
+            <button type="button" onClick={backToContact}>
+              Back To Contact Info
+            </button>
+            <button type="button" onClick={goToPayment}>
+              Continue To Payment
+            </button>
+          </div>
         </form>
       </div>
     </>
