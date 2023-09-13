@@ -4,7 +4,7 @@ import "./css/Confirmation.css";
 
 export default function Confirmation() {
   const location = useLocation();
-  const { name, email, address, cart, products} = location.state;
+  const { name, email, address, cart, products } = location.state;
 
   console.log(`"Success:" Shipping To ${address}`);
 
@@ -20,17 +20,14 @@ export default function Confirmation() {
           Payment Successful {name}!
           <hr />
         </h5>
-
         <span>Your order is being processed</span>
         <br />
-
         <span>
           Be on a look out for an E-mail sent to
           <div className="email">{email}</div> for more details
         </span>
-
         <span>
-          Items are being sent to <div className="address">{address}</div>{" "}
+          Items are being sent to <div className="address">{address}</div>
         </span>
 
         {/* {products.map((item, index) => (
@@ -39,8 +36,8 @@ export default function Confirmation() {
             <img src={item.image} className="userProductImage" />
           </div>
         ))} */}
-
-       {console.log("Cart Data:", cart)};
+        
+        {console.log("Cart Data:", cart)};
       </div>
     </>
   );

@@ -26,6 +26,7 @@ export default function AddCart() {
         const myCart = await singleCart();
         console.log("Cart Data:", myCart);
         setCart(myCart);
+
       } catch (error) {
         console.error("Error:", error);
       }
@@ -54,6 +55,7 @@ export default function AddCart() {
       try {
         const mySingleCart = await singleCart();
         setSingleCart(mySingleCart);
+
       } catch (error) {
         console.error("Error", error);
       }
@@ -82,14 +84,17 @@ export default function AddCart() {
     setProducts(updatedProducts);
   };
 
-  // // Delete cart
-  //I thought maybe i have to pass the id instead?
+  //Delete cart
   const handleDeleteCart = async () => {
     try {
       const userIdToDelete = 5;
       const myDeletedItems = await deleteCart(userIdToDelete);
-      console.log("Deleted Cart Success:", myDeletedItems);
       setDeletedCart(myDeletedItems);
+      setCart([]);
+      setProducts([]);
+      setTotalPrice(0);
+      alert(`${username}'s cart has been deleted. Add More Items`);
+      
     } catch (error) {
       console.error("Error:", error);
     }
@@ -99,11 +104,11 @@ export default function AddCart() {
   const navigate = useNavigate();
 
   function checkout() {
-    navigate("/confirmation", { 
-      state: { 
+    navigate("/checkout", {
+      state: {
         cart: cart,
-        product: product
-      } 
+        products: products,
+      },
     });
   }
 
@@ -116,31 +121,39 @@ export default function AddCart() {
       <div className="second-cart-container">
         <h6>{`${username}'s Cart`}</h6>
 
-        {products.map((item, index) => {
-          return (
-            <div className="usersProducts" key={index}>
-              <img src={item.image} className="userProductImage" />
-              <span>{item.title}</span>
-              <span>${item.price}</span>
+        {products.length === 0 ? (
+          <>
+            <span style={{ fontSize: "22pt" }}>Cart is Empty</span>
+            <br />
+          </>
+        ) : (
+          products.map((item, index) => {
+            return (
+              <div className="usersProducts" key={index}>
+                <img src={item.image} className="userProductImage" />
+                <span>{item.title}</span>
+                <span>${item.price}</span>
 
-              <button onClick={() => {}} className="cart-buttons">
-                -
-              </button>
+                <button onClick={() => {}} className="cart-buttons">
+                  -
+                </button>
 
-              <span>1{item.quantity}</span>
+                <span>1{item.quantity}</span>
 
-              <button
-                onClick={() => increaseItemQuantity(item.product)}
-                className="cart-buttons"
-              >
-                +
-              </button>
+                <button
+                  // onClick={() => increaseItemQuantity(item.productId)}
+                  className="cart-buttons"
+                >
+                  +
+                </button>
 
-              <hr />
-            </div>
-          );
-        })}
-        <span className="total-price">Total: $827.25</span>
+                <hr />
+              </div>
+            );
+          })
+        )}
+
+        <span className="total-price">Total: {userTotalPrice.toFixed(2)}</span>
         <button onClick={backToProducts}>Back To Products</button>
         <button onClick={checkout}>Check Out</button>
 
