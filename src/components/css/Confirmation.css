@@ -8,6 +8,9 @@
     justify-content: left;
     margin: 0 auto;
     margin-top: 40px;
+    border-radius: 12px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
 }
 
 .step-four {
@@ -18,17 +21,29 @@
     word-spacing: 2px;
 }
 
+.animatedCC {
+    margin-left: 10px;
+}
+
 .confirmation-container {
-    border: 1px solid black;
+    border: 3px solid black;
     width: 700px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     margin: 0 auto;
-    margin-bottom: 20px;
+    font-size: 14pt;
+    padding-bottom: 20px;
+    border-radius: 12px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
 }
 
 .heading-confirm {
-    margin-top: 20px;
+    margin-top: 40px;
+}
+
+.email, .address {
+    font-family: 'Lobster', cursive;
 }

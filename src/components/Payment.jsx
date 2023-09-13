@@ -7,6 +7,8 @@ export default function Payment() {
   const [zipCode, setZipCode] = useState("");
   const [cvv, setCvv] = useState("");
   const [promoCode, setPromoCode] = useState("")
+  const [address, setAddress] = useState("");
+  const [email, setEmail] = useState("");
 
   //useNavigate
   const navigate = useNavigate();
@@ -17,7 +19,17 @@ export default function Payment() {
 
   function goToConfirmation(event) {
     event.preventDefault();
-    navigate("/confirmation");
+    navigate("/confirmation", {
+      state: {
+        name,
+        cardNumber,
+        zipCode,
+        cvv,
+        promoCode,
+        address,
+        email
+      }
+    });
   }
 
   return (
@@ -49,6 +61,18 @@ export default function Payment() {
             First and Last Name
             <input type="text" placeholder="Name on card*"
             onChange={(e) => setName(e.target.value)} />
+          </label>
+
+          <label className="payment-labels-input" >
+            Confirm Address:
+            <input type="text" placeholder="Address*"
+            onChange={(e) => setAddress(e.target.value)} />
+          </label>
+
+          <label className="payment-labels-input" >
+            Confirm Email:
+            <input type="text" placeholder="Email*"
+            onChange={(e) => setEmail(e.target.value)} />
           </label>
 
           <label className="payment-labels-input">
