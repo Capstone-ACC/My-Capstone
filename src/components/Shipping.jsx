@@ -42,7 +42,6 @@ export default function Shipping() {
             First Name:
             <input
               type="text"
-              className="shipping-input"
               placeholder="First Name*"
             />
           </label>
@@ -51,7 +50,6 @@ export default function Shipping() {
             Last Name:
             <input
               type="text"
-              className="shipping-input"
               placeholder="Last Name*"
             />
           </label>
@@ -60,14 +58,13 @@ export default function Shipping() {
             Address:
             <input
               type="text"
-              className="shipping-input"
               placeholder="Address*"
             />
           </label>
 
           <label>
             City:
-            <input type="text" className="shipping-input" placeholder="City*" />
+            <input type="text" placeholder="City*" />
             <span className="available-countries">Available Counties:</span>
             <select className="selectCounty">
               <option value="unitedStates">United States</option>
