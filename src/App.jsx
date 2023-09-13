@@ -35,7 +35,6 @@ function App() {
         <li><Link to="/register">Register</Link></li>
         <li><Link to="/addCart">Users Cart</Link></li>  
         <li><Link to="/cart">Cart</Link></li>  
-        <li><Link to="/checkout">Check Out</Link></li>
       </div>
 
       <Routes>
