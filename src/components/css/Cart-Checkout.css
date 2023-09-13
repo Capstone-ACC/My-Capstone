@@ -3,6 +3,13 @@ h5 {
     text-decoration: underline;
 }
 
+.contact {
+    width: 100%;
+    max-width: 350px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+}
+
 .cart-container {
     width: 100%;
     max-width: 1200px;
@@ -11,6 +18,7 @@ h5 {
     margin-right: auto;
     background-color:#FFF5EE;
     padding: 20px;
+    border-radius: 12px;
 }
 
 .cartImg {
@@ -46,7 +54,7 @@ span {
 
 /*checkout component*/
 .checkout-container {
-    border: 1px solid black;
+    border: 2px solid black;
     width: 700px;
     display: flex;
     justify-content: center;

@@ -2,5 +2,7 @@
 
 By: Davonne J. Vigil
 
-  - e-commerce website
-  - name to be determined
+  - Tech & Styles E-commerce Website
+  - Fake Store API
+
+

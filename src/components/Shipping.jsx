@@ -49,6 +49,8 @@ export default function Shipping() {
           <hr />
         </h5>
 
+        <img src="/images/packages.jpg" className="packages" />
+
         <form className="shipping-form-container">
           <label>
             First Name:
@@ -73,7 +75,7 @@ export default function Shipping() {
           <label>
             State:
             <input type="text" className="state" placeholder="State" />
-            <span className="available-countries">Available Counties:</span>
+            <span className="available-countries">Available Counties:*</span>
             <select className="selectCounty">
               <option value="unitedStates">United States</option>
               <option value="canada">Canada</option>
