@@ -47,7 +47,7 @@ function App() {
         <Route path="/login" element={<Login setToken={setToken}/>} />
         <Route path="/register" element={<Register setToken={setToken} />} />
         <Route path="/checkout" element={<Checkout />} />
-        <Route path="/addCart" element={<AddCart username="Davonne" />} />
+        <Route path="/addCart" element={<AddCart />} />
         <Route path="/cart" element={<Cart cart={cartItems} setCart={setCart}/>} />
           <Route path="/shipping" element={<Shipping />} />
           <Route path="/payment" element={<Payment />} />
