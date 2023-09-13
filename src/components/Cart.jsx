@@ -28,7 +28,7 @@ export default function Cart() {
   }
 
   function goToCheckout() {
-    navigate("/checkout");
+    alert("This is just another version of cart. Please see Users Cart to checkout cart from the API")
   }
 
   return (
