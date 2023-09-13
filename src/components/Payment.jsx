@@ -1,6 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Payment() {
+  //useNavigate
+  const navigate = useNavigate();
+
+  function backToShipping() {
+    navigate("/shipping");
+  }
+
   return (
     <>
       <br />
@@ -23,46 +31,36 @@ export default function Payment() {
           <hr />
         </h5>
 
-        <form className="shipping-form-container">
-          <label>
+        <form className="payment-form-container">
+          <label className="payment-labels-input" l>
             First and Last Name
-            <input
-              type="text"
-              placeholder="Name on card*"
-            />
+            <input type="text" placeholder="Name on card*" />
           </label>
 
-          <label>
-            Last Name:
-            <input
-              type="text"
-              placeholder="Last Name*"
-            />
-          </label>
-
-          <label>
+          <label className="payment-labels-input">
             Credit Card Number:
-            <input
-              type="text"
-              placeholder="Credit Card Number*"
-            />
+            <input type="input" placeholder="Credit Card Number*" />
           </label>
 
-          <label>
+          <label className="payment-labels-input">
             Zip Code:
-            <input
-              type="text"
-              placeholder="Zip Code*"
-            />
+            <input type="text" placeholder="Zip Code*" />
           </label>
 
-          <label>
+          <label className="payment-labels-input">
             CVV:
-            <input
-              type="text"
-              placeholder="CVC*"
-            />
+            <input type="text" placeholder="CVV*" />
           </label>
+
+          <label className="payment-labels-input">
+            Promo Code:
+            <input type="text" placeholder="Code" />
+          </label>
+
+          <div className="payment-buttons">
+            <button onClick={backToShipping}>Back To Shipping</button>
+            <button>Submit Payment</button>
+          </div>
         </form>
       </div>
     </>

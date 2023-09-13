@@ -15,7 +15,7 @@ export default function AddCart() {
   useEffect(() => {
     const myStoredUsername = localStorage.getItem("username");
     if (myStoredUsername) {
-      setUsername(myStoredUsername);  
+      setUsername(myStoredUsername);
     }
   }, []);
 
@@ -71,7 +71,6 @@ export default function AddCart() {
     setTotalPrice(totalPrice);
   }, [products]);
 
-
   // Increase the quantity of a product in the cart
   const increaseItemQuantity = (productId) => {
     const updatedProducts = products.map((item) => {
@@ -90,12 +89,11 @@ export default function AddCart() {
       const userIdToDelete = 5;
       const myDeletedItems = await deleteCart(userIdToDelete);
       console.log("Deleted Cart Success:", myDeletedItems);
-      setDeletedCart(myDeletedItems)
-
+      setDeletedCart(myDeletedItems);
     } catch (error) {
-      console.error("Error:", error)
+      console.error("Error:", error);
     }
-  }
+  };
 
   //useNavigate
   const navigate = useNavigate();
@@ -126,7 +124,10 @@ export default function AddCart() {
 
               <span>1{item.quantity}</span>
 
-              <button onClick={() => increaseItemQuantity(item.product)} className="cart-buttons">
+              <button
+                onClick={() => increaseItemQuantity(item.product)}
+                className="cart-buttons"
+              >
                 +
               </button>
 
@@ -138,9 +139,7 @@ export default function AddCart() {
         <button onClick={backToProducts}>Back To Products</button>
         <button onClick={checkout}>Check Out</button>
 
-        <button onClick={handleDeleteCart} className="cart-buttons">
-                Delete Cart
-              </button>
+        <button onClick={handleDeleteCart}>Delete Cart</button>
       </div>
     </>
   );
