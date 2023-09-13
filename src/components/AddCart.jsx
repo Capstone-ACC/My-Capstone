@@ -74,14 +74,8 @@ export default function AddCart() {
   }, [products]);
 
   // Increase the quantity of a product in the cart
-  const increaseItemQuantity = (productId) => {
-    const updatedProducts = products.map((item) => {
-      if (item.productId === productId) {
-        return { ...item, quantity: item.quantity + 1 };
-      }
-      return item;
-    });
-    setProducts(updatedProducts);
+  const increaseItemQuantity = () => {
+    
   };
 
   //Delete cart
