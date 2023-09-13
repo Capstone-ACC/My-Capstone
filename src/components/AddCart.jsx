@@ -94,7 +94,7 @@ export default function AddCart() {
       setProducts([]);
       setTotalPrice(0);
       alert(`${username}'s cart has been deleted. Add More Items`);
-      
+
     } catch (error) {
       console.error("Error:", error);
     }

@@ -1,7 +1,7 @@
 import React from "react";
 import "./css/Shipping-Payment.css";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export default function Shipping() {
   const [username, setUsername] = useState("");
@@ -13,18 +13,21 @@ export default function Shipping() {
     }
   }, []);
 
-  //use navigate
+  //useNavigate and location
   const navigate = useNavigate();
+  const location = useLocation();
+  const { cart } = location.state;
 
   function backToContact() {
     navigate("/checkout");
   }
 
   function goToPayment() {
-    navigate("/payment");
-    alert(
-      `You are one step closer to your items ${username}! Continue to Payment`
-    );
+    navigate("/payment", {
+      state: {
+        cart: cart,
+      },
+    });
   }
 
   return (

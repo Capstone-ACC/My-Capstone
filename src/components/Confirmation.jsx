@@ -36,8 +36,8 @@ export default function Confirmation() {
             <img src={item.image} className="userProductImage" />
           </div>
         ))} */}
-        
-        {console.log("Cart Data:", cart)};
+
+        {console.log("Items Purchased:", cart)}
       </div>
     </>
   );

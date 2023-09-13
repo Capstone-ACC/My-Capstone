@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export default function Payment() {
   const [name, setName] = useState("");
@@ -10,8 +10,10 @@ export default function Payment() {
   const [address, setAddress] = useState("");
   const [email, setEmail] = useState("");
 
-  //useNavigate
+  //useNavigate & useLocation
   const navigate = useNavigate();
+  const location = useLocation();
+  const { cart } = location.state;
 
   function backToShipping() {
     navigate("/shipping");
@@ -27,7 +29,8 @@ export default function Payment() {
         cvv,
         promoCode,
         address,
-        email
+        email,
+        cart
       }
     });
   }
