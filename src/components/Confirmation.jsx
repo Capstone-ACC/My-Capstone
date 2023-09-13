@@ -1,12 +1,17 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./css/Confirmation.css";
 
 export default function Confirmation() {
   const location = useLocation();
   const { name, email, address, cart, products } = location.state;
 
-  console.log(`"Success:" Shipping To ${address}`);
+  //useNavigate
+  const navigate = useNavigate();
+
+  function backToShopping() {
+    navigate('/main-all-products')
+  }
 
   return (
     <>
@@ -38,6 +43,9 @@ export default function Confirmation() {
         ))} */}
 
         {console.log("Items Purchased:", cart)}
+        {console.log(`"Payment Successful:" Shipping To ${address}`)}
+
+        <button onClick={backToShopping}>Continue Shopping</button>
       </div>
     </>
   );

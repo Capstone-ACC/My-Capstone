@@ -47,3 +47,8 @@
 .email, .address {
     font-family: 'Lobster', cursive;
 }
+
+.address {
+    margin-bottom: 20px;
+}
+
