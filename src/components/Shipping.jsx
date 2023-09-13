@@ -49,6 +49,8 @@ export default function Shipping() {
           <hr />
         </h5>
 
+        <img src="/images/packages.jpg" className="packages" />
+
         <form className="shipping-form-container">
           <label>
             First Name:

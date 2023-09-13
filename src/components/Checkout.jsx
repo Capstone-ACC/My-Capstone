@@ -26,6 +26,9 @@ export default function Checkout() {
           Contact Information
           <hr />
         </h5>
+
+        <img src="/images/contact.jpg" className="contact"/>
+
         <form className="form-container">
           <label>
             Phone Number:

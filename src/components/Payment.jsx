@@ -35,8 +35,10 @@ export default function Payment() {
           <hr />
         </h5>
 
+        <img src="/images/creditCards.jpg" className="creditCards" />
+
         <form className="payment-form-container">
-          <label className="payment-labels-input" l>
+          <label className="payment-labels-input" >
             First and Last Name
             <input type="text" placeholder="Name on card*" />
           </label>
