@@ -1,5 +1,4 @@
 import { useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
 import { CartContext } from "../Context/Context";
 import { useNavigate } from "react-router-dom";
 import { saveCartToLocalStorage,getCartFromLocalStorage,} from "../Context/CartUtils";
@@ -28,7 +27,9 @@ export default function Cart() {
     navigate("/main-all-products");
   }
 
-
+  function goToCheckout() {
+    navigate("/checkout");
+  }
 
   return (
     <>
@@ -99,9 +100,7 @@ export default function Cart() {
                 Add More Items
               </button>
 
-              <button>
-                <Link to="/checkout">Check Out</Link>
-              </button>
+              <button onClick={goToCheckout}>Check Out</button>
             </div>
           </>
         )}
