@@ -1,98 +1,94 @@
-import React from 'react'
-import{ useState, useEffect } from 'react'
-import { getAllProducts, getCategories } from './api'
-import SearchBar from './SearchBar'
-import DropDown from './DropDown'
-import Product from './Product'
-import './Main-SearchBar.css'
+import { useState, useEffect } from "react";
+import { getAllProducts, getCategories } from "./api";
+import SearchBar from "./SearchBar";
+import DropDown from "./DropDown";
+import Product from "./Product";
+import PriceFilter from "./PriceFilter";
+import "./css/Main-SearchBar.css";
 
 export default function Main() {
-  const [products, setProducts] = useState([])
-  const [searchedProducts, setSearchProducts] = useState("")
-  const [selectedCategory, setSelectedCategory] = useState("")
-  const [minPrice, setMinPrice] = useState("")
-  const [maxPrice, setMaxPrice] = useState("")
+  const [products, setProducts] = useState([]);
+  const [searchedProducts, setSearchProducts] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [minPrice, setMinPrice] = useState("");
+  const [maxPrice, setMaxPrice] = useState("");
 
   useEffect(() => {
     const fetchProducts = async () => {
-        try {
-            const ourProducts = await getAllProducts()
-            setProducts(ourProducts)
+      try {
+        const ourProducts = await getAllProducts();
+        setProducts(ourProducts);
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    };
 
-        } catch(error) {
-            console.error("Error:", error)
-        }
-    }
+    fetchProducts();
+  }, []);
 
-    fetchProducts()
-  }, [])
-
-  //min- max price
-  const handleMinPriceChange = (event) => {
-    setMinPrice(event.target.value)
-  }
-
-  const handleMaxPriceChange = (event) => {
-    setMaxPrice(event.target.value)
-  }
-
-  //handling search bar 
+  //handling search bar, price range, and clear filter
   const handleSearchInput = (searchValue) => {
-    setSearchProducts(searchValue)
-  }  
+    setSearchProducts(searchValue);
+  };
+
+  const handlePriceFilter = (min, max) => {
+    setMinPrice(min);
+    setMaxPrice(max);
+  };
+
+  const clearFilter = () => {
+    setMinPrice("");
+    setMaxPrice("");
+  };
+
+  const clearCategory = () => {
+    setSelectedCategory("");
+  };
 
   const searchedItems = products.filter((product) => {
-    const titleMatches = product.title.toLowerCase().includes(searchedProducts.toLowerCase());
-    const categoryMatches = selectedCategory === "" || product.category === selectedCategory;
-    const priceMatches =
+    const titleMatches = product.title
+      .toLowerCase()
+      .includes(searchedProducts.toLowerCase());
+    const categoryMatches =
+      selectedCategory === "" || product.category === selectedCategory;
+    const priceSearch =
       (!minPrice || parseFloat(product.price) >= parseFloat(minPrice)) &&
       (!maxPrice || parseFloat(product.price) <= parseFloat(maxPrice));
-    
-    return titleMatches && categoryMatches && priceMatches;
-  })
 
-    return (
-        <>
-         <br/>
-         <hr />
-    
-         <section>
-            <h3>Customize Your Style and Tech</h3><br/>
+    return titleMatches && categoryMatches && priceSearch;
+  });
 
-            <DropDown selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
-            <SearchBar value={searchedProducts} onChange={handleSearchInput} />
-           
-            <div className="priceFilter-container">
-              <label className="productPrice">Min Price:</label>
-              <input type="number" value={minPrice} onChange={handleMinPriceChange} className="priceInput" placeholder="Enter Minimal Price"/>
-              <label className="productPrice">Max Price:</label>
-             <input type="number" value={maxPrice} onChange={handleMaxPriceChange} className="priceInput" placeholder="Enter Maximum Price" />
-            </div>
+  return (
+    <>
+      <br />
+      <hr />
 
-            <div className="products-container">
-                {searchedItems.map((product) => {
+      <section>
+        <h3>Customize Your Style and Tech</h3>
+        <br />
 
-                  if(selectedCategory !== "") {
-                    if (product.category === selectedCategory) {
-                      return (
-                         <Product 
-                           product={product} 
-                           key={product.id} />
-                      )
-                    } 
-                   } else {
-                      return (
-                        <Product 
-                         product={product}
-                         key={product.id} />
-                      )
-                   }
-                })}
-            </div>
-        </section>
-       </>
-    )
+        <DropDown
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+        />
+        <SearchBar value={searchedProducts} onChange={handleSearchInput} />
+        <PriceFilter onPriceChange={handlePriceFilter} />
+
+        <button onClick={clearFilter}>Clear Price Filter</button>
+        <button onClick={clearCategory}>Clear Category</button>
+
+        <div className="products-container">
+          {searchedItems.map((product) => {
+            if (selectedCategory !== "") {
+              if (product.category === selectedCategory) {
+                return <Product product={product} key={product.id} />;
+              }
+            } else {
+              return <Product product={product} key={product.id} />;
+            }
+          })}
+        </div>
+      </section>
+    </>
+  );
 }
-
-
-    

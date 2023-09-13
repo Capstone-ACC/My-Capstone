@@ -1,28 +1,27 @@
-import './App.css'
-import { Routes, Route, Link } from 'react-router-dom'
-import  {useState } from 'react'
-import Home from './components/Home'
-import About from './components/About'
-import Main from './components/Main'
-import Login from './components/Login'
-import Register from './components/Register'
-import Checkout from './components/Checkout'
-import Cart from './components/Cart'
-import SingleProduct from './components/SingleProduct'
-import AddCart from './components/AddCart'
+import './App.css';
+import { Routes, Route, Link } from 'react-router-dom';
+import  {useState } from 'react';
+import Home from './components/Home';
+import About from './components/About';
+import Main from './components/Main';
+import Login from './components/Login';
+import Register from './components/Register';
+import Checkout from './components/Checkout';
+import Cart from './components/Cart';
+import SingleProduct from './components/SingleProduct';
+import AddCart from './components/AddCart';
+import TopHeader from './components/TopHeader';
+import Shipping from './components/Shipping';
+import Payment from './components/Payment';
 
 function App() {
-  const [token, setToken] = useState(null)
-  const [selectedItem, setSelectedItem] = useState(null)
-  const [cartItems, setCart] = useState([])
-
+  const [token, setToken] = useState(null);
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [cartItems, setCart] = useState([]);
+  
   return (
     <>
-      <div className="top-header">Summer Sale - Get 50% off for signing up - 
-        <Link to="/register" className="shopNow">Shop Now</Link>
-        <Link to="/login" className="login">Logout</Link>
-        <Link to="/login" className="login">Login</Link>
-      </div>
+      <TopHeader />
 
       <Link to="/"><h1>Tech & Styles <br/>
       <div className="secondHeading">The Style of your Heart</div></h1></Link>
@@ -33,8 +32,8 @@ function App() {
         <li><Link to="/main-all-products">All Products</Link></li>
         <li><Link to="/login">Login</Link></li>
         <li><Link to="/register">Register</Link></li>
+        <li><Link to="/addCart">Users Cart</Link></li>  
         <li><Link to="/cart">Cart</Link></li>  
-        <li><Link to="/addToCart">Test Adding To Cart</Link></li>  
         <li><Link to="/checkout">Check Out</Link></li>
       </div>
 
@@ -47,10 +46,13 @@ function App() {
         <Route path="/login" element={<Login setToken={setToken}/>} />
         <Route path="/register" element={<Register setToken={setToken} />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/addCart" element={<AddCart username="Davonne" />} />
         <Route path="/cart" element={<Cart cart={cartItems} setCart={setCart}/>} />
+          <Route path="/shipping" element={<Shipping />} />
+          <Route path="/payment" element={<Payment />} />
       </Routes>
     </>
-  )
+  );
 }
 
 export default App

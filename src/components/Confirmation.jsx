@@ -1,12 +1,9 @@
-import React from 'react'
+import React from "react";
 
 export default function Confirmation() {
-    return (
-        <>
-         <div>  
-           Confirmation
-         </div>
-        </>
-      )
-    }
-    
+  return (
+    <>
+      <div>Confirmation</div>
+    </>
+  );
+}
