@@ -12,6 +12,15 @@
     border-radius: 12px;
 }
 
+@media screen and (max-width: 600px) {
+    .second-cart-container {
+        width: 100%;
+        display: block;
+        max-width: 600px;
+        margin: 5px;
+    }
+}
+
 .usersProducts {
     display: flex;
     flex-direction: row;

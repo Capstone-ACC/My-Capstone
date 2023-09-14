@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { deleteCart, singleCart, getSingleProduct } from "./api";
 import "./css/AddToCart.css";
 import { useNavigate } from "react-router-dom";
+import { saveCartToLocalStorage } from "../Context/CartUtils";
 
 export default function AddCart() {
   const [cart, setCart] = useState([]);
@@ -26,6 +27,8 @@ export default function AddCart() {
         const myCart = await singleCart();
         console.log("Cart Data:", myCart);
         setCart(myCart);
+        saveCartToLocalStorage(myCart);
+
       } catch (error) {
         console.error("Error:", error);
       }
@@ -64,18 +67,20 @@ export default function AddCart() {
 
   //total price
   useEffect(() => {
-    const total = products.reduce((accumulator, currentProduct) => {
-      return accumulator + currentProduct.price * currentProduct.quantity;
-    }, 0);
-    setTotalPrice(total);
-  }, [products]);
 
-  // // Increase the quantity of a product in the cart
-  // const increaseItemQuantity = () => {
-  //   const updatedProducts = [...products];
-  //   updatedProducts.quantity += 1;
-  //   setProducts(updatedProducts);
-  // };
+  });
+
+  // Increase the quantity of a product in the cart
+  // ???? So since the API, it seems like the cart is tied to each user. So how do i put the product
+  //quantity and can you then even change it??? Is it set to only these quantities.
+
+  //I was able to do it on my other version of cart
+
+  //also when we are being graded, are you guys going to use the user we did for our Login?
+  //or is there another way to do this?
+  const increaseItemQuantity = () => {
+
+  };
 
   //Delete cart
   const handleDeleteCart = async () => {
@@ -130,7 +135,7 @@ export default function AddCart() {
                   -
                 </button>
 
-                <span>1{item.quantity}</span>
+                <span>{item.quantity}</span>
 
                 <button
                   onClick={() => increaseItemQuantity(item.productId)}
