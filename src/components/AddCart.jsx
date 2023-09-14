@@ -26,7 +26,6 @@ export default function AddCart() {
         const myCart = await singleCart();
         console.log("Cart Data:", myCart);
         setCart(myCart);
-
       } catch (error) {
         console.error("Error:", error);
       }
@@ -55,7 +54,6 @@ export default function AddCart() {
       try {
         const mySingleCart = await singleCart();
         setSingleCart(mySingleCart);
-
       } catch (error) {
         console.error("Error", error);
       }
@@ -66,17 +64,18 @@ export default function AddCart() {
 
   //total price
   useEffect(() => {
-    let totalPrice = 0;
-    products.forEach((product) => {
-      totalPrice += product.price * product.quantity;
-    });
-    setTotalPrice(totalPrice);
+    const total = products.reduce((accumulator, currentProduct) => {
+      return accumulator + currentProduct.price * currentProduct.quantity;
+    }, 0);
+    setTotalPrice(total);
   }, [products]);
 
-  // Increase the quantity of a product in the cart
-  const increaseItemQuantity = () => {
-    
-  };
+  // // Increase the quantity of a product in the cart
+  // const increaseItemQuantity = () => {
+  //   const updatedProducts = [...products];
+  //   updatedProducts.quantity += 1;
+  //   setProducts(updatedProducts);
+  // };
 
   //Delete cart
   const handleDeleteCart = async () => {
@@ -88,7 +87,6 @@ export default function AddCart() {
       setProducts([]);
       setTotalPrice(0);
       alert(`${username}'s cart has been deleted. Add More Items`);
-
     } catch (error) {
       console.error("Error:", error);
     }
@@ -135,7 +133,7 @@ export default function AddCart() {
                 <span>1{item.quantity}</span>
 
                 <button
-                  // onClick={() => increaseItemQuantity(item.productId)}
+                  onClick={() => increaseItemQuantity(item.productId)}
                   className="cart-buttons"
                 >
                   +
