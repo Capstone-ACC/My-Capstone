@@ -58,15 +58,17 @@ label {
   }
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 414px) {
   .login-container,
   .register-container {
     display: flex;
     justify-self: center;
     justify-content: center;
     align-items: center;
-    width: 330px;
+    width: 340px;
     margin: 15px;
+    padding: 10px;
+
   }
 }
 
@@ -75,6 +77,13 @@ label {
   .register-input {
     width: 240px;
     display: block;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .input-login,
+  .register-input {
+    width: 200px;
   }
 }
 
@@ -102,9 +111,8 @@ label {
 @media  screen and (max-width: 375px) {
   .login-button, 
   .register-button {
-    width: 100px;
+    width: 120px;
   }
-  
 }
 
 /*image*/
@@ -117,12 +125,14 @@ label {
   margin-bottom: 20px;
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 414px) {
   .loginImg,
   .macBook {
     width: 100%;
-    max-width: 325px;
+    max-width: 340px;
     display: flex;
+    justify-content: center;
+    align-items: center;
   }  
 }
 
