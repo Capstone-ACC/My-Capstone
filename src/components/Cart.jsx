@@ -1,10 +1,7 @@
 import { useEffect, useContext } from "react";
 import { CartContext } from "../Context/Context";
 import { useNavigate } from "react-router-dom";
-import {
-  saveCartToLocalStorage,
-  getCartFromLocalStorage,
-} from "../Context/CartUtils";
+import { saveCartToLocalStorage,getCartFromLocalStorage,} from "../Context/CartUtils";
 import "./css/Cart-Checkout.css";
 
 export default function Cart() {
@@ -12,8 +9,10 @@ export default function Cart() {
   const { state, dispatch } = myCart;
 
   useEffect(() => {
-    const cartData = getCartFromLocalStorage() || [];
-    dispatch({ type: "LOAD_CART", payload: cartData });
+    const cartData = getCartFromLocalStorage();
+    if (cartData > 0) {
+      dispatch({ type: "LOAD_CART", payload: cartData });
+    }
   }, [dispatch]);
 
   //total price
@@ -28,10 +27,9 @@ export default function Cart() {
     navigate("/main-all-products");
   }
 
-  function goToCheckout() {
-    alert(
-      "This is just another version of cart. Please see Users Cart to checkout cart from the API"
-    );
+  function goToCheckOut() {
+    navigate("/checkout", {
+      state: { cart: state } });
   }
 
   return (
@@ -44,9 +42,8 @@ export default function Cart() {
 
         {state.length === 0 ? (
           <>
-            <span style={{ fontSize: "22pt" }}>Cart is empty for now</span>
-            <br />
-            <button onClick={goToProducts}> Add Items</button>
+          <span style={{ fontSize: "22pt" }}>Cart is empty for now</span><br/>
+          <button onClick={goToProducts}> Add Items</button>
           </>
         ) : (
           <>
@@ -104,7 +101,7 @@ export default function Cart() {
                 Add More Items
               </button>
 
-              <button onClick={goToCheckout}>Check Out</button>
+              <button onClick={goToCheckOut}>Check Out</button>
             </div>
           </>
         )}

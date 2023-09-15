@@ -9,11 +9,12 @@ import Register from './components/Register';
 import Checkout from './components/Checkout';
 import Cart from './components/Cart';
 import SingleProduct from './components/SingleProduct';
-import AddCart from './components/AddCart';
+import UsersCart from './components/UsersCart';
 import TopHeader from './components/TopHeader';
 import Shipping from './components/Shipping';
 import Payment from './components/Payment';
 import Confirmation from './components/Confirmation';
+
 
 function App() {
   const [token, setToken] = useState(null);
@@ -33,7 +34,7 @@ function App() {
         <li><Link to="/main-all-products">All Products</Link></li>
         <li><Link to="/login">Login</Link></li>
         <li><Link to="/register">Register</Link></li>
-        <li><Link to="/addCart">Users Cart</Link></li>  
+        <li><Link to="/usersCart">Users Cart</Link></li>  
         <li><Link to="/cart">Cart</Link></li>  
       </div>
 
@@ -41,12 +42,11 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/main-all-products" element={<Main/>} />
-        <Route path="/addToCart" element={<AddCart />} />
+        <Route path="/usersCart" element={<UsersCart />} />
         <Route path="/products/:id" element={<SingleProduct setSelectedItem={setSelectedItem} item={selectedItem} />} />
         <Route path="/login" element={<Login setToken={setToken}/>} />
         <Route path="/register" element={<Register setToken={setToken} />} />
         <Route path="/checkout" element={<Checkout />} />
-        <Route path="/addCart" element={<AddCart />} />
         <Route path="/cart" element={<Cart cart={cartItems} setCart={setCart}/>} />
           <Route path="/shipping" element={<Shipping />} />
           <Route path="/payment" element={<Payment />} />

@@ -4,7 +4,7 @@ import "./css/AddToCart.css";
 import { useNavigate } from "react-router-dom";
 import { saveCartToLocalStorage } from "../Context/CartUtils";
 
-export default function AddCart() {
+export default function UsersCart() {
   const [cart, setCart] = useState([]);
   const [mySingleCart, setSingleCart] = useState([]);
   const [products, setProducts] = useState([]);
@@ -38,16 +38,31 @@ export default function AddCart() {
   }, []);
 
   //Fetch Products From Cart
+  // useEffect(() => {
+  //   const fetchCartProducts = async () => {
+  //     let productList = [];
+  //     cart.products?.map(async (product) => {
+  //       const details = await getSingleProduct(product.productId);
+  //       productList.push(details);
+  //     });
+  //     setProducts(productList);
+  //   };
+
+  //   fetchCartProducts();
+  // }, [cart]);
+
   useEffect(() => {
     const fetchCartProducts = async () => {
       let productList = [];
-      cart.products?.map(async (product) => {
+      
+      for (const product of cart.products || []) {
         const details = await getSingleProduct(product.productId);
         productList.push(details);
-      });
+      }
+  
       setProducts(productList);
     };
-
+  
     fetchCartProducts();
   }, [cart]);
 
@@ -67,19 +82,28 @@ export default function AddCart() {
 
   //total price
   useEffect(() => {
-
-  });
+    let totalPrice = 0;
+  
+    for (const product of products) {
+      totalPrice += product.price * product.quantity;
+    }
+  
+    setTotalPrice(totalPrice);
+  }, [products, cart]);
 
   // Increase the quantity of a product in the cart
-  // ???? So since the API, it seems like the cart is tied to each user. So how do i put the product
-  //quantity and can you then even change it??? Is it set to only these quantities.
-
-  //I was able to do it on my other version of cart
-
-  //also when we are being graded, are you guys going to use the user we did for our Login?
-  //or is there another way to do this?
-  const increaseItemQuantity = () => {
-
+  const increaseItemQuantity = (productId) => {
+    if (!Array.isArray(cart)) {
+      return;
+    }
+  
+    const updatedCart = [...cart];
+    const productIndex = updatedCart.findIndex((item) => item.productId === productId);
+  
+    if (productIndex !== -1) {
+      updatedCart[productIndex].quantity += 1;
+      setCart(updatedCart);
+    }
   };
 
   //Delete cart

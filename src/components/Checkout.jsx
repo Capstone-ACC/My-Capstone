@@ -6,7 +6,7 @@ export default function Checkout({}) {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const { cart } = location.state;
+  const { cart } = location.state || {};
   console.log("Cart Data:", cart);
 
   function goToStepTwo() {
