@@ -46,22 +46,35 @@ label {
   border: solid transparent;
 }
 
-@media screen and (max-width: 690px) {
-  .login-container {
+@media screen and (max-width: 600px) {
+  .login-container,
+  .register-container {
     display: flex;
+    justify-self: center;
     justify-content: center;
     align-items: center;
-    justify-self: center;
-    width: 350px;
-
-   
+    width: 460px;
+    margin: 15px;
   }
 }
 
-@media screen and (max-width: 690px) {
-  .input-login {
-    width: 200px;
+@media screen and (max-width: 375px) {
+  .login-container,
+  .register-container {
     display: flex;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+    width: 330px;
+    margin: 15px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .input-login,
+  .register-input {
+    width: 240px;
+    display: block;
   }
 }
 
@@ -84,6 +97,14 @@ label {
 .login-button:hover {
   color: burlywood;
   cursor: pointer;
+}
+
+@media  screen and (max-width: 375px) {
+  .login-button, 
+  .register-button {
+    width: 100px;
+  }
+  
 }
 
 /*image*/
