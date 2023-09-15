@@ -117,6 +117,15 @@ label {
   margin-bottom: 20px;
 }
 
+@media screen and (max-width: 375px) {
+  .loginImg,
+  .macBook {
+    width: 100%;
+    max-width: 325px;
+    display: flex;
+  }  
+}
+
 /* more of register component*/
 .register-button:hover {
   color: burlywood;
