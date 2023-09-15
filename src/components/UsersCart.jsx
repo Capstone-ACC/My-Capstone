@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { deleteCart, singleCart, getSingleProduct } from "./api";
-import "./css/AddToCart.css";
+import "./css/UsersCart.css";
 import { useNavigate } from "react-router-dom";
 import { saveCartToLocalStorage } from "../Context/CartUtils";
 
@@ -20,15 +20,19 @@ export default function UsersCart() {
     }
   }, []);
 
-  // Add cart
+  // fetch cart
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const myCart = await singleCart();
-        console.log("Cart Data:", myCart);
-        setCart(myCart);
-        saveCartToLocalStorage(myCart);
+        const myStoredUsername = localStorage.getItem("username");
+        if (myStoredUsername) {
+          setUsername(myStoredUsername);
 
+          const myCart = await singleCart(myStoredUsername); 
+          console.log("Cart Data:", myCart);
+          setCart(myCart);
+          saveCartToLocalStorage(myCart);
+        }
       } catch (error) {
         console.error("Error:", error);
       }
@@ -37,20 +41,23 @@ export default function UsersCart() {
     fetchCart();
   }, []);
 
-  //Fetch Products From Cart
+//or
   // useEffect(() => {
-  //   const fetchCartProducts = async () => {
-  //     let productList = [];
-  //     cart.products?.map(async (product) => {
-  //       const details = await getSingleProduct(product.productId);
-  //       productList.push(details);
-  //     });
-  //     setProducts(productList);
-  //   };
+  //   const fetchCart = async () => {
+  //     try {
+  //       const myCart = await singleCart(username); 
+  //       console.log("Cart Data:", myCart);
+  //       setCart(myCart);
+  //       saveCartToLocalStorage(myCart);
+  //     } catch (error) {
+  //        console.error("Error:", error);
+  //  }
+  // };
 
-  //   fetchCartProducts();
-  // }, [cart]);
+  //   fetchCart();
+  // }, [username]);
 
+//fetch cart products
   useEffect(() => {
     const fetchCartProducts = async () => {
       let productList = [];
@@ -66,6 +73,7 @@ export default function UsersCart() {
     fetchCartProducts();
   }, [cart]);
 
+
   //single cart for user
   useEffect(() => {
     const fetchSingleCart = async () => {
@@ -80,6 +88,7 @@ export default function UsersCart() {
     fetchSingleCart();
   }, []);
 
+
   //total price
   useEffect(() => {
     let totalPrice = 0;
@@ -90,6 +99,7 @@ export default function UsersCart() {
   
     setTotalPrice(totalPrice);
   }, [products, cart]);
+
 
   // Increase the quantity of a product in the cart
   const increaseItemQuantity = (productId) => {
@@ -106,6 +116,7 @@ export default function UsersCart() {
     }
   };
 
+
   //Delete cart
   const handleDeleteCart = async () => {
     try {
@@ -120,6 +131,7 @@ export default function UsersCart() {
       console.error("Error:", error);
     }
   };
+
 
   //useNavigate
   const navigate = useNavigate();
@@ -155,7 +167,8 @@ export default function UsersCart() {
                 <span>{item.title}</span>
                 <span>${item.price}</span>
 
-                <button onClick={() => {}} className="cart-buttons">
+               <div className="cart-buttons">
+               <button onClick={() => {}} >
                   -
                 </button>
 
@@ -163,10 +176,10 @@ export default function UsersCart() {
 
                 <button
                   onClick={() => increaseItemQuantity(item.productId)}
-                  className="cart-buttons"
                 >
                   +
                 </button>
+               </div>
 
                 <hr />
               </div>
@@ -183,3 +196,4 @@ export default function UsersCart() {
     </>
   );
 }
+

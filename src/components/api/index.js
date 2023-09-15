@@ -77,16 +77,32 @@ export const getCategories = async () => {
 //Cart
 
 /*get single cart*/
-export const singleCart = async () => {
-    try {
-        const response = await fetch("https://fakestoreapi.com/carts/2")
-        const result = await response.json()
+ export const singleCart = async () => {
+     try {
+         const response = await fetch("https://fakestoreapi.com/carts/2")
+         const result = await response.json()
         return result;
 
-    } catch (error) {
+     } catch (error) {
         console.error("Error:", error)
     }
-}
+ }
+
+//or  - - - 
+// export const singleCart = async (username) => {
+//     try {
+//       const token = localStorage.getItem("token");
+//       const response = await fetch(`https://fakestoreapi.com/carts/${username}`, {
+//         headers: {
+//           Authorization: `Bearer ${token}`, 
+//         },
+//       });
+//       const result = await response.json();
+//       return result;
+//     } catch (error) {
+//       console.error("Error:", error);
+//     }
+//   };
 
 /*add a new product in cart*/
 export const addCart = async (userId, products) => {

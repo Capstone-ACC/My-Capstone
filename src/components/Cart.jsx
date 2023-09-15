@@ -1,19 +1,26 @@
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 import { CartContext } from "../Context/Context";
 import { useNavigate } from "react-router-dom";
 import { saveCartToLocalStorage,getCartFromLocalStorage,} from "../Context/CartUtils";
 import "./css/Cart-Checkout.css";
 
 export default function Cart() {
+  const [username, setUsername] = useState("");
   const myCart = useContext(CartContext);
   const { state, dispatch } = myCart;
 
+  //local storage
   useEffect(() => {
     const cartData = getCartFromLocalStorage();
-    if (cartData > 0) {
+    if (cartData) {
       dispatch({ type: "LOAD_CART", payload: cartData });
     }
   }, [dispatch]);
+
+  useEffect(() => {
+    saveCartToLocalStorage(state);
+  }, [state]);
+
 
   //total price
   const totalPrice = state.reduce((total, item) => {
@@ -67,13 +74,13 @@ export default function Cart() {
 
                   <span>{item.quantity}</span>
 
-                  <button
+                 <div className="cart-buttons">
+                 <button
                     onClick={() => {
                       console.log("Increased Quantity:", item);
                       dispatch({ type: "INCREASE", payload: item });
                       saveCartToLocalStorage([...state]);
                     }}
-                    className="cart-buttons"
                   >
                     +
                   </button>
@@ -84,10 +91,10 @@ export default function Cart() {
                       dispatch({ type: "DELETE", payload: item });
                       saveCartToLocalStorage([...state]);
                     }}
-                    className="cart-buttons"
                   >
                     Delete
                   </button>
+                 </div>
 
                   <hr />
                 </div>
