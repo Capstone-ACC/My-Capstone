@@ -12,14 +12,6 @@ export default function UsersCart() {
   const [userTotalPrice, setTotalPrice] = useState(0);
   const [deletedCart, setDeletedCart] = useState({});
 
-  //get users
-  useEffect(() => {
-    const myStoredUsername = localStorage.getItem("username");
-    if (myStoredUsername) {
-      setUsername(myStoredUsername);
-    }
-  }, []);
-
   // fetch cart
   useEffect(() => {
     const fetchCart = async () => {
@@ -73,7 +65,6 @@ export default function UsersCart() {
     fetchCartProducts();
   }, [cart]);
 
-
   //single cart for user
   useEffect(() => {
     const fetchSingleCart = async () => {
@@ -87,7 +78,6 @@ export default function UsersCart() {
 
     fetchSingleCart();
   }, []);
-
 
   //total price
   useEffect(() => {
