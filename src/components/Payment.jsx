@@ -21,6 +21,8 @@ export default function Payment() {
 
   function goToConfirmation(event) {
     event.preventDefault();
+    localStorage.removeItem("cart");
+    
     navigate("/confirmation", {
       state: {
         name,

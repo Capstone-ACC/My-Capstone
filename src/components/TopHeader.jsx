@@ -5,17 +5,7 @@ import { saveCartToLocalStorage } from '../Context/CartUtils'
   //handle logout
   const handleLogOut = () => {
     saveCartToLocalStorage(myCart)
-    localStorage.removeItem('username');  
-
-    function forEachKey(callback) {
-      for (let i = 0; i < localStorage.length; i++) {
-        callback(localStorage.key(i));
-      }
-    }
-    
-    for (let i = 0; i < localStorage.length; i++) {
-      console.log(localStorage.getItem(localStorage.key(i)));
-    }
+    localStorage.removeItem("username");
   }
 
 export default function TopHeader() {

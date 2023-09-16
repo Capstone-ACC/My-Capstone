@@ -117,6 +117,8 @@ export default function UsersCart() {
       setProducts([]);
       setTotalPrice(0);
       alert(`${username}'s cart has been deleted. Add More Items`);
+
+      localStorage.removeItem("cart");
     } catch (error) {
       console.error("Error:", error);
     }
