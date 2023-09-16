@@ -56,7 +56,7 @@ export default function UsersCart() {
       
       for (const product of cart.products || []) {
         const details = await getSingleProduct(product.productId);
-        productList.push(details);
+        productList.push({...details, quantity: product.quantity});
       }
   
       setProducts(productList);
@@ -92,18 +92,10 @@ export default function UsersCart() {
 
 
   // Increase the quantity of a product in the cart
-  const increaseItemQuantity = (productId) => {
-    if (!Array.isArray(cart)) {
-      return;
-    }
-  
-    const updatedCart = [...cart];
-    const productIndex = updatedCart.findIndex((item) => item.productId === productId);
-  
-    if (productIndex !== -1) {
-      updatedCart[productIndex].quantity += 1;
-      setCart(updatedCart);
-    }
+  //can we even do this, it seems like the users cart is set and stone?? 
+  //i did this on my other cart, Cart.jsx
+  const increaseItemQuantity = () => {
+
   };
 
 
@@ -179,7 +171,7 @@ export default function UsersCart() {
           })
         )}
 
-        <span className="total-price">Total: {userTotalPrice.toFixed(2)}</span>
+        <span className="total-price">Total: ${userTotalPrice.toFixed(2)}</span>
         <button onClick={backToProducts}>Back To Products</button>
         <button onClick={checkout}>Check Out</button>
 

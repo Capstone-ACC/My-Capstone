@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 import { saveCartToLocalStorage } from '../Context/CartUtils'
 
   //handle logout
-  const handleLogOut = () => {
+  const handleLogOut = (myCart) => {
     saveCartToLocalStorage(myCart)
-    localStorage.removeItem("username");
+    localStorage.removeItem("username");   
   }
 
 export default function TopHeader() {

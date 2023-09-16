@@ -6,6 +6,7 @@ import "./css/Cart-Checkout.css";
 
 export default function Cart() {
   const [username, setUsername] = useState("");
+  const [totalCartPrice, setTotalPrice] = useState(0);
   const myCart = useContext(CartContext);
   const { state, dispatch } = myCart;
 
@@ -23,9 +24,12 @@ export default function Cart() {
 
 
   //total price
-  const totalPrice = state.reduce((total, item) => {
-    return total + item.price * item.quantity;
-  }, 0);
+  useEffect(() => {
+    const totalPrice = state.reduce((total, item) => {
+      return total + item.price * item.quantity;
+    }, 0);
+    setTotalPrice(totalPrice);
+  }, [state]);
 
   //use navigate
   const navigate = useNavigate();
@@ -50,6 +54,7 @@ export default function Cart() {
         {state.length === 0 ? (
           <>
           <span style={{ fontSize: "22pt" }}>Cart is empty for now</span><br/>
+          <span className="total-price">Total: $0.00</span>
           <button onClick={goToProducts}> Add Items</button>
           </>
         ) : (
@@ -77,9 +82,9 @@ export default function Cart() {
                  <div className="cart-buttons">
                  <button
                     onClick={() => {
-                      console.log("Increased Quantity:", item);
-                      dispatch({ type: "INCREASE", payload: item });
-                      saveCartToLocalStorage([...state]);
+                      console.log("Added To Cart:", item);
+                      dispatch({ type: "ADD", payload: item });
+                      saveCartToLocalStorage([...state, {...item, quantity: 1}]);
                     }}
                   >
                     +
@@ -101,7 +106,7 @@ export default function Cart() {
               );
             })}
 
-            <span className="total-price">Total: ${totalPrice.toFixed(2)}</span>
+            <span className="total-price">Total: ${totalCartPrice.toFixed(2)}</span>
 
             <div className="add-more-bts-and-checkout">
               <button className="cartBackToProducts" onClick={goToProducts}>
