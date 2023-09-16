@@ -49,7 +49,8 @@ export default function Cart() {
       <hr />
 
       <div className="cart-container">
-        <h5>My Cart</h5>
+        <h5>Donation Cart</h5>
+        <span>Purchase Items For Your Local Donation Center</span><br/><br/>
 
         {state.length === 0 ? (
           <>

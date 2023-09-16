@@ -4,7 +4,7 @@ import "./css/Confirmation.css";
 
 export default function Confirmation() {
   const location = useLocation();
-  const { name, email, address, cart, products } = location.state;
+  const { name, email, address, cart, products, donation } = location.state;
 
   //useNavigate
   const navigate = useNavigate();
@@ -34,6 +34,7 @@ export default function Confirmation() {
         <span>
           Items are being sent to <div className="address">{address}</div>
         </span>
+        <span>Your items are being sent to {donation} for a Donation</span>
 
         {/* {products.map((item, index) => (
           <div className="cart-item" key={index}>
