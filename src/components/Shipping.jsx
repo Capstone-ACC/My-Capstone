@@ -13,7 +13,7 @@ export default function Shipping() {
     }
   }, []);
 
-  //useNavigate and location
+  //useNavigate & useLocation
   const navigate = useNavigate();
   const location = useLocation();
   const { cart } = location.state;
