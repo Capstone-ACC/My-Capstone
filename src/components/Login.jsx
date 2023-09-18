@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./css/Login-Register-Styles.css";
+import { getAllUsers } from "./api";
 
 export default function Login({ setToken }) {
   const [username, setUsername] = useState("");
@@ -55,6 +56,20 @@ export default function Login({ setToken }) {
       }
     }
   };
+
+  //all users
+  useEffect(() => {
+    const fetchAllUsers = async () => {
+      try {
+        const allUsers = await getAllUsers();
+        console.log("All Users", allUsers);
+
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    }
+    fetchAllUsers();
+  },[]);
 
   return (
     <>

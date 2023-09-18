@@ -33,6 +33,18 @@ export const addNewUser = async (registerUsername, registerPassword) => {
     }
 }
 
+//fetch all users
+export const getAllUsers = async () => {
+    try {
+        const response = await fetch("https://fakestoreapi.com/users");
+        const result = await response.json();
+        return result;
+        
+    } catch (error) {
+        console.error("Error fetching all users:", error)
+    }
+}
+
 
 /*fetch all products*/
 export const getAllProducts = async () => {
@@ -77,6 +89,8 @@ export const getCategories = async () => {
 //Cart
 
 /*get single cart*/
+  //cart 2, userID 1
+  //how do i show the cart for whoever logs in ?? 
  export const singleCart = async () => {
      try {
          const response = await fetch("https://fakestoreapi.com/carts/2")
@@ -89,10 +103,10 @@ export const getCategories = async () => {
  }
 
 //or  - - - 
-// export const singleCart = async (username) => {
+// export const singleCart = async (userId) => {
 //     try {
 //       const token = localStorage.getItem("token");
-//       const response = await fetch(`https://fakestoreapi.com/carts/${username}`, {
+//       const response = await fetch(`https://fakestoreapi.com/carts/${userId}`, {
 //         headers: {
 //           Authorization: `Bearer ${token}`, 
 //         },
@@ -159,3 +173,4 @@ export const getAllCarts = async () => {
         console.error("Error:", error)
     }
 }
+
