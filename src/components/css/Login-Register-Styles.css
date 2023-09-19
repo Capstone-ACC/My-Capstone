@@ -6,12 +6,13 @@ h2 {
   font-family: "Cormorant Garamond", serif;
 }
 
-.login-container {
+.login-container,
+.register-container {
   width: 100%;
   max-width: 580px;
   height: 450px;
   margin-top: 100px;
-  margin-left: 240px;
+  margin-left: 10%;
   float: left;
   display: flex;
   flex-direction: column;
@@ -45,6 +46,47 @@ label {
   border: solid transparent;
 }
 
+@media screen and (max-width: 600px) {
+  .login-container,
+  .register-container {
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+    width: 460px;
+    margin: 15px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .login-container,
+  .register-container {
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+    width: 340px;
+    margin: 15px;
+    padding: 10px;
+
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .input-login,
+  .register-input {
+    width: 240px;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .input-login,
+  .register-input {
+    width: 200px;
+  }
+}
+
 .register-input {
   margin: 25px;
   font-family: "Times New Roman", Times, serif;
@@ -66,6 +108,13 @@ label {
   cursor: pointer;
 }
 
+@media  screen and (max-width: 375px) {
+  .login-button, 
+  .register-button {
+    width: 120px;
+  }
+}
+
 /*image*/
 .loginImg,
 .macBook {
@@ -76,24 +125,19 @@ label {
   margin-bottom: 20px;
 }
 
+@media screen and (max-width: 414px) {
+  .loginImg,
+  .macBook {
+    width: 100%;
+    max-width: 340px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }  
+}
+
 /* more of register component*/
 .register-button:hover {
   color: burlywood;
   cursor: pointer;
-}
-
-.register-container {
-  width: 100%;
-  max-width: 650px;
-  margin-top: 180px;
-  margin-left: 240px;
-  float: left;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: lightgrey;
-  padding: 40px;
-  border-radius: 8px;
-  font-size: 18pt;
 }

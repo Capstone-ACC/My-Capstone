@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export default function Payment() {
   const [name, setName] = useState("");
@@ -9,9 +9,12 @@ export default function Payment() {
   const [promoCode, setPromoCode] = useState("")
   const [address, setAddress] = useState("");
   const [email, setEmail] = useState("");
+  const [donation, setDonationAddress] = useState("");
 
-  //useNavigate
+  //useNavigate & useLocation
   const navigate = useNavigate();
+  const location = useLocation();
+  const { cart } = location.state;
 
   function backToShipping() {
     navigate("/shipping");
@@ -19,6 +22,8 @@ export default function Payment() {
 
   function goToConfirmation(event) {
     event.preventDefault();
+    localStorage.removeItem("cart");
+    
     navigate("/confirmation", {
       state: {
         name,
@@ -27,7 +32,9 @@ export default function Payment() {
         cvv,
         promoCode,
         address,
-        email
+        email,
+        donation,
+        cart
       }
     });
   }
@@ -67,6 +74,12 @@ export default function Payment() {
             Confirm Address:
             <input type="text" placeholder="Address*"
             onChange={(e) => setAddress(e.target.value)} />
+          </label>
+
+          <label className="payment-labels-input">
+            Donation Address:
+            <input type="text" placeholder="Donation Address if donating items"
+            onChange={(e) => setDonationAddress(e.target.value)} />
           </label>
 
           <label className="payment-labels-input" >

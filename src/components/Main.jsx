@@ -44,7 +44,7 @@ export default function Main() {
   const clearCategory = () => {
     setSelectedCategory("");
   };
-
+  
   const searchedItems = products.filter((product) => {
     const titleMatches = product.title.toLowerCase().includes(searchedProducts.toLowerCase());
     const categoryMatches =selectedCategory === "" || product.category === selectedCategory;

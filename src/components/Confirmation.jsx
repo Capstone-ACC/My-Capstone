@@ -1,12 +1,17 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./css/Confirmation.css";
 
 export default function Confirmation() {
   const location = useLocation();
-  const { name, email, address } = location.state;
+  const { name, email, address, cart, products, donation } = location.state;
 
-  console.log(`"Success:" Shipping To ${address}`);
+  //useNavigate
+  const navigate = useNavigate();
+
+  function backToShopping() {
+    navigate('/main-all-products')
+  }
 
   return (
     <>
@@ -20,18 +25,28 @@ export default function Confirmation() {
           Payment Successful {name}!
           <hr />
         </h5>
-
         <span>Your order is being processed</span>
         <br />
-
         <span>
           Be on a look out for an E-mail sent to
           <div className="email">{email}</div> for more details
         </span>
-
         <span>
-          Items are being sent to <div className="address">{address}</div>{" "}
+          Items are being sent to <div className="address">{address}</div>
         </span>
+        <span>Your items are being sent to {donation} for a Donation</span>
+
+        {/* {products.map((item, index) => (
+          <div className="cart-item" key={index}>
+            <span>{item.product.title}</span>
+            <img src={item.image} className="userProductImage" />
+          </div>
+        ))} */}
+
+        {console.log("Items Purchased:", cart)}
+        {console.log(`"Payment Successful:" Shipping To ${address}`)}
+
+        <button onClick={backToShopping}>Continue Shopping</button>
       </div>
     </>
   );

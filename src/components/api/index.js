@@ -33,6 +33,18 @@ export const addNewUser = async (registerUsername, registerPassword) => {
     }
 }
 
+//fetch all users
+export const getAllUsers = async () => {
+    try {
+        const response = await fetch("https://fakestoreapi.com/users");
+        const result = await response.json();
+        return result;
+        
+    } catch (error) {
+        console.error("Error fetching all users:", error)
+    }
+}
+
 
 /*fetch all products*/
 export const getAllProducts = async () => {
@@ -77,16 +89,31 @@ export const getCategories = async () => {
 //Cart
 
 /*get single cart*/
-export const singleCart = async () => {
-    try {
-        const response = await fetch("https://fakestoreapi.com/carts/2")
-        const result = await response.json()
+//   //cart 2, userID 1
+//   //how do i show the cart for whoever logs in ?? 
+ export const singleCart = async () => {
+     try {
+         const response = await fetch("https://fakestoreapi.com/carts/2")
+         const result = await response.json()
         return result;
 
-    } catch (error) {
+     } catch (error) {
         console.error("Error:", error)
     }
-}
+ }
+
+// //or  - - - 
+//  export const singleCart = async (id) => {
+//      try {
+//          const response = await fetch(`https://fakestoreapi.com/carts/${id}`)
+//          const result = await response.json()
+//         return result;
+
+//      } catch (error) {
+//         console.error("Error:", error)
+//     }
+//  }
+
 
 /*add a new product in cart*/
 export const addCart = async (userId, products) => {
@@ -118,17 +145,19 @@ export const addCart = async (userId, products) => {
 //delete a product from cart
 export const deleteCart = async (userId) => {
     try {
-        const response = await fetch (`https://fakestoreapi.com/carts/${userId}`, {
-            method: "DELETE"
-        })
-
-        const deletedData = await response.json();
-        console.log(deletedData);
+      const response = await fetch(`https://fakestoreapi.com/carts/${userId}`, {
+        method: "DELETE",
+      });
+  
+      if (response.ok) {
+        console.log("Users Cart has been deleted");
+      } else {
+        console.error("Failed to delete cart");
+      }
     } catch (error) {
-        console.error("Error:", error)
-    }
-}
-
+      console.error("Error:", error);
+    }  
+};
 
 /*get all cart*/
 export const getAllCarts = async () => {

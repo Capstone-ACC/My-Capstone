@@ -46,6 +46,42 @@ span {
     font-size: 14pt;
 }
 
+@media screen and (max-width: 375px) {
+    .myItems {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 200px;
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .myItems {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 600px;
+        margin: 0px auto;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .myItems {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 600px;
+        margin: 0px auto;
+    }
+}
+
 /*buttons*/
 .cartBackToProducts:hover {
     color: #9b111e;
@@ -54,7 +90,7 @@ span {
 
 /*checkout component*/
 .checkout-container {
-    border: 2px solid black;
+    border: 1px solid black;
     width: 700px;
     display: flex;
     justify-content: center;
@@ -146,3 +182,10 @@ label {
     color: black
 }   
 
+@media screen and (max-width: 600px) {
+    .cart-buttons {
+      display: flex;
+      flex-direction: row;
+      
+   }  
+  }

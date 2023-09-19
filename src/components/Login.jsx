@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./css/Login-Register-Styles.css";
+import { getAllUsers } from "./api";
 
 export default function Login({ setToken }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [id, setId] = useState("");
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
@@ -44,6 +46,8 @@ export default function Login({ setToken }) {
         if (result.token) {
           localStorage.setItem("token", result.token);
           localStorage.setItem("username", username);
+          localStorage.setItem("id", id);
+
           setToken(result.token);
           alert(`Login Successful ${username}, check console.log for token`);
           navigate("/main-all-products");
@@ -55,6 +59,20 @@ export default function Login({ setToken }) {
       }
     }
   };
+
+  //all users
+  useEffect(() => {
+    const fetchAllUsers = async () => {
+      try {
+        const allUsers = await getAllUsers();
+        console.log("All Users", allUsers);
+
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    }
+    fetchAllUsers();
+  },[]);
 
   return (
     <>
