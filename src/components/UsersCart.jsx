@@ -147,7 +147,7 @@ export default function UsersCart() {
 
         {products.length === 0 ? (
           <>
-            <span style={{ fontSize: "22pt" }}>Cart is Empty</span>
+            <span style={{ fontSize: "22pt" }}>Please Login To See Your Cart</span>
             <br />
           </>
         ) : (

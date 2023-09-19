@@ -25,6 +25,23 @@
   }
 }
 
+@media  screen and (max-width: 375px) {
+  .top-header {
+    width: 100%;
+    padding: 20px;
+  }
+}
+
+@media  screen and (max-width: 280px) {
+  .top-header {
+    width: 100%;
+    padding: 50px;
+  }
+}
+
+
+
+
 .shopNow {
   color: white;
 }

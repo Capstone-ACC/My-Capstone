@@ -42,18 +42,19 @@ li a {
   align-items: center;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 860px) {
   .navBar {
     flex-direction: column;
+    font-size: 2em;
   }
 }
 
 @media screen and (max-width: 801px) {
   .navBar {
    flex-wrap: wrap;
-
   }
 }
+
 li:hover {
   text-decoration: underline;
 }
