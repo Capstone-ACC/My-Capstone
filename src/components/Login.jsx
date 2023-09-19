@@ -1,91 +1,116 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import './Login-Register-Styles.css'
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./css/Login-Register-Styles.css";
+import { getAllUsers } from "./api";
 
-export default function Login({setToken}) {
-   const [username, setUsername] = useState("")
-   const [password, setPassword] = useState("")
+export default function Login({ setToken }) {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [id, setId] = useState("");
+  const [error, setError] = useState("");
 
-    //useNavigate
-   const navigate = useNavigate()
+  const navigate = useNavigate();
 
-   const inputUsername = (e) => {
-        setUsername(e.target.value)
-    }
+  const inputUsername = (e) => {
+    setUsername(e.target.value);
+  };
 
-   const inputPassword = (e) => {
-        setPassword(e.target.value)
-    }
+  const inputPassword = (e) => {
+    setPassword(e.target.value);
+  };
 
-    const handelSubmit = async (e) => {
-        e.preventDefault();
-        alert("You are now logged in, check console.log for token")
-    }
+  //handel submit
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    //fetch for login 
-    const handelLogin = async () => {
-        try {
-            const response = await fetch ("https://fakestoreapi.com/auth/login", {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    username: "mor_2314",
-                    password: "83r5^_"
-                })
-            })
+    if (!username || !password) {
+      setError("Please enter both username and password");
+    } else {
+      setError("");
 
-            const result = await response.json();
-            console.log("Token:", result)
-            console.log(`Welcome, ${username}, browse through our products to see whats right for you!`)
+      try {
+        const response = await fetch("https://fakestoreapi.com/auth/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: username,
+            password: password,
+          }),
+        });
 
-            if(result.token) {
-                localStorage.setItem('token', result.token)
-                setToken(result.token)
-            } else {
-                console.error("Try again, no token found for this user")
-            }
-        } catch (error) {
-            console.error('There is an error:', error)
+        const result = await response.json();
+        console.log("Token:", result);
+
+        if (result.token) {
+          localStorage.setItem("token", result.token);
+          localStorage.setItem("username", username);
+          localStorage.setItem("id", id);
+
+          setToken(result.token);
+          alert(`Login Successful ${username}, check console.log for token`);
+          navigate("/main-all-products");
+        } else {
+          console.error("Try again, no token found for this user");
         }
-        navigate('/main-all-products')
+      } catch (error) {
+        console.error("Login Error:", error);
+      }
     }
+  };
+
+  //all users
+  useEffect(() => {
+    const fetchAllUsers = async () => {
+      try {
+        const allUsers = await getAllUsers();
+        console.log("All Users", allUsers);
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    };
+    fetchAllUsers();
+  }, []);
 
   return (
     <>
-      <br/>
+      <br />
       <hr />
-        <div className="login-container">
-            <h2>Login</h2>
+      <div className="login-container">
+        <h2>Login</h2>
 
-            <form onSubmit={handelSubmit}>
-                 <label>
-                  Username:
-              
-                  <input 
-                     value={username}
-                     className="input-login"
-                     placeholder="Required"
-                     onChange={inputUsername} />
-                </label>
+        <form onSubmit={handleSubmit}>
+          <label>
+            Username:
+            <input
+              value={username}
+              className="input-login"
+              placeholder="Required"
+              onChange={inputUsername}
+            />
+          </label>
 
-                <label>
-                  Password:
+          <label>
+            Password:
+            <input
+              value={password}
+              type="password"
+              className="input-login"
+              placeholder="Required"
+              onChange={inputPassword}
+            />
+          </label>
 
-                   <input 
-                      value={password}
-                      type="password"
-                      className="input-login"
-                      placeholder="Required"
-                      onChange={inputPassword} />
-                </label>
+          {error && <span className="error-message">{error}</span>}
 
-                <button className="login-button" onClick={handelLogin}>Login</button>
-            </form>
-       </div>
+          <button className="login-button" type="submit">
+            Login
+          </button>
+        </form>
+      </div>
 
-       <img src="/images/laptop.jpg" className="loginImg" />
-  </>
-  )
+      <img src="/images/shoppingSpree.jpg" className="loginImg" />
+    </>
+  );
 }

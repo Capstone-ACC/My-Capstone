@@ -1,0 +1,138 @@
+/* main all-products component and SearchBar component*/
+h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+}
+
+/*search bar and input*/
+.searchBar {
+  width: 100%;
+  margin-bottom: 20px;
+  display: inline;
+}
+
+@media screen and (max-width: 950px) {
+  .searchBar {
+    display: block;
+  }
+}
+
+input {
+  width: 300px;
+  font-size: 14pt;
+  border: 1px solid black;
+  outline: none;
+  font-family: "Times New Roman", Times, serif;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+/*products*/
+.products-container {
+  width: 100%;
+  max-width: 1580px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.my-box {
+  background-color: #fff5ee;
+  width: 22%;
+  margin: 20px;
+  border-radius: 28px;
+  padding: 10px;
+}
+
+@media screen and (max-width: 950px) {
+  .my-box {
+    width: 35%;
+    margin: 10px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .my-box {
+    width: 50%;
+    margin: 10px;
+    width: 300px;
+    margin-bottom: 20px;
+    padding: 10px;
+    margin-top: 20px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+h4 {
+  font-family: "Lobster", cursive;
+}
+
+span {
+  font-family: "Cormorant Garamond", serif;
+  color: black;
+}
+
+.productImages {
+  width: 100%;
+  max-width: 250px;
+  margin-top: 10px;
+  border-radius: 5px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid black;
+}
+
+/*buttons*/
+.my-buttons {
+  margin-top: 20px;
+}
+
+button,
+.see-details-link {
+  margin: 10px;
+  font-size: 14pt;
+  padding: 5px;
+  border-radius: 10px;
+  font-family: "Lobster", cursive;
+  margin-bottom: 0px;
+}
+
+a,
+.add-to-cart {
+  font-family: "Lobster", cursive;
+  font-size: 14pt;
+}
+
+.see-details-link:hover {
+  text-decoration: none;
+}
+
+button:hover {
+  cursor: pointer;
+  color: #9b111e;
+}
+
+/*price input*/
+.priceFilterContainer {
+  width: 100%;
+}
+
+.priceInput {
+  width: 100%;
+  max-width: 400px;
+}
+
+.productPrice {
+  font-family: "Cormorant Garamond", serif;
+}
+
+

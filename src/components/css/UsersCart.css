@@ -1,0 +1,80 @@
+/* add to cart component*/
+.second-cart-container {
+    width: 100%;
+    max-width: 950px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color:#FFF5EE;
+    padding: 20px; 
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+}
+
+@media screen and (max-width: 375px) {
+    .second-cart-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 200px;
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .second-cart-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 600px;
+        margin: 0px auto;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .second-cart-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 600px;
+        margin: 0px auto;
+    }
+}
+
+.usersProducts {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 14pt;
+}
+
+@media screen and (max-width: 600px) {
+    .usersProducts {
+        flex-direction: column;
+    }
+}
+
+.userProductImage {
+    width: 100%;
+    max-width: 150px;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+@media screen and (max-width:600px) {
+  .cartButtons {
+    display: flex;
+    flex-direction: row;
+    
+ }  
+}

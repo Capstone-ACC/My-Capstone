@@ -10,7 +10,69 @@
   -webkit-text-size-adjust: 100%;
 }
 
+/*top header component*/
+.top-header {
+  background-color: black;
+  width: 100%;
+  padding: 15px;
+  color: white;
+}
+
+@media  screen and (max-width: 414px) {
+  .top-header {
+    width: 100%;
+    text-align: left;
+  }
+}
+
+@media  screen and (max-width: 375px) {
+  .top-header {
+    width: 100%;
+    padding: 20px;
+  }
+}
+
+@media  screen and (max-width: 280px) {
+  .top-header {
+    width: 100%;
+    padding: 50px;
+  }
+}
+
+
+
+
+.shopNow {
+  color: white;
+}
+
+.login {
+  color: white;
+  float: right;
+  padding: 10px;
+  font-size: 16pt;
+}
+
 /*filter component*/
+@media screen and (max-width: 950px) {
+  .priceFilter-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 667px) {
+  .priceFilter-container {
+    width: 100%;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 .filtered-image {
   width: 100%;
   max-width: 300px;
@@ -20,7 +82,6 @@
   color: black;
 }
 
-
 /*single product component*/
 .info-singleProduct {
   display: flex;
@@ -29,34 +90,48 @@
   text-align: center;
   max-width: 800px;
   margin: 0 auto;
+  background-color: #fff5ee;
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 
 h5 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 2em;
   margin-bottom: 30px;
 }
 
 .selected-item-image {
   width: 100%;
-  max-width: 300px;
-  margin-top: 100px;
+  max-width: 250px;
+  margin-top: 60px;
   margin-bottom: 10px;
 }
 
 .selected-item {
   font-size: 16pt;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
 }
 
-.backTo-products, .link-to-go-back, .addToCart {
+.backTo-products,
+.link-to-go-back,
+.addToCart {
   margin-bottom: 20px;
-  font-family:'Lobster', cursive;
-
+  font-family: "Lobster", cursive;
 }
 
-.backTo-products,a:hover {
+.backTo-products,
+a:hover {
   text-decoration: none;
 }
 
-
+/*drop down component*/
+select {
+  background-color: #9b111e;
+  border: 2px solid black;
+  color: burlywood;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-family: "Lobster", cursive;
+  outline: none;
+}
