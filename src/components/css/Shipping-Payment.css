@@ -69,7 +69,6 @@
   margin-bottom: 20px;
 }
 
-/*more of payment component*/
 .payment-labels-input {
   margin-bottom: 20px;
 }
@@ -88,4 +87,13 @@
 button {
   padding: 5px;
   margin: 5px;
+}
+
+/*images*/
+.packages,
+.creditCards {
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 30px;
+  border-radius: 12px;
 }

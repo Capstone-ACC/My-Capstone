@@ -11,6 +11,12 @@ h3 {
   display: inline;
 }
 
+@media screen and (max-width: 950px) {
+  .searchBar {
+    display: block;
+  }
+}
+
 input {
   width: 300px;
   font-size: 14pt;
@@ -38,12 +44,24 @@ input {
   width: 22%;
   margin: 20px;
   border-radius: 28px;
+  padding: 10px;
 }
 
 @media screen and (max-width: 950px) {
   .my-box {
     width: 35%;
     margin: 10px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .my-box {
+    width: 50%;
+    margin: 10px;
+    width: 300px;
+    margin-bottom: 20px;
+    padding: 10px;
+    margin-top: 20px;
   }
 }
 
@@ -116,3 +134,5 @@ button:hover {
 .productPrice {
   font-family: "Cormorant Garamond", serif;
 }
+
+

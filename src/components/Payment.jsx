@@ -1,12 +1,46 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export default function Payment() {
-  //useNavigate
+  const [name, setName] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
+  const [zipCode, setZipCode] = useState("");
+  const [cvv, setCvv] = useState("");
+  const [promoCode, setPromoCode] = useState("");
+  const [address, setAddress] = useState("");
+  const [email, setEmail] = useState("");
+  const [donation, setDonationAddress] = useState("");
+
+  //useNavigate & useLocation
   const navigate = useNavigate();
+  const location = useLocation();
+  const { cart } = location.state || {};
 
   function backToShipping() {
-    navigate("/shipping");
+    navigate("/shipping", {
+      state: {
+        cart: cart,
+      },
+    });
+  }
+
+  function goToConfirmation(event) {
+    event.preventDefault();
+    localStorage.removeItem("cart");
+
+    navigate("/confirmation", {
+      state: {
+        name,
+        cardNumber,
+        zipCode,
+        cvv,
+        promoCode,
+        address,
+        email,
+        donation,
+        cart,
+      },
+    });
   }
 
   return (
@@ -31,38 +65,93 @@ export default function Payment() {
           <hr />
         </h5>
 
-        <form className="payment-form-container">
-          <label className="payment-labels-input" l>
+        <img src="/images/creditCards.jpg" className="creditCards" />
+
+        <form
+          className="payment-form-container"
+          onSubmit={goToConfirmation}
+        >
+          <label className="payment-labels-input">
             First and Last Name
-            <input type="text" placeholder="Name on card*" />
+            <input
+              type="text"
+              placeholder="Name on card*"
+              onChange={(e) => setName(e.target.value)}
+            />
+          </label>
+
+          <label className="payment-labels-input">
+            Confirm Address:
+            <input
+              type="text"
+              placeholder="Address*"
+              onChange={(e) => setAddress(e.target.value)}
+            />
+          </label>
+
+          <label className="payment-labels-input">
+            Donation Address:
+            <input
+              type="text"
+              placeholder="Donation Address if donating items"
+              onChange={(e) => setDonationAddress(e.target.value)}
+            />
+          </label>
+
+          <label className="payment-labels-input">
+            Confirm Email:
+            <input
+              type="text"
+              placeholder="Email*"
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </label>
 
           <label className="payment-labels-input">
             Credit Card Number:
-            <input type="input" placeholder="Credit Card Number*" />
+            <input
+              type="input"
+              placeholder="Credit Card Number*"
+              onChange={(e) => setCardNumber(e.target.value)}
+            />
           </label>
 
           <label className="payment-labels-input">
             Zip Code:
-            <input type="text" placeholder="Zip Code*" />
+            <input
+              type="text"
+              placeholder="Zip Code*"
+              onChange={(e) => setZipCode(e.target.value)}
+            />
           </label>
 
           <label className="payment-labels-input">
             CVV:
-            <input type="text" placeholder="CVV*" />
+            <input
+              type="text"
+              placeholder="CVV*"
+              onChange={(e) => setCvv(e.target.value)}
+            />
           </label>
 
           <label className="payment-labels-input">
             Promo Code:
-            <input type="text" placeholder="Code" />
+            <input
+              type="text"
+              placeholder="Code"
+              onChange={(e) => setPromoCode(e.target.value)}
+            />
           </label>
 
           <div className="payment-buttons">
             <button onClick={backToShipping}>Back To Shipping</button>
-            <button>Submit Payment</button>
+            <button type="submit">Submit Payment</button>
           </div>
         </form>
       </div>
     </>
   );
 }
+
+
+

@@ -3,6 +3,13 @@ h5 {
     text-decoration: underline;
 }
 
+.contact {
+    width: 100%;
+    max-width: 350px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+}
+
 .cart-container {
     width: 100%;
     max-width: 1200px;
@@ -11,6 +18,7 @@ h5 {
     margin-right: auto;
     background-color:#FFF5EE;
     padding: 20px;
+    border-radius: 12px;
 }
 
 .cartImg {
@@ -36,6 +44,42 @@ span {
     justify-content: center;
     align-items: center;
     font-size: 14pt;
+}
+
+@media screen and (max-width: 375px) {
+    .myItems {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 200px;
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .myItems {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 600px;
+        margin: 0px auto;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .myItems {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 600px;
+        margin: 0px auto;
+    }
 }
 
 /*buttons*/
@@ -138,3 +182,10 @@ label {
     color: black
 }   
 
+@media screen and (max-width: 600px) {
+    .cart-buttons {
+      display: flex;
+      flex-direction: row;
+      
+   }  
+  }

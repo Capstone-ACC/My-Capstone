@@ -22,15 +22,37 @@ h1 {
 
 /*Routes and Links*/
 li {
-  display: inline;
+  list-style-type: none;
 }
 
-.navBar li a {
-  margin: 20px;
+li a {
+  display: inline;
+  padding: 20px;
   font-family: 'Cormorant Garamond', serif;
   color: black;
-  text-decoration: none;
+  list-style-type: none;
   font-size: 16pt;
+}
+
+.navBar  {
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 860px) {
+  .navBar {
+    flex-direction: column;
+    font-size: 2em;
+  }
+}
+
+@media screen and (max-width: 801px) {
+  .navBar {
+   flex-wrap: wrap;
+  }
 }
 
 li:hover {
@@ -45,7 +67,7 @@ a {
 
 a:hover {
   cursor: pointer;
-  color: #9b111e;
+  color: maroon;
 }
 
 

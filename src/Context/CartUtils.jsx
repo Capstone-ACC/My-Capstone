@@ -17,3 +17,6 @@ export const getCartFromLocalStorage = () => {
     console.error("Error retrieving cart from local storage")
   }
 }
+
+
+//do i need to add the id???!!?!

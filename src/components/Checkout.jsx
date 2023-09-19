@@ -1,15 +1,29 @@
 import React from "react";
 import "./css/Cart-Checkout.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
-export default function Checkout() {
-
+export default function Checkout({}) {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const { cart } = location.state || {};
+  console.log("Cart Data:", cart);
 
   function goToStepTwo() {
-    navigate("/shipping")
+    navigate("/shipping", {
+      state: {
+        cart: cart,
+      },
+    });
   }
 
+  function backToCart() {
+    navigate("/usersCart", {
+      state: {
+        cart: cart,
+      },
+    });
+  }
 
   return (
     <>
@@ -26,6 +40,9 @@ export default function Checkout() {
           Contact Information
           <hr />
         </h5>
+
+        <img src="/images/contact.jpg" className="contact"/>
+
         <form className="form-container">
           <label>
             Phone Number:
@@ -53,6 +70,13 @@ export default function Checkout() {
               Sign up for weekly coupons from Tech & Styles
             </label>
 
+            <button 
+              type="button"
+              onClick={backToCart}>
+              Back To Cart
+              <img src="/images/cart.png" alt="shopping cart"/>
+            </button>
+
             <button
              type="button"
              onClick={goToStepTwo}>
@@ -64,3 +88,6 @@ export default function Checkout() {
     </>
   );
 }
+
+
+

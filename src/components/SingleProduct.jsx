@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect, useContext } from "react";
 import { getSingleProduct } from "./api";
 import { useParams, Link } from "react-router-dom";
+// import React360Viewer from 'react-360-product-viewer'
 import { CartContext } from "../Context/Context";
 import { saveCartToLocalStorage } from "../Context/CartUtils";
 
@@ -36,6 +37,7 @@ export default function SingleProduct() {
             alt={singleProduct.title}
             className="selected-item-image"
           />
+
           <h5>{singleProduct.title}</h5>
           <span className="selected-item">{singleProduct.description}</span>
           <span className="selected-item">

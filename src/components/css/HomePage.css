@@ -18,7 +18,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -80%);
-  color: white;
+  color: black;
   background-color: transparent;
   border-radius: 20px;
   font-size: 18px;
@@ -32,7 +32,7 @@
 }
 
 .shopAll:hover {
-  color: #9b111e;
+  color: maroon;
 }
 
 p {

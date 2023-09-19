@@ -1,0 +1,54 @@
+/*confirmation component*/
+.confirmation-black-background {
+    background-color: black;
+    color: white;
+    width: 100%;
+    max-width: 700px;
+    display: flex;
+    justify-content: left;
+    margin: 0 auto;
+    margin-top: 40px;
+    border-radius: 12px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.step-four {
+    margin-left: 20px;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 16pt;
+    padding: 5px;
+    word-spacing: 2px;
+}
+
+.animatedCC {
+    margin-left: 10px;
+}
+
+.confirmation-container {
+    border: 2px solid black;
+    width: 700px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    font-size: 14pt;
+    padding-bottom: 20px;
+    border-radius: 12px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+.heading-confirm {
+    margin-top: 40px;
+}
+
+.email, .address, .donationAddress {
+    font-family: 'Lobster', cursive;
+}
+
+.address {
+    margin-bottom: 20px;
+}
+
