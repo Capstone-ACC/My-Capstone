@@ -11,8 +11,30 @@ export default function UsersCart() {
   const [username, setUsername] = useState("");
   const [userTotalPrice, setTotalPrice] = useState(0);
   const [deletedCart, setDeletedCart] = useState({});
+  const [id, setId] = useState("");
 
-  // fetch cart
+  // //trying this fetch cart
+  // useEffect(() => {
+  //   const fetchCart = async (id) => {
+  //     try {
+  //       if(id) {
+  //         const myCart = await singleCart(id);
+  //         console.log("Cart Data:", myCart);
+  //         setCart(myCart);
+  //         saveCartToLocalStorage(myCart);
+  //       }
+
+  //     } catch (error) {
+  //       console.error("Error Fetching Cart:", error);
+  //     }
+  //   }
+
+  //   fetchCart()
+  // }, [id])
+
+  //** but this works below.,.,. 
+
+  //fetch cart
   useEffect(() => {
     const fetchCart = async () => {
       try {
@@ -33,21 +55,6 @@ export default function UsersCart() {
     fetchCart();
   }, []);
 
-//or
-  // useEffect(() => {
-  //   const fetchCart = async () => {
-  //     try {
-  //       const myCart = await singleCart(username); 
-  //       console.log("Cart Data:", myCart);
-  //       setCart(myCart);
-  //       saveCartToLocalStorage(myCart);
-  //     } catch (error) {
-  //        console.error("Error:", error);
-  //  }
-  // };
-
-  //   fetchCart();
-  // }, [username]);
 
 //fetch cart products
   useEffect(() => {
@@ -180,4 +187,3 @@ export default function UsersCart() {
     </>
   );
 }
-
