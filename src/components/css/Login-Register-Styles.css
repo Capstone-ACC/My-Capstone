@@ -68,7 +68,6 @@ label {
     width: 340px;
     margin: 15px;
     padding: 10px;
-
   }
 }
 
@@ -108,8 +107,8 @@ label {
   cursor: pointer;
 }
 
-@media  screen and (max-width: 375px) {
-  .login-button, 
+@media screen and (max-width: 375px) {
+  .login-button,
   .register-button {
     width: 120px;
   }
@@ -133,7 +132,7 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
-  }  
+  }
 }
 
 /* more of register component*/

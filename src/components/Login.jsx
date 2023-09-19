@@ -66,13 +66,12 @@ export default function Login({ setToken }) {
       try {
         const allUsers = await getAllUsers();
         console.log("All Users", allUsers);
-
       } catch (error) {
         console.error("Error:", error);
       }
-    }
+    };
     fetchAllUsers();
-  },[]);
+  }, []);
 
   return (
     <>
