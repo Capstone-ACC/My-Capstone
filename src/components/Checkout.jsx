@@ -17,6 +17,14 @@ export default function Checkout({}) {
     });
   }
 
+  function backToCart() {
+    navigate("/usersCart", {
+      state: {
+        cart: cart,
+      },
+    });
+  }
+
   return (
     <>
       <br />
@@ -62,6 +70,13 @@ export default function Checkout({}) {
               Sign up for weekly coupons from Tech & Styles
             </label>
 
+            <button 
+              type="button"
+              onClick={backToCart}>
+              Back To Cart
+              <img src="/images/cart.png" alt="shopping cart"/>
+            </button>
+
             <button
              type="button"
              onClick={goToStepTwo}>
@@ -73,3 +88,6 @@ export default function Checkout({}) {
     </>
   );
 }
+
+
+

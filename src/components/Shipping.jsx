@@ -5,6 +5,11 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 export default function Shipping() {
   const [username, setUsername] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
 
   useEffect(() => {
     const myStoredUsername = localStorage.getItem("username");
@@ -13,13 +18,22 @@ export default function Shipping() {
     }
   }, []);
 
+  //handle submit form
+  function handleSubmitForm(event) {
+    event.preventDefault();
+  }
+
   //useNavigate & useLocation
   const navigate = useNavigate();
   const location = useLocation();
-  const { cart } = location.state;
+  const { cart } = location.state || {};
 
   function backToContact() {
-    navigate("/checkout");
+    navigate("/checkout", {
+      state: {
+        cart: cart,
+      },
+    });
   }
 
   function goToPayment() {
@@ -54,50 +68,76 @@ export default function Shipping() {
 
         <img src="/images/packages.jpg" className="packages" />
 
-        <form className="shipping-form-container">
-          <label>
-            First Name:
-            <input type="text" placeholder="First Name*" />
-          </label>
+        <div className="shipping-form-container">
+          <form onSubmit={handleSubmitForm}>
+            <label>
+              First Name:
+              <input
+                type="text"
+                placeholder="First Name*"
+                onChange={(e) => setFirstName(e.target.value)}
+              />
+            </label>
 
-          <label>
-            Last Name:
-            <input type="text" placeholder="Last Name*" />
-          </label>
+            <label>
+              Last Name:
+              <input
+                type="text"
+                placeholder="Last Name*"
+                onChange={(e) => setLastName(e.target.value)}
+              />
+            </label>
 
-          <label>
-            Address:
-            <input type="text" placeholder="Address*" />
-          </label>
+            <label>
+              Address:
+              <input
+                type="text"
+                placeholder="Address*"
+                onChange={(e) => setAddress(e.target.value)}
+              />
+            </label>
 
-          <label>
-            City:
-            <input type="text" placeholder="City*" />
-          </label>
+            <label>
+              City:
+              <input
+                type="text"
+                placeholder="City*"
+                onChange={(e) => setCity(e.target.value)}
+              />
+            </label>
 
-          <label>
-            State:
-            <input type="text" className="state" placeholder="State" />
-            <span className="available-countries">Available Counties:*</span>
-            <select className="selectCounty">
-              <option value="unitedStates">United States</option>
-              <option value="canada">Canada</option>
-              <option value="mexico">Mexico</option>
-              <option value="france">France</option>
-              <option value="united-kingdom">United Kingdom</option>
-            </select>
-          </label>
+            <label>
+              State:
+              <input
+                type="text"
+                className="state"
+                placeholder="State"
+                onChange={(e) => setState(e.target.value)}
+              />
+              <span className="available-countries">Available Counties:*</span>
+              <select className="selectCounty">
+                <option value="unitedStates">United States</option>
+                <option value="canada">Canada</option>
+                <option value="mexico">Mexico</option>
+                <option value="france">France</option>
+                <option value="united-kingdom">United Kingdom</option>
+              </select>
+            </label>
 
-          <div className="shipping-buttons">
-            <button type="button" onClick={backToContact}>
-              Back To Contact Info
-            </button>
-            <button type="button" onClick={goToPayment}>
-              Continue To Payment
-            </button>
-          </div>
-        </form>
+            <div className="shipping-buttons">
+              <button type="button" onClick={backToContact}>
+                Back To Contact Info
+              </button>
+              <button type="button" onClick={goToPayment}>
+                Continue To Payment
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </>
   );
 }
+
+
+
