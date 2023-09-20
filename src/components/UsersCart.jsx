@@ -79,7 +79,7 @@ export default function UsersCart() {
   useEffect(() => {
     const fetchSingleCart = async () => {
       try {
-        const mySingleCart = await singleCart(id);
+        const mySingleCart = await singleCart();
         setSingleCart(mySingleCart);
       } catch (error) {
         console.error("Error", error);
