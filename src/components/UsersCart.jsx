@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { deleteCart, singleCart, getSingleProduct } from "./api";
+import { deleteCart, singleCart, getSingleProduct, getAllUsers } from "./api";
 import "./css/UsersCart.css";
 import { useNavigate } from "react-router-dom";
-import {getCartFromLocalStorage, saveCartToLocalStorage,} from "../Context/CartUtils";
+import { getCartFromLocalStorage, saveCartToLocalStorage } from "../Context/CartUtils";
 
 export default function UsersCart() {
   const [cart, setCart] = useState([]);
@@ -13,46 +13,50 @@ export default function UsersCart() {
   const [deletedCart, setDeletedCart] = useState({});
   const [id, setId] = useState("");
 
-  // //trying this fetch cart
-  // useEffect(() => {
-  //   const fetchCart = async (id) => {
-  //     try {
-  //       if(id) {
-  //         const myCart = await singleCart(id);
-  //         console.log("Cart Data:", myCart);
-  //         setCart(myCart);
-  //         saveCartToLocalStorage(myCart);
-  //       }
-
-  //     } catch (error) {
-  //       console.error("Error Fetching Cart:", error);
-  //     }
-  //   }
-
-  //   fetchCart()
-  // }, [id])
-
-  //** but this works below.,.,.
+  //local storage
+  useEffect(() => {
+    const usernameFromLocalStorage = localStorage.getItem("username");
+    setUsername(usernameFromLocalStorage);
+  }, []);
 
   //fetch cart
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const myStoredUsername = localStorage.getItem("username");
-        if (myStoredUsername) {
-          setUsername(myStoredUsername);
-
-          const myCart = await singleCart(myStoredUsername);
-          console.log("Cart Data:", myCart);
-          setCart(myCart);
-          saveCartToLocalStorage(myCart);
-        }
+        const myStoredCartUserId = localStorage.getItem("cartUserId");
+        const myCart = await singleCart(myStoredCartUserId);
+        console.log("Cart Data:", myCart);
+        setCart(myCart);
+        saveCartToLocalStorage(myCart);
       } catch (error) {
         console.error("Error:", error);
       }
     };
 
     fetchCart();
+  }, []);
+
+  //all users
+  useEffect(() => {
+    const fetchAllUsers = async () => {
+      try {
+        const allUsers = await getAllUsers();
+
+        const loggedInUser = allUsers.filter((user) => {
+          if (user.username === username) {
+            console.log(user);
+            return user;
+          }
+        });
+
+        localStorage.setItem("cartUserId", loggedInUser[0].id);
+
+        console.log("All Users", allUsers);
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    };
+    fetchAllUsers();
   }, []);
 
   //fetch cart products
@@ -75,7 +79,7 @@ export default function UsersCart() {
   useEffect(() => {
     const fetchSingleCart = async () => {
       try {
-        const mySingleCart = await singleCart();
+        const mySingleCart = await singleCart(id);
         setSingleCart(mySingleCart);
       } catch (error) {
         console.error("Error", error);
@@ -99,9 +103,7 @@ export default function UsersCart() {
   // increase cart of a product in the cart
   //can we even do this, it seems like the users cart is set and stone??
   //i did this on my other cart, Cart.jsx
-  const increaseQuantity = (productId) => {
-
-  };
+  const increaseQuantity = (productId) => {};
 
   //Delete cart
   const handleDeleteCart = async () => {

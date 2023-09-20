@@ -83,29 +83,16 @@ export const getCategories = async () => {
 
 //Cart
 
-/*get single cart*/
-//   //cart 2, userID 1
-//   //how do i show the cart for whoever logs in ??
-export const singleCart = async () => {
+/*get single cart per id*/
+export const singleCart = async (id) => {
   try {
-    const response = await fetch("https://fakestoreapi.com/carts/2");
+    const response = await fetch(`https://fakestoreapi.com/carts/${id}`);
     const result = await response.json();
     return result;
   } catch (error) {
     console.error("Error:", error);
   }
 };
-
-// //or  - - -
-// export const singleCart = async (id) => {
-//   try {
-//     const response = await fetch(`https://fakestoreapi.com/carts/${id}`);
-//     const result = await response.json();
-//     return result;
-//   } catch (error) {
-//     console.error("Error:", error);
-//   }
-// };
 
 /*add a new product in cart*/
 export const addCart = async (userId, products) => {
