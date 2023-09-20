@@ -11,7 +11,6 @@ export default function UsersCart() {
   const [username, setUsername] = useState("");
   const [userTotalPrice, setTotalPrice] = useState(0);
   const [deletedCart, setDeletedCart] = useState({});
-  const [id, setId] = useState("");
 
   //local storage
   useEffect(() => {
@@ -49,7 +48,7 @@ export default function UsersCart() {
           }
         });
 
-        localStorage.setItem("cartUserId", loggedInUser[0].id);
+        localStorage.setItem("cartUserId", loggedInUser[0]?.id);
 
         console.log("All Users", allUsers);
       } catch (error) {
@@ -77,9 +76,9 @@ export default function UsersCart() {
 
   //single cart for user
   useEffect(() => {
-    const fetchSingleCart = async () => {
+    const fetchSingleCart = async (id) => {
       try {
-        const mySingleCart = await singleCart();
+        const mySingleCart = await singleCart(id);
         setSingleCart(mySingleCart);
       } catch (error) {
         console.error("Error", error);
@@ -103,13 +102,15 @@ export default function UsersCart() {
   // increase cart of a product in the cart
   //can we even do this, it seems like the users cart is set and stone??
   //i did this on my other cart, Cart.jsx
-  const increaseQuantity = (productId) => {};
+  const increaseQuantity = (productId) => {
+
+  };
 
   //Delete cart
   const handleDeleteCart = async () => {
     try {
-      const userIdToDelete = 5;
-      const myDeletedItems = await deleteCart(userIdToDelete);
+      const deletedUsersCart = 5;
+      const myDeletedItems = await deleteCart(deletedUsersCart);
       setDeletedCart(myDeletedItems);
       setCart([]);
       setProducts([]);
