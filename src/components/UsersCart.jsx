@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { deleteCart, singleCart, getSingleProduct } from "./api";
 import "./css/UsersCart.css";
 import { useNavigate } from "react-router-dom";
-import { saveCartToLocalStorage } from "../Context/CartUtils";
+import {getCartFromLocalStorage, saveCartToLocalStorage,} from "../Context/CartUtils";
 
 export default function UsersCart() {
   const [cart, setCart] = useState([]);
@@ -32,7 +32,7 @@ export default function UsersCart() {
   //   fetchCart()
   // }, [id])
 
-  //** but this works below.,.,. 
+  //** but this works below.,.,.
 
   //fetch cart
   useEffect(() => {
@@ -42,7 +42,7 @@ export default function UsersCart() {
         if (myStoredUsername) {
           setUsername(myStoredUsername);
 
-          const myCart = await singleCart(myStoredUsername); 
+          const myCart = await singleCart(myStoredUsername);
           console.log("Cart Data:", myCart);
           setCart(myCart);
           saveCartToLocalStorage(myCart);
@@ -55,20 +55,19 @@ export default function UsersCart() {
     fetchCart();
   }, []);
 
-
-//fetch cart products
+  //fetch cart products
   useEffect(() => {
     const fetchCartProducts = async () => {
       let productList = [];
-      
+
       for (const product of cart.products || []) {
         const details = await getSingleProduct(product.productId);
-        productList.push({...details, quantity: product.quantity});
+        productList.push({ ...details, quantity: product.quantity });
       }
-  
+
       setProducts(productList);
     };
-  
+
     fetchCartProducts();
   }, [cart]);
 
@@ -89,22 +88,20 @@ export default function UsersCart() {
   //total price
   useEffect(() => {
     let totalPrice = 0;
-  
+
     for (const product of products) {
       totalPrice += product.price * product.quantity;
     }
-  
+
     setTotalPrice(totalPrice);
   }, [products, cart]);
 
-
-  // Increase the quantity of a product in the cart
-  //can we even do this, it seems like the users cart is set and stone?? 
+  // increase cart of a product in the cart
+  //can we even do this, it seems like the users cart is set and stone??
   //i did this on my other cart, Cart.jsx
-  const increaseItemQuantity = () => {
+  const increaseQuantity = (productId) => {
 
   };
-
 
   //Delete cart
   const handleDeleteCart = async () => {
@@ -122,7 +119,6 @@ export default function UsersCart() {
       console.error("Error:", error);
     }
   };
-
 
   //useNavigate
   const navigate = useNavigate();
@@ -147,7 +143,9 @@ export default function UsersCart() {
 
         {products.length === 0 ? (
           <>
-            <span style={{ fontSize: "22pt" }}>Please Login To See Your Cart</span>
+            <span style={{ fontSize: "22pt" }}>
+              Please Login To See Your Cart
+            </span>
             <br />
           </>
         ) : (
@@ -158,19 +156,15 @@ export default function UsersCart() {
                 <span>{item.title}</span>
                 <span>${item.price}</span>
 
-               <div className="cart-buttons">
-               <button onClick={() => {}} >
-                  -
-                </button>
+                <div className="cart-buttons">
+                  <button onClick={() => {}}>-</button>
 
-                <span>{item.quantity}</span>
+                  <span>{item.quantity}</span>
 
-                <button
-                  onClick={() => increaseItemQuantity(item.productId)}
-                >
-                  +
-                </button>
-               </div>
+                  <button onClick={() => increaseQuantity(item.productId)}>
+                    +
+                  </button>
+                </div>
 
                 <hr />
               </div>

@@ -5,8 +5,9 @@ import { saveCartToLocalStorage,getCartFromLocalStorage,} from "../Context/CartU
 import "./css/Cart-Checkout.css";
 
 export default function Cart() {
-  const [username, setUsername] = useState("");
   const [totalCartPrice, setTotalPrice] = useState(0);
+  // const [username, setUsername] = useState("");
+
   const myCart = useContext(CartContext);
   const { state, dispatch } = myCart;
 

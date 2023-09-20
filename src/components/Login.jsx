@@ -6,7 +6,7 @@ import { getAllUsers } from "./api";
 export default function Login({ setToken }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [id, setId] = useState("");
+  const [id, setId] = useState(""); //do we need to set the state for the users id?? for their cart per user?
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
@@ -46,7 +46,7 @@ export default function Login({ setToken }) {
         if (result.token) {
           localStorage.setItem("token", result.token);
           localStorage.setItem("username", username);
-          localStorage.setItem("id", id);
+          localStorage.setItem("id", id); //just incase we need the id
 
           setToken(result.token);
           alert(`Login Successful ${username}, check console.log for token`);
