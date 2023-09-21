@@ -3,10 +3,9 @@ import { useNavigate } from "react-router-dom";
 import "./css/Login-Register-Styles.css";
 import { getAllUsers } from "./api";
 
-export default function Login({ setToken }) {
+export default function Login({ setToken, setIsLoggedIn }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [id, setId] = useState(""); //do we need to set the state for the users id?? for their cart per user?
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
@@ -46,9 +45,10 @@ export default function Login({ setToken }) {
         if (result.token) {
           localStorage.setItem("token", result.token);
           localStorage.setItem("username", username);
-          localStorage.setItem("id", id); //just incase we need the id
+          // localStorage.setItem("id", id); //just incase we need the id
 
           setToken(result.token);
+          setIsLoggedIn(true);
           alert(`Login Successful ${username}, check console.log for token`);
           navigate("/main-all-products");
         } else {

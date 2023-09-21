@@ -20,6 +20,7 @@ function App() {
   const [token, setToken] = useState(null);
   const [selectedItem, setSelectedItem] = useState(null);
   const [cartItems, setCart] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   
   return (
     <>
@@ -44,10 +45,10 @@ function App() {
         <Route path="/main-all-products" element={<Main/>} />
         <Route path="/usersCart" element={<UsersCart cart={cartItems} setCart={setCart}/>} />
         <Route path="/products/:id" element={<SingleProduct setSelectedItem={setSelectedItem} item={selectedItem} />} />
-        <Route path="/login" element={<Login setToken={setToken}/>} />
+        <Route path="/login" element={<Login setToken={setToken} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
         <Route path="/register" element={<Register setToken={setToken} />} />
         <Route path="/checkout" element={<Checkout />} />
-        <Route path="/cart" element={<Cart cart={cartItems} setCart={setCart}/>} />
+        <Route path="/cart" element={<Cart cart={cartItems} setCart={setCart} isLoggedIn={isLoggedIn}/>} />
           <Route path="/shipping" element={<Shipping />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/confirmation" element={<Confirmation />} />

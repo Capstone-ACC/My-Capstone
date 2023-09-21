@@ -1,10 +1,10 @@
 import { useEffect, useContext, useState } from "react";
 import { CartContext } from "../Context/Context";
 import { useNavigate } from "react-router-dom";
-import {saveCartToLocalStorage, getCartFromLocalStorage} from "../Context/CartUtils";
+import { saveCartToLocalStorage, getCartFromLocalStorage } from "../Context/CartUtils";
 import "./css/Cart-Checkout.css";
 
-export default function Cart() {
+export default function Cart({ isLoggedIn }) {
   const myCart = useContext(CartContext);
   const { state, dispatch } = myCart;
 
@@ -46,6 +46,7 @@ export default function Cart() {
     });
   }
 
+
   return (
     <>
       <br />
@@ -61,8 +62,12 @@ export default function Cart() {
           <>
             <span style={{ fontSize: "22pt" }}>Cart is empty for now</span>
             <br />
-            <span className="total-price">Total: $0.00</span>
-            <button onClick={goToProducts}> Add Items</button>
+
+            {isLoggedIn ? (
+              <button onClick={goToProducts}> Add Items</button>
+            ) : (
+              <span>Please log in to add items</span>
+            )}
           </>
         ) : (
           <>
@@ -133,4 +138,3 @@ export default function Cart() {
     </>
   );
 }
-
