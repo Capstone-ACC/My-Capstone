@@ -6,7 +6,6 @@ import { getAllUsers } from "./api";
 export default function Login({ setToken }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [id, setId] = useState("");
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
@@ -46,7 +45,6 @@ export default function Login({ setToken }) {
         if (result.token) {
           localStorage.setItem("token", result.token);
           localStorage.setItem("username", username);
-          localStorage.setItem("id", id);
 
           setToken(result.token);
           alert(`Login Successful ${username}, check console.log for token`);

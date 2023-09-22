@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { deleteCart, singleCart, getSingleProduct } from "./api";
+import { deleteCart, singleCart, getSingleProduct, getAllUsers } from "./api";
 import "./css/UsersCart.css";
 import { useNavigate } from "react-router-dom";
 import { saveCartToLocalStorage } from "../Context/CartUtils";
@@ -11,42 +11,32 @@ export default function UsersCart() {
   const [username, setUsername] = useState("");
   const [userTotalPrice, setTotalPrice] = useState(0);
   const [deletedCart, setDeletedCart] = useState({});
-  const [id, setId] = useState("");
 
-  // //trying this fetch cart
-  // useEffect(() => {
-  //   const fetchCart = async (id) => {
-  //     try {
-  //       if(id) {
-  //         const myCart = await singleCart(id);
-  //         console.log("Cart Data:", myCart);
-  //         setCart(myCart);
-  //         saveCartToLocalStorage(myCart);
-  //       }
+  //local storage
+  useEffect(() => {
+    const usernameFromLocalStorage = localStorage.getItem("username");
+    setUsername(usernameFromLocalStorage);
+  }, []);
 
-  //     } catch (error) {
-  //       console.error("Error Fetching Cart:", error);
-  //     }
-  //   }
+  //increase and decrease
+  function increaseQuantity() {
+    alert("Product Quantity Increased");
+  }
 
-  //   fetchCart()
-  // }, [id])
-
-  //** but this works below.,.,. 
+  function decreaseQuantity() {
+    alert("Product Quantity Decreased");
+  }
 
   //fetch cart
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const myStoredUsername = localStorage.getItem("username");
-        if (myStoredUsername) {
-          setUsername(myStoredUsername);
+        const myStoredCartUserId = localStorage.getItem("cartUserId");
+        const myCart = await singleCart(myStoredCartUserId);
+        console.log("Cart Data:", myCart);
 
-          const myCart = await singleCart(myStoredUsername); 
-          console.log("Cart Data:", myCart);
-          setCart(myCart);
-          saveCartToLocalStorage(myCart);
-        }
+        setCart(myCart);
+        saveCartToLocalStorage(myCart);
       } catch (error) {
         console.error("Error:", error);
       }
@@ -55,28 +45,50 @@ export default function UsersCart() {
     fetchCart();
   }, []);
 
+  //all users
+  useEffect(() => {
+    const fetchAllUsers = async () => {
+      try {
+        const allUsers = await getAllUsers();
 
-//fetch cart products
+        const loggedInUser = allUsers.filter((user) => {
+          if (user.username === username) {
+            console.log(user);
+            return user;
+          }
+        });
+
+        localStorage.setItem("cartUserId", loggedInUser[0]?.id);
+
+        console.log("All Users", allUsers);
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    };
+    fetchAllUsers();
+  }, []);
+
+  //fetch cart products
   useEffect(() => {
     const fetchCartProducts = async () => {
       let productList = [];
-      
+
       for (const product of cart.products || []) {
         const details = await getSingleProduct(product.productId);
-        productList.push({...details, quantity: product.quantity});
+        productList.push({ ...details, quantity: product.quantity });
       }
-  
+
       setProducts(productList);
     };
-  
+
     fetchCartProducts();
   }, [cart]);
 
   //single cart for user
   useEffect(() => {
-    const fetchSingleCart = async () => {
+    const fetchSingleCart = async (id) => {
       try {
-        const mySingleCart = await singleCart();
+        const mySingleCart = await singleCart(id);
         setSingleCart(mySingleCart);
       } catch (error) {
         console.error("Error", error);
@@ -89,28 +101,19 @@ export default function UsersCart() {
   //total price
   useEffect(() => {
     let totalPrice = 0;
-  
+
     for (const product of products) {
       totalPrice += product.price * product.quantity;
     }
-  
+
     setTotalPrice(totalPrice);
   }, [products, cart]);
-
-
-  // Increase the quantity of a product in the cart
-  //can we even do this, it seems like the users cart is set and stone?? 
-  //i did this on my other cart, Cart.jsx
-  const increaseItemQuantity = () => {
-
-  };
-
 
   //Delete cart
   const handleDeleteCart = async () => {
     try {
-      const userIdToDelete = 5;
-      const myDeletedItems = await deleteCart(userIdToDelete);
+      const deletedUsersCart = 5;
+      const myDeletedItems = await deleteCart(deletedUsersCart);
       setDeletedCart(myDeletedItems);
       setCart([]);
       setProducts([]);
@@ -122,7 +125,6 @@ export default function UsersCart() {
       console.error("Error:", error);
     }
   };
-
 
   //useNavigate
   const navigate = useNavigate();
@@ -147,7 +149,9 @@ export default function UsersCart() {
 
         {products.length === 0 ? (
           <>
-            <span style={{ fontSize: "22pt" }}>Please Login To See Your Cart</span>
+            <span style={{ fontSize: "22pt" }}>
+              Please Login To See Your Cart
+            </span>
             <br />
           </>
         ) : (
@@ -158,19 +162,13 @@ export default function UsersCart() {
                 <span>{item.title}</span>
                 <span>${item.price}</span>
 
-               <div className="cart-buttons">
-               <button onClick={() => {}} >
-                  -
-                </button>
+                <div className="cart-buttons">
+                  <button onClick={decreaseQuantity}>-</button>
 
-                <span>{item.quantity}</span>
+                  <span>{item.quantity}</span>
 
-                <button
-                  onClick={() => increaseItemQuantity(item.productId)}
-                >
-                  +
-                </button>
-               </div>
+                  <button onClick={increaseQuantity}>+</button>
+                </div>
 
                 <hr />
               </div>
