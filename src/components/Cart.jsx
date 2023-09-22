@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { saveCartToLocalStorage, getCartFromLocalStorage } from "../Context/CartUtils";
 import "./css/Cart-Checkout.css";
 
-export default function Cart({ isLoggedIn }) {
+export default function Cart() {
   const myCart = useContext(CartContext);
   const { state, dispatch } = myCart;
 
@@ -59,16 +59,11 @@ export default function Cart({ isLoggedIn }) {
         <br />
 
         {state.length === 0 ? (
-          <>
+         <>
             <span style={{ fontSize: "22pt" }}>Cart is empty for now</span>
+            <button onClick={goToProducts}> Add Products</button>
             <br />
-
-            {isLoggedIn ? (
-              <button onClick={goToProducts}> Add Items</button>
-            ) : (
-              <span>Please log in to add items</span>
-            )}
-          </>
+        </>
         ) : (
           <>
             {state.map((item, index) => {
@@ -121,9 +116,11 @@ export default function Cart({ isLoggedIn }) {
               );
             })}
 
-            <span className="total-price">
-              Total: ${totalCartPrice.toFixed(2)}
-            </span>
+{typeof totalCartPrice === "number" && (
+              <span className="total-price">
+                Total: ${totalCartPrice.toFixed(2)}
+              </span>
+            )}
 
             <div className="add-more-bts-and-checkout">
               <button className="cartBackToProducts" onClick={goToProducts}>
@@ -138,3 +135,5 @@ export default function Cart({ isLoggedIn }) {
     </>
   );
 }
+
+

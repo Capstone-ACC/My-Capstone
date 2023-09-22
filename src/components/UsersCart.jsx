@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { deleteCart, singleCart, getSingleProduct, getAllUsers } from "./api";
 import "./css/UsersCart.css";
 import { useNavigate } from "react-router-dom";
-import { getCartFromLocalStorage, saveCartToLocalStorage } from "../Context/CartUtils";
+import { saveCartToLocalStorage } from "../Context/CartUtils";
 
 export default function UsersCart() {
   const [cart, setCart] = useState([]);
@@ -18,6 +18,15 @@ export default function UsersCart() {
     setUsername(usernameFromLocalStorage);
   }, []);
 
+  //increase and decrease
+  function increaseQuantity() {
+    alert("Product Quantity Increased");
+  }
+
+  function decreaseQuantity() {
+    alert("Product Quantity Decreased");
+  }
+
   //fetch cart
   useEffect(() => {
     const fetchCart = async () => {
@@ -25,6 +34,7 @@ export default function UsersCart() {
         const myStoredCartUserId = localStorage.getItem("cartUserId");
         const myCart = await singleCart(myStoredCartUserId);
         console.log("Cart Data:", myCart);
+
         setCart(myCart);
         saveCartToLocalStorage(myCart);
       } catch (error) {
@@ -99,13 +109,6 @@ export default function UsersCart() {
     setTotalPrice(totalPrice);
   }, [products, cart]);
 
-  // increase cart of a product in the cart
-  //can we even do this, it seems like the users cart is set and stone??
-  //i did this on my other cart, Cart.jsx
-  const increaseQuantity = (productId) => {
-
-  };
-
   //Delete cart
   const handleDeleteCart = async () => {
     try {
@@ -160,13 +163,11 @@ export default function UsersCart() {
                 <span>${item.price}</span>
 
                 <div className="cart-buttons">
-                  <button onClick={() => {}}>-</button>
+                  <button onClick={decreaseQuantity}>-</button>
 
                   <span>{item.quantity}</span>
 
-                  <button onClick={() => increaseQuantity(item.productId)}>
-                    +
-                  </button>
+                  <button onClick={increaseQuantity}>+</button>
                 </div>
 
                 <hr />

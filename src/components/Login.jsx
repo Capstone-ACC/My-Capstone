@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./css/Login-Register-Styles.css";
 import { getAllUsers } from "./api";
 
-export default function Login({ setToken, setIsLoggedIn }) {
+export default function Login({ setToken }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -45,10 +45,8 @@ export default function Login({ setToken, setIsLoggedIn }) {
         if (result.token) {
           localStorage.setItem("token", result.token);
           localStorage.setItem("username", username);
-          // localStorage.setItem("id", id); //just incase we need the id
 
           setToken(result.token);
-          setIsLoggedIn(true);
           alert(`Login Successful ${username}, check console.log for token`);
           navigate("/main-all-products");
         } else {
