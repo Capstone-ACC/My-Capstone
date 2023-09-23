@@ -31,7 +31,7 @@ export default function Cart() {
     });
 
     setTotalPrice(total);
-  }, [state]);
+  }, []);
 
   //use navigate
   const navigate = useNavigate();
@@ -45,7 +45,6 @@ export default function Cart() {
       state: { cart: state },
     });
   }
-
 
   return (
     <>
@@ -116,7 +115,7 @@ export default function Cart() {
               );
             })}
 
-{typeof totalCartPrice === "number" && (
+            {typeof totalCartPrice === "number" && (
               <span className="total-price">
                 Total: ${totalCartPrice.toFixed(2)}
               </span>
