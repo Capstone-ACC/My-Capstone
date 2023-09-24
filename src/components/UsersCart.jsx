@@ -20,7 +20,7 @@ export default function UsersCart() {
     const usernameFromLocalStorage = localStorage.getItem("username");
     setUsername(usernameFromLocalStorage);
 
-    const cartData = getCartFromLocalStorage();
+    const cartData = getCartFromLocalStorage("cart");
     setCart(cartData);
   }, []);
 

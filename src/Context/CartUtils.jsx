@@ -18,5 +18,3 @@ export const getCartFromLocalStorage = () => {
   }
 }
 
-
-//do i need to add the id???!!?!
