@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { deleteCart, singleCart, getSingleProduct, getAllUsers } from "./api";
 import "./css/UsersCart.css";
 import { useNavigate } from "react-router-dom";
-import { saveCartToLocalStorage } from "../Context/CartUtils";
+import { getCartFromLocalStorage, saveCartToLocalStorage } from "../Context/CartUtils";
 
 export default function UsersCart() {
   const [cart, setCart] = useState([]);
@@ -16,9 +16,12 @@ export default function UsersCart() {
   useEffect(() => {
     const usernameFromLocalStorage = localStorage.getItem("username");
     setUsername(usernameFromLocalStorage);
+
+    const cartData = getCartFromLocalStorage("cart");
+    setCart(cartData);
   }, []);
 
-  //increase and decrease
+  // increase and decrease
   function increaseQuantity() {
     alert("Product Quantity Increased");
   }
@@ -164,12 +167,9 @@ export default function UsersCart() {
 
                 <div className="cart-buttons">
                   <button onClick={decreaseQuantity}>-</button>
-
                   <span>{item.quantity}</span>
-
                   <button onClick={increaseQuantity}>+</button>
                 </div>
-
                 <hr />
               </div>
             );

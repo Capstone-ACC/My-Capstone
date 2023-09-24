@@ -128,6 +128,7 @@ export default function Shipping() {
               <button type="button" onClick={backToContact}>
                 Back To Contact Info
               </button>
+
               <button type="button" onClick={goToPayment}>
                 Continue To Payment
               </button>
@@ -138,6 +139,3 @@ export default function Shipping() {
     </>
   );
 }
-
-
-
