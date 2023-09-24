@@ -1,10 +1,7 @@
 import { useEffect, useContext, useState } from "react";
 import { CartContext } from "../Context/Context";
 import { useNavigate } from "react-router-dom";
-import {
-  saveCartToLocalStorage,
-  getCartFromLocalStorage,
-} from "../Context/CartUtils";
+import { saveCartToLocalStorage, getCartFromLocalStorage } from "../Context/CartUtils";
 import "./css/Cart-Checkout.css";
 
 export default function Cart() {
