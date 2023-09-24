@@ -7,7 +7,7 @@ export default function Login({ setToken }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-
+  const [loggedInUser, setLoggedInUser] = useState(false);
   const navigate = useNavigate();
 
   const inputUsername = (e) => {
@@ -46,7 +46,19 @@ export default function Login({ setToken }) {
           localStorage.setItem("token", result.token);
           localStorage.setItem("username", username);
 
+          // Fetching user data, logged in user
+          const allUsers = await getAllUsers();
+          const loggedInUser = allUsers.find(
+            (user) => user.username === username
+          );
+
+          if (loggedInUser) {
+            localStorage.setItem("cartUserId", loggedInUser.id);
+          }
+
           setToken(result.token);
+          setLoggedInUser(true);
+          console.log(loggedInUser);
           alert(`Login Successful ${username}, check console.log for token`);
           navigate("/main-all-products");
         } else {

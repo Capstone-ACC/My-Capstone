@@ -10,7 +10,7 @@ export default function Confirmation() {
   const navigate = useNavigate();
 
   function backToShopping() {
-    navigate('/main-all-products')
+    navigate("/main-all-products");
   }
 
   return (
@@ -34,7 +34,9 @@ export default function Confirmation() {
         <span>
           Items are being sent to <div className="address">{address}</div>
         </span>
-        <span>If applicable, Your items are being sent the below address for a Donation <br/>
+        <span>
+          If applicable, Your items are being sent the below address for a
+          Donation <br />
           <div className="donationAddress">{donation}</div>
         </span>
 
@@ -46,5 +48,3 @@ export default function Confirmation() {
     </>
   );
 }
-
-

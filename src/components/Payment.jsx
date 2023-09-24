@@ -26,7 +26,6 @@ export default function Payment() {
 
   function goToConfirmation(event) {
     event.preventDefault();
-    localStorage.removeItem("cart");
 
     navigate("/confirmation", {
       state: {
@@ -67,10 +66,7 @@ export default function Payment() {
 
         <img src="/images/creditCards.jpg" className="creditCards" />
 
-        <form
-          className="payment-form-container"
-          onSubmit={goToConfirmation}
-        >
+        <form className="payment-form-container" onSubmit={goToConfirmation}>
           <label className="payment-labels-input">
             First and Last Name
             <input
@@ -152,6 +148,3 @@ export default function Payment() {
     </>
   );
 }
-
-
-

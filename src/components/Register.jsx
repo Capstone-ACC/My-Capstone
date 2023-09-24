@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./css/Login-Register-Styles.css";
 import { addNewUser } from "./api";
 
-export default function Register({setToken}) {
+export default function Register({ setToken }) {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -23,17 +23,17 @@ export default function Register({setToken}) {
   const handleRegister = async (e) => {
     e.preventDefault();
 
-    const result = await addNewUser(username,password)
+    const result = await addNewUser(username, password);
 
     if (!username || !password) {
       setError("Please enter both username and password");
     } else {
-      alert(`Success, Welcome ${username}! You are now registered`)
-      console.log("New User ID:",result);
+      alert(`Success, Welcome ${username}! You are now registered`);
+      console.log("New User ID:", result);
       navigate("/main-all-products");
       setError("");
     }
-  }
+  };
 
   return (
     <>
@@ -43,7 +43,7 @@ export default function Register({setToken}) {
       <div className="register-container">
         <h2>Register For a New Account</h2>
 
-        <form onSubmit={handleRegister}>  
+        <form onSubmit={handleRegister}>
           <label>
             Username:
             <input
@@ -79,5 +79,3 @@ export default function Register({setToken}) {
     </>
   );
 }
-
-
