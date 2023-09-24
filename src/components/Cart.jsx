@@ -1,7 +1,10 @@
 import { useEffect, useContext, useState } from "react";
 import { CartContext } from "../Context/Context";
 import { useNavigate } from "react-router-dom";
-import { saveCartToLocalStorage, getCartFromLocalStorage } from "../Context/CartUtils";
+import {
+  saveCartToLocalStorage,
+  getCartFromLocalStorage,
+} from "../Context/CartUtils";
 import "./css/Cart-Checkout.css";
 
 export default function Cart() {
@@ -58,11 +61,11 @@ export default function Cart() {
         <br />
 
         {state.length === 0 ? (
-         <>
+          <>
             <span style={{ fontSize: "22pt" }}>Cart is empty for now</span>
             <button onClick={goToProducts}> Add Products</button>
             <br />
-        </>
+          </>
         ) : (
           <>
             {state.map((item, index) => {
@@ -134,5 +137,3 @@ export default function Cart() {
     </>
   );
 }
-
-

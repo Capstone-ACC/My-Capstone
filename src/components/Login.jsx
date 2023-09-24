@@ -21,12 +21,12 @@ export default function Login({ setToken }) {
   //handel submit
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     if (!username || !password) {
       setError("Please enter both username and password");
     } else {
       setError("");
-  
+
       try {
         const response = await fetch("https://fakestoreapi.com/auth/login", {
           method: "POST",
@@ -38,22 +38,24 @@ export default function Login({ setToken }) {
             password: password,
           }),
         });
-  
+
         const result = await response.json();
         console.log("Token:", result);
-  
+
         if (result.token) {
           localStorage.setItem("token", result.token);
           localStorage.setItem("username", username);
-  
+
           // Fetching user data, logged in user
           const allUsers = await getAllUsers();
-          const loggedInUser = allUsers.find((user) => user.username === username); 
-          
+          const loggedInUser = allUsers.find(
+            (user) => user.username === username
+          );
+
           if (loggedInUser) {
             localStorage.setItem("cartUserId", loggedInUser.id);
           }
-  
+
           setToken(result.token);
           setLoggedInUser(true);
           console.log(loggedInUser);
@@ -111,7 +113,7 @@ export default function Login({ setToken }) {
           </label>
 
           {error && <span className="error-message">{error}</span>}
-     
+
           <button className="login-button" type="submit">
             Login
           </button>
