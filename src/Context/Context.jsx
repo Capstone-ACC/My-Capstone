@@ -19,7 +19,7 @@ export const Context = (props) => {
             }
           });
         } else {
-          // If the item is not in the cart, add it with quantity 1
+          // If the item is not in the cart, add it with the quantity of 1
           return [...state, { ...action.payload, quantity: 1 }];
         }
       case "DELETE":
