@@ -61,7 +61,7 @@ export default function SingleProduct() {
               }}
             >
               <Link to="/cart" className="addToCart">
-                Add To Cart
+                Add To Donation Cart
               </Link>
               <img src="/images/cart.png" alt="Cart Icon" />
             </button>
