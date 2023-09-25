@@ -6,32 +6,24 @@ export const Context = (props) => {
   const reducer = (state, action) => {
     switch (action.type) {
       case "ADD":
-        const existingItem = state.find(
-          (item) => action.payload.id === item.id
-        );
-        if (existingItem) {
-          // If the item is already in the cart, increase its quantity
-          return state.map((item) => {
-            if (item.id === action.payload.id) {
-              return { ...item, quantity: item.quantity + 1 };
-            } else {
-              return item;
-            }
-          });
+        const addItem = state.filter((item) => action.payload.id === item.id);
+        if (addItem.length > 0) {
+          return state; 
         } else {
-          // If the item is not in the cart, add it with the quantity of 1
-          return [...state, { ...action.payload, quantity: 1 }];
+          return [...state, action.payload];
         }
+
       case "DELETE":
         return state.filter((item) => item.id !== action.payload.id);
       case "INCREASE":
-        return state.map((item) => {
-          if (item.id === action.payload.id) {
-            return { ...item, quantity: item.quantity + 1 };
+        const productIncrease = state.map((item) => {
+          if(item.id === action.payload.id) {
+           return {...item, quantity: item.quantity + 1}
           } else {
             return item;
-          }
-        });
+          } 
+        })
+        return productIncrease;
       case "DECREASE":
         return state.map((item) => {
           if (item.id === action.payload.id) {
