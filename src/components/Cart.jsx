@@ -5,8 +5,7 @@ import { saveCartToLocalStorage, getCartFromLocalStorage } from "../Context/Cart
 import "./css/Cart-Checkout.css";
 
 export default function Cart() {
-  const myCart = useContext(CartContext);
-  const { state, dispatch } = myCart;
+  const { state, dispatch } = useContext(CartContext);
 
   const [totalCartPrice, setTotalPrice] = useState(0);
 
@@ -27,11 +26,11 @@ export default function Cart() {
     let total = 0;
 
     state.forEach((item) => {
-      total = total + item.price * item.quantity;
+      total += item.price * item.quantity;
     });
 
     setTotalPrice(total);
-  }, []);
+  }, [state]);
 
   //use navigate
   const navigate = useNavigate();
@@ -70,13 +69,12 @@ export default function Cart() {
                 <div className="myItems" key={index}>
                   <img src={item.image} className="cartImg" />
                   <span>{item.title}</span>
-                  <span>${item.price}</span>
+                  <span>${item.quantity * item.price}</span>
 
                   <button
                     onClick={() => {
                       console.log("Decreased Quantity:", item);
                       dispatch({ type: "DECREASE", payload: item });
-                      saveCartToLocalStorage([...state]);
                     }}
                     className="cart-buttons"
                   >
@@ -88,12 +86,8 @@ export default function Cart() {
                   <div className="cart-buttons">
                     <button
                       onClick={() => {
-                        console.log("Added To Cart:", item);
-                        dispatch({ type: "ADD", payload: item });
-                        saveCartToLocalStorage([
-                          ...state,
-                          { ...item, quantity: 1 },
-                        ]);
+                        console.log("Increased Quantity:", item);
+                        dispatch({ type: "INCREASE", payload: item });
                       }}
                     >
                       +
@@ -103,7 +97,6 @@ export default function Cart() {
                       onClick={() => {
                         console.log("Deleted Item:", item);
                         dispatch({ type: "DELETE", payload: item });
-                        saveCartToLocalStorage([...state]);
                       }}
                     >
                       Delete
