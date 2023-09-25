@@ -26,7 +26,7 @@ export default function Cart() {
     let total = 0;
 
     state.forEach((item) => {
-      total = item.price * item.quantity;
+      total += item.price * item.quantity;
     });
 
     setTotalPrice(total);
