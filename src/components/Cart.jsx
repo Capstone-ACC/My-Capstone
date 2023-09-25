@@ -29,8 +29,8 @@ export default function Cart() {
       total = item.price * item.quantity;
     });
 
-    setTotalPrice(totalCartPrice);
-  }, []);
+    setTotalPrice(total);
+  }, [state]);
 
   //use navigate
   const navigate = useNavigate();
