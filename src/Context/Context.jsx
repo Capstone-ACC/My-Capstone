@@ -6,12 +6,12 @@ export const Context = (props) => {
   const reducer = (state, action) => {
     switch (action.type) {
       case "ADD":
-        const existingItem = state.find((item) => item.id === action.payload.id);
+        const existingItem = state.find((item) => item.id === payload.id);
 
         if (existingItem) {
           // If the item already exists in the cart, increase its quantity by one
           return state.map((item) =>
-            item.id === action.payload.id
+            item.id === payload.id
               ? { ...item, quantity: item.quantity + 1 }
               : item
           );
@@ -24,12 +24,12 @@ export const Context = (props) => {
         return state.filter((item) => item.id !== action.payload.id);
       case "INCREASE":
         const productIncrease = state.map((item) => {
-          if(item.id === action.payload.id) {
-           return {...item, quantity: item.quantity + 1}
+          if (item.id === action.payload.id) {
+            return { ...item, quantity: item.quantity + 1 };
           } else {
             return item;
-          } 
-        })
+          }
+        });
         return productIncrease;
       case "DECREASE":
         return state.map((item) => {
@@ -39,8 +39,8 @@ export const Context = (props) => {
             return item;
           }
         });
-        case "LOAD_CART":
-          return action.payload;
+      case "LOAD_CART":
+        return action.payload;
       default:
         return state;
     }
@@ -49,10 +49,10 @@ export const Context = (props) => {
   //local storage
   useEffect(() => {
     const cartSavedData = getCartFromLocalStorage();
-    if (cartSavedData > 0)  {
-      dispatch({ type: "LOAD_CART", payload: cartSavedData})
+    if (cartSavedData > 0) {
+      dispatch({ type: "LOAD_CART", payload: cartSavedData });
     }
-  }, [])
+  }, []);
 
   const [state, dispatch] = useReducer(reducer, []);
   const cartInfo = { state, dispatch };
