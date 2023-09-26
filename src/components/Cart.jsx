@@ -26,7 +26,7 @@ export default function Cart() {
     let total = 0;
 
     state.forEach((item) => {
-      total += item.price * item.quantity;
+      total = item.price * item.quantity;
     });
 
     setTotalPrice(total);
@@ -110,7 +110,7 @@ export default function Cart() {
 
             {typeof totalCartPrice === "number" && (
               <span className="total-price">
-                Total: ${totalCartPrice.toFixed(2)}
+                Total: ${totalCartPrice.toFixed(2).toString()}
               </span>
             )}
 
