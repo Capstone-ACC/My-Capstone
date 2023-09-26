@@ -109,9 +109,9 @@ export default function Cart() {
             })}
 
             {typeof totalCartPrice === "number" && (
-              <span className="total-price">
-                Total: ${totalCartPrice.toFixed(2).toString()}
-              </span>
+             <span className="total-price">
+              Total: ${totalCartPrice.toFixed(2).toString()} 
+            </span>
             )}
 
             <div className="add-more-bts-and-checkout">
