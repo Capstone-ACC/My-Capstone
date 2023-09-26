@@ -6,23 +6,30 @@ export const Context = (props) => {
   const reducer = (state, action) => {
     switch (action.type) {
       case "ADD":
-        const addItem = state.filter((item) => action.payload.id === item.id);
-        if (addItem.length > 0) {
-          return state; 
+        const existingItem = state.find((item) => item.id === payload.id);
+
+        if (existingItem) {
+          // If the item already exists in the cart, increase its quantity by one
+          return state.map((item) =>
+            item.id === payload.id
+              ? { ...item, quantity: item.quantity + 1 }
+              : item
+          );
         } else {
-          return [...state, action.payload];
+          // If the item doesn't exist in the cart, add it with a quantity of 1
+          return [...state, { ...action.payload, quantity: 1 }];
         }
 
       case "DELETE":
         return state.filter((item) => item.id !== action.payload.id);
       case "INCREASE":
         const productIncrease = state.map((item) => {
-          if(item.id === action.payload.id) {
-           return {...item, quantity: item.quantity + 1}
+          if (item.id === action.payload.id) {
+            return { ...item, quantity: item.quantity + 1 };
           } else {
             return item;
-          } 
-        })
+          }
+        });
         return productIncrease;
       case "DECREASE":
         return state.map((item) => {
@@ -32,8 +39,8 @@ export const Context = (props) => {
             return item;
           }
         });
-        case "LOAD_CART":
-          return action.payload;
+      case "LOAD_CART":
+        return action.payload;
       default:
         return state;
     }
@@ -43,9 +50,9 @@ export const Context = (props) => {
   useEffect(() => {
     const cartSavedData = getCartFromLocalStorage();
     if (cartSavedData > 0) {
-      dispatch({ type: "LOAD_CART", payload: cartSavedData})
+      dispatch({ type: "LOAD_CART", payload: cartSavedData });
     }
-  }, [])
+  }, []);
 
   const [state, dispatch] = useReducer(reducer, []);
   const cartInfo = { state, dispatch };

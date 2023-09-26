@@ -26,7 +26,7 @@ export default function Cart() {
     let total = 0;
 
     state.forEach((item) => {
-      total += item.price * item.quantity;
+     total += item.price * item.quantity;
     });
 
     setTotalPrice(total);
@@ -56,7 +56,7 @@ export default function Cart() {
         <br />
         <br />
 
-        {state.length === 0 ? (
+        {Array.isArray(state) && state.length === 0 ? (
           <>
             <span style={{ fontSize: "22pt" }}>Cart is empty for now</span>
             <button onClick={goToProducts}> Add Products</button>
@@ -109,9 +109,9 @@ export default function Cart() {
             })}
 
             {typeof totalCartPrice === "number" && (
-              <span className="total-price">
-                Total: ${totalCartPrice.toFixed(2)}
-              </span>
+             <span className="total-price">
+              Total: ${totalCartPrice.toFixed(2).toString()} 
+            </span>
             )}
 
             <div className="add-more-bts-and-checkout">

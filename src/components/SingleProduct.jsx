@@ -52,19 +52,23 @@ export default function SingleProduct() {
               </Link>
             </button>
 
-            <button
-              onClick={() => {
-                dispatch({ type: "ADD", payload: singleProduct });
-                console.log("Added To Cart:", singleProduct);
+           <button 
+           onClick={() => {
+            const existingItem = stateOfCart.state.find((item) => item.id ===singleProduct.id);
+            if (existingItem) {
+              dispatch({type: "INCREASE", payload: singleProduct});
+            } else {
+              dispatch({type: "ADD", payload: {...singleProduct, quantity: 1}});
+            }
 
-                saveCartToLocalStorage([...stateOfCart.state, singleProduct]);
-              }}
-            >
-              <Link to="/cart" className="addToCart">
-                Add To Donation Cart
-              </Link>
-              <img src="/images/cart.png" alt="Cart Icon" />
-            </button>
+            console.log("Added To Donation Cart", singleProduct);
+            saveCartToLocalStorage([...stateOfCart.state, singleProduct]);
+           }}>
+             <Link to="/cart" className="addToCart">
+               Add To Donation Cart
+             </Link>
+             <img src="/images/cart.png" alt="Cart Icon" />
+           </button>
           </div>
         </div>
       ) : (
