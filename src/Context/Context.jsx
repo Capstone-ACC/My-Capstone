@@ -2,16 +2,17 @@ import { createContext, useEffect, useReducer } from "react";
 import { getCartFromLocalStorage } from "./CartUtils";
 
 export const CartContext = createContext();
+
 export const Context = (props) => {
   const reducer = (state, action) => {
     switch (action.type) {
       case "ADD":
-        const existingItem = state.find((item) => item.id === payload.id);
+        const existingItem = state.find((item) => item.id === action.payload.id);
 
         if (existingItem) {
           // If the item already exists in the cart, increase its quantity by one
           return state.map((item) =>
-            item.id === payload.id
+            item.id === action.payload.id
               ? { ...item, quantity: item.quantity + 1 }
               : item
           );
@@ -23,14 +24,13 @@ export const Context = (props) => {
       case "DELETE":
         return state.filter((item) => item.id !== action.payload.id);
       case "INCREASE":
-        const productIncrease = state.map((item) => {
+        return state.map((item) => {
           if (item.id === action.payload.id) {
             return { ...item, quantity: item.quantity + 1 };
           } else {
             return item;
           }
         });
-        return productIncrease;
       case "DECREASE":
         return state.map((item) => {
           if (item.id === action.payload.id) {
@@ -49,7 +49,7 @@ export const Context = (props) => {
   //local storage
   useEffect(() => {
     const cartSavedData = getCartFromLocalStorage();
-    if (cartSavedData > 0) {
+    if (cartSavedData !== null) {
       dispatch({ type: "LOAD_CART", payload: cartSavedData });
     }
   }, []);
