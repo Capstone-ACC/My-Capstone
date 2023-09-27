@@ -124,6 +124,12 @@ label {
   text-decoration: underline;
 }
 
+@media screen and (max-width: 375px) {
+  span, .newUserRegister {
+    font-size: 14pt;
+  }
+}
+
 /*image*/
 .loginImg,
 .macBook {
