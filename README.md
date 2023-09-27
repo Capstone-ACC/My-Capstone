@@ -5,7 +5,7 @@ By: Davonne J. Vigil
   - Tech & Styles E-commerce Website
   - Fake Store API
 
-  Deployed Site: https://651325ecb524c30b00f98a57--jazzy-caramel-c3924f.netlify.app/cart
+  Deployed Site: https://6513a95e6a6fd54f20085eca--jade-kashata-746e67.netlify.app/
 
   Errors: I will definitely work on and try to fix. I think I know
   the solution just need to keep working it out. 
