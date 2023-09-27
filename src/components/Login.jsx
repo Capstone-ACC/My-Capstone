@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./css/Login-Register-Styles.css";
 import { getAllUsers } from "./api";
 
@@ -117,6 +117,8 @@ export default function Login({ setToken }) {
           <button className="login-button" type="submit">
             Login
           </button>
+
+          <span>First Time User? <Link to="/register" className="newUserRegister">Register Here</Link></span>
         </form>
       </div>
 

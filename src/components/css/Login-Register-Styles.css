@@ -100,6 +100,7 @@ label {
   margin-top: 10px;
   border-radius: 12px;
   width: 300px;
+  margin-bottom: 10px;
 }
 
 .login-button:hover {
@@ -111,6 +112,21 @@ label {
   .login-button,
   .register-button {
     width: 120px;
+  }
+}
+
+.newUserRegister {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 16pt;
+}
+
+.newUserRegister:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 375px) {
+  span, .newUserRegister {
+    font-size: 14pt;
   }
 }
 
