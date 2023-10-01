@@ -46,14 +46,6 @@ export const Context = (props) => {
     }
   };
 
-  // //local storage
-  // useEffect(() => {
-  //   const cartSavedData = getCartFromLocalStorage();
-  //   if (cartSavedData) {
-  //     dispatch({ type: "LOAD_CART", payload: cartSavedData });
-  //   }
-  // }, []);
-
   const [state, dispatch] = useReducer(reducer, []);
   const cartInfo = { state, dispatch };
 
