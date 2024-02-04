@@ -9,7 +9,7 @@ import Register from './components/Register';
 import Checkout from './components/Checkout';
 import Cart from './components/Cart';
 import SingleProduct from './components/SingleProduct';
-import UsersCart from './components/UsersCart';
+// import UsersCart from './components/UsersCart';
 import TopHeader from './components/TopHeader';
 import Shipping from './components/Shipping';
 import Payment from './components/Payment';
@@ -34,20 +34,21 @@ function App() {
         <li><Link to="/main-all-products">All Products</Link></li>
         <li><Link to="/login">Login</Link></li>
         <li><Link to="/register">Register</Link></li>
-        <li><Link to="/usersCart">My Cart</Link></li>  
-        <li><Link to="/cart">Donation Cart</Link></li>  
+        {/* <li><Link to="/cart">Cart</Link></li> */}
+  
+        {/* <li><Link to="/cart">Donation Cart</Link></li>   */}
       </div>
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/main-all-products" element={<Main/>} />
-        <Route path="/usersCart" element={<UsersCart cart={cartItems} setCart={setCart}/>} />
+        {/* <Route path="/usersCart" element={<UsersCart cart={cartItems} setCart={setCart}/>} /> */}
         <Route path="/products/:id" element={<SingleProduct setSelectedItem={setSelectedItem} item={selectedItem} />} />
         <Route path="/login" element={<Login setToken={setToken}/>} />
         <Route path="/register" element={<Register setToken={setToken} />} />
         <Route path="/checkout" element={<Checkout />} />
-        <Route path="/cart" element={<Cart cart={cartItems} setCart={setCart}/>} />
+        <Route path="/cart" element={<Cart />} />
           <Route path="/shipping" element={<Shipping />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/confirmation" element={<Confirmation />} />
