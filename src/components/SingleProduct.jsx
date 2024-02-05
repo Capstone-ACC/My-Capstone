@@ -65,7 +65,7 @@ export default function SingleProduct() {
             saveCartToLocalStorage([...stateOfCart.state, singleProduct]);
            }}>
              <Link to="/cart" className="addToCart">
-               Add To Donation Cart
+               Add To Cart
              </Link>
              <img src="/images/cart.png" alt="Cart Icon" />
            </button>
