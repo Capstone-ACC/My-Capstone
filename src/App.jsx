@@ -7,7 +7,7 @@ import Main from './components/Main';
 import Login from './components/Login';
 import Register from './components/Register';
 import Checkout from './components/Checkout';
-import Cart from './components/Cart';
+// import Cart from './components/Cart';
 import SingleProduct from './components/SingleProduct';
 // import UsersCart from './components/UsersCart';
 import TopHeader from './components/TopHeader';
@@ -19,7 +19,7 @@ import Confirmation from './components/Confirmation';
 function App() {
   const [token, setToken] = useState(null);
   const [selectedItem, setSelectedItem] = useState(null);
-  const [cartItems, setCart] = useState([]);
+  // const [cartItems, setCart] = useState([]);
   
   return (
     <>
@@ -48,7 +48,7 @@ function App() {
         <Route path="/login" element={<Login setToken={setToken}/>} />
         <Route path="/register" element={<Register setToken={setToken} />} />
         <Route path="/checkout" element={<Checkout />} />
-        <Route path="/cart" element={<Cart />} />
+        {/* <Route path="/cart" element={<Cart />} /> */}
           <Route path="/shipping" element={<Shipping />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/confirmation" element={<Confirmation />} />
