@@ -4,6 +4,7 @@
   - Fake Store API
 
   Deployed Site: https://6513a95e6a6fd54f20085eca--jade-kashata-746e67.netlify.app/
+  
     - On Donation Cart when you add a product, the Total and Quantity Says "NaN,
      if you click "+" and refresh the page. The total and quantity will work
 
