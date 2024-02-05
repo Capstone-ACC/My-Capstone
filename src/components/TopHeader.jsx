@@ -10,6 +10,7 @@ import "./css/TopHeader.css";
   //   localStorage.removeItem("username");   
   // }
 
+
 // //handle logout
 // const handleLogOut = (myCart) => {
 //   saveCartToLocalStorage(myCart);
@@ -25,6 +26,7 @@ export default function TopHeader({size}) {
     navigate("/register")
   }
   return (
+
     <div className="top-header">
       <div className="summer-sale">
       Summer Sale - Get 50% off items for Registering Today
@@ -39,3 +41,4 @@ export default function TopHeader({size}) {
     </div>
   )
 }
+

@@ -8,6 +8,8 @@ export default function Login({ setToken }) {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loggedInUser, setLoggedInUser] = useState(false);
+
+  alert("This Login uses the given users from the API Fake Store. Please use a username and password from the API. ")
   const navigate = useNavigate();
 
   const inputUsername = (e) => {
