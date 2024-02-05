@@ -68,7 +68,6 @@ label {
     width: 340px;
     margin: 15px;
     padding: 10px;
-
   }
 }
 
@@ -101,6 +100,7 @@ label {
   margin-top: 10px;
   border-radius: 12px;
   width: 300px;
+  margin-bottom: 10px;
 }
 
 .login-button:hover {
@@ -108,10 +108,25 @@ label {
   cursor: pointer;
 }
 
-@media  screen and (max-width: 375px) {
-  .login-button, 
+@media screen and (max-width: 375px) {
+  .login-button,
   .register-button {
     width: 120px;
+  }
+}
+
+.newUserRegister {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 16pt;
+}
+
+.newUserRegister:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 375px) {
+  span, .newUserRegister {
+    font-size: 14pt;
   }
 }
 
@@ -133,7 +148,7 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
-  }  
+  }
 }
 
 /* more of register component*/

@@ -17,6 +17,14 @@ export default function Checkout({}) {
     });
   }
 
+  function backToCart() {
+    navigate("/usersCart", {
+      state: {
+        cart: cart,
+      },
+    });
+  }
+
   return (
     <>
       <br />
@@ -33,7 +41,7 @@ export default function Checkout({}) {
           <hr />
         </h5>
 
-        <img src="/images/contact.jpg" className="contact"/>
+        <img src="/images/contact.jpg" className="contact" />
 
         <form className="form-container">
           <label>
@@ -62,10 +70,13 @@ export default function Checkout({}) {
               Sign up for weekly coupons from Tech & Styles
             </label>
 
-            <button
-             type="button"
-             onClick={goToStepTwo}>
-             Continue
+            <button type="button" onClick={backToCart}>
+              Back To Cart
+              <img src="/images/cart.png" alt="shopping cart" />
+            </button>
+
+            <button type="button" onClick={goToStepTwo}>
+              Continue
             </button>
           </div>
         </form>

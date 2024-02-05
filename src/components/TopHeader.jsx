@@ -10,6 +10,14 @@ import "./css/TopHeader.css";
   //   localStorage.removeItem("username");   
   // }
 
+// //handle logout
+// const handleLogOut = (myCart) => {
+//   saveCartToLocalStorage(myCart);
+//   localStorage.removeItem("username");
+//   localStorage.removeItem("cartUserId");
+// };
+
+
 export default function TopHeader() {
   const navigate = useNavigate();
 
@@ -22,12 +30,12 @@ export default function TopHeader() {
       Summer Sale - Get 50% off items for Registering Today
           -
         <button onClick={goToRegister}>Get Started</button>
-  </div>
+    </div>
 
       <i className="fa fa-cart-plus cart-icon" style={{fontSize: '36px'}}></i>
+      <span>{size}</span>
       {/* <Link to="/login" className="login" onClick={()=>handleLogOut()}>Logout</Link>
       <Link to="/login" className="login">Login</Link> */}
     </div>
   )
 }
-

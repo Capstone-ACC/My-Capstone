@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./css/Login-Register-Styles.css";
 import { getAllUsers } from "./api";
 
 export default function Login({ setToken }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [id, setId] = useState("");
   const [error, setError] = useState("");
-
+  const [loggedInUser, setLoggedInUser] = useState(false);
   const navigate = useNavigate();
 
   const inputUsername = (e) => {
@@ -46,9 +45,20 @@ export default function Login({ setToken }) {
         if (result.token) {
           localStorage.setItem("token", result.token);
           localStorage.setItem("username", username);
-          localStorage.setItem("id", id);
+
+          // Fetching user data, logged in user
+          const allUsers = await getAllUsers();
+          const loggedInUser = allUsers.find(
+            (user) => user.username === username
+          );
+
+          if (loggedInUser) {
+            localStorage.setItem("cartUserId", loggedInUser.id);
+          }
 
           setToken(result.token);
+          setLoggedInUser(true);
+          console.log(loggedInUser);
           alert(`Login Successful ${username}, check console.log for token`);
           navigate("/main-all-products");
         } else {
@@ -66,13 +76,12 @@ export default function Login({ setToken }) {
       try {
         const allUsers = await getAllUsers();
         console.log("All Users", allUsers);
-
       } catch (error) {
         console.error("Error:", error);
       }
-    }
+    };
     fetchAllUsers();
-  },[]);
+  }, []);
 
   return (
     <>
@@ -108,6 +117,8 @@ export default function Login({ setToken }) {
           <button className="login-button" type="submit">
             Login
           </button>
+
+          <span>First Time User? <Link to="/register" className="newUserRegister">Register Here</Link></span>
         </form>
       </div>
 

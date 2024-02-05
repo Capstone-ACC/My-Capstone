@@ -4,13 +4,13 @@ import "./css/Confirmation.css";
 
 export default function Confirmation() {
   const location = useLocation();
-  const { name, email, address, cart, products, donation } = location.state;
+  const { name, email, address, cart, donation } = location.state;
 
   //useNavigate
   const navigate = useNavigate();
 
   function backToShopping() {
-    navigate('/main-all-products')
+    navigate("/main-all-products");
   }
 
   return (
@@ -34,14 +34,11 @@ export default function Confirmation() {
         <span>
           Items are being sent to <div className="address">{address}</div>
         </span>
-        <span>Your items are being sent to {donation} for a Donation</span>
-
-        {/* {products.map((item, index) => (
-          <div className="cart-item" key={index}>
-            <span>{item.product.title}</span>
-            <img src={item.image} className="userProductImage" />
-          </div>
-        ))} */}
+        <span>
+          If applicable, Your items are being sent the below address for a
+          Donation <br />
+          <div className="donationAddress">{donation}</div>
+        </span>
 
         {console.log("Items Purchased:", cart)}
         {console.log(`"Payment Successful:" Shipping To ${address}`)}

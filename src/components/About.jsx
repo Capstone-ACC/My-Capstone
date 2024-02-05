@@ -1,5 +1,5 @@
 import React from "react";
-import './css/About.css'
+import "./css/About.css";
 
 export default function About() {
   return (
@@ -13,26 +13,29 @@ export default function About() {
 
         <div className="about">
           <span>
-            Imperdiet proin fermentum leo vel orci porta non pulvinar neque.
-            Posuere sollicitudin aliquam ultrices sagittis orci a scelerisque.
-            Sed sed risus pretium quam vulputate dignissim suspendisse. Sed
-            adipiscing diam donec adipiscing. In dictum non consectetur a erat
-            nam at lectus. Aliquet enim tortor at auctor urna. Ornare quam
-            viverra orci sagittis eu volutpat odio. Congue eu consequat ac felis
-            donec et odio pellentesque. Tellus id interdum velit laoreet id
-            donec ultrices. Mauris commodo quis imperdiet massa tincidunt nunc
-            pulvinar sapien et.
+            Tech & Styles is a place where our love for Technology and Styling
+            come together, for the ultimate shopping experience. Starting off as
+            a small family business, we have transformed the Tech Community by
+            bringing together our love for fashion and technology. We knew from
+            the very beginning we were going to be a hit. Customers from all
+            over the World come to visit us, to shop the latest trends and
+            purchase a brand new computer monitor at the same time. We are a
+            full E-Commerce Website but have a home store in the heart of
+            Dallas, Texas. We are starting to open stores across the United
+            States.
           </span>
 
           <br />
           <br />
 
           <span>
-            Enim nec dui nunc mattis enim ut tellus. Quam elementum pulvinar
-            etiam non. Molestie at elementum eu facilisis sed odio morbi quis.
-            Diam sit amet nisl suscipit adipiscing bibendum est. Placerat in
-            egestas erat imperdiet. Diam sit amet nisl suscipit. Dictum at
-            tempor commodo ullamcorper.
+            This site allows you to show all the products we have available for
+            purchase, select a product and view its details. We also have the
+            option to sign into your account and purchase the products in your
+            cart. You are also able purchase products for a local Donation
+            Center. If you are a new customer, you are able to Register for an
+            account, and receive 50% off. Explore our site, and search for your
+            favorite Tech & Styles!
           </span>
 
           <img src="/images/macBookImg.jpg" className="televisionImg" />
