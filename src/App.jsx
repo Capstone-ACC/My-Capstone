@@ -19,10 +19,12 @@ import Confirmation from './components/Confirmation';
 function App() {
   const [token, setToken] = useState(null);
   const [selectedItem, setSelectedItem] = useState(null);
-
+  const [show, setShow] = useState(true);
+  const [cart, setCart] = useState([]);
+  
   return (
     <>
-      <TopHeader />
+      <TopHeader size={cart.length} />
 
       <Link to="/"><h1>Tech & Styles <br/>
       <div className="secondHeading">The Style of your Heart</div></h1></Link>

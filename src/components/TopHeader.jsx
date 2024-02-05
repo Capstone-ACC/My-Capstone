@@ -18,7 +18,7 @@ import "./css/TopHeader.css";
 // };
 
 
-export default function TopHeader() {
+export default function TopHeader({size}) {
   const navigate = useNavigate();
 
   const goToRegister = () => {
