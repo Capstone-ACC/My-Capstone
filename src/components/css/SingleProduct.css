@@ -1,0 +1,45 @@
+/*single product component*/
+.info-singleProduct {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff5ee;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+  
+  h5 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 2em;
+    margin-bottom: 30px;
+  }
+  
+  .selected-item-image {
+    width: 100%;
+    max-width: 250px;
+    margin-top: 60px;
+    margin-bottom: 10px;
+  }
+  
+  .selected-item {
+    font-size: 16pt;
+    font-family: "Times New Roman", Times, serif;
+  }
+  
+  .backTo-products,
+  .link-to-go-back,
+  .addToCart {
+    margin-bottom: 20px;
+    font-family: "Lobster", cursive;
+  }
+  
+  .backTo-products,
+  a:hover {
+    text-decoration: none;
+  }
+  
+
+  

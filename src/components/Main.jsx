@@ -6,6 +6,7 @@ import Product from "./Product";
 import PriceFilter from "./PriceFilter";
 import "./css/Main-SearchBar.css";
 
+
 export default function Main() {
   const [products, setProducts] = useState([]);
   const [searchedProducts, setSearchProducts] = useState("");
