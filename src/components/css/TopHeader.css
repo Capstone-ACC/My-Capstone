@@ -1,0 +1,39 @@
+/*top header component*/
+.top-header {
+    background-color: black;
+    width: 100%;
+    padding: 15px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13pt;
+  }
+  
+  @media  screen and (max-width: 414px) {
+    .top-header {
+      width: 100%;
+      text-align: left;
+    }
+  }
+  
+  @media  screen and (max-width: 375px) {
+    .top-header {
+      width: 100%;
+      padding: 20px;
+    }
+  }
+  
+  @media  screen and (max-width: 280px) {
+    .top-header {
+      width: 100%;
+      padding: 50px;
+    }
+  }
+
+/* 
+  .login {
+    color: white;
+    float: right;
+    padding: 10px;
+    font-size: 16pt;
+  } */
