@@ -1,9 +1,10 @@
-import React from "react";
 import { useState, useEffect, useContext } from "react";
 import { getSingleProduct } from "./api";
 import { useParams, Link } from "react-router-dom";
 import { CartContext } from "../Context/Context";
 import { saveCartToLocalStorage } from "../Context/CartUtils";
+import './css/SingleProduct.css';
+
 
 export default function SingleProduct() {
   const [singleProduct, setSingleProduct] = useState("");
@@ -65,7 +66,7 @@ export default function SingleProduct() {
             saveCartToLocalStorage([...stateOfCart.state, singleProduct]);
            }}>
              <Link to="/cart" className="addToCart">
-               Add To Donation Cart
+               Add To Cart
              </Link>
              <img src="/images/cart.png" alt="Cart Icon" />
            </button>

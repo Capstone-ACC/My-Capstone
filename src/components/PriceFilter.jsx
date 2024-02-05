@@ -1,5 +1,5 @@
-import React from "react";
 import { useState } from "react";
+import "./css/Filter.css";
 
 export default function PriceFilter({ onPriceChange }) {
   const [minPrice, setMinPrice] = useState("");
