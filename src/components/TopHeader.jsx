@@ -1,7 +1,7 @@
-import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import "./css/TopHeader.css";
-import { Link } from 'react-router-dom'
+import { useContext } from 'react';
+import { CartContext } from '../Context/cart';
 // import { saveCartToLocalStorage } from '../Context/CartUtils'
 
   // //handle logout
@@ -19,7 +19,8 @@ import { Link } from 'react-router-dom'
 // };
 
 
-export default function TopHeader({size}) {
+export default function TopHeader() {
+  const { cartItems } = useContext(CartContext);
   const navigate = useNavigate();
 
   const goToRegister = () => {
@@ -40,9 +41,10 @@ export default function TopHeader({size}) {
     </div>
 
   
-      <div className="cart-icon"><i className="fa fa-cart-plus cart-icon" style={{fontSize: '36px', cursor: 'pointer'}} onClick={goToCart}></i></div>
+      <div className="cart-icon">
+        <i className="fa fa-cart-plus cart-icon" style={{fontSize: '48px', cursor: 'pointer'}} onClick={goToCart}> {cartItems.length > 0 && <span className="cart-item-count">{cartItems.length}</span>}</i>
+        </div>
   
-      <span>{size}</span>
       {/* <Link to="/login" className="login" onClick={()=>handleLogOut()}>Logout</Link>
       <Link to="/login" className="login">Login</Link> */}
     </div>

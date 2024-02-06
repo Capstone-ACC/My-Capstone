@@ -10,12 +10,22 @@
     align-items: center;
   }
 
+  .cart-item-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: maroon;
+    color: white; 
+    font-size: 18px; 
+    padding: 3px 6px; 
+    border-radius: 50%; 
+  }
+
   .cart-icon {
     margin-left: auto;
+    position: relative;
  }
-  
-
-  
+    
 /* 
   .login {
     color: white;

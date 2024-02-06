@@ -1,4 +1,3 @@
-import React from "react";
 import "./css/Cart-Checkout.css";
 import { useNavigate, useLocation } from "react-router-dom";
 
