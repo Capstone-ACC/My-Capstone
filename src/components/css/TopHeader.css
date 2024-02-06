@@ -4,39 +4,18 @@
     width: 100%;
     padding: 15px;
     color: white;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     font-size: 13pt;
-  }
-  
-  @media  screen and (max-width: 414px) {
-    .top-header {
-      width: 100%;
-      text-align: left;
-      display: flex;
-      flex-direction: column;
-    }
-  }
-  
-  @media  screen and (max-width: 375px) {
-    .top-header {
-      width: 100%;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-    }
-  }
-  
-  @media  screen and (max-width: 280px) {
-    .top-header {
-      width: 100%;
-      padding: 50px;
-      display: flex;
-      flex-direction: column;
-    }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
+  .cart-icon {
+    margin-left: auto;
+ }
+  
+
+  
 /* 
   .login {
     color: white;

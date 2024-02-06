@@ -125,23 +125,15 @@
 
 import React, { useContext } from 'react';
 import { CartContext } from '../Context/cart';
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
   const { cartItems, removeFromCart, clearCart, getCartTotal, addToCart } = useContext(CartContext);
 
-  // const handleDecreaseQuantity = (item) => {
-  //   if (item.quantity > 1) {
-  //     removeFromCart(item);
-  //   }
-  // };
-
-  // const handleIncreaseQuantity = (item) => {
-  //   addToCart({ ...item, quantity: item.quantity + 1 });
-  // };
-
-  // const handleRemoveItem = (item) => {
-  //    removeFromCart(item);
-  // };
+  const navigate= useNavigate();
+  const keepShopping = () => {
+    navigate("/main-all-products");
+  }
 
   return (
     <section className="cart-container">
@@ -166,10 +158,10 @@ const Cart = () => {
             </div>
           ))}
           <div className="total-checkout-keepShopping">
-            <span>Grand Total: ${getCartTotal()}</span>
+            <span style={{fontSize: '18pt'}}>Grand Total: ${getCartTotal()}</span>
 
             <section>
-              <button>Keep Shopping</button>
+              <button onClick={keepShopping}>Keep Shopping</button>
               <button onClick={clearCart} >Clear Cart</button>
               <button>Check Out</button>
             </section>

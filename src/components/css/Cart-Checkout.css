@@ -31,13 +31,14 @@ h2 {
 }
 
 .more-styles {
-    font-size: 16pt;
+    font-size: 14pt;
 }
 
 .total-checkout-keepShopping {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    margin-top: 40px;
 }
 
 .myItems {
