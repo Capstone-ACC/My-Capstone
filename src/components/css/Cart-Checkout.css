@@ -28,6 +28,10 @@ h2 {
     width: 100%;
     max-width: 150px;
     padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
 }
 
 .more-styles {
@@ -43,8 +47,9 @@ h2 {
 
 .myItems {
     display: flex;
-    flex-direction: row;
-    gap: 40px;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
 }
 
 @media screen and (max-width: 375px) {

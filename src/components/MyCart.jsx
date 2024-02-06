@@ -154,6 +154,7 @@ const Cart = () => {
            
                 <span style={{padding: "10px"}}>${(item.quantity * item.price).toFixed(2)}</span>
                 <button>Delete Item</button>
+                <hr/>
               </div>
             </div>
           ))}
