@@ -8,6 +8,7 @@ import './css/SingleProduct.css';
 
 export default function SingleProduct() {
   const [singleProduct, setSingleProduct] = useState("");
+  const {addToCart} = useContext(CartContext)
 
   let { id } = useParams();
 
@@ -24,9 +25,9 @@ export default function SingleProduct() {
     fetchSingleProduct();
   }, [id]);
 
-  //cart functionality
-  const stateOfCart = useContext(CartContext);
-  const dispatch = stateOfCart.dispatch;
+  // //cart functionality
+  // const stateOfCart = useContext(CartContext);
+  // const dispatch = stateOfCart.dispatch;
 
   return (
     <>
@@ -53,7 +54,7 @@ export default function SingleProduct() {
               </Link>
             </button>
 
-           <button>
+           <button onClick={() => addToCart(singleProduct)}>
              <Link to="/cart" className="addToCart">
                Add To Cart
              </Link>

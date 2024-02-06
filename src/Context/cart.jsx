@@ -62,6 +62,7 @@ export const CartContext = createContext()
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : [])
 
+  //add to cart
   const addToCart = (item) => {
     const isItemInCart = cartItems.find((cartItem) => cartItem.id === item.id);
 
@@ -78,9 +79,10 @@ export const CartProvider = ({ children }) => {
     }
   };
 
+  //remove from cart
   const removeFromCart = (item) => {
     const isItemInCart = cartItems.find((cartItem) => cartItem.id === item.id);
-
+  
     if (isItemInCart.quantity === 1) {
       setCartItems(cartItems.filter((cartItem) => cartItem.id !== item.id));
     } else {
@@ -94,14 +96,18 @@ export const CartProvider = ({ children }) => {
     }
   };
 
+  //clear cart
   const clearCart = () => {
     setCartItems([]);
   };
 
+  //carts total
   const getCartTotal = () => {
-    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    const total = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    const roundedTotal = total.toFixed(2); 
+  
+    return parseFloat(roundedTotal); 
   };
-
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);

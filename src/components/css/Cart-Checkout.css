@@ -1,6 +1,7 @@
 /*cart component and checkout component*/
-h5 {
-    text-decoration: underline;
+h2 {
+   font-size: 3em;
+   margin-bottom: 40px;
 }
 
 .contact {
@@ -13,37 +14,36 @@ h5 {
 .cart-container {
     width: 100%;
     max-width: 1200px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     background-color:#FFF5EE;
     padding: 20px;
     border-radius: 12px;
-}
+    margin: auto;
+    }
 
 .cartImg {
     width: 100%;
     max-width: 150px;
     padding: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
 }
 
-span {
-    padding: 5px;
+.more-styles {
+    font-size: 16pt;
 }
 
-.total-price {
-    font-size: 18pt;
+.total-checkout-keepShopping {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .myItems {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    font-size: 14pt;
+    gap: 40px;
 }
 
 @media screen and (max-width: 375px) {

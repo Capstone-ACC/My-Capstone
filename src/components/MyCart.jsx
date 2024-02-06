@@ -123,3 +123,61 @@
 //   );
 // }
 
+import React, { useContext } from 'react';
+import { CartContext } from '../Context/cart';
+
+const Cart = () => {
+  const { cartItems, removeFromCart, clearCart, getCartTotal, addToCart } = useContext(CartContext);
+
+  // const handleDecreaseQuantity = (item) => {
+  //   if (item.quantity > 1) {
+  //     removeFromCart(item);
+  //   }
+  // };
+
+  // const handleIncreaseQuantity = (item) => {
+  //   addToCart({ ...item, quantity: item.quantity + 1 });
+  // };
+
+  // const handleRemoveItem = (item) => {
+  //    removeFromCart(item);
+  // };
+
+  return (
+    <section className="cart-container">
+      <h2>Your Cart</h2>
+      {cartItems.length === 0 ? (
+        <span>Your cart is empty</span>
+      ) : (
+        <div className="more-styles">
+          {cartItems.map((item) => (
+            <div key={item.id} className="myItems">
+              <span>{item.title}</span>
+              <img src={item.image} className="cartImg"/>
+   
+              <div className="cart-details">
+                <button onClick={() => removeFromCart(item)}>-</button>
+                <span>{item.quantity}</span>
+                <button onClick={() => addToCart(item)}>+</button>
+           
+                <span style={{padding: "10px"}}>${(item.quantity * item.price).toFixed(2)}</span>
+                <button>Delete Item</button>
+              </div>
+            </div>
+          ))}
+          <div className="total-checkout-keepShopping">
+            <span>Grand Total: ${getCartTotal()}</span>
+
+            <section>
+              <button>Keep Shopping</button>
+              <button onClick={clearCart} >Clear Cart</button>
+              <button>Check Out</button>
+            </section>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+};
+
+export default Cart;
