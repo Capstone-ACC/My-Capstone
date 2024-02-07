@@ -3,13 +3,12 @@ import { useNavigate, Link } from "react-router-dom";
 import "./css/Login-Register-Styles.css";
 import { getAllUsers } from "./api";
 
-export default function Login({ setToken }) {
+export default function Login({ setToken}) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loggedInUser, setLoggedInUser] = useState(false);
 
-  alert("This Login uses the given users from the API Fake Store. Please use a username and password from the API. ")
   const navigate = useNavigate();
 
   const inputUsername = (e) => {
@@ -62,7 +61,8 @@ export default function Login({ setToken }) {
           setLoggedInUser(true);
           console.log(loggedInUser);
           alert(`Login Successful ${username}, check console.log for token`);
-          navigate("/main-all-products");
+          console.log("Navigating with state:", { username });
+          navigate("/main-all-products", { state: { username } });
         } else {
           console.error("Try again, no token found for this user");
         }

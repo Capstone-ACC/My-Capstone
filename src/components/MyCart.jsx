@@ -125,19 +125,26 @@
 
 import React, { useContext } from 'react';
 import { CartContext } from '../Context/cart';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate , useLocation } from 'react-router-dom';
 
 const Cart = () => {
   const { cartItems, removeFromCart, clearCart, getCartTotal, addToCart } = useContext(CartContext);
 
   const navigate= useNavigate();
+  const location = useLocation();
+  const username = location.state?.username || "";
+
   const keepShopping = () => {
     navigate("/main-all-products");
   }
 
+  const checkOut = () => {
+    navigate('/checkout')
+  }
+
   return (
     <section className="cart-container">
-      <h2>Your Cart</h2>
+    <div>{`${username} Cart`}</div>
       {cartItems.length === 0 ? (
         <span>Your cart is empty</span>
       ) : (
@@ -164,7 +171,7 @@ const Cart = () => {
             <section>
               <button onClick={keepShopping}>Keep Shopping</button>
               <button onClick={clearCart} >Clear Cart</button>
-              <button>Check Out</button>
+              <button onClick={checkOut}>Check Out</button>
             </section>
           </div>
         </div>

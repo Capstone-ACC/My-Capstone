@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { getAllProducts, getCategories } from "./api";
 import SearchBar from "./SearchBar";
 import DropDown from "./DropDown";
@@ -6,13 +7,16 @@ import Product from "./Product";
 import PriceFilter from "./PriceFilter";
 import "./css/Main-SearchBar.css";
 
-
 export default function Main() {
   const [products, setProducts] = useState([]);
   const [searchedProducts, setSearchProducts] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
+
+const location = useLocation();
+const username = location.state?.username || "";
+console.log("Received username:", username);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -62,15 +66,16 @@ export default function Main() {
       <hr />
 
       <section>
-        <h3>Customize Your Style and Tech</h3>
-        <br />
+        <h3>{`Welcome ${username}`}</h3>
 
-        <DropDown
-          selectedCategory={selectedCategory}
-          setSelectedCategory={setSelectedCategory}
-        />
-        <SearchBar value={searchedProducts} onChange={handleSearchInput} />
-        <PriceFilter onPriceChange={handlePriceFilter} />
+        <div className="">
+          <DropDown
+            selectedCategory={selectedCategory}
+            setSelectedCategory={setSelectedCategory}
+          />
+          <SearchBar value={searchedProducts} onChange={handleSearchInput} />
+          <PriceFilter onPriceChange={handlePriceFilter} />
+        </div>
 
         <button onClick={clearFilter}>Clear Price Filter</button>
         <button onClick={clearCategory}>Clear Category</button>
