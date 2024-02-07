@@ -89,40 +89,36 @@ export default function Login({ setToken }) {
     <>
       <br />
       <hr />
-      <div className="login-container">
-        <h2>Login</h2>
-
-        <form onSubmit={handleSubmit}>
-          <label>
-            Username:
-            <input
-              value={username}
-              className="input-login"
-              placeholder="Required"
-              onChange={inputUsername}
-            />
-          </label>
-
-          <label>
-            Password:
-            <input
-              value={password}
-              type="password"
-              className="input-login"
-              placeholder="Required"
-              onChange={inputPassword}
-            />
-          </label>
-
-          {error && <span className="error-message">{error}</span>}
-
-          <button className="login-button" type="submit">
-            Login
-          </button>
-
-          <span>First Time User? <Link to="/register" className="newUserRegister">Register Here</Link></span>
-        </form>
-      </div>
+      <section className="login-container">
+  
+          <h3>Login</h3>
+          <form onSubmit={handleSubmit}>
+            <label>
+              Username:
+              <input
+                value={username}
+                className="input-login"
+                placeholder="Required"
+                onChange={inputUsername}
+              />
+            </label>
+            <label>
+              Password:
+              <input
+                value={password}
+                type="password"
+                className="input-login"
+                placeholder="Required"
+                onChange={inputPassword}
+              />
+            </label>
+            {error && <span className="error-message">{error}</span>}
+            <button className="login-button" type="submit">
+              Login
+            </button>
+            <span>First Time User? <Link to="/register" className="newUserRegister">Register Here</Link></span>
+          </form>
+      </section>
 
       <img src="/images/shoppingSpree.jpg" className="loginImg" />
     </>
