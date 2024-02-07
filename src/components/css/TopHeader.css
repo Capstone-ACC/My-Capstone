@@ -10,6 +10,15 @@
     align-items: center;
   }
 
+  .link-to-register {
+    color: white;
+    padding: 10px;
+  }
+
+  .link-to-register:hover {
+    text-decoration: underline;
+  }
+
   .cart-item-count {
     position: absolute;
     top: -5px;
