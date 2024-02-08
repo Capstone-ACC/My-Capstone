@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import { getAllProducts, getCategories } from "./api";
 import SearchBar from "./SearchBar";
 import DropDown from "./DropDown";
@@ -13,10 +12,6 @@ export default function Main() {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
-
-const location = useLocation();
-const username = location.state?.username || "";
-console.log("Received username:", username);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -62,11 +57,10 @@ console.log("Received username:", username);
 
   return (
     <>
-      <br />
       <hr />
 
       <section>
-        <h3>{`Welcome ${username}`}</h3>
+        <h3>Customize Your Style</h3>
 
         <div className="">
           <DropDown

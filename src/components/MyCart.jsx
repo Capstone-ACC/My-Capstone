@@ -125,14 +125,12 @@
 
 import React, { useContext } from 'react';
 import { CartContext } from '../Context/cart';
-import { useNavigate , useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
-  const { cartItems, removeFromCart, clearCart, getCartTotal, addToCart } = useContext(CartContext);
+  const { cartItems, decreaseItem, deleteItem, clearCart, getCartTotal, addToCart } = useContext(CartContext);
 
   const navigate= useNavigate();
-  const location = useLocation();
-  const username = location.state?.username || "";
 
   const keepShopping = () => {
     navigate("/main-all-products");
@@ -144,7 +142,7 @@ const Cart = () => {
 
   return (
     <section className="cart-container">
-    <div>{`${username} Cart`}</div>
+    <h3>My Cart</h3>
       {cartItems.length === 0 ? (
         <span>Your cart is empty</span>
       ) : (
@@ -155,12 +153,12 @@ const Cart = () => {
               <img src={item.image} className="cartImg"/>
    
               <div className="cart-details">
-                <button onClick={() => removeFromCart(item)}>-</button>
+                <button onClick={() => decreaseItem(item)}>-</button>
                 <span>{item.quantity}</span>
                 <button onClick={() => addToCart(item)}>+</button>
            
                 <span style={{padding: "10px"}}>${(item.quantity * item.price).toFixed(2)}</span>
-                <button>Delete Item</button>
+                <button onClick={() => deleteItem(item)}>Delete Item</button>
                 <hr/>
               </div>
             </div>
