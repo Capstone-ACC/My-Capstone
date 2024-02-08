@@ -17,7 +17,7 @@ export default function Checkout({}) {
   }
 
   function backToCart() {
-    navigate("/usersCart", {
+    navigate("/cart", {
       state: {
         cart: cart,
       },

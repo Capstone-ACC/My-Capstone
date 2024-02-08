@@ -137,7 +137,11 @@ const Cart = () => {
   }
 
   const checkOut = () => {
-    navigate('/checkout')
+    navigate('/checkout', {
+      state: {
+        cart: cartItems,
+      }
+    })
   }
 
   return (
@@ -167,7 +171,7 @@ const Cart = () => {
             <span style={{fontSize: '18pt'}}>Grand Total: ${getCartTotal()}</span>
 
             <section>
-              <button onClick={keepShopping}>Keep Shopping</button>
+              <button onClick={keepShopping}>Add More</button>
               <button onClick={clearCart} >Clear Cart</button>
               <button onClick={checkOut}>Check Out</button>
             </section>
