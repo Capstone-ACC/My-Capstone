@@ -1,143 +1,27 @@
-// import { useEffect, useContext, useState } from "react";
-// import { CartContext } from "../Context/Context";
-// import { useNavigate } from "react-router-dom";
-// import { saveCartToLocalStorage,getCartFromLocalStorage,} from "../Context/CartUtils";
-// import "./css/Cart-Checkout.css";
-
-// export default function Cart() {
-//   const [username, setUsername] = useState("");
-//   const [totalCartPrice, setTotalPrice] = useState(0);
-//   const myCart = useContext(CartContext);
-//   const { state, dispatch } = myCart;
-
-//   //local storage
-//   useEffect(() => {
-//     const cartData = getCartFromLocalStorage();
-//     if (cartData) {
-//       dispatch({ type: "LOAD_CART", payload: cartData });
-//     }
-//   }, [dispatch]);
-
-//   useEffect(() => {
-//     saveCartToLocalStorage(state);
-//   }, [state]);
-
-
-//   //total price
-//   useEffect(() => {
-//     const totalPrice = state.reduce((total, item) => {
-//       return total + item.price * item.quantity;
-//     }, 0);
-//     setTotalPrice(totalPrice);
-//   }, [state]);
-
-//   //use navigate
-//   const navigate = useNavigate();
-
-//   function goToProducts() {
-//     navigate("/main-all-products");
-//   }
-
-//   function goToCheckOut() {
-//     navigate("/checkout", {
-//       state: { cart: state } });
-//   }
-
-//   return (
-//     <>
-//       <br />
-//       <hr />
-
-//       <div className="cart-container">
-//         <h5>Donation Cart</h5>
-//         <span>Purchase Items For Your Local Donation Center</span><br/><br/>
-
-//         {state.length === 0 ? (
-//           <>
-//           <span style={{ fontSize: "22pt" }}>Cart is empty for now</span><br/>
-//           <span className="total-price">Total: $0.00</span>
-//           <button onClick={goToProducts}> Add Items</button>
-//           </>
-//         ) : (
-//           <>
-//             {state.map((item, index) => {
-//               return (
-//                 <div className="myItems" key={index}>
-//                   <img src={item.image} className="cartImg" />
-//                   <span>{item.title}</span>
-//                   <span>${item.price}</span>
-
-//                   <button
-//                     onClick={() => {
-//                       console.log("Decreased Quantity:", item);
-//                       dispatch({ type: "DECREASE", payload: item });
-//                       saveCartToLocalStorage([...state]);
-//                     }}
-//                     className="cart-buttons"
-//                   >
-//                     -
-//                   </button>
-
-//                   <span>{item.quantity}</span>
-
-//                  <div className="cart-buttons">
-//                  <button
-//                     onClick={() => {
-//                       console.log("Added To Cart:", item);
-//                       dispatch({ type: "ADD", payload: item });
-//                       saveCartToLocalStorage([...state, {...item, quantity: 1}]);
-//                     }}
-//                   >
-//                     +
-//                   </button>
-
-//                   <button
-//                     onClick={() => {
-//                       console.log("Deleted Item:", item);
-//                       dispatch({ type: "DELETE", payload: item });
-//                       saveCartToLocalStorage([...state]);
-//                     }}
-//                   >
-//                     Delete
-//                   </button>
-//                  </div>
-
-//                   <hr />
-//                 </div>
-//               );
-//             })}
-
-//             <span className="total-price">Total: ${totalCartPrice.toFixed(2)}</span>
-
-//             <div className="add-more-bts-and-checkout">
-//               <button className="cartBackToProducts" onClick={goToProducts}>
-//                 Add More Items
-//               </button>
-
-//               <button onClick={goToCheckOut}>Check Out</button>
-//             </div>
-//           </>
-//         )}
-//       </div>
-//     </>
-//   );
-// }
-
 import React, { useContext } from 'react';
 import { CartContext } from '../Context/cart';
 import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
-  const { cartItems, removeFromCart, clearCart, getCartTotal, addToCart } = useContext(CartContext);
+  const { cartItems, decreaseItem, deleteItem, clearCart, getCartTotal, addToCart } = useContext(CartContext);
 
   const navigate= useNavigate();
+
   const keepShopping = () => {
     navigate("/main-all-products");
   }
 
+  const checkOut = () => {
+    navigate('/checkout', {
+      state: {
+        cart: cartItems,
+      }
+    })
+  }
+
   return (
     <section className="cart-container">
-      <h2>Your Cart</h2>
+    <h3>My Cart</h3>
       {cartItems.length === 0 ? (
         <span>Your cart is empty</span>
       ) : (
@@ -148,12 +32,12 @@ const Cart = () => {
               <img src={item.image} className="cartImg"/>
    
               <div className="cart-details">
-                <button onClick={() => removeFromCart(item)}>-</button>
+                <button onClick={() => decreaseItem(item)}>-</button>
                 <span>{item.quantity}</span>
                 <button onClick={() => addToCart(item)}>+</button>
            
                 <span style={{padding: "10px"}}>${(item.quantity * item.price).toFixed(2)}</span>
-                <button>Delete Item</button>
+                <button onClick={() => deleteItem(item)}>Delete Item</button>
                 <hr/>
               </div>
             </div>
@@ -162,9 +46,9 @@ const Cart = () => {
             <span style={{fontSize: '18pt'}}>Grand Total: ${getCartTotal()}</span>
 
             <section>
-              <button onClick={keepShopping}>Keep Shopping</button>
+              <button onClick={keepShopping}>Add More</button>
               <button onClick={clearCart} >Clear Cart</button>
-              <button>Check Out</button>
+              <button onClick={checkOut}>Check Out</button>
             </section>
           </div>
         </div>

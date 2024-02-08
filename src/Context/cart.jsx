@@ -80,7 +80,7 @@ export const CartProvider = ({ children }) => {
   };
 
   //remove from cart
-  const removeFromCart = (item) => {
+  const decreaseItem = (item) => {
     const isItemInCart = cartItems.find((cartItem) => cartItem.id === item.id);
   
     if (isItemInCart.quantity === 1) {
@@ -94,6 +94,11 @@ export const CartProvider = ({ children }) => {
         )
       );
     }
+  };
+
+  //delete item
+  const deleteItem = (item) => {
+    setCartItems(cartItems.filter((cartItem) => cartItem.id !== item.id));
   };
 
   //clear cart
@@ -124,7 +129,8 @@ export const CartProvider = ({ children }) => {
       value={{
         cartItems,
         addToCart,
-        removeFromCart,
+        decreaseItem,
+        deleteItem,
         clearCart,
         getCartTotal,
       }}

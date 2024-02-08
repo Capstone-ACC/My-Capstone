@@ -39,8 +39,8 @@ export default function Register({ setToken }) {
       <br />
       <hr />
 
-      <div className="register-container">
-        <h2>Register For a New Account</h2>
+      <section className="register-container">
+        <h3>Register For a New Account</h3>
 
         <form onSubmit={handleRegister}>
           <label>
@@ -68,7 +68,7 @@ export default function Register({ setToken }) {
 
           <button className="register-button">Register</button>
         </form>
-      </div>
+      </section>
 
       <img
         src="/images/mensJackets.jpg"

@@ -6,7 +6,6 @@ import Product from "./Product";
 import PriceFilter from "./PriceFilter";
 import "./css/Main-SearchBar.css";
 
-
 export default function Main() {
   const [products, setProducts] = useState([]);
   const [searchedProducts, setSearchProducts] = useState("");
@@ -58,19 +57,19 @@ export default function Main() {
 
   return (
     <>
-      <br />
       <hr />
 
       <section>
-        <h3>Customize Your Style and Tech</h3>
-        <br />
+        <h3>Customize Your Style</h3>
 
-        <DropDown
-          selectedCategory={selectedCategory}
-          setSelectedCategory={setSelectedCategory}
-        />
-        <SearchBar value={searchedProducts} onChange={handleSearchInput} />
-        <PriceFilter onPriceChange={handlePriceFilter} />
+        <div className="">
+          <DropDown
+            selectedCategory={selectedCategory}
+            setSelectedCategory={setSelectedCategory}
+          />
+          <SearchBar value={searchedProducts} onChange={handleSearchInput} />
+          <PriceFilter onPriceChange={handlePriceFilter} />
+        </div>
 
         <button onClick={clearFilter}>Clear Price Filter</button>
         <button onClick={clearCategory}>Clear Category</button>

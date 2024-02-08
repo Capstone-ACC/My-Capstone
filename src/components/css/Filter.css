@@ -1,39 +1,39 @@
 /*filter component*/
 @media screen and (max-width: 950px) {
-    .priceFilter-container {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
+  .priceFilter-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
-  
-  @media screen and (max-width: 667px) {
-    .priceFilter-container {
-      width: 100%;
-      max-width: 300px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
-  
-  .filtered-image {
+}
+
+@media screen and (max-width: 667px) {
+  .priceFilter-container {
     width: 100%;
     max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
   }
-  
-  .filtered-name {
-    color: black;
-  }
-  
-    /*drop down component*/
-    select {
-        background-color: #9b111e;
-        border: 2px solid black;
-        color: burlywood;
-        padding: 10px;
-        margin-bottom: 15px;
-        font-family: "Lobster", cursive;
-        outline: none;
-      }
+}
+
+.filtered-image {
+  width: 100%;
+  max-width: 300px;
+}
+
+.filtered-name {
+  color: black;
+}
+
+  /*drop down component*/
+  select {
+      background-color: #9b111e;
+      border: 2px solid black;
+      color: burlywood;
+      padding: 10px;
+      margin-bottom: 15px;
+      font-family: "Lobster", cursive;
+      outline: none;
+    }

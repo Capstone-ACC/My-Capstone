@@ -1,15 +1,14 @@
 import { useNavigate } from 'react-router-dom';
-import "./css/TopHeader.css";
+import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { CartContext } from '../Context/cart';
-// import { saveCartToLocalStorage } from '../Context/CartUtils'
+import "./css/TopHeader.css";
 
-  // //handle logout
-  // const handleLogOut = (myCart) => {
-  //   saveCartToLocalStorage(myCart)
-  //   localStorage.removeItem("username");   
-  // }
-
+// //handle logout
+// const handleLogOut = (myCart) => {
+//   saveCartToLocalStorage(myCart)
+//   localStorage.removeItem("username");   
+// }
 
 // //handle logout
 // const handleLogOut = (myCart) => {
@@ -18,26 +17,24 @@ import { CartContext } from '../Context/cart';
 //   localStorage.removeItem("cartUserId");
 // };
 
-
 export default function TopHeader() {
   const { cartItems } = useContext(CartContext);
   const navigate = useNavigate();
 
-  const goToRegister = () => {
-    navigate("/register")
-  }
+  // const goToRegister = () => {
+  //   navigate("/register")
+  // }
 
   const goToCart = () => {
     navigate("/cart");
   }
 
   return (
-
-    <div className="top-header">
+    <section className="top-header">
       <div className="summer-sale">
       Summer Sale - Get 50% off items for Registering Today
           -
-        <button onClick={goToRegister}>Get Started</button>
+       <Link to="/register" className="link-to-register">Get Started</Link>
     </div>
 
   
@@ -47,7 +44,7 @@ export default function TopHeader() {
   
       {/* <Link to="/login" className="login" onClick={()=>handleLogOut()}>Logout</Link>
       <Link to="/login" className="login">Login</Link> */}
-    </div>
+    </section>
   )
 }
 
