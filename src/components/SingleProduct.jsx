@@ -2,9 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { getSingleProduct } from "./api";
 import { useParams, Link } from "react-router-dom";
 import { CartContext } from "../Context/cart";
-// import { saveCartToLocalStorage } from "../Context/CartUtils";
 import './css/SingleProduct.css';
-
 
 export default function SingleProduct() {
   const [singleProduct, setSingleProduct] = useState("");

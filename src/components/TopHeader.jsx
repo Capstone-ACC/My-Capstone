@@ -3,14 +3,12 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { CartContext } from '../Context/cart';
 import "./css/TopHeader.css";
-// import { saveCartToLocalStorage } from '../Context/CartUtils'
 
-  // //handle logout
-  // const handleLogOut = (myCart) => {
-  //   saveCartToLocalStorage(myCart)
-  //   localStorage.removeItem("username");   
-  // }
-
+// //handle logout
+// const handleLogOut = (myCart) => {
+//   saveCartToLocalStorage(myCart)
+//   localStorage.removeItem("username");   
+// }
 
 // //handle logout
 // const handleLogOut = (myCart) => {
@@ -18,7 +16,6 @@ import "./css/TopHeader.css";
 //   localStorage.removeItem("username");
 //   localStorage.removeItem("cartUserId");
 // };
-
 
 export default function TopHeader() {
   const { cartItems } = useContext(CartContext);

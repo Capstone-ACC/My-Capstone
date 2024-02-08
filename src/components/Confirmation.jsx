@@ -28,8 +28,7 @@ export default function Confirmation() {
           Payment Successful {name}!
           <hr />
         </h5>
-        <span>Your order is being processed</span>
-        <br />
+        <span>Thank you for your order!</span><br/>
         <span>
           Be on a look out for an E-mail sent to
           <div className="email">{email}</div> for more details

@@ -9,7 +9,6 @@ export default function Payment() {
   const [promoCode, setPromoCode] = useState("");
   const [address, setAddress] = useState("");
   const [email, setEmail] = useState("");
-  const [donation, setDonationAddress] = useState("");
 
   //useNavigate & useLocation
   const navigate = useNavigate();
@@ -36,7 +35,6 @@ export default function Payment() {
         promoCode,
         address,
         email,
-        donation,
         cart,
       },
     });
@@ -82,15 +80,6 @@ export default function Payment() {
               type="text"
               placeholder="Address*"
               onChange={(e) => setAddress(e.target.value)}
-            />
-          </label>
-
-          <label className="payment-labels-input">
-            Donation Address:
-            <input
-              type="text"
-              placeholder="Donation Address if donating items"
-              onChange={(e) => setDonationAddress(e.target.value)}
             />
           </label>
 
