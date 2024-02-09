@@ -19,13 +19,11 @@ import { CartProvider } from './Context/cart';
 function App() {
   const [token, setToken] = useState(null);
   const [selectedItem, setSelectedItem] = useState(null);
-  // const [show, setShow] = useState(true);
   const [cart, setCart] = useState([]);
   
   return (
     <>
       <CartProvider>
- 
           <TopHeader size={cart.length} />
           <Link to="/"><h1>Tech & Styles <br/>
           <div className="secondHeading">The Style of your Heart</div></h1></Link>
@@ -37,14 +35,13 @@ function App() {
             <li><Link to="/login">Login</Link></li>
             <li><Link to="/register">Register</Link></li>
           </div>
-        <Routes>
+         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/register" element={<Register setToken={setToken} />} />
           <Route path="/login" element={<Login setToken={setToken}  />} />
           <Route path="/main-all-products" element={<Main/>} />
-        
-          {/* <Route path="/usersCart" element={<UsersCart cart={cartItems} setCart={setCart}/>} /> */}<Route path="/products/:id" element={<SingleProduct setSelectedItem={setSelectedItem} item={selectedItem} />} />
+          <Route path="/products/:id" element={<SingleProduct setSelectedItem={setSelectedItem} item={selectedItem} />} />
           
           <Route path="/cart" element={<MyCart />} />
             <Route path="/checkout" element={<Checkout />} />

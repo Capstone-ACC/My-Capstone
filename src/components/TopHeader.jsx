@@ -21,10 +21,6 @@ export default function TopHeader() {
   const { cartItems } = useContext(CartContext);
   const navigate = useNavigate();
 
-  // const goToRegister = () => {
-  //   navigate("/register")
-  // }
-
   const goToCart = () => {
     navigate("/cart");
   }
@@ -35,15 +31,14 @@ export default function TopHeader() {
       Summer Sale - Get 50% off items for Registering Today
           -
        <Link to="/register" className="link-to-register">Get Started</Link>
-    </div>
+      </div>
 
-  
       <div className="cart-icon">
         <i className="fa fa-cart-plus cart-icon" style={{fontSize: '48px', cursor: 'pointer'}} onClick={goToCart}> {cartItems.length > 0 && <span className="cart-item-count">{cartItems.length}</span>}</i>
         </div>
   
-      {/* <Link to="/login" className="login" onClick={()=>handleLogOut()}>Logout</Link>
-      <Link to="/login" className="login">Login</Link> */}
+        <Link to="/login" className="login">Login</Link>
+        <Link to="/login" className="login">Logout</Link>
     </section>
   )
 }
