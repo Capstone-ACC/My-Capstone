@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../Context/cart';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Cart = () => {
   const { cartItems, decreaseItem, deleteItem, clearCart, getCartTotal, addToCart } = useContext(CartContext);
@@ -23,7 +23,10 @@ const Cart = () => {
     <section className="cart-container">
     <h3>My Cart</h3>
       {cartItems.length === 0 ? (
-        <span>Your cart is empty</span>
+        <>
+        <span style={{fontSize: '18pt'}}>Your cart is empty</span>
+        <Link to="/main-all-products" style={{marginTop: '10px', fontSize: '16pt'}}>Lets Get Shopping</Link>
+       </>
       ) : (
         <div className="more-styles">
           {cartItems.map((item) => (

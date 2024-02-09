@@ -9,7 +9,6 @@ import Register from './components/Register';
 import Checkout from './components/Checkout';
 import MyCart from './components/MyCart';
 import SingleProduct from './components/SingleProduct';
-// import UsersCart from './components/UsersCart';
 import TopHeader from './components/TopHeader';
 import Shipping from './components/Shipping';
 import Payment from './components/Payment';
@@ -20,7 +19,7 @@ import { CartProvider } from './Context/cart';
 function App() {
   const [token, setToken] = useState(null);
   const [selectedItem, setSelectedItem] = useState(null);
-  const [show, setShow] = useState(true);
+  // const [show, setShow] = useState(true);
   const [cart, setCart] = useState([]);
   
   return (
@@ -34,10 +33,9 @@ function App() {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/about">About</Link></li>
             <li><Link to="/main-all-products">All Products</Link></li>
+            <li><Link to="/cart">Cart</Link></li>
             <li><Link to="/login">Login</Link></li>
             <li><Link to="/register">Register</Link></li>
-            {/* <li><Link to="/cart">Cart</Link></li> */}
-            {/* <li><Link to="/cart">Donation Cart</Link></li>   */}
           </div>
         <Routes>
           <Route path="/" element={<Home />} />
