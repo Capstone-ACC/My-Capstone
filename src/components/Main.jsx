@@ -44,13 +44,10 @@ export default function Main() {
   const clearCategory = () => {
     setSelectedCategory("");
   };
-
+  
   const searchedItems = products.filter((product) => {
-    const titleMatches = product.title
-      .toLowerCase()
-      .includes(searchedProducts.toLowerCase());
-    const categoryMatches =
-      selectedCategory === "" || product.category === selectedCategory;
+    const titleMatches = product.title.toLowerCase().includes(searchedProducts.toLowerCase());
+    const categoryMatches =selectedCategory === "" || product.category === selectedCategory;
     const priceSearch =
       (!minPrice || parseFloat(product.price) >= parseFloat(minPrice)) &&
       (!maxPrice || parseFloat(product.price) <= parseFloat(maxPrice));
@@ -60,19 +57,19 @@ export default function Main() {
 
   return (
     <>
-      <br />
       <hr />
 
       <section>
-        <h3>Customize Your Style and Tech</h3>
-        <br />
+        <h3>Customize Your Style</h3>
 
-        <DropDown
-          selectedCategory={selectedCategory}
-          setSelectedCategory={setSelectedCategory}
-        />
-        <SearchBar value={searchedProducts} onChange={handleSearchInput} />
-        <PriceFilter onPriceChange={handlePriceFilter} />
+        <div className="">
+          <DropDown
+            selectedCategory={selectedCategory}
+            setSelectedCategory={setSelectedCategory}
+          />
+          <SearchBar value={searchedProducts} onChange={handleSearchInput} />
+          <PriceFilter onPriceChange={handlePriceFilter} />
+        </div>
 
         <button onClick={clearFilter}>Clear Price Filter</button>
         <button onClick={clearCategory}>Clear Category</button>

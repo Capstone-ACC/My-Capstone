@@ -3,11 +3,12 @@ import { useNavigate, Link } from "react-router-dom";
 import "./css/Login-Register-Styles.css";
 import { getAllUsers } from "./api";
 
-export default function Login({ setToken }) {
+export default function Login({ setToken}) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loggedInUser, setLoggedInUser] = useState(false);
+
   const navigate = useNavigate();
 
   const inputUsername = (e) => {
@@ -60,7 +61,8 @@ export default function Login({ setToken }) {
           setLoggedInUser(true);
           console.log(loggedInUser);
           alert(`Login Successful ${username}, check console.log for token`);
-          navigate("/main-all-products");
+          console.log("Navigating with state:", { username });
+          navigate("/main-all-products", { state: { username } });
         } else {
           console.error("Try again, no token found for this user");
         }
@@ -87,40 +89,36 @@ export default function Login({ setToken }) {
     <>
       <br />
       <hr />
-      <div className="login-container">
-        <h2>Login</h2>
-
-        <form onSubmit={handleSubmit}>
-          <label>
-            Username:
-            <input
-              value={username}
-              className="input-login"
-              placeholder="Required"
-              onChange={inputUsername}
-            />
-          </label>
-
-          <label>
-            Password:
-            <input
-              value={password}
-              type="password"
-              className="input-login"
-              placeholder="Required"
-              onChange={inputPassword}
-            />
-          </label>
-
-          {error && <span className="error-message">{error}</span>}
-
-          <button className="login-button" type="submit">
-            Login
-          </button>
-
-          <span>First Time User? <Link to="/register" className="newUserRegister">Register Here</Link></span>
-        </form>
-      </div>
+      <section className="login-container">
+  
+          <h3>Login</h3>
+          <form onSubmit={handleSubmit}>
+            <label>
+              Username:
+              <input
+                value={username}
+                className="input-login"
+                placeholder="Required"
+                onChange={inputUsername}
+              />
+            </label>
+            <label>
+              Password:
+              <input
+                value={password}
+                type="password"
+                className="input-login"
+                placeholder="Required"
+                onChange={inputPassword}
+              />
+            </label>
+            {error && <span className="error-message">{error}</span>}
+            <button className="login-button" type="submit">
+              Login
+            </button>
+            <span>First Time User? <Link to="/register" className="newUserRegister">Register Here</Link></span>
+          </form>
+      </section>
 
       <img src="/images/shoppingSpree.jpg" className="loginImg" />
     </>

@@ -1,4 +1,3 @@
-import React from "react";
 import "./css/Cart-Checkout.css";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -18,7 +17,7 @@ export default function Checkout({}) {
   }
 
   function backToCart() {
-    navigate("/usersCart", {
+    navigate("/cart", {
       state: {
         cart: cart,
       },
