@@ -116,7 +116,14 @@ export default function Login({ setToken}) {
             <button className="login-button" type="submit">
               Login
             </button>
-            <span>First Time User? <Link to="/register" className="newUserRegister">Register Here</Link></span>
+
+           <Link to="/register" className="newUserRegister">New User - Register Today</Link>
+
+          <div className="fake-store-info">
+            <span>Fake Store API User:</span>
+            <span>username: johnd</span>
+            <span>password: m38rmF$ </span>
+          </div>
           </form>
       </section>
 

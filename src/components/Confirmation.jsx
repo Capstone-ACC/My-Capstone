@@ -13,6 +13,7 @@ export default function Confirmation() {
 
   function backToShopping() {
     clearCart();
+    alert("Thanks for shopping with Tech & Styles!")
     navigate('/main-all-products')
   }
 
