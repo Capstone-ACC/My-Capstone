@@ -18,11 +18,28 @@ h2 {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin: auto;
     background-color:#FFF5EE;
     padding: 20px;
     border-radius: 12px;
-    margin: auto;
-    }
+ }
+
+ /* @media screen and (max-width: 375px) {
+    .cart-container {
+        max-width: 300px;
+    } 
+ }
+ @media screen and (max-width: 414px) {
+    .cart-container {
+        max-width: 350px;
+    } 
+ }
+
+ @media screen and (max-width: 1024px) {
+    .cart-container {
+        max-width: 600px;
+    } 
+ } */
 
 .cartImg {
     width: 100%;
