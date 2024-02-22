@@ -125,7 +125,7 @@ h2 {
     margin-top: 40px;
 }
 
-@media (375px <= width <= 450px) {
+@media (350px <= width <= 450px) {
     .checkout-container {
         width: 310px;
     }
