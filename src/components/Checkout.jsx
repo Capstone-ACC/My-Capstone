@@ -14,6 +14,7 @@ export default function Checkout({}) {
         cart: cart,
       },
     });
+    
   }
 
   function backToCart() {

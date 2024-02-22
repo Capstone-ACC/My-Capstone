@@ -4,26 +4,20 @@ import { useContext } from 'react';
 import { CartContext } from '../Context/cart';
 import "./css/TopHeader.css";
 
-// //handle logout
-// const handleLogOut = (myCart) => {
-//   saveCartToLocalStorage(myCart)
-//   localStorage.removeItem("username");   
-// }
-
-// //handle logout
-// const handleLogOut = (myCart) => {
-//   saveCartToLocalStorage(myCart);
-//   localStorage.removeItem("username");
-//   localStorage.removeItem("cartUserId");
-// };
-
 export default function TopHeader() {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, clearCart } = useContext(CartContext);
   const navigate = useNavigate();
 
   const goToCart = () => {
     navigate("/cart");
   }
+
+  // //handle logout
+  const handleLogOut = () => {
+  localStorage.removeItem("token")
+  localStorage.removeItem("username");
+  clearCart();
+}
 
   return (
     <section className="top-header">
@@ -38,7 +32,7 @@ export default function TopHeader() {
         </div>
   
         <Link to="/login" className="login">Login</Link>
-        <Link to="/login" className="login">Logout</Link>
+        <Link  to="/login" onClick={handleLogOut} className="login">Logout</Link>
     </section>
   )
 }
