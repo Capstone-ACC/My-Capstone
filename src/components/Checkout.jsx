@@ -13,8 +13,7 @@ export default function Checkout({}) {
       state: {
         cart: cart,
       },
-    });
-    
+    });  
   }
 
   function backToCart() {

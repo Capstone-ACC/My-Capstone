@@ -11,16 +11,31 @@
   margin-top: 40px;
 }
 
+@media (350px <= width <= 450px) {
+  .shipping-black-background {
+    width:100%;
+    max-width: 310px;
+  }
+}
+
 .shipping-container,
 .payment-container {
   border: 1px solid black;
-  width: 700px;
+  width: 100%;
+  max-width: 700px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
   margin-bottom: 20px;
+}
+
+@media (350px <= width <= 450px) {
+  .shipping-container {
+    width: 100%;
+    max-width: 310px;
+  }
 }
 
 .step-two,
@@ -69,6 +84,12 @@
   margin-bottom: 20px;
 }
 
+@media (350px <= width <= 450px) {
+  .shipping-input {
+    width: 200px;
+  }
+}
+
 .payment-labels-input {
   margin-bottom: 20px;
 }
@@ -80,14 +101,17 @@
   font-size: 14pt;
   border-radius: 10px;
   font-family: "Lobster", cursive;
-  margin-bottom: 0px;
+  margin-bottom: 10px;
   margin-top: 10px;
 }
 
-button {
-  padding: 5px;
-  margin: 5px;
+@media (350px <= width <= 450px) {
+  .test {
+    font-size: 12pt;
+    padding: 0;
+  }
 }
+
 
 /*images*/
 .packages,
@@ -97,3 +121,10 @@ button {
   margin-bottom: 30px;
   border-radius: 12px;
 }
+
+@media (350px <= width <= 450px) {
+  .packages {
+    width: 100%;
+    max-width: 250px;
+  }
+} 

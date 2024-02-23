@@ -73,7 +73,8 @@ export default function Shipping() {
               First Name:
               <input
                 type="text"
-                placeholder="First Name*"
+                placeholder="First Name"
+                className="shipping-input"
                 onChange={(e) => setFirstName(e.target.value)}
               />
             </label>
@@ -82,7 +83,8 @@ export default function Shipping() {
               Last Name:
               <input
                 type="text"
-                placeholder="Last Name*"
+                placeholder="Last Name"
+                className="shipping-input"
                 onChange={(e) => setLastName(e.target.value)}
               />
             </label>
@@ -91,7 +93,8 @@ export default function Shipping() {
               Address:
               <input
                 type="text"
-                placeholder="Address*"
+                placeholder="Address"
+                className="shipping-input"
                 onChange={(e) => setAddress(e.target.value)}
               />
             </label>
@@ -100,7 +103,8 @@ export default function Shipping() {
               City:
               <input
                 type="text"
-                placeholder="City*"
+                placeholder="City"
+                className="shipping-input"
                 onChange={(e) => setCity(e.target.value)}
               />
             </label>
@@ -124,11 +128,11 @@ export default function Shipping() {
             </label>
 
             <div className="shipping-buttons">
-              <button type="button" onClick={backToContact}>
+              <button type="button" onClick={backToContact} className="test">
                 Back To Contact Info
               </button>
 
-              <button type="button" onClick={goToPayment}>
+              <button type="button" onClick={goToPayment} className="test">
                 Continue To Payment
               </button>
             </div>
