@@ -7,7 +7,7 @@ export default function Login({ setToken}) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [loggedInUser, setLoggedInUser] = useState(false);
+  // const [loggedInUser, setLoggedInUser] = useState(false);
 
   const navigate = useNavigate();
 
@@ -58,7 +58,7 @@ export default function Login({ setToken}) {
           }
 
           setToken(result.token);
-          setLoggedInUser(true);
+          // setLoggedInUser(true);
           console.log(loggedInUser);
           alert(`Login Successful ${username}, check console.log for token`);
           console.log("Navigating with state:", { username });
