@@ -65,65 +65,72 @@ export default function Payment() {
         <img src="/images/creditCards.jpg" className="creditCards" />
 
         <form className="payment-form-container" onSubmit={goToConfirmation}>
-          <label className="payment-labels-input">
+          <label>
             First and Last Name
             <input
               type="text"
               placeholder="Name on card*"
+              className="payment-labels-input"
               onChange={(e) => setName(e.target.value)}
             />
           </label>
 
-          <label className="payment-labels-input">
+          <label>
             Confirm Address:
             <input
               type="text"
               placeholder="Address*"
+              className="payment-labels-input"
               onChange={(e) => setAddress(e.target.value)}
             />
           </label>
 
-          <label className="payment-labels-input">
+          <label>
             Confirm Email:
             <input
               type="text"
               placeholder="Email*"
+              className="payment-labels-input"
               onChange={(e) => setEmail(e.target.value)}
             />
           </label>
 
-          <label className="payment-labels-input">
+          <label>
             Credit Card Number:
             <input
               type="input"
               placeholder="Credit Card Number*"
+              className="payment-labels-input"
               onChange={(e) => setCardNumber(e.target.value)}
             />
           </label>
 
-          <label className="payment-labels-input">
-            Zip Code:
+          <label>
+            Zip:
             <input
               type="text"
               placeholder="Zip Code*"
+              className="payment-labels-input"
               onChange={(e) => setZipCode(e.target.value)}
             />
           </label>
 
-          <label className="payment-labels-input">
+          <label>
             CVV:
             <input
               type="text"
               placeholder="CVV*"
+              className="payment-labels-input"
               onChange={(e) => setCvv(e.target.value)}
             />
           </label>
 
-          <label className="payment-labels-input">
+          <label>
             Promo Code:
             <input
               type="text"
               placeholder="Code"
+              className="payment-labels-input"
               onChange={(e) => setPromoCode(e.target.value)}
             />
           </label>

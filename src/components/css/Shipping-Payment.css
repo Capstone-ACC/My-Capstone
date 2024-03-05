@@ -12,7 +12,7 @@
 }
 
 @media (350px <= width <= 450px) {
-  .shipping-black-background {
+  .shipping-black-background, .payment-black-background {
     width:100%;
     max-width: 310px;
   }
@@ -32,7 +32,7 @@
 }
 
 @media (350px <= width <= 450px) {
-  .shipping-container {
+  .shipping-container, .payment-container {
     width: 100%;
     max-width: 310px;
   }
@@ -66,7 +66,7 @@
   margin-bottom: 20px;
 }
 
-.shipping-form-container label {
+.shipping-form-container label, .payment-form-container label {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -85,7 +85,7 @@
 }
 
 @media (350px <= width <= 450px) {
-  .shipping-input {
+  .shipping-input, .payment-labels-input {
     width: 200px;
   }
 }
@@ -105,14 +105,6 @@
   margin-top: 10px;
 }
 
-@media (350px <= width <= 450px) {
-  .test {
-    font-size: 12pt;
-    padding: 0;
-  }
-}
-
-
 /*images*/
 .packages,
 .creditCards {
@@ -123,7 +115,7 @@
 }
 
 @media (350px <= width <= 450px) {
-  .packages {
+  .packages, .creditCards {
     width: 100%;
     max-width: 250px;
   }

@@ -108,6 +108,12 @@ button,
   margin-bottom: 0px;
 }
 
+@media (350px <= width <= 450px) {
+  button {
+    font-size: 12pt;
+  }
+}
+
 a,
 .add-to-cart {
   font-family: "Lobster", cursive;
