@@ -22,7 +22,7 @@ export default function TopHeader() {
   return (
     <section className="top-header">
       <div className="summer-sale">
-      Summer Sale - Get 50% off items for Registering Today
+      Summer Sale - Get 50% off for Registering Today
           -
        <Link to="/register" className="link-to-register">Get Started</Link>
       </div>
