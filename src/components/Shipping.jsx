@@ -129,11 +129,11 @@ export default function Shipping() {
 
             <div className="shipping-buttons">
               <button type="button" onClick={backToContact} className="test">
-                Back To Contact Info
+                Back To Contact
               </button>
 
               <button type="button" onClick={goToPayment} className="test">
-                Continue To Payment
+                Continue
               </button>
             </div>
           </form>
