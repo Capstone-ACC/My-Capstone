@@ -10,6 +10,11 @@
     align-items: center;
   }
 
+  .summer-sale {
+    font-family: "Lobster", cursive;
+    font-size: 14pt;
+  }
+
   .link-to-register {
     color: white;
     padding: 10px;

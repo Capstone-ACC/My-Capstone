@@ -114,9 +114,8 @@ button,
   }
 }
 
-a,
-.add-to-cart {
-  font-family: "Lobster", cursive;
+a {
+  font-family: serif;
   font-size: 14pt;
 }
 
