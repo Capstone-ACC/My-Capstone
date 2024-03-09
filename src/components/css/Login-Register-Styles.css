@@ -42,7 +42,7 @@ label {
   font-size: 14pt;
   font-family: "Times New Roman", Times, serif;
   caret-color: lightslategray;
-  padding: 5px;
+  padding: 4px;
   border: solid transparent;
 }
 
@@ -84,6 +84,14 @@ label {
   .register-input {
     width: 200px;
   }
+}
+
+.fake-store-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
 }
 
 .register-input {

@@ -1,4 +1,3 @@
-import React from "react";
 import "./css/About.css";
 
 export default function About() {
@@ -7,7 +6,7 @@ export default function About() {
       <br />
       <hr />
 
-      <div className="ourStory-container">
+      <section className="ourStory-container">
         <img src="/images/shopping.jpg" className="shoppingImg" />
         <h6>About Us</h6>
 
@@ -40,7 +39,7 @@ export default function About() {
 
           <img src="/images/macBookImg.jpg" className="televisionImg" />
         </div>
-      </div>
+      </section>
     </>
   );
 }

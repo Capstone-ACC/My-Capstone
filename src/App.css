@@ -18,6 +18,7 @@ h1 {
 
 .secondHeading {
   font-size: 14pt;
+  margin-top: 10px;
 }
 
 /*Routes and Links*/
@@ -35,7 +36,7 @@ li a {
 }
 
 .navBar  {
-  margin: 20px;
+  margin: 5px;
   display: flex;
   flex-direction: row;
   justify-content: center;

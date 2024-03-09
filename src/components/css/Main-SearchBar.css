@@ -101,14 +101,21 @@ button,
   margin: 10px;
   font-size: 14pt;
   padding: 5px;
-  border-radius: 10px;
+  color: black;
+  border-radius: 20px;
   font-family: "Lobster", cursive;
+  background-color:#dcdcdc;
   margin-bottom: 0px;
 }
 
-a,
-.add-to-cart {
-  font-family: "Lobster", cursive;
+@media (350px <= width <= 450px) {
+  button {
+    font-size: 12pt;
+  }
+}
+
+a {
+  font-family: serif;
   font-size: 14pt;
 }
 
@@ -118,7 +125,7 @@ a,
 
 button:hover {
   cursor: pointer;
-  color: #9b111e;
+  color: maroon;
 }
 
 /*price input*/
@@ -134,5 +141,3 @@ button:hover {
 .productPrice {
   font-family: "Cormorant Garamond", serif;
 }
-
-

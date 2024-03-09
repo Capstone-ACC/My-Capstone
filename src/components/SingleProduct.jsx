@@ -1,13 +1,12 @@
 import { useState, useEffect, useContext } from "react";
 import { getSingleProduct } from "./api";
 import { useParams, Link } from "react-router-dom";
-import { CartContext } from "../Context/Context";
-import { saveCartToLocalStorage } from "../Context/CartUtils";
+import { CartContext } from "../Context/cart";
 import './css/SingleProduct.css';
-
 
 export default function SingleProduct() {
   const [singleProduct, setSingleProduct] = useState("");
+  const {addToCart} = useContext(CartContext)
 
   let { id } = useParams();
 
@@ -24,9 +23,9 @@ export default function SingleProduct() {
     fetchSingleProduct();
   }, [id]);
 
-  //cart functionality
-  const stateOfCart = useContext(CartContext);
-  const dispatch = stateOfCart.dispatch;
+  // //cart functionality
+  // const stateOfCart = useContext(CartContext);
+  // const dispatch = stateOfCart.dispatch;
 
   return (
     <>
@@ -53,18 +52,7 @@ export default function SingleProduct() {
               </Link>
             </button>
 
-           <button 
-           onClick={() => {
-            const existingItem = stateOfCart.state.find((item) => item.id ===singleProduct.id);
-            if (existingItem) {
-              dispatch({type: "INCREASE", payload: singleProduct});
-            } else {
-              dispatch({type: "ADD", payload: {...singleProduct, quantity: 1}});
-            }
-
-            console.log("Added To Donation Cart", singleProduct);
-            saveCartToLocalStorage([...stateOfCart.state, singleProduct]);
-           }}>
+           <button onClick={() => addToCart(singleProduct)}>
              <Link to="/cart" className="addToCart">
                Add To Cart
              </Link>

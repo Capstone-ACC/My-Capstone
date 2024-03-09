@@ -1,4 +1,3 @@
-import React from "react";
 import "./css/Cart-Checkout.css";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -14,11 +13,11 @@ export default function Checkout({}) {
       state: {
         cart: cart,
       },
-    });
+    });  
   }
 
   function backToCart() {
-    navigate("/usersCart", {
+    navigate("/cart", {
       state: {
         cart: cart,
       },
@@ -63,21 +62,23 @@ export default function Checkout({}) {
           </label>
 
           <div className="my-checkboxes">
-            <label className="opt-in-text">
-              <input type="checkbox" />
-              Opt in for text notifications of your purchased order
-              <input type="checkbox" />
-              Sign up for weekly coupons from Tech & Styles
-            </label>
-
-            <button type="button" onClick={backToCart}>
-              Back To Cart
-              <img src="/images/cart.png" alt="shopping cart" />
-            </button>
-
-            <button type="button" onClick={goToStepTwo}>
-              Continue
-            </button>
+              <label className="opt-in-text">
+                <input type="checkbox" className="opt" />
+                Opt in for text notifications of your purchased order
+                <input type="checkbox" className="opt" />
+                Sign up for weekly coupons from Tech & Styles
+              </label>
+        
+              <div style={{ marginTop:"20px"}}>
+                <button type="button" onClick={backToCart}>
+                  Back To Cart
+                  <img src="/images/cart.png" alt="shopping cart" />
+                </button>
+                <button type="button" onClick={goToStepTwo}>
+                  Continue
+                </button>
+              </div>
+    
           </div>
         </form>
       </div>

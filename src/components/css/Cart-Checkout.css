@@ -1,6 +1,7 @@
 /*cart component and checkout component*/
-h5 {
-    text-decoration: underline;
+h2 {
+   font-size: 3em;
+   margin-bottom: 40px;
 }
 
 .contact {
@@ -10,40 +11,53 @@ h5 {
     border-radius: 12px;
 }
 
+@media (350px <= width <= 450px) {
+    .contact {
+        width: 100%;
+        max-width: 250px;
+    }
+}
+
 .cart-container {
     width: 100%;
     max-width: 1200px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
     background-color:#FFF5EE;
     padding: 20px;
     border-radius: 12px;
-}
+ }
 
 .cartImg {
     width: 100%;
     max-width: 150px;
     padding: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
 }
 
-span {
-    padding: 5px;
+
+.more-styles {
+    font-size: 14pt;
 }
 
-.total-price {
-    font-size: 18pt;
+.total-checkout-keepShopping {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 40px;
 }
 
 .myItems {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    font-size: 14pt;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
 }
 
 @media screen and (max-width: 375px) {
@@ -111,6 +125,16 @@ span {
     margin-top: 40px;
 }
 
+@media (350px <= width <= 450px) {
+    .checkout-container {
+        width: 310px;
+    }
+    .black-background {
+       width: 100%;
+       max-width: 310px;
+    }
+}
+
 .step-one {
     margin-left: 20px;
     font-family: 'Times New Roman', Times, serif;
@@ -124,6 +148,12 @@ span {
     border: 1px solid black;
     border-radius: 0px;
     margin-top: 45px;
+}
+
+@media (350px <= width <= 450px) {
+    .checkout-input {
+        width: 220px;
+    }
 }
 
 /*form*/
@@ -163,11 +193,19 @@ label {
 .opt-in-text {
     margin-top: 20px;
     margin-bottom: 10px;
+    display: flex;
+}
+
+@media (350px <= width <= 450px) {
+   .opt-in-text {
+        font-size: 11pt;
+    }
 }
 
 .my-checkboxes {
     margin-top: 20px;
-    margin: 10px
+    margin: 20px;
+    margin-bottom: 10px;
 }
 
 /*delivery*/
