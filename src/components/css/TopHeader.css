@@ -10,6 +10,11 @@
     align-items: center;
   }
 
+  .summer-sale {
+    font-family: serif;
+    font-size: 16pt;
+  }
+
   .link-to-register {
     color: white;
     padding: 10px;
@@ -35,10 +40,10 @@
     position: relative;
  }
     
-
   .login {
     color: white;
     float: right;
     padding: 12px;
     font-size: 16pt;
   }
+

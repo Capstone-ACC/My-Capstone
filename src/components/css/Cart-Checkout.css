@@ -11,6 +11,13 @@ h2 {
     border-radius: 12px;
 }
 
+@media (350px <= width <= 450px) {
+    .contact {
+        width: 100%;
+        max-width: 250px;
+    }
+}
+
 .cart-container {
     width: 100%;
     max-width: 1200px;
@@ -18,11 +25,11 @@ h2 {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin: auto;
     background-color:#FFF5EE;
     padding: 20px;
     border-radius: 12px;
-    margin: auto;
-    }
+ }
 
 .cartImg {
     width: 100%;
@@ -33,6 +40,7 @@ h2 {
     align-items: center;
     margin: auto;
 }
+
 
 .more-styles {
     font-size: 14pt;
@@ -117,6 +125,16 @@ h2 {
     margin-top: 40px;
 }
 
+@media (350px <= width <= 450px) {
+    .checkout-container {
+        width: 310px;
+    }
+    .black-background {
+       width: 100%;
+       max-width: 310px;
+    }
+}
+
 .step-one {
     margin-left: 20px;
     font-family: 'Times New Roman', Times, serif;
@@ -130,6 +148,12 @@ h2 {
     border: 1px solid black;
     border-radius: 0px;
     margin-top: 45px;
+}
+
+@media (350px <= width <= 450px) {
+    .checkout-input {
+        width: 220px;
+    }
 }
 
 /*form*/
@@ -169,11 +193,19 @@ label {
 .opt-in-text {
     margin-top: 20px;
     margin-bottom: 10px;
+    display: flex;
+}
+
+@media (350px <= width <= 450px) {
+   .opt-in-text {
+        font-size: 11pt;
+    }
 }
 
 .my-checkboxes {
     margin-top: 20px;
-    margin: 10px
+    margin: 20px;
+    margin-bottom: 10px;
 }
 
 /*delivery*/

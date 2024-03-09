@@ -7,7 +7,7 @@ export default function Login({ setToken}) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [loggedInUser, setLoggedInUser] = useState(false);
+  // const [loggedInUser, setLoggedInUser] = useState(false);
 
   const navigate = useNavigate();
 
@@ -58,7 +58,7 @@ export default function Login({ setToken}) {
           }
 
           setToken(result.token);
-          setLoggedInUser(true);
+          // setLoggedInUser(true);
           console.log(loggedInUser);
           alert(`Login Successful ${username}, check console.log for token`);
           console.log("Navigating with state:", { username });
@@ -116,7 +116,14 @@ export default function Login({ setToken}) {
             <button className="login-button" type="submit">
               Login
             </button>
-            <span>First Time User? <Link to="/register" className="newUserRegister">Register Here</Link></span>
+
+           <Link to="/register" className="newUserRegister">New User - Register Today</Link>
+
+          <div className="fake-store-info">
+            <span>Fake Store API User:</span>
+            <span>username: johnd</span>
+            <span>password: m38rmF$ </span>
+          </div>
           </form>
       </section>
 
