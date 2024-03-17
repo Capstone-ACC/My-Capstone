@@ -11,7 +11,7 @@ export default function Product({ product }) {
         <span>Category: {product.category} </span>
         <span>ID: {product.id}</span>
         <span>Price: ${product.price} </span>
-        <img src={product.image} className="productImages" />
+        <img src={product.image} className="productImages" alt="Image of Product" />
 
         <div className="my-buttons">
           <button>

@@ -125,7 +125,7 @@ export default function Login({ setToken}) {
           </form>
       </section>
 
-      <img src="/images/shoppingSpree.jpg" className="loginImg" />
+      <img src="/images/shoppingSpree.jpg" className="loginImg" alt="Stylish Girl with shopping bags" />
     </>
   );
 }

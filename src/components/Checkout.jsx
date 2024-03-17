@@ -37,7 +37,7 @@ export default function Checkout({}) {
           <hr />
         </h5>
 
-        <img src="/images/contact.jpg" className="contact" />
+        <img src="/images/contact.jpg" className="contact" alt="Cell Phone, Contact Information"/>
 
         <form className="form-container">
           <label>

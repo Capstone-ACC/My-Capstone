@@ -62,7 +62,7 @@ export default function Shipping() {
           <hr />
         </h5>
 
-        <img src="/images/packages.jpg" className="packages" />
+        <img src="/images/packages.jpg" className="packages" alt="Guy holding packages" />
 
         <div className="shipping-form-container">
           <form onSubmit={handleSubmitForm}>

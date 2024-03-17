@@ -62,7 +62,7 @@ export default function Payment() {
           <hr />
         </h5>
 
-        <img src="/images/creditCards.jpg" className="creditCards" />
+        <img src="/images/creditCards.jpg" className="creditCards" alt="Credit cards in jeans" />
 
         <form className="payment-form-container" onSubmit={goToConfirmation}>
           <label>
