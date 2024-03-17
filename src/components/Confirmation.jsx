@@ -21,7 +21,7 @@ export default function Confirmation() {
     <>
       <div className="confirmation-black-background">
         <div className="step-four"> Confirmation #2556987125</div>
-        <img src="/images/animatedCreditCard.png" className="animatedCC" alt="icon of credit card" />
+        <img src="/images/animatedCreditCard.png" className="animatedCC" alt="icon of maroon credit card" />
       </div>
 
       <section className="confirmation-container">
