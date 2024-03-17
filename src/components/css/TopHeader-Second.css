@@ -2,26 +2,12 @@
 .top-header {
     background-color: black;
     width: 100%;
-    padding: 15px;
+    padding: 5px;
     color: white;
     font-size: 13pt;
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-
-  .summer-sale {
-    font-family: serif;
-    font-size: 16pt;
-  }
-
-  .link-to-register {
-    color: white;
-    padding: 10px;
-  }
-
-  .link-to-register:hover {
-    text-decoration: underline;
   }
 
   .cart-item-count {
@@ -47,3 +33,16 @@
     font-size: 16pt;
   }
 
+/*second header*/
+.summer-sale {
+  font-family: serif;
+  font-size: 14pt;
+}
+
+.link-to-register {
+  padding: 2px;
+}
+
+.link-to-register:hover {
+  text-decoration: underline;
+}

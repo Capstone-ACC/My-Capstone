@@ -4,14 +4,14 @@ import "./css/Main-SearchBar.css";
 
 export default function Product({ product }) {
   return (
-    <div className="my-box" key={product.id}>
+    <section className="my-box" key={product.id}>
       <div className="content">
         <h4>{product.title} </h4>
         <span>Description: {product.description}</span>
         <span>Category: {product.category} </span>
         <span>ID: {product.id}</span>
         <span>Price: ${product.price} </span>
-        <img src={product.image} className="productImages" />
+        <img src={product.image} className="productImages" alt="Image of Product" />
 
         <div className="my-buttons">
           <button>
@@ -21,6 +21,6 @@ export default function Product({ product }) {
           </button>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

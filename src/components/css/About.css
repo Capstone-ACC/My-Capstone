@@ -28,18 +28,19 @@ h6 {
 }
 
 /*images*/
-.shoppingImg {
+.shoppingImg, .macBook {
     width: 100%;
     max-width: 700px;
     margin-top: 80px;
     margin-bottom: 20px;
 }
 
-.televisionImg {
-    width: 100%;
-    max-width: 700px;
-    margin-top: 40px;
-    margin-bottom: 20px;
+@media (350px <= width <= 450px) {
+    .shoppingImg,
+    .macBook {
+        width: 100%;
+        max-width: 300px;
+    }
 }
 
 

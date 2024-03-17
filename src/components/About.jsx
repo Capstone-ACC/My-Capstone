@@ -3,11 +3,8 @@ import "./css/About.css";
 export default function About() {
   return (
     <>
-      <br />
-      <hr />
-
       <section className="ourStory-container">
-        <img src="/images/shopping.jpg" className="shoppingImg" />
+        <img src="/images/shopping.jpg" className="shoppingImg" alt="Girls shopping for clothes " />
         <h6>About Us</h6>
 
         <div className="about">
@@ -37,7 +34,7 @@ export default function About() {
             favorite Tech & Styles!
           </span>
 
-          <img src="/images/macBookImg.jpg" className="televisionImg" />
+          <img src="/images/macBookImg.jpg" className="macBook" alt="Mac Laptop, with background image of the sea and mountains"/>
         </div>
       </section>
     </>

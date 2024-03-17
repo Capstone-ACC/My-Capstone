@@ -30,7 +30,7 @@ export default function PriceFilter({ onPriceChange }) {
   };
 
   return (
-    <div className="priceFilter-container">
+    <section className="priceFilter-container">
       <label className="productPrice">Min Price:</label>
       <input
         type="number"
@@ -50,6 +50,6 @@ export default function PriceFilter({ onPriceChange }) {
       />
 
       <button onClick={applyFilter}>Apply Price Filter</button>
-    </div>
+    </section>
   );
 }
