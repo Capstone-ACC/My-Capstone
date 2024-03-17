@@ -36,9 +36,6 @@ export default function Register({ setToken }) {
 
   return (
     <>
-      <br />
-      <hr />
-
       <section className="register-container">
         <h3>Register For a New Account</h3>
 

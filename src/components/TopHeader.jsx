@@ -2,7 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { CartContext } from '../Context/cart';
-import "./css/TopHeader.css";
+import "./css/TopHeader-Second.css";
+import SecondHeader from './SecondHeader';
 
 export default function TopHeader() {
   const { cartItems, clearCart } = useContext(CartContext);
@@ -20,13 +21,8 @@ export default function TopHeader() {
 }
 
   return (
+    <>
     <section className="top-header">
-      <div className="summer-sale">
-      Summer Sale - Get 50% off for Registering Today
-          -
-       <Link to="/register" className="link-to-register">Get Started</Link>
-      </div>
-
       <div className="cart-icon">
         <i className="fa fa-cart-plus cart-icon" style={{fontSize: '48px', cursor: 'pointer'}} onClick={goToCart}> {cartItems.length > 0 && <span className="cart-item-count">{cartItems.length}</span>}</i>
         </div>
@@ -34,6 +30,8 @@ export default function TopHeader() {
         <Link to="/login" className="login">Login</Link>
         <Link  to="/login" onClick={handleLogOut} className="login">Logout</Link>
     </section>
+    <SecondHeader />
+    </>
   )
 }
 

@@ -24,7 +24,7 @@ export default function Confirmation() {
         <img src="/images/animatedCreditCard.png" className="animatedCC" />
       </div>
 
-      <div className="confirmation-container">
+      <section className="confirmation-container">
         <h5 className="heading-confirm">
           Payment Successful {name}!
           <hr />
@@ -42,7 +42,7 @@ export default function Confirmation() {
         {console.log(`"Payment Successful:" Shipping To ${address}`)}
 
         <button onClick={backToShopping}>Continue Shopping</button>
-      </div>
+      </section>
     </>
   );
 }

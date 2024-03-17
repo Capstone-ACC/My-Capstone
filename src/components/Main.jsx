@@ -57,8 +57,6 @@ export default function Main() {
 
   return (
     <>
-      <hr />
-
       <section>
         <h3>Customize Your Style</h3>
 

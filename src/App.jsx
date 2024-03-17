@@ -34,7 +34,9 @@ function App() {
               <li><Link to="/cart">Cart</Link></li>
               <li><Link to="/login">Login</Link></li>
               <li><Link to="/register">Register</Link></li>
+              
             </div>
+            <hr/>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -43,7 +45,7 @@ function App() {
             <Route path="/main-all-products" element={<Main/>} />
             <Route path="/products/:id" element={<SingleProduct setSelectedItem={setSelectedItem} item={selectedItem} />} />
           
-            <Route path="/cart" element={<MyCart />} />
+            <Route path="/cart" element={<MyCart setCart={setCart} />} />
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/shipping" element={<Shipping />} />
               <Route path="/payment" element={<Payment />} />

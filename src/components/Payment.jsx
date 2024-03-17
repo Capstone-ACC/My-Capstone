@@ -49,7 +49,7 @@ export default function Payment() {
         <div className="step-three"> Step 3 of 3: Payment</div>
       </div>
 
-      <div className="payment-container">
+      <section className="payment-container">
         <span>* indicates a required field</span>
         <h5
           style={{
@@ -140,7 +140,7 @@ export default function Payment() {
             <button type="submit">Submit Payment</button>
           </div>
         </form>
-      </div>
+      </section>
     </>
   );
 }

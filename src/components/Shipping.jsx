@@ -45,14 +45,11 @@ export default function Shipping() {
 
   return (
     <>
-      <br />
-      <hr />
-
       <div className="shipping-black-background">
         <div className="step-two"> Step 2 of 3: Shipping</div>
       </div>
 
-      <div className="shipping-container">
+      <section className="shipping-container">
         <span>* indicates a required field</span>
         <h5
           style={{
@@ -138,7 +135,7 @@ export default function Shipping() {
             </div>
           </form>
         </div>
-      </div>
+      </section>
     </>
   );
 }

@@ -26,14 +26,11 @@ export default function Checkout({}) {
 
   return (
     <>
-      <br />
-      <hr />
-
       <div className="black-background">
         <div className="step-one"> Step 1 of 3: Contact</div>
       </div>
 
-      <div className="checkout-container">
+      <section className="checkout-container">
         <span>* indicates a required field</span>
         <h5 className="contactInfo">
           Contact Information
@@ -81,7 +78,7 @@ export default function Checkout({}) {
     
           </div>
         </form>
-      </div>
+      </section>
     </>
   );
 }
