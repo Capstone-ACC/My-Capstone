@@ -21,14 +21,15 @@ export default function DropDown({ selectedCategory, setSelectedCategory }) {
   };
 
   return (
-    <select value={selectedCategory} onChange={handleCategoryChange}>
-      <option value="">Select One</option>
-
-      {categories.map((category) => (
-        <option value={category} key={category}>
-          {category}
-        </option>
-      ))}
-    </select>
+    <section>
+      <select value={selectedCategory} onChange={handleCategoryChange}>
+        <option value="category">Select One</option>
+        {categories.map((category) => (
+          <option value={category} key={category}>
+            {category}
+          </option>
+        ))}
+      </select>
+    </section>
   );
 }

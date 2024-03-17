@@ -87,8 +87,6 @@ export default function Login({ setToken}) {
 
   return (
     <>
-      <br />
-      <hr />
       <section className="login-container">
   
           <h3>Login</h3>
@@ -127,7 +125,7 @@ export default function Login({ setToken}) {
           </form>
       </section>
 
-      <img src="/images/shoppingSpree.jpg" className="loginImg" />
+      <img src="/images/shoppingSpree.jpg" className="loginImg" alt="Stylish Girl with shopping bags" />
     </>
   );
 }

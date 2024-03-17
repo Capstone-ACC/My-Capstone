@@ -21,10 +21,10 @@ export default function Confirmation() {
     <>
       <div className="confirmation-black-background">
         <div className="step-four"> Confirmation #2556987125</div>
-        <img src="/images/animatedCreditCard.png" className="animatedCC" />
+        <img src="/images/animatedCreditCard.png" className="animatedCC" alt="icon of credit card" />
       </div>
 
-      <div className="confirmation-container">
+      <section className="confirmation-container">
         <h5 className="heading-confirm">
           Payment Successful {name}!
           <hr />
@@ -42,7 +42,7 @@ export default function Confirmation() {
         {console.log(`"Payment Successful:" Shipping To ${address}`)}
 
         <button onClick={backToShopping}>Continue Shopping</button>
-      </div>
+      </section>
     </>
   );
 }
