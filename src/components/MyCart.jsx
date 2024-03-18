@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../Context/cart';
 import { useNavigate, Link } from 'react-router-dom';
+import Toast from './Toast';
 
 const Cart = () => {
-  const { cartItems, decreaseItem, deleteItem, clearCart, getCartTotal, addToCart } = useContext(CartContext);
+  const { cartItems, decreaseItem, deleteItem, clearCart, getCartTotal, addToCart, loggedInUser } = useContext(CartContext);
 
   const navigate= useNavigate();
 
@@ -12,11 +13,16 @@ const Cart = () => {
   }
 
   const checkOut = () => {
-    navigate('/checkout', {
-      state: {
-        cart: cartItems,
-      }
-    })
+    if (loggedInUser) {
+      navigate("/checkout", {
+        state: {
+          cart: cartItems,
+        }
+      })
+    } else {
+      alert("Please Log in to check out")
+      navigate('/login');
+    }
   }
 
   return (

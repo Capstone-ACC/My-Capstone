@@ -23,10 +23,6 @@ export default function SingleProduct() {
     fetchSingleProduct();
   }, [id]);
 
-  // //cart functionality
-  // const stateOfCart = useContext(CartContext);
-  // const dispatch = stateOfCart.dispatch;
-
   return (
     <>
       {singleProduct ? (
