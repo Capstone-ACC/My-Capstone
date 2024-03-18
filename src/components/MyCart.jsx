@@ -1,10 +1,9 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../Context/cart';
 import { useNavigate, Link } from 'react-router-dom';
-import Toast from './Toast';
 
 const Cart = () => {
-  const { cartItems, decreaseItem, deleteItem, clearCart, getCartTotal, addToCart, loggedInUser } = useContext(CartContext);
+  const { cartItems, decreaseItem, deleteItem, clearCart, getCartTotal, addToCart } = useContext(CartContext);
 
   const navigate= useNavigate();
 
@@ -13,16 +12,11 @@ const Cart = () => {
   }
 
   const checkOut = () => {
-    if (loggedInUser) {
-      navigate("/checkout", {
-        state: {
-          cart: cartItems,
-        }
-      })
-    } else {
-      alert("Please Log in to check out")
-      navigate('/login');
-    }
+    navigate('/checkout', {
+      state: {
+        cart: cartItems,
+      }
+    })
   }
 
   return (
@@ -55,9 +49,9 @@ const Cart = () => {
             <span style={{fontSize: '18pt'}}>Grand Total: ${getCartTotal()}</span>
 
             <section>
-              <button type="button" onClick={keepShopping}>Add More</button>
-              <button type="button" onClick={clearCart} >Clear Cart</button>
-              <button type="button" onClick={checkOut}>Check Out</button>
+              <button onClick={keepShopping}>Add More</button>
+              <button onClick={clearCart} >Clear Cart</button>
+              <button onClick={checkOut}>Check Out</button>
             </section>
           </div>
         </div>

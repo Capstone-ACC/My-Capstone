@@ -9,7 +9,6 @@ export default function Login({setToken}) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const {setLoggedInUser} = useContext(CartContext);
 
   const navigate = useNavigate();
 
@@ -57,17 +56,12 @@ export default function Login({setToken}) {
 
           if (loggedIn) {
             localStorage.setItem("cartUserId", loggedIn.id);
-            setLoggedInUser(loggedIn);
+            setToken(result.token);
+            console.log("Logged In User:",loggedIn);
+            navigate("/main-all-products");
+          } else {
+            console.error("Try again, no token found for this user");
           }
-
-          setToken(result.token);
-          setLoggedInUser(true);
-          console.log("Logged In User:",loggedIn);
-          alert(`Login Successful ${username}, check console.log for token`);
-          console.log("Navigating with state:", { username });
-          navigate("/main-all-products", { state: { username } });
-        } else {
-          console.error("Try again, no token found for this user");
         }
       } catch (error) {
         console.error("Login Error:", error);
