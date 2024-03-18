@@ -46,7 +46,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/register" element={<Register setToken={setToken} />} />
-            <Route path="/login" element={<Login setToken={setToken}  />} />
+            <Route path="/login" element={<Login setToken={setToken} />} />
             <Route path="/main-all-products" element={<Main/>} />
             <Route path="/products/:id" element={<SingleProduct setSelectedItem={setSelectedItem} item={selectedItem} />} />
           
