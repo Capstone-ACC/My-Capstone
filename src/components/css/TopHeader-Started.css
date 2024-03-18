@@ -2,7 +2,7 @@
 .top-header {
     background-color: black;
     width: 100%;
-    padding: 5px;
+    padding: 2px;
     color: white;
     font-size: 13pt;
     display: flex;
@@ -16,14 +16,16 @@
     right: -5px;
     background-color: maroon;
     color: white; 
-    font-size: 18px; 
-    padding: 3px 6px; 
+    font-size: 16px; 
+    padding: 2px 6px; 
     border-radius: 50%; 
   }
 
   .cart-icon {
     margin-left: auto;
     position: relative;
+    margin-top: 5px;
+    font-size: 48px;
  }
     
   .login {
@@ -37,12 +39,29 @@
 .summer-sale {
   font-family: serif;
   font-size: 14pt;
+  display: flex;
+  justify-content: right;
+  gap: 10px;
+  margin-right: 20px;
+  margin-top: 5px;
 }
 
 .link-to-register {
-  padding: 2px;
+  color: maroon;
 }
 
 .link-to-register:hover {
   text-decoration: underline;
+}
+
+@media (350px <= width <= 450px) {
+  .summer-sale,
+  .link-to-register,
+  .login {
+    font-size: 12pt;
+  }
+  .cart-icon {
+    font-size: 38px;
+  }
+  
 }
