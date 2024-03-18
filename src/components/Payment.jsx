@@ -136,7 +136,7 @@ export default function Payment() {
           </label>
 
           <div className="payment-buttons">
-            <button onClick={backToShipping}>Back To Shipping</button>
+            <button type="button" onClick={backToShipping}>Back To Shipping</button>
             <button type="submit">Submit Payment</button>
           </div>
         </form>

@@ -49,9 +49,9 @@ const Cart = () => {
             <span style={{fontSize: '18pt'}}>Grand Total: ${getCartTotal()}</span>
 
             <section>
-              <button onClick={keepShopping}>Add More</button>
-              <button onClick={clearCart} >Clear Cart</button>
-              <button onClick={checkOut}>Check Out</button>
+              <button type="button" onClick={keepShopping}>Add More</button>
+              <button type="button" onClick={clearCart} >Clear Cart</button>
+              <button type="button" onClick={checkOut}>Check Out</button>
             </section>
           </div>
         </div>
