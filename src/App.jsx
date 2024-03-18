@@ -20,6 +20,15 @@ function App() {
   const [token, setToken] = useState(null);
   const [selectedItem, setSelectedItem] = useState(null);
   const [cart, setCart] = useState([]);
+
+  const links = [
+    {name: "Home"},
+    {name: "About", link: "/about"},
+    {name: "All Products", link: "/main-all-products"},
+    {name: "Cart", link:"/cart"},
+    {name: "Login", link: "/login"},
+    {name: "Register", link: "/register"},
+  ]
   
   return (
     <>
@@ -28,14 +37,10 @@ function App() {
           <Link to="/"><h1>Tech & Styles <br/>
           <div className="secondHeading">The Style of your Heart</div></h1></Link>
             <div className="navBar">
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/about">About</Link></li>
-              <li><Link to="/main-all-products">All Products</Link></li>
-              <li><Link to="/cart">Cart</Link></li>
-              <li><Link to="/login">Login</Link></li>
-              <li><Link to="/register">Register</Link></li>
-              
-            </div>
+              {links.map((link, index) => (
+                <li key={index}><Link to={link.link}>{link.name}</Link></li>
+              ))}
+           </div>
             <hr/>
           <Routes>
             <Route path="/" element={<Home />} />
