@@ -45,11 +45,11 @@ export default function Payment() {
       <br />
       <hr />
 
-      <div className="payment-black-background">
+      <section className="payment-black-background">
         <div className="step-three"> Step 3 of 3: Payment</div>
-      </div>
+      </section>
 
-      <section className="payment-container">
+      <main className="payment-container">
         <span>* indicates a required field</span>
         <h5
           style={{
@@ -135,12 +135,12 @@ export default function Payment() {
             />
           </label>
 
-          <div className="payment-buttons">
-            <button onClick={backToShipping}>Back To Shipping</button>
+          <section className="payment-buttons">
+            <button type="button" onClick={backToShipping}>Back To Shipping</button>
             <button type="submit">Submit Payment</button>
-          </div>
+          </section>
         </form>
-      </section>
+      </main>
     </>
   );
 }

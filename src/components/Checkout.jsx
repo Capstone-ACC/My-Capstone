@@ -26,11 +26,11 @@ export default function Checkout({}) {
 
   return (
     <>
-      <div className="black-background">
+      <section className="black-background">
         <div className="step-one"> Step 1 of 3: Contact</div>
-      </div>
+      </section>
 
-      <section className="checkout-container">
+      <main className="checkout-container">
         <span>* indicates a required field</span>
         <h5 className="contactInfo">
           Contact Information
@@ -39,7 +39,7 @@ export default function Checkout({}) {
 
         <img src="/images/contact.jpg" className="contact" alt="Cell Phone, Contact Information"/>
 
-        <form className="form-container">
+       <form className="form-container">
           <label>
             Phone Number:
             <input
@@ -58,7 +58,7 @@ export default function Checkout({}) {
             />
           </label>
 
-          <div className="my-checkboxes">
+          <section className="my-checkboxes">
               <label className="opt-in-text">
                 <input type="checkbox" className="opt" />
                 Opt in for text notifications of your purchased order
@@ -66,19 +66,19 @@ export default function Checkout({}) {
                 Sign up for weekly coupons from Tech & Styles
               </label>
         
-              <div style={{ marginTop:"20px"}}>
+              <section style={{ marginTop:"20px"}}>
                 <button type="button" onClick={backToCart}>
                   Back To Cart
-                  <img src="/images/cart.png" alt="shopping cart" />
+                  <img src="/images/cart.png" alt="shopping cart" className="phone" />
                 </button>
                 <button type="button" onClick={goToStepTwo}>
                   Continue
                 </button>
-              </div>
-    
-          </div>
+              </section>
+  
+          </section>
         </form>
-      </section>
+      </main>
     </>
   );
 }

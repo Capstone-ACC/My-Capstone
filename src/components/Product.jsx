@@ -13,13 +13,13 @@ export default function Product({ product }) {
         <span>Price: ${product.price} </span>
         <img src={product.image} className="productImages" alt="Image of Product" />
 
-        <div className="my-buttons">
+        <section className="my-buttons">
           <button>
             <Link to={`/products/${product.id}`} className="see-details-link">
               See details
             </Link>
           </button>
-        </div>
+        </section>
       </div>
     </section>
   );

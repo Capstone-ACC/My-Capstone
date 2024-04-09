@@ -57,22 +57,22 @@ export default function Main() {
 
   return (
     <>
-      <section>
+      <main>
         <h3>Customize Your Style</h3>
 
-        <div className="">
+        <section>
           <DropDown
             selectedCategory={selectedCategory}
             setSelectedCategory={setSelectedCategory}
           />
           <SearchBar value={searchedProducts} onChange={handleSearchInput} />
           <PriceFilter onPriceChange={handlePriceFilter} />
-        </div>
+      
+         <button onClick={clearFilter}>Clear Price Filter</button>
+         <button onClick={clearCategory}>Clear Category</button>
+      </section>
 
-        <button onClick={clearFilter}>Clear Price Filter</button>
-        <button onClick={clearCategory}>Clear Category</button>
-
-        <div className="products-container">
+        <section className="products-container">
           {searchedItems.map((product) => {
             if (selectedCategory !== "") {
               if (product.category === selectedCategory) {
@@ -82,8 +82,8 @@ export default function Main() {
               return <Product product={product} key={product.id} />;
             }
           })}
-        </div>
-      </section>
+        </section>
+      </main>
     </>
   );
 }
