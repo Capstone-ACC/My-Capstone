@@ -31,15 +31,16 @@
   }
 
   .selected-item {
-    font-size: 16pt;
-    font-family: "Times New Roman", Times, serif;
+    font-size: 14pt;
+    padding:10px;
+  
   }
   
   .backTo-products,
   .link-to-go-back,
   .addToCart {
     margin-bottom: 20px;
-    font-family: "Lobster", cursive;
+    font-family: "Cormorant Garamond", serif;
   }
   
   .backTo-products,

@@ -4,11 +4,24 @@ h3 {
   font-size: 2rem;
 }
 
+h4 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18pt;
+}
+
+h5 {
+  font-size: 24pt  !important;
+}
+
 /*search bar and input*/
 .searchBar {
   width: 100%;
   margin-bottom: 20px;
   display: inline;
+}
+
+.filter-bts {
+  display: flex;
 }
 
 @media screen and (max-width: 950px) {
@@ -71,12 +84,8 @@ input {
   padding: 20px;
 }
 
-h4 {
-  font-family: "Lobster", cursive;
-}
-
 span {
-  font-family: "Cormorant Garamond", serif;
+  font-family: sans-serif;
   color: black;
 }
 
@@ -103,7 +112,7 @@ button,
   padding: 5px;
   color: black;
   border-radius: 20px;
-  font-family: "Lobster", cursive;
+  font-family: "Cormorant Garamond", serif;
   background-color:#dcdcdc;
   margin-bottom: 0px;
 }
