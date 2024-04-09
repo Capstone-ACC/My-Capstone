@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./css/Login-Register-Styles.css";
 import { getAllUsers } from "./api";
+import '../Context/cart'
+import { CartContext } from "../Context/cart";
 
-export default function Login({ setToken}) {
+export default function Login({setToken}) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  // const [loggedInUser, setLoggedInUser] = useState(false);
 
   const navigate = useNavigate();
 
@@ -49,22 +50,18 @@ export default function Login({ setToken}) {
 
           // Fetching user data, logged in user
           const allUsers = await getAllUsers();
-          const loggedInUser = allUsers.find(
+          const loggedIn = allUsers.find(
             (user) => user.username === username
           );
 
-          if (loggedInUser) {
-            localStorage.setItem("cartUserId", loggedInUser.id);
+          if (loggedIn) {
+            localStorage.setItem("cartUserId", loggedIn.id);
+            setToken(result.token);
+            console.log("Logged In User:",loggedIn);
+            navigate("/main-all-products");
+          } else {
+            console.error("Try again, no token found for this user");
           }
-
-          setToken(result.token);
-          // setLoggedInUser(true);
-          console.log(loggedInUser);
-          alert(`Login Successful ${username}, check console.log for token`);
-          console.log("Navigating with state:", { username });
-          navigate("/main-all-products", { state: { username } });
-        } else {
-          console.error("Try again, no token found for this user");
         }
       } catch (error) {
         console.error("Login Error:", error);

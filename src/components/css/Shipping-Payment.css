@@ -86,7 +86,8 @@
 
 @media (350px <= width <= 450px) {
   .shipping-input, .payment-labels-input {
-    width: 200px;
+    width: 100%;
+    max-width: 200px;
   }
 }
 

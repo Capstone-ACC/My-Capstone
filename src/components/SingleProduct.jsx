@@ -23,27 +23,25 @@ export default function SingleProduct() {
     fetchSingleProduct();
   }, [id]);
 
-  // //cart functionality
-  // const stateOfCart = useContext(CartContext);
-  // const dispatch = stateOfCart.dispatch;
-
   return (
     <>
       {singleProduct ? (
-        <div className="info-singleProduct">
+        <section className="info-singleProduct">
           <img
             src={singleProduct.image}
             alt={singleProduct.title}
             className="selected-item-image"
           />
 
-          <h5>{singleProduct.title}</h5>
-          <span className="selected-item">{singleProduct.description}</span>
-          <span className="selected-item">
-            Category: {singleProduct.category}
-          </span>
-          <span className="selected-item">ID: {singleProduct.id}</span>
-          <span className="selected-item">Price: ${singleProduct.price}</span>
+          <section className="selected-item">
+            <h5>{singleProduct.title}</h5>
+            <span>{singleProduct.description}</span>
+            <span >
+              Category: {singleProduct.category}
+            </span>
+            <span>ID: {singleProduct.id}</span>
+            <span>Price: ${singleProduct.price}</span>
+          </section>
 
           <div className="backTo-products">
             <button>
@@ -59,7 +57,7 @@ export default function SingleProduct() {
              <img src="/images/cart.png" alt="Cart Icon" />
            </button>
           </div>
-        </div>
+        </section>
       ) : (
         <p>Page is loading</p>
       )}

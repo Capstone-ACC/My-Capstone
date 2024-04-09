@@ -21,14 +21,14 @@ const Cart = () => {
 
   return (
     <section className="cart-container">
-    <h3>My Cart</h3>
+    <h3 style={{marginTop: '20px'}}>My Cart</h3>
       {cartItems.length === 0 ? (
         <>
         <span style={{fontSize: '18pt'}}>Your cart is empty</span>
         <Link to="/main-all-products" style={{marginTop: '10px', fontSize: '16pt'}}>Lets Get Shopping</Link>
        </>
       ) : (
-        <div className="more-styles">
+        <section className="more-styles">
           {cartItems.map((item) => (
             <div key={item.id} className="myItems">
               <span>{item.title}</span>
@@ -46,15 +46,15 @@ const Cart = () => {
             </div>
           ))}
           <div className="total-checkout-keepShopping">
-            <span style={{fontSize: '18pt'}}>Grand Total: ${getCartTotal()}</span>
+            <span style={{fontSize: '18pt', marginBottom:'20px'}}>Grand Total: ${getCartTotal()}</span>
 
-            <section>
+            <section style={{marginBottom: '20px'}}>
               <button onClick={keepShopping}>Add More</button>
               <button onClick={clearCart} >Clear Cart</button>
               <button onClick={checkOut}>Check Out</button>
             </section>
           </div>
-        </div>
+        </section>
       )}
     </section>
   );
