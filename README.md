@@ -1,10 +1,20 @@
-#Under Construction 
 #Capstone Project, Fullstack Academy 
 
   - Tech & Styles E-commerce Website
   - Fake Store API
+  - React.js
+  - JSX
+  - CSS
+  - useContext
+  - Reuseable components 
+  - Price Filtering
+  - Category Filtering 
+  - View a Single Product
+  - Purchase a Product
+  - User Experience 
+  - UI design
 
-  Deployed Site: https://6513a95e6a6fd54f20085eca--jade-kashata-746e67.netlify.app/
+  Deployed Site: style-your-tech.netlify.app
   
   
 
