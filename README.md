@@ -14,7 +14,7 @@
   - User Experience 
   - UI design
 
-  Deployed Site: style-your-tech.netlify.app
+  Deployed Site: 'https://style-your-tech.netlify.app/'
   
   
 
