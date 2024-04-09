@@ -11,6 +11,7 @@
   - Category Filtering 
   - View a Single Product
   - Purchase a Product
+  - Responsive UI
   - User Experience 
   - UI design
 
