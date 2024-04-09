@@ -45,11 +45,11 @@ export default function Shipping() {
 
   return (
     <>
-      <div className="shipping-black-background">
+      <section className="shipping-black-background">
         <div className="step-two"> Step 2 of 3: Shipping</div>
-      </div>
+      </section>
 
-      <section className="shipping-container">
+      <main className="shipping-container">
         <span>* indicates a required field</span>
         <h5
           style={{
@@ -64,7 +64,7 @@ export default function Shipping() {
 
         <img src="/images/packages.jpg" className="packages" alt="Guy holding packages" />
 
-        <div className="shipping-form-container">
+        <section className="shipping-form-container">
           <form onSubmit={handleSubmitForm}>
             <label>
               First Name:
@@ -124,7 +124,7 @@ export default function Shipping() {
               </select>
             </label>
 
-            <div className="shipping-buttons">
+            <section className="shipping-buttons">
               <button type="button" onClick={backToContact} className="test">
                 Back To Contact
               </button>
@@ -132,10 +132,10 @@ export default function Shipping() {
               <button type="button" onClick={goToPayment} className="test">
                 Continue
               </button>
-            </div>
+            </section>
           </form>
-        </div>
-      </section>
+        </section>
+      </main>
     </>
   );
 }
