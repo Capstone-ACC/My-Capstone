@@ -22,7 +22,7 @@ function App() {
   const [cart, setCart] = useState([]);
 
   const links = [
-    {name: "Home"},
+    {name: "Home", link: "/"},
     {name: "About", link: "/about"},
     {name: "All Products", link: "/main-all-products"},
     {name: "Cart", link:"/cart"},
@@ -36,11 +36,11 @@ function App() {
           <TopHeader size={cart.length} />
           <Link to="/"><h1>Tech & Styles 
           <section className="secondHeading">The Style of your Heart</section></h1></Link>
-            <div className="navBar">
+            <nav className="navBar">
               {links.map((link, index) => (
                 <li key={index}><Link to={link.link}>{link.name}</Link></li>
               ))}
-           </div>
+           </nav>
             <hr/>
           <Routes>
             <Route path="/" element={<Home />} />

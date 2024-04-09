@@ -11,7 +11,7 @@ export default function Home() {
 
   return (
     <main className="image-container">
-      <img src="/images/homeImage.jpg" className="homePic" />
+      <img src="/images/homeImage.jpg" className="homePic" alt="Girls Shopping for Clothes" />
       <button className="shopAll" onClick={goToAllProducts}>
         Shop All
       </button>
