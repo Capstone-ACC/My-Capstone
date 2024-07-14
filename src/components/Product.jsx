@@ -5,7 +5,7 @@ import "./css/Main-SearchBar.css";
 export default function Product({ product }) {
   return (
     <section className="my-box" key={product.id}>
-      <div className="content">
+      <section className="content">
         <h4>{product.title} </h4>
         <span>Description: {product.description}</span>
         <span>Category: {product.category} </span>
@@ -20,7 +20,7 @@ export default function Product({ product }) {
             </Link>
           </button>
         </section>
-      </div>
+      </section>
     </section>
   );
 }

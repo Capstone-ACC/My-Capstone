@@ -23,9 +23,9 @@ export default function TopHeader() {
   return (
     <>
     <header className="top-header">
-      <div className="cart-icon">
+      <span className="cart-icon">
         <i className="fa fa-cart-plus cart-icon" onClick={goToCart}> {cartItems.length > 0 && <span className="cart-item-count">{cartItems.length}</span>}</i>
-        </div>
+        </span>
   
         <Link to="/login" className="login">Login</Link>
         <Link  to="/login" onClick={handleLogOut} className="login">Logout</Link>

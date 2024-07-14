@@ -21,7 +21,7 @@ const Cart = () => {
 
   return (
     <section className="cart-container">
-    <h3 style={{marginTop: '20px'}}>My Cart</h3>
+      <h3 style={{marginTop: '20px'}}>My Cart</h3>
       {cartItems.length === 0 ? (
         <>
         <span style={{fontSize: '18pt'}}>Your cart is empty</span>
@@ -45,7 +45,7 @@ const Cart = () => {
               </div>
             </div>
           ))}
-          <div className="total-checkout-keepShopping">
+          <section className="total-checkout-keepShopping">
             <span style={{fontSize: '18pt', marginBottom:'20px'}}>Grand Total: ${getCartTotal()}</span>
 
             <section style={{marginBottom: '20px'}}>
@@ -53,7 +53,7 @@ const Cart = () => {
               <button onClick={clearCart} >Clear Cart</button>
               <button onClick={checkOut}>Check Out</button>
             </section>
-          </div>
+          </section>
         </section>
       )}
     </section>
