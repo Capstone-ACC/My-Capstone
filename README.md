@@ -1,27 +1,5 @@
-#Capstone Project, Fullstack Academy 
+#Capstone Project, Fullstack Academy
 
-  - Tech & Styles E-commerce Website
-  - Fake Store API
-  - React.js
-  - JSX
-  - CSS
-  - useContext
-  - Reuseable components 
-  - Price Filtering
-  - Category Filtering 
-  - View a Single Product
-  - Purchase a Product
-  - Responsive UI
-  - User Experience 
-  - UI design
+This is my capstone for Fullstack Academy. Using the Fake Store API, I was able to build a stylish E-Commerce Site. It was a lot of fun to build, learned a lot, when it comes to reuseable components, useContext, filtering, and mobile responsivness.
 
-  Deployed Site: 'https://style-your-tech.netlify.app/'
-  
-  
-
-
- 
-
-
-
-
+Deployed Site: 'https://style-your-tech.netlify.app/'
