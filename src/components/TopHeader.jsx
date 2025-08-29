@@ -32,12 +32,12 @@ export default function TopHeader() {
             )}
           </i>
         </span>
-        <div className="mb-8">
-          <Link to="/login" className="login">
-            Login
-          </Link>
+        <div className="mb-4">
           <Link to="/login" onClick={handleLogOut} className="login">
             Logout
+          </Link>
+          <Link to="/login" className="login">
+            Login
           </Link>
         </div>
       </header>
