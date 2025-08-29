@@ -1,50 +1,41 @@
 /*top header component*/
 .top-header {
-    background-color: black;
-    width: 100%;
-    padding: 2px;
-    color: white;
-    font-size: 13pt;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+  background-color: black;
+  width: 100%;
+  padding: 2px;
+  color: white;
+  font-size: 13pt;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  .cart-item-count {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    background-color: maroon;
-    color: white; 
-    font-size: 16px; 
-    padding: 2px 6px; 
-    border-radius: 50%; 
-  }
+.cart-item-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: maroon;
+  color: white;
+  font-size: 16px;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
 
-  .cart-icon {
-    margin-left: auto;
-    position: relative;
-    margin-top: 5px;
-    font-size: 48px;
- }
-    
-  .login {
-    color: white;
-    float: right;
-    padding: 12px;
-    font-size: 16pt;
-  }
+.cart-icon {
+  margin-left: auto;
+  position: relative;
+  margin-top: 5px;
+  font-size: 48px;
+}
+
+.login {
+  color: white;
+  float: right;
+  padding: 12px;
+  font-size: 16pt;
+}
 
 /*second header*/
-.summer-sale {
-  font-family: serif;
-  font-size: 14pt;
-  display: flex;
-  justify-content: right;
-  gap: 10px;
-  margin-right: 20px;
-  margin-top: 5px;
-}
 
 .link-to-register {
   color: maroon;
@@ -63,5 +54,4 @@
   .cart-icon {
     font-size: 38px;
   }
-  
 }
