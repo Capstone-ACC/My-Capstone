@@ -31,25 +31,29 @@
 .login {
   color: white;
   float: right;
-  padding: 12px;
+  padding: 8px;
   font-size: 16pt;
 }
 
 /*second header*/
 
 .link-to-register {
-  color: maroon;
+  color: palevioletred;
+  font-size: 16pt;
 }
 
 .link-to-register:hover {
   text-decoration: underline;
 }
 
+.summer-sale {
+  font-size: 14pt;
+}
 @media (350px <= width <= 450px) {
   .summer-sale,
   .link-to-register,
   .login {
-    font-size: 12pt;
+    font-size: 16pt;
   }
   .cart-icon {
     font-size: 38px;
