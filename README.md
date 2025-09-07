@@ -6,7 +6,8 @@ This is my Capstone Project for Fullstack Academy. Using the Fake Store API, I w
 
 - React.js
 - CSS
+- A little Tailwind CSS
 
 Inspired from the Dillard's website I was able to build a stylish website where you can filter out exactly what you are looking for and a smooth checkout process. It was a lot of fun to build, I learned a lot, when it comes to setting up a React.js project, to reuseable components, React Router, passing down props, useContext, filtering, and mobile responsiveness. Had fun this project and made it my own.
 
-Deployed Site: 'https://style-your-tech.netlify.app/'
+Deployed Site: https://tech-styles.vercel.app/
