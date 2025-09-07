@@ -69,7 +69,7 @@ export default function Register({ setToken }) {
 
       <img
         src="/images/mensJackets.jpg"
-        className="jackets"
+        className="jacketImg"
         alt="Mens jackets on a rack"
       />
     </>

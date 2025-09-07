@@ -1,11 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./css/Login-Register-Styles.css";
 import { getAllUsers } from "./api";
-import '../Context/cart'
-import { CartContext } from "../Context/cart";
+import "../Context/cart";
 
-export default function Login({setToken}) {
+export default function Login({ setToken }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -50,14 +49,12 @@ export default function Login({setToken}) {
 
           // Fetching user data, logged in user
           const allUsers = await getAllUsers();
-          const loggedIn = allUsers.find(
-            (user) => user.username === username
-          );
+          const loggedIn = allUsers.find((user) => user.username === username);
 
           if (loggedIn) {
             localStorage.setItem("cartUserId", loggedIn.id);
             setToken(result.token);
-            console.log("Logged In User:",loggedIn);
+            console.log("Logged In User:", loggedIn);
             navigate("/main-all-products");
           } else {
             console.error("Try again, no token found for this user");
@@ -85,43 +82,49 @@ export default function Login({setToken}) {
   return (
     <>
       <section className="login-container">
-          <h3>Login</h3>
-          <form onSubmit={handleSubmit}>
-            <label>
-              Username:
-              <input
-                value={username}
-                className="input-login"
-                placeholder="Required"
-                onChange={inputUsername}
-              />
-            </label>
-            <label>
-              Password:
-              <input
-                value={password}
-                type="password"
-                className="input-login"
-                placeholder="Required"
-                onChange={inputPassword}
-              />
-            </label>
-            {error && <span className="error-message">{error}</span>}
-            <button className="login-button" type="submit">
-              Login
-            </button>
+        <h3>Login</h3>
+        <form onSubmit={handleSubmit}>
+          <label>
+            Username:
+            <input
+              value={username}
+              className="input-login"
+              placeholder="Required"
+              onChange={inputUsername}
+            />
+          </label>
+          <label>
+            Password:
+            <input
+              value={password}
+              type="password"
+              className="input-login"
+              placeholder="Required"
+              onChange={inputPassword}
+            />
+          </label>
+          {error && <span className="error-message">{error}</span>}
+          <button className="login-button" type="submit">
+            Login
+          </button>
 
-           <Link to="/register" className="newUserRegister">New User - Register Today</Link>
+          <Link to="/register" className="newUserRegister">
+            New User - Register Today
+          </Link>
 
           <div className="fake-store-info">
             <span>Fake Store API User:</span>
             <span>username: johnd</span>
             <span>password: m38rmF$ </span>
           </div>
-          </form>
+        </form>
       </section>
 
-      <img src="/images/shoppingSpree.jpg" className="loginImg" alt="Stylish Girl with shopping bags" />
+      <img
+        src="/images/shoppingSpree.jpg"
+        className="loginImg max-w-xs"
+        alt="Stylish Girl with shopping bags"
+      />
     </>
   );
 }

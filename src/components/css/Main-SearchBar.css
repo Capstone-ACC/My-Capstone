@@ -10,7 +10,7 @@ h4 {
 }
 
 h5 {
-  font-size: 24pt  !important;
+  font-size: 24pt !important;
 }
 
 /*search bar and input*/
@@ -53,7 +53,7 @@ input {
 }
 
 .my-box {
-  background-color: #FFF5EE;
+  background-color: #fff5ee;
   width: 30%;
   margin: 20px;
   border-radius: 28px;
@@ -113,7 +113,7 @@ button,
   color: black;
   border-radius: 20px;
   font-family: "Cormorant Garamond", serif;
-  background-color:#dcdcdc;
+  background-color: #dcdcdc;
   margin-bottom: 0px;
 }
 
@@ -134,7 +134,7 @@ a {
 
 button:hover {
   cursor: pointer;
-  color: maroon;
+  color: #f472b6;
 }
 
 /*price input*/
